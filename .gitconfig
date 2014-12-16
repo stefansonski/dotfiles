@@ -1,13 +1,22 @@
 [user]
 	name = Stefan Sonski
 	email = s.sonski@gmail.com
+	signingkey = 12A9A644
+[credential]
+	helper = cache
+[push]
+	default = simple
+[svn]
+	pushmergeinfo = true
+[diff]
+	tool = meld
 [merge]
 	tool = meld
+[difftool]
+	prompt = false
 [color]
 	ui = true
 [core]
 	pager = less -r
 [diff "sqlite3"]
 	textconv = dumpsqlite3
-[push]
-	default = simple

@@ -11,10 +11,9 @@
 ### Valid password stores:
 ###   gnome-keyring        (Unix-like systems)
 ###   kwallet              (Unix-like systems)
-###   gpg-agent            (Unix-like systems)
 ###   keychain             (Mac OS X)
 ###   windows-cryptoapi    (Windows)
-# password-stores = gpg-agent,gnome-keyring,kwallet
+# password-stores = gnome-keyring,kwallet
 ### To disable all password stores, use an empty list:
 # password-stores =
 ###
@@ -25,13 +24,6 @@
 ### Include PID (Process ID) in Subversion application name when
 ### using KWallet. It defaults to 'no'.
 # kwallet-svn-application-name-with-pid = yes
-###
-### Set ssl-client-cert-file-prompt to 'yes' to cause the client
-### to prompt for a path to a client cert file when the server
-### requests a client cert but no client cert file is found in the
-### expected place (see the 'ssl-client-cert-file' option in the
-### 'servers' configuration file). Defaults to 'no'.
-# ssl-client-cert-file-prompt = no
 ###
 ### The rest of the [auth] section in this file has been deprecated.
 ### Both 'store-passwords' and 'store-auth-creds' can now be
@@ -94,13 +86,13 @@
 ### path separator.  A single backslash will be treated as an
 ### escape for the following character.
 
-### Section for configuring miscellaneous Subversion options.
+### Section for configuring miscelleneous Subversion options.
 [miscellany]
 ### Set global-ignores to a set of whitespace-delimited globs
 ### which Subversion will ignore in its 'status' output, and
 ### while importing or adding files and directories.
 ### '*' matches leading dots, e.g. '*.rej' matches '.foo.rej'.
-# global-ignores = *.o *.lo *.la *.al .libs *.so *.so.[0-9]* *.a *.pyc *.pyo __pycache__
+# global-ignores = *.o *.lo *.la *.al .libs *.so *.so.[0-9]* *.a *.pyc *.pyo
 #   *.rej *~ #*# .#* .*.swp .DS_Store
 ### Set log-encoding to the default encoding for log messages
 # log-encoding = latin1
@@ -152,18 +144,3 @@
 # *.jpg = svn:mime-type=image/jpeg
 # Makefile = svn:eol-style=native
 
-### Section for configuring working copies.
-[working-copy]
-### Set to a list of the names of specific clients that should use
-### exclusive SQLite locking of working copies.  This increases the
-### performance of the client but prevents concurrent access by
-### other clients.  Third-party clients may also support this
-### option.
-### Possible values:
-###   svn                (the command line client)
-# exclusive-locking-clients =
-### Set to true to enable exclusive SQLite locking of working
-### copies by all clients using the 1.8 APIs.  Enabling this may
-### cause some clients to fail to work properly. This does not have
-### to be set for exclusive-locking-clients to work.
-# exclusive-locking = false

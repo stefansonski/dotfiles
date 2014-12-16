@@ -1,6 +1,9 @@
 .ssh/id_rsa
 .ssh/nas_rsa
 .ssh/known_hosts
+.ssh/known_hosts.old
 .subversion/auth/
 .subversion/README.txt
 .subversion/servers
+.gnupg/random_seed
+.gnupg/secring.gpg
