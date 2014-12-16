@@ -1,0 +1,13 @@
+[user]
+	name = Stefan Sonski
+	email = s.sonski@gmail.com
+[merge]
+	tool = meld
+[color]
+	ui = true
+[core]
+	pager = less -r
+[diff "sqlite3"]
+	textconv = dumpsqlite3
+[push]
+	default = simple

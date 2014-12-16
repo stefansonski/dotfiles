@@ -1,0 +1,6 @@
+.ssh/id_rsa
+.ssh/nas_rsa
+.ssh/known_hosts
+.subversion/auth/
+.subversion/README.txt
+.subversion/servers
