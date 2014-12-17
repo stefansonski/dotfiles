@@ -10,13 +10,20 @@
 	pushmergeinfo = true
 [diff]
 	tool = meld
+	mnemonicprefix = true
 [merge]
 	tool = meld
+	stat = true
 [difftool]
 	prompt = false
 [color]
 	ui = true
+[advice]
+	statusHints = false
 [core]
+	whitespace = trailing-space,space-before-tab
+[branch]
+	autosetupmerge = true
 	pager = less -r
 [diff "sqlite3"]
-	textconv = dumpsqlite3
+	textconv = sqlite3-dump

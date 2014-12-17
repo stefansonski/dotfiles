@@ -1,3 +1,8 @@
+bin/alphabaseAnalyzer
+bin/deploy
+.gnupg/pubring.gpg~
+.gnupg/random_seed
+.gnupg/secring.gpg
 .ssh/id_rsa
 .ssh/nas_rsa
 .ssh/known_hosts
@@ -5,5 +10,3 @@
 .subversion/auth/
 .subversion/README.txt
 .subversion/servers
-.gnupg/random_seed
-.gnupg/secring.gpg
