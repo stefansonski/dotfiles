@@ -106,7 +106,7 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-export HISTTIMEFORMAT="%y/%m/%d %T "
+export HISTTIMEFORMAT="%y.%m.%d %T "
 
 export PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin/"
 
