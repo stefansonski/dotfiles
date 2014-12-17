@@ -213,6 +213,15 @@ let mapleader = ","
 " Turn off that stupid highlight search
 nmap <silent> <LEADER>n :nohls<CR>
 
+" Highlight strings inside C comments
+let c_comment_strings=1
+
+" Load up the doxygen syntax
+let g:load_doxygen_syntax=1
+
+" Let the syntax highlighting for Java files allow cpp keywords
+let java_allow_cpp_keywords = 1
+
 " The following beast is something i didn't write... it will return the
 " syntax highlighting group that the current "thing" under the cursor
 " belongs to -- very useful for figuring out what to change as far as
