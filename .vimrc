@@ -301,6 +301,7 @@ nnoremap <silent> <C-Home> :enew<CR>
 nnoremap <silent> <C-PageDown> :bn<CR>
 nnoremap <silent> <C-PageUp> :bp<CR>
 nnoremap <silent> <C-End> :BD<CR>
+nnoremap <silent> <C-S-End> :bd<CR>
 
 vnoremap <silent> <C-S-y> "+y
 vnoremap <silent> <C-S-p> "+p
@@ -359,7 +360,7 @@ nmap <C-F> <ESC>:Lid<SPACE>
 map <C-T> :TToC<CR>
 
 "-----------------------------------------------------------------------------
-" Ariline config
+" Airline config
 "-----------------------------------------------------------------------------
 let g:airline#extensions#tabline#enabled = 1
 "Use fancy fonts
