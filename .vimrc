@@ -330,7 +330,6 @@ if has("gui_running")
   set lines=999 columns=999
   set background=dark
   colorscheme solarized
-  noremap <LeftRelease> "+y<LeftRelease>
 endif
 :nohls
 
