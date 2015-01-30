@@ -233,9 +233,6 @@ nmap <silent> <LEADER>qq :echo "hi<" . synIDattr(synID(line("."),col("."),1),"na
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
-" set text wrapping toggles
-nmap <silent> <LEADER>ww :set invwrap<CR>
-
 " Maps to make handling windows a bit easier
 "noremap <silent> <LEADER>h :wincmd h<CR>
 "noremap <silent> <LEADER>j :wincmd j<CR>
@@ -246,9 +243,8 @@ noremap <silent> <C-F9>  :vertical resize -10<CR>
 noremap <silent> <C-F10> :resize +10<CR>
 noremap <silent> <C-F11> :resize -10<CR>
 noremap <silent> <C-F12> :vertical resize +10<CR>
-noremap <silent> <LEADER>cc :close<CR>
-noremap <silent> <LEADER>cq :cclose<CR>
-noremap <silent> <LEADER>cw :copen<CR>
+noremap <silent> <LEADER>wq :cclose<CR>
+noremap <silent> <LEADER>ww :copen<CR>
 
 "Make indent work in normal and visual mode and unindent in insert mode possible.
 nnoremap <Tab> >>_
