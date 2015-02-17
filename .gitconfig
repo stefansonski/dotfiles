@@ -22,6 +22,7 @@
 	statusHints = false
 [core]
 	whitespace = trailing-space,space-before-tab
+	autocrlf = input
 [branch]
 	autosetupmerge = true
 	pager = less -r
