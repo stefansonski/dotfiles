@@ -28,3 +28,5 @@
 	pager = less -r
 [diff "sqlite3"]
 	textconv = sqlite3-dump
+[mergetool]
+	keepBackup = false
