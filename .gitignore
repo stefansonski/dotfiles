@@ -10,3 +10,5 @@ bin/deploy
 .subversion/auth/
 .subversion/README.txt
 .subversion/servers
+.gnupg/pubring.gpg
+.gnupg/trustdb.gpg
