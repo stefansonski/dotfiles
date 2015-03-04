@@ -10,9 +10,3 @@ bin/deploy
 .subversion/auth/
 .subversion/README.txt
 .subversion/servers
-.gnupg/pubring.gpg
-.gnupg/trustdb.gpg
-.gnupg/private-keys-v1.d/
-.gnupg/openpgp-revocs.d/
-.gnupg/crls.d/
-.gnupg/.gpg-v21-migrated
