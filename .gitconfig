@@ -30,3 +30,5 @@
 	textconv = sqlite3-dump
 [mergetool]
 	keepBackup = false
+[commit]
+	gpgsign = true
