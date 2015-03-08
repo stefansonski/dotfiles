@@ -32,6 +32,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'stefansonski/vim-snippets'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'wikitopian/hardmode'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -363,3 +364,8 @@ nnoremap <silent> <F4> :Lid <C-R><C-W><CR>
 let g:airline#extensions#tabline#enabled = 1
 "Use fancy fonts
 let g:airline_powerline_fonts = 1
+
+"-----------------------------------------------------------------------------
+" Hardmode
+"-----------------------------------------------------------------------------
+nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
