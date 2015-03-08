@@ -341,7 +341,7 @@ endif
 "-----------------------------------------------------------------------------
 let g:ycm_global_ycm_extra_conf = '$HOME/.vim/ycm_global_extra_conf'
 let g:ycm_extra_conf_globlist = ['~/alphaeosdev*/*','!~/*']
-nmap <C-D> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+nnoremap <C-G> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "Close preview after completion.
 let g:ycm_autoclose_preview_window_after_completion=1
 
@@ -356,7 +356,6 @@ let g:UltiSnipsJumpBackwardTrigger="<C-Z>"
 " Find words recursively under the cursor
 "-----------------------------------------------------------------------------
 nnoremap <silent> <F4> :Lid <C-R><C-W><CR>
-nmap <C-F> <ESC>:Lid<SPACE>
 
 "-----------------------------------------------------------------------------
 " Airline config
