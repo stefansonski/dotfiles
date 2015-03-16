@@ -148,6 +148,8 @@ set history=100
 " These commands open folds
 set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
 
+set foldmethod=syntax
+
 " When the page starts to scroll, keep the cursor 8 lines from the top and 8
 " lines from the bottom
 set scrolloff=8
@@ -342,6 +344,8 @@ endif
 "-----------------------------------------------------------------------------
 let g:ycm_global_ycm_extra_conf = '$HOME/.vim/ycm_global_extra_conf'
 let g:ycm_extra_conf_globlist = ['~/alphaeosdev*/*','!~/*']
+let g:ycm_key_list_select_completion=[]
+let g:ycm_key_list_previous_completion=[]
 nnoremap <C-G> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "Close preview after completion.
 let g:ycm_autoclose_preview_window_after_completion=1
