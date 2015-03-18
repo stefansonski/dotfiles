@@ -34,6 +34,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'wikitopian/hardmode'
 Plugin 'ervandew/supertab'
+Plugin 'derekwyatt/vim-fswitch'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -356,7 +357,7 @@ nnoremap <C-G> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:ycm_key_list_select_completion = ['<C-TAB>']
 let g:ycm_key_list_previous_completion = ['<C-S-TAB>']
 "Close preview after completion.
-let g:ycm_autoclose_preview_window_after_completion=1
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 "-----------------------------------------------------------------------------
 " UltiSnip
@@ -386,3 +387,24 @@ nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 " SuperTab
 "-----------------------------------------------------------------------------
 let g:SuperTabDefaultCompletionType = '<C-Tab>'
+
+"-----------------------------------------------------------------------------
+" FSwitch mappings
+"-----------------------------------------------------------------------------
+nmap <silent> <LEADER>of :FSHere<CR>
+nmap <silent> <LEADER>ol :FSRight<CR>
+nmap <silent> <LEADER>oL :FSSplitRight<CR>
+nmap <silent> <LEADER>oh :FSLeft<CR>
+nmap <silent> <LEADER>oH :FSSplitLeft<CR>
+nmap <silent> <LEADER>ok :FSAbove<CR>
+nmap <silent> <LEADER>oK :FSSplitAbove<CR>
+nmap <silent> <LEADER>oj :FSBelow<CR>
+nmap <silent> <LEADER>oJ :FSSplitBelow<CR>
+
+augroup cppfiles
+  au!
+  au BufEnter *.h   let b:fswitchdst  = 'cpp'
+  au BufEnter *.h   let b:fswitchlocs = '../,../src/,src/'
+  au BufEnter *.cpp let b:fswitchdst  = 'h'
+  au BufEnter *.cpp let b:fswitchlocs = 'include/,../include,../'
+augroup END
