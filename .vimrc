@@ -33,6 +33,7 @@ Plugin 'stefansonski/vim-snippets'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'wikitopian/hardmode'
+Plugin 'ervandew/supertab'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -351,18 +352,18 @@ endif
 "-----------------------------------------------------------------------------
 let g:ycm_global_ycm_extra_conf = '$HOME/.vim/ycm_global_extra_conf'
 let g:ycm_extra_conf_globlist = ['~/alphaeosdev*/*','!~/*']
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
 nnoremap <C-G> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_key_list_select_completion = ['<C-TAB>']
+let g:ycm_key_list_previous_completion = ['<C-S-TAB>']
 "Close preview after completion.
 let g:ycm_autoclose_preview_window_after_completion=1
 
 "-----------------------------------------------------------------------------
 " UltiSnip
 "-----------------------------------------------------------------------------
-let g:UltiSnipsExpandTrigger="<C-J>"
-let g:UltiSnipsJumpForwardTrigger="<C-B>"
-let g:UltiSnipsJumpBackwardTrigger="<C-Z>"
+let g:UltiSnipsExpandTrigger = "<TAB>"
+let g:UltiSnipsJumpForwardTrigger = "<C-J>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-K>"
 
 "-----------------------------------------------------------------------------
 " Find words recursively under the cursor
@@ -380,3 +381,8 @@ let g:airline_powerline_fonts = 1
 " Hardmode
 "-----------------------------------------------------------------------------
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+
+"-----------------------------------------------------------------------------
+" SuperTab
+"-----------------------------------------------------------------------------
+let g:SuperTabDefaultCompletionType = '<C-Tab>'
