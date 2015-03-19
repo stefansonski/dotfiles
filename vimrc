@@ -35,6 +35,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'wikitopian/hardmode'
 Plugin 'ervandew/supertab'
 Plugin 'derekwyatt/vim-fswitch'
+Plugin 'derekwyatt/vim-protodef'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
