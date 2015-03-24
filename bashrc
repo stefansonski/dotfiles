@@ -61,9 +61,9 @@ export GIT_PS1_SHOWUNTRACKEDFILES=true
 
 if [ "$color_prompt" = yes ]; then
     export GIT_PS1_SHOWCOLORHINTS=true
-    PROMPT_COMMAND="$PROMPT_COMMAND; __git_ps1 '${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]' '\\$ ' ':[%s]' "
+    PROMPT_COMMAND="__git_ps1 '${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]' '\\$ ' ':[%s]' "
 else
-    PROMPT_COMMAND="$PROMPT_COMMAND; __git_ps1 '${debian_chroot:+($debian_chroot)}\u@\h:\w' '\\$ ' ':[%s]' "
+    PROMPT_COMMAND="__git_ps1 '${debian_chroot:+($debian_chroot)}\u@\h:\w' '\\$ ' ':[%s]' "
 fi
 unset color_prompt force_color_prompt
 
