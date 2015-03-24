@@ -405,7 +405,7 @@ nmap <silent> <LEADER>oJ :FSSplitBelow<CR>
 augroup cppfiles
   au!
   au BufEnter *.h   let b:fswitchdst  = 'cpp'
-  au BufEnter *.h   let b:fswitchlocs = '../,../src/,src/'
+  au BufEnter *.h   let b:fswitchlocs = '../,../src/,src/,../source/,source/'
   au BufEnter *.cpp let b:fswitchdst  = 'h'
   au BufEnter *.cpp let b:fswitchlocs = 'include/,../include,../'
 augroup END
