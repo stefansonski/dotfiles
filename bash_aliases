@@ -8,7 +8,7 @@ export GIT_PS1_SHOWUNTRACKEDFILES=true
 export GIT_PS1_SHOWCOLORHINTS=true
 
 if [ $VIM ]; then
-    PROMT_COMMAND="\u@\h:\w \$ "
+    PROMPT_COMMAND="__git_ps1 '${debian_chroot:+($debian_chroot)}\u@\h:\w' '\\$ ' ':[%s]' "
 else
-    PROMPT_COMMAND="__git_ps1 '\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]' '\\$ ' ':[%s]' "
+    PROMPT_COMMAND="__git_ps1 '${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]' '\\$ ' ':[%s]' "
 fi
