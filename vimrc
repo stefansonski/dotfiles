@@ -21,7 +21,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'vim-scripts/UltiSnips'
-Plugin 'yegappan/lid'
 Plugin 'bling/vim-airline'
 Plugin 'vim-scripts/bufkill.vim'
 Plugin 'kien/ctrlp.vim'
@@ -37,6 +36,8 @@ Plugin 'ervandew/supertab'
 Plugin 'derekwyatt/vim-fswitch'
 Plugin 'derekwyatt/vim-protodef'
 Plugin 'aklt/plantuml-syntax'
+Plugin 'majutsushi/tagbar'
+Plugin 'vim-scripts/AutoTag'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -355,7 +356,6 @@ endif
 "-----------------------------------------------------------------------------
 let g:ycm_global_ycm_extra_conf = '$HOME/.vim/ycm_global_extra_conf'
 let g:ycm_extra_conf_globlist = ['~/alphaeosdev*/*','!~/*']
-nnoremap <C-G> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 let g:ycm_key_list_select_completion = ['<C-TAB>']
 let g:ycm_key_list_previous_completion = ['<C-S-TAB>']
 "Close preview after completion.
@@ -369,11 +369,6 @@ let g:UltiSnipsJumpForwardTrigger = "<C-J>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-K>"
 
 "-----------------------------------------------------------------------------
-" Find words recursively under the cursor
-"-----------------------------------------------------------------------------
-nnoremap <silent> <F4> :Lid <C-R><C-W><CR>
-
-"-----------------------------------------------------------------------------
 " Airline config
 "-----------------------------------------------------------------------------
 let g:airline#extensions#tabline#enabled = 1
@@ -384,6 +379,11 @@ let g:airline_powerline_fonts = 1
 " Hardmode
 "-----------------------------------------------------------------------------
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
+
+"-----------------------------------------------------------------------------
+" Tagbar
+"-----------------------------------------------------------------------------
+nnoremap <leader>tt :TagbarToggle<CR>
 
 "-----------------------------------------------------------------------------
 " SuperTab
