@@ -21,6 +21,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'vim-scripts/UltiSnips'
+Plugin 'yegappan/lid'
 Plugin 'bling/vim-airline'
 Plugin 'vim-scripts/bufkill.vim'
 Plugin 'kien/ctrlp.vim'
@@ -377,7 +378,7 @@ let g:ycm_global_ycm_extra_conf = '$HOME/.vim/ycm_global_extra_conf'
 let g:ycm_extra_conf_globlist = ['~/alphaeosdev*/*','!~/*']
 let g:ycm_key_list_select_completion = ['<C-TAB>']
 let g:ycm_key_list_previous_completion = ['<C-S-TAB>']
-"Close preview after completion.
+" Close preview after completion.
 let g:ycm_autoclose_preview_window_after_completion = 1
 
 "-----------------------------------------------------------------------------
@@ -388,10 +389,15 @@ let g:UltiSnipsJumpForwardTrigger = "<C-J>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-K>"
 
 "-----------------------------------------------------------------------------
+" Find words recursively under the cursor
+"-----------------------------------------------------------------------------
+nnoremap <silent> <F4> :Lid <C-R><C-W><CR>
+
+"-----------------------------------------------------------------------------
 " Airline config
 "-----------------------------------------------------------------------------
 let g:airline#extensions#tabline#enabled = 1
-"Use fancy fonts
+" Use fancy fonts
 let g:airline_powerline_fonts = 1
 
 "-----------------------------------------------------------------------------
