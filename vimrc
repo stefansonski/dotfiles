@@ -40,6 +40,7 @@ Plugin 'aklt/plantuml-syntax'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-scripts/AutoTag'
+Plugin 'nanotech/jellybeans.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -349,7 +350,7 @@ if has("gui_running")
   exe "set guifont=" . g:main_font
   set lines=999 columns=999
   set background=dark
-  colorscheme solarized
+  colorscheme jellybeans
 endif
 :nohls
 
