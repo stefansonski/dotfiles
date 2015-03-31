@@ -381,6 +381,7 @@ let g:ycm_key_list_select_completion = ['<C-TAB>']
 let g:ycm_key_list_previous_completion = ['<C-S-TAB>']
 " Close preview after completion.
 let g:ycm_autoclose_preview_window_after_completion = 1
+nnoremap <C-G> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "-----------------------------------------------------------------------------
 " UltiSnip
