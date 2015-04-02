@@ -14,6 +14,12 @@ User stefan
 DynamicForward 60082
 ForwardX11 yes
 
+Host home-base
+HostName sonski.linuxd.org
+Port 60122
+AddressFamily inet
+User root
+
 Host base
 HostName 192.168.2.50
 User root

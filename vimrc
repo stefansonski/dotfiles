@@ -349,7 +349,6 @@ endfunction
 if has("gui_running")
   exe "set guifont=" . g:main_font
   set lines=999 columns=999
-  set background=dark
   colorscheme jellybeans
 endif
 :nohls
