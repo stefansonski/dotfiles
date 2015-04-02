@@ -32,3 +32,7 @@
 	keepBackup = false
 [commit]
 	gpgsign = true
+[init]
+	templatedir = ~/.gittemplate
+[alias]
+	ctags = !.git/hooks/ctags
