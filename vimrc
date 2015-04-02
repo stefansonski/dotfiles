@@ -39,7 +39,6 @@ Plugin 'derekwyatt/vim-protodef'
 Plugin 'aklt/plantuml-syntax'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
-Plugin 'vim-scripts/AutoTag'
 Plugin 'nanotech/jellybeans.vim'
 
 " All of your Plugins must be added before the following line
@@ -378,6 +377,8 @@ let g:ycm_global_ycm_extra_conf = '$HOME/.vim/ycm_global_extra_conf'
 let g:ycm_extra_conf_globlist = ['~/alphaeosdev*/*','!~/*']
 let g:ycm_key_list_select_completion = ['<C-TAB>']
 let g:ycm_key_list_previous_completion = ['<C-S-TAB>']
+"Use tags files
+let g:ycm_collect_identifiers_from_tags_files = 1
 " Close preview after completion.
 let g:ycm_autoclose_preview_window_after_completion = 1
 nnoremap <C-G> :YcmCompleter GoToDefinitionElseDeclaration<CR>
