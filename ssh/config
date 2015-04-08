@@ -20,8 +20,12 @@ Port 60122
 AddressFamily inet
 User root
 
-Host base
+Host sts01
 HostName 192.168.2.50
+User root
+
+Host sts02
+HostName 192.168.2.51
 User root
 
 Host firewall
