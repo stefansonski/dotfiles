@@ -17,6 +17,7 @@ shopt -s histappend
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
 HISTFILESIZE=2000
+HISTTIMEFORMAT="%y.%m.%d %T "
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -114,30 +115,3 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
-
-export HISTTIMEFORMAT="%y.%m.%d %T "
-
-export PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin/"
-
-# set PATH so it includes user's private bin if it exists
-if [ -d "$HOME/bin" ] ; then
-    export PATH="$HOME/bin:$PATH"
-fi
-
-if [ -d "$HOME/tools/android-studio/bin" ] ; then
-    export PATH="$PATH:$HOME/tools/android-studio/bin"
-fi
-
-if [ -d "$HOME/tools/android-sdk-linux/tools" ] ; then
-    export PATH="$PATH:$HOME/tools/android-sdk-linux/tools"
-fi
-
-if [ -d "$HOME/tools/android-sdk-linux/platform-tools" ] ; then
-    export PATH="$PATH:$HOME/tools/android-sdk-linux/platform-tools"
-fi
-
-#Add arm-toolchain to PATH
-if [ -d "/opt/arm-toolchain/bin" ]; then
-    export PATH=$PATH:/opt/arm-toolchain/bin
-fi
-
