@@ -12,6 +12,9 @@
 #  terminal's default foreground colour.  Abbreviations
 #  are allowed; b or bl selects black.
 #
+
+source /usr/lib/git-core/git-sh-prompt
+
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
@@ -199,28 +202,6 @@ PR_RESET="%{${reset_color}%}";
 
 setopt prompt_subst
 
-autoload -Uz vcs_info
-
-zstyle ':vcs_info:*' enable git cvs svn
-# set formats
-# %b - branchname
-# %u - unstagedstr (see below)
-# %c - stagedstr (see below)
-# %a - action (e.g. rebase-i)
-# %R - repository path
-# %S - path in the repository
-## check-for-changes can be really slow.
-## you should disable it, if you work with large repositories
-zstyle ':vcs_info:*:prompt:*' check-for-changes true            # slower, but lets us show changes to working/index
-zstyle ':vcs_info:*:prompt:*' unstagedstr "${PR_BRIGHT_RED}*${PR_RESET}"             # unstaged changes string: red *
-zstyle ':vcs_info:*:prompt:*' stagedstr "${PR_BRIGHT_GREEN}+${PR_RESET}"             # staged changes string: green +
-zstyle ':vcs_info:*:prompt:*' stashedstr "${PR_BRIGHT_BLUE}\$${PR_RESET}"            # stashed changes string: blue $
-zstyle ':vcs_info:*:prompt:*' formats  ":[${PR_BRIGHT_GREEN}%b${PR_RESET}%c%u%m${PR_BRIGHT_RED}${PR_RESET}]"              "%a"
-zstyle ':vcs_info:*:prompt:*' actionformats  " ${PR_BRIGHT_RED}(%b|%a)${PR_RESET}"              "%a"
-zstyle ':vcs_info:*:prompt:*' nvcsformats   ""                             "%~"
-zstyle ':vcs_info:*:prompt:*' branchformat  "%b:%r"              ""
-zstyle ':vcs_info:git*+set-message:*' hooks git-stash git-untracked
-
 BLUE_DIAMOND="%B%F{blue}◆%f%b"
 YELLOW_DIAMOND="%B%F{yellow}◆%f%b"
 GREEN_DIAMOND="%B%F{green}◆%f%b"
@@ -292,30 +273,18 @@ else
     PROMPT_LINE="%F{green}%n%f@%B%F{green}%m%b%f${PR_RESET}"
 fi
 
-# Show count of stashed changes
-+vi-git-stash() {
-    st_num=$(/usr/bin/git stash list 2> /dev/null | wc -l | tr -d ' ')
-    if [[ $st_num != "0" ]]; then
-        hook_com[misc]+="${PR_BRIGHT_BLUE}\$${PR_RESET}"
-fi
-}
-
-+vi-git-untracked(){
-    if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
-        git status --porcelain | grep '??' &> /dev/null ; then
-        # This will show the marker if there are any untracked files in repo.
-        # If instead you want to show the marker only if there are untracked
-        # files in $PWD, use:
-        #[[ -n $(git ls-files --others --exclude-standard) ]] ; then
-        hook_com[misc]+="${PR_BRIGHT_RED}%%${PR_RESET}"
-    fi
-}
-
 precmd(){
 
     #local exit_status=$?
 
-    vcs_info 'prompt'
+    # Set git-prompt options for PS1
+    export GIT_PS1_SHOWUPSTREAM="auto"
+    export GIT_PS1_SHOWCOLORHINTS=true
+    export GIT_PS1_SHOWSTASHSTATE=true
+    export GIT_PS1_SHOWDIRTYSTATE=true
+    export GIT_PS1_SHOWUNTRACKEDFILES=true
+
+    export GIT_PROMPT="$(__git_ps1 ':[%s]' )"
 
     # Battery Stuff
     if which ibam &> /dev/null; then
@@ -349,4 +318,4 @@ precmd(){
 }
 
 RPROMPT='$SSH_PROMPT ${PR_BATTERY}'
-PROMPT='${PROMPT_LINE}%B%F${PR_RESET}:%f%b${PR_PWDCOLOR}%~${PR_RESET}${vcs_info_msg_0_}%(!.%B%F{red}%#%f%b.%B%F{green}➤%f%b) '
+PROMPT='${PROMPT_LINE}%B%F${PR_RESET}:%f%b${PR_PWDCOLOR}%~${PR_RESET}${GIT_PROMPT}%(!.%B%F{red}%#%f%b.%B%F{green}➤%f%b) '
