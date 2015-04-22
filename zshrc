@@ -133,7 +133,7 @@ fi
 eval `dircolors ~/.dir_colors`
 
 #aliases
-alias g='gvim --remote'
+alias g='gvim --remote-silent'
 alias ls='ls --color=auto'
 alias dir='dir --color=auto'
 alias vdir='vdir --color=auto'
