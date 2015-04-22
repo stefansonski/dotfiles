@@ -274,18 +274,6 @@ else
 fi
 
 precmd(){
-
-    #local exit_status=$?
-
-    # Set git-prompt options for PS1
-    export GIT_PS1_SHOWUPSTREAM="auto"
-    export GIT_PS1_SHOWCOLORHINTS=true
-    export GIT_PS1_SHOWSTASHSTATE=true
-    export GIT_PS1_SHOWDIRTYSTATE=true
-    export GIT_PS1_SHOWUNTRACKEDFILES=true
-
-    export GIT_PROMPT="$(__git_ps1 ':[%s]' )"
-
     # Battery Stuff
     if which ibam &> /dev/null; then
         IBAMSTAT="$(ibam)"
@@ -315,7 +303,15 @@ precmd(){
     else
         PR_PWDCOLOR="${PR_BRIGHT_RED}"
     fi
+
+    # Set git-prompt options for PS1
+    export GIT_PS1_SHOWUPSTREAM="auto"
+    export GIT_PS1_SHOWCOLORHINTS=true
+    export GIT_PS1_SHOWSTASHSTATE=true
+    export GIT_PS1_SHOWDIRTYSTATE=true
+    export GIT_PS1_SHOWUNTRACKEDFILES=true
+
+    __git_ps1 '${PROMPT_LINE}%B%F${PR_RESET}:%f%b${PR_PWDCOLOR}%~${PR_RESET}' '%(!.%B%F{red}%#%f%b.%B%F{green}➤ %f%b)' ' [%s]'
 }
 
 RPROMPT='$SSH_PROMPT ${PR_BATTERY}'
-PROMPT='${PROMPT_LINE}%B%F${PR_RESET}:%f%b${PR_PWDCOLOR}%~${PR_RESET}${GIT_PROMPT}%(!.%B%F{red}%#%f%b.%B%F{green}➤%f%b) '
