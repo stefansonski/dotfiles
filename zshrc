@@ -219,6 +219,7 @@ zstyle ':vcs_info:*:prompt:*' formats  ":[${PR_BRIGHT_GREEN}%b${PR_RESET}%c%u%m$
 zstyle ':vcs_info:*:prompt:*' actionformats  " ${PR_BRIGHT_RED}(%b|%a)${PR_RESET}"              "%a"
 zstyle ':vcs_info:*:prompt:*' nvcsformats   ""                             "%~"
 zstyle ':vcs_info:*:prompt:*' branchformat  "%b:%r"              ""
+zstyle ':vcs_info:git*+set-message:*' hooks git-stash git-untracked
 
 BLUE_DIAMOND="%B%F{blue}◆%f%b"
 YELLOW_DIAMOND="%B%F{yellow}◆%f%b"
@@ -291,6 +292,25 @@ else
     PROMPT_LINE="%F{green}%n%f@%B%F{green}%m%b%f${PR_RESET}"
 fi
 
+# Show count of stashed changes
++vi-git-stash() {
+    st_num=$(/usr/bin/git stash list 2> /dev/null | wc -l | tr -d ' ')
+    if [[ $st_num != "0" ]]; then
+        hook_com[misc]+="${PR_BRIGHT_BLUE}\$${PR_RESET}"
+fi
+}
+
++vi-git-untracked(){
+    if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+        git status --porcelain | grep '??' &> /dev/null ; then
+        # This will show the marker if there are any untracked files in repo.
+        # If instead you want to show the marker only if there are untracked
+        # files in $PWD, use:
+        #[[ -n $(git ls-files --others --exclude-standard) ]] ; then
+        hook_com[misc]+="${PR_BRIGHT_RED}%%${PR_RESET}"
+    fi
+}
+
 precmd(){
 
     #local exit_status=$?
@@ -329,4 +349,4 @@ precmd(){
 }
 
 RPROMPT='$SSH_PROMPT ${PR_BATTERY}'
-PROMPT='${PROMPT_LINE}%B%F:%f%b${PR_PWDCOLOR}%~${PR_RESET}${vcs_info_msg_0_}%(!.%B%F{red}%#%f%b.%B%F{green}➤%f%b) '
+PROMPT='${PROMPT_LINE}%B%F${PR_RESET}:%f%b${PR_PWDCOLOR}%~${PR_RESET}${vcs_info_msg_0_}%(!.%B%F{red}%#%f%b.%B%F{green}➤%f%b) '
