@@ -34,6 +34,6 @@ set-window-option -g mode-keys vi
 ##CLIPBOARD selection integration
 ##Requires prefix key before the command key
 #Copy tmux paste buffer to CLIPBOARD
-bind C-y run "tmux show-buffer | xsel -i -b"
+bind-key C-y run "tmux show-buffer | xsel -i -b"
 #Copy CLIPBOARD to tmux paste buffer and paste tmux paste buffer
-bind C-p run "tmux set-buffer -- \"$(xsel -o -b)\"; tmux paste-buffer"
+bind-key C-p run "tmux set-buffer -- \"$(xsel -o -b)\"; tmux paste-buffer"

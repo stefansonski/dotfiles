@@ -23,7 +23,7 @@ fi
 
 #Add arm-toolchain to PATH
 if [ -d "/opt/arm-toolchain/bin" ]; then
-    PATH=$PATH:/opt/arm-toolchain/bin
+    PATH="$PATH:/opt/arm-toolchain/bin"
 fi
 
 # if running bash
@@ -34,4 +34,4 @@ if [ -n "$BASH_VERSION" ]; then
     fi
 fi
 
-EDITOR=$(which vim)
+export EDITOR=$(which vim)
