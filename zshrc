@@ -79,7 +79,7 @@ zstyle ':completion:*:correct:*'       original true                       #
 zstyle ':completion:*:default'         list-colors ${(s.:.)LS_COLORS}      # activate color-completion(!)
 zstyle ':completion:*:descriptions'    format $'%{\e[0;31m%}completing %B%d%b%{\e[0m%}'  # format on completion
 zstyle ':completion:*:*:cd:*:directory-stack' menu yes select              # complete 'cd -<tab>' with menu
-#zstyle ':completion:*:expand:*'        tag-order all-expansions            # insert all expansions for expand completer
+#zstyle ':completion:*:expand:*'        tag-order all-expansions           # insert all expansions for expand completer
 zstyle ':completion:*:history-words'   list false                          #
 zstyle ':completion:*:history-words'   menu yes                            # activate menu
 zstyle ':completion:*:history-words'   remove-all-dups yes                 # ignore duplicate entries
@@ -97,6 +97,7 @@ zstyle ':completion:*:warnings'        format $'%{\e[0;31m%}No matches for:%{\e[
 zstyle ':completion:*:*:zcompile:*'    ignored-patterns '(*~|*.zwc)'       # define files to ignore for zcompile
 zstyle ':completion:correct:'          prompt 'correct to: %e'             #
 zstyle ':completion::(^approximate*):*:functions' ignored-patterns '_*'    # Ignore completion functions for commands you don't have:
+zstyle ':completion:*'                 special-dirs true                   # Complete also special dirs as ..
 
 # complete manual by their section
 zstyle ':completion:*:manuals'    separate-sections true
