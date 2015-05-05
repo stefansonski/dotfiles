@@ -54,7 +54,7 @@ bindkey "\e[F" end-of-line
 # completion in the middle of a line
 bindkey '^i' expand-or-complete-prefix
 
-setopt appendhistory autocd nobeep extendedglob nomatch notify
+setopt appendhistory hist_ignore_all_dups autocd nobeep extendedglob nomatch notify
 setopt autolist auto_menu
 bindkey -e
 # End of lines configured by zsh-newuser-install
