@@ -27,7 +27,6 @@ Plugin 'vim-scripts/bufkill.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'elzr/vim-json'
-Plugin 'altercation/vim-colors-solarized'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'stefansonski/vim-snippets'
 Plugin 'tpope/vim-fugitive'
@@ -350,7 +349,7 @@ endfunction
 if has("gui_running")
   exe "set guifont=" . g:main_font
   set lines=999 columns=999
-  colorscheme codeschool
+  colorscheme jellybeans
 endif
 :nohls
 
