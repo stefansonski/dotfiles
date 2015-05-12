@@ -14,11 +14,11 @@ if [ -d "$HOME/tools/android-studio/bin" ] ; then
 fi
 
 if [ -d "$HOME/tools/android-sdk-linux/tools" ] ; then
-    PATH="$PATH:$HOME/tools/android-sdk-linux/tools"
+    PATH="$PATH:$HOME/tools/android-sdk/tools"
 fi
 
 if [ -d "$HOME/tools/android-sdk-linux/platform-tools" ] ; then
-    PATH="$PATH:$HOME/tools/android-sdk-linux/platform-tools"
+    PATH="$PATH:$HOME/tools/android-sdk/platform-tools"
 fi
 
 #Add arm-toolchain to PATH
