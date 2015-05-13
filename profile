@@ -13,11 +13,11 @@ if [ -d "$HOME/tools/android-studio/bin" ] ; then
     PATH="$PATH:$HOME/tools/android-studio/bin"
 fi
 
-if [ -d "$HOME/tools/android-sdk-linux/tools" ] ; then
+if [ -d "$HOME/tools/android-sdk/tools" ] ; then
     PATH="$PATH:$HOME/tools/android-sdk/tools"
 fi
 
-if [ -d "$HOME/tools/android-sdk-linux/platform-tools" ] ; then
+if [ -d "$HOME/tools/android-sdk/platform-tools" ] ; then
     PATH="$PATH:$HOME/tools/android-sdk/platform-tools"
 fi
 
