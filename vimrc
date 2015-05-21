@@ -271,7 +271,6 @@ noremap <silent> <LEADER>ww :copen<CR>
 "Make indent work in normal and visual mode and unindent in insert mode possible.
 nnoremap <Tab> >>_
 nnoremap <S-Tab> <<_
-inoremap <S-Tab> <C-D>
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
