@@ -19,11 +19,10 @@ source ${${(%):-%N}:A:h}/antigen/antigen.zsh
 antigen use oh-my-zsh
 
 antigen bundle command-not-found
+antigen bundle milkbikis/powerline-shell
 
 ## apply antigen plugins
 antigen apply
-
-source /usr/lib/git-core/git-sh-prompt
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -225,124 +224,20 @@ setopt NOMATCH            # do not print error on non matched patterns
 
 autoload -U colors && colors
 # set some colors
-for COLOR in RED GREEN YELLOW WHITE BLACK CYAN BLUE PURPLE; do
-    eval PR_$COLOR='%{$fg[${(L)COLOR}]%}'
-    eval PR_BRIGHT_$COLOR='%{$fg_bold[${(L)COLOR}]%}'
-done
-PR_RESET="%{${reset_color}%}";
 
-setopt prompt_subst
+setopt PROMPT_SUBST
 
-BLUE_DIAMOND="%B%F{blue}◆%f%b"
-YELLOW_DIAMOND="%B%F{yellow}◆%f%b"
-GREEN_DIAMOND="%B%F{green}◆%f%b"
-RED_DIAMOND="%B%F{red}◆%f%b"
-RED_RARROW="%B%F{red}▶%f%b"
-RED_LARROW="%B%F{red}◀%f%b"
-RED_STAR="%B%F{red}✱%b%f"
-
-case $TERM in
-    *xterm*|rxvt|(dt|k|E)term)
-        preexec () {
-            if [[ $(basename ${1[(w)1]}) == "ssh" ]]; then
-                SHN=${1[(w)-1]}
-                SHN_ARRAY=( ${(s,.,)SHN})
-                print -Pn "\e]2;$SHN:%~\a"
-            else
-                print -Pn "\e]2;%n@%m:%~\a"
-            fi
-        }
-    ;;
-    screen)
-        preexec () {
-            if [[ $(basename ${1[(w)1]}) == "ssh" ]]; then
-                SHN=${1[(w)-1]}
-                SHN=${SHN#*@}
-                SHN_ARRAY=( ${(s,.,)SHN})
-                case ${#SHN_ARRAY} in
-                    2)
-                        print -Pn "\033k$SHN\033\\"
-                    ;;
-                    4)
-                        print -Pn "\033k$SHN_ARRAY[1].$SHN_ARRAY[2]\033\\"
-                    ;;
-                    5)
-                        #print -Pn "\033k$SHN_ARRAY[1].$SHN_ARRAY[2].$SHN_ARRAY[3]\033\\"
-                        print -Pn "\033k$SHN_ARRAY[1].$SHN_ARRAY[3]\033\\"
-                    ;;
-                    *)
-                        print -Pn "\033k$SHN_ARRAY[1]\033\\"
-                    ;;
-                esac
-            fi
-        }
-        #set up precmd to draw the screen title
-        function set_screen_title {
-            print -Pn "\033k%m\033\\"
-        }
-        precmd_functions=( set_screen_title )
-    ;;
+function powerline_precmd() {
+    export PS1="$(~/.powerline-shell.py $? --shell zsh 2> /dev/null)"
 }
 
-if [[ -n $SSH_CONNECTION ]]; then
-    SSH_IP=$(echo $SSH_CLIENT | awk '{print $1}')
-    HOST_OUTPUT=$(host $SSH_IP)
-    if [[ $? -eq 0 ]]; then
-        SSH_HOST=$(echo $HOST_OUTPUT | awk '{print $NF}' | sed 's/.$//')
-    else
-        SSH_HOST=$SSH_IP
-    fi
-    SSH_PROMPT="${RED_STAR} %F{yellow}SSH from: %f%B%F{green}$SSH_HOST%f%b ${RED_STAR}"
-    #SSH_PROMPT="${YELLOW_DIAMOND}${PR_BRIGHT_RED}SSH${PR_RESET}${YELLOW_DIAMOND}"
-    #SSH_VAR="${YELLOW_DIAMOND}${PR_BRIGHT_RED}SSH${PR_RESET}${YELLOW_DIAMOND}"
-
-fi
-
-if [[ $(whoami) = root ]]; then
-    PROMPT_LINE="%B%F{red}%n@%M%f%b"
-else
-    PROMPT_LINE="%F{green}%n%f@%B%F{green}%m%b%f${PR_RESET}"
-fi
-
-precmd(){
-    # Battery Stuff
-    if which ibam &> /dev/null; then
-        IBAMSTAT="$(ibam)"
-        if [[ ${IBAMSTAT[(f)(1)][(w)1]} =  "Battery" ]]; then
-            BATTSTATE="$(ibam --percentbattery)"
-            BATTPRCNT="${BATTSTATE[(f)1][(w)-2]}"
-            BATTTIME="${BATTSTATE[(f)2][(w)-1]}"
-            PR_BATTERY="Bat: ${BATTPRCNT}%% (${BATTTIME})"
-            if [[ "${BATTPRCNT}" -lt 15 ]]; then
-                PR_BATTERY=" ${BLUE_DIAMOND} ${PR_BRIGHT_RED}${PR_BATTERY}"
-            elif [[ "${BATTPRCNT}" -lt 50 ]]; then
-                PR_BATTERY=" ${BLUE_DIAMOND} ${PR_BRIGHT_YELLOW}${PR_BATTERY}"
-            elif [[ "${BATTPRCNT}" -lt 100 ]]; then
-                PR_BATTERY=" ${BLUE_DIAMOND} ${PR_BRIGHT_CYAN}${PR_BATTERY}${PR_RESET}"
-            else
-                PR_BATTERY=""
-            fi
-        else
-            PR_BATTERY=""
+function install_powerline_precmd() {
+    for s in "${precmd_functions[@]}"; do
+        if [ "$s" = "powerline_precmd" ]; then
+            return
         fi
-    fi
-    ###End of Battery Stuff######
-
-    # now lets change the color of the path if its not writable
-    if [[ -w $PWD ]]; then
-        PR_PWDCOLOR="%F${PR_BRIGHT_BLUE}"
-    else
-        PR_PWDCOLOR="${PR_BRIGHT_RED}"
-    fi
-
-    # Set git-prompt options for PS1
-    export GIT_PS1_SHOWUPSTREAM="auto"
-    export GIT_PS1_SHOWCOLORHINTS=true
-    export GIT_PS1_SHOWSTASHSTATE=true
-    export GIT_PS1_SHOWDIRTYSTATE=true
-    export GIT_PS1_SHOWUNTRACKEDFILES=true
-
-    __git_ps1 '${PROMPT_LINE}%B%F${PR_RESET}:%f%b${PR_PWDCOLOR}%~${PR_RESET}' '%(!.%B%F{red}%#%f%b.%B%F{green}➤ %f%b)' ' [%s]'
+    done
+    precmd_functions+=(powerline_precmd)
 }
 
-RPROMPT='$SSH_PROMPT ${PR_BATTERY}'
+install_powerline_precmd
