@@ -19,7 +19,6 @@ source ${${(%):-%N}:A:h}/antigen/antigen.zsh
 antigen use oh-my-zsh
 
 antigen bundle command-not-found
-antigen bundle milkbikis/powerline-shell
 
 ## apply antigen plugins
 antigen apply
@@ -227,17 +226,5 @@ autoload -U colors && colors
 
 setopt PROMPT_SUBST
 
-function powerline_precmd() {
-    export PS1="$(~/.powerline-shell.py $? --shell zsh 2> /dev/null)"
-}
-
-function install_powerline_precmd() {
-    for s in "${precmd_functions[@]}"; do
-        if [ "$s" = "powerline_precmd" ]; then
-            return
-        fi
-    done
-    precmd_functions+=(powerline_precmd)
-}
-
-install_powerline_precmd
+powerline-daemon -q
+source /usr/share/powerline/bindings/zsh/powerline.zsh
