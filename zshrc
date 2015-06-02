@@ -203,6 +203,9 @@ setopt NO_BEEP
 setopt AUTO_PARAM_KEYS
 setopt AUTO_PARAM_SLASH
 
+## disable flow-cotnrol so C-s is working for forward search again
+setopt NOFLOWCONTROL
+
 setopt NOMATCH            # do not print error on non matched patterns
 ## automatically decide when to page a list of completions
 #LISTMAX=0
