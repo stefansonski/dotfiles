@@ -63,6 +63,11 @@ zstyle :compinstall filename '/home/sonski/.zshrc'
 
 autoload -Uz compinit
 compinit
+
+# Use gpg completion for gpg2.
+# But still the keys from gpg are completed.
+compdef gpg2=gpg
+
 # End of lines added by compinstall
 ## completion system
 _force_rehash() {
