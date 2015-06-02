@@ -13,6 +13,17 @@
 #  are allowed; b or bl selects black.
 #
 
+source ${${(%):-%N}:A:h}/antigen/antigen.zsh
+
+## use oh-my-zsh as standard repo
+antigen use oh-my-zsh
+
+antigen bundle command-not-found
+antigen bundle chucknorris
+
+## apply antigen plugins
+antigen apply
+
 source /usr/lib/git-core/git-sh-prompt
 
 HISTFILE=~/.zsh_history
@@ -336,3 +347,5 @@ precmd(){
 }
 
 RPROMPT='$SSH_PROMPT ${PR_BATTERY}'
+
+chuck_cow

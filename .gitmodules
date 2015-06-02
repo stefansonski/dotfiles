@@ -1,3 +1,6 @@
 [submodule "tmux"]
 	path = tmux
 	url = git@github.com:gpakosz/.tmux.git
+[submodule "antigen"]
+	path = antigen
+	url = https://github.com/zsh-users/antigen.git
