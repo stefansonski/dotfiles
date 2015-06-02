@@ -13,7 +13,7 @@
 #  are allowed; b or bl selects black.
 #
 
-source ${${(%):-%N}:A:h}/antigen/antigen.zsh
+source /usr/share/zsh-antigen/antigen.zsh
 
 ## use oh-my-zsh as standard repo
 antigen use oh-my-zsh
