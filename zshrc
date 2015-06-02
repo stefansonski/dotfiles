@@ -54,8 +54,6 @@ bindkey "\e[F" end-of-line
 # completion in the middle of a line
 bindkey '^i' expand-or-complete-prefix
 
-setopt appendhistory hist_ignore_all_dups autocd nobeep extendedglob nomatch notify
-setopt autolist auto_menu
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -183,15 +181,29 @@ setopt CORRECT
 #setopt HUP
 
 ## history
-#setopt APPEND_HISTORY
+setopt APPEND_HISTORY
 ## for sharing history between zsh processes
 setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
+## ignore duplicate commands in history
+setopt HIST_IGNORE_ALL_DUPS
+
+## show menu on completion
+setopt AUTOLIST AUTO_MENU
+
+## activate extended globbing
+setopt EXTENDEDGLOB
+## report status of background tasks immediately
+setopt NOTIFY
 
 ## never ever beep ever
 setopt NO_BEEP
 
-setopt nonomatch            # do not print error on non matched patterns
+## Extend parameters automattically
+setopt AUTO_PARAM_KEYS
+setopt AUTO_PARAM_SLASH
+
+setopt NOMATCH            # do not print error on non matched patterns
 ## automatically decide when to page a list of completions
 #LISTMAX=0
 
