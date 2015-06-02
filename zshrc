@@ -19,7 +19,6 @@ source ${${(%):-%N}:A:h}/antigen/antigen.zsh
 antigen use oh-my-zsh
 
 antigen bundle command-not-found
-antigen bundle chucknorris
 
 ## apply antigen plugins
 antigen apply
@@ -347,5 +346,3 @@ precmd(){
 }
 
 RPROMPT='$SSH_PROMPT ${PR_BATTERY}'
-
-chuck_cow
