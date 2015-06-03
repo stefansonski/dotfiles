@@ -290,8 +290,8 @@ set synmaxcol=2048
 " I don't like it when the matching parens are automatically highlighted
 let loaded_matchparen = 1
 
-let g:main_font = "Droid\\ Sans\\ Mono\\ 8"
-let g:small_font = "Droid\\ Sans\\ Mono\\ 4"
+let g:main_font = "Droid\\ Sans\\ Mono\\ for\\ Powerline\\ 8"
+let g:small_font = "Droid\\ Sans\\ Mono\\ for\\ Powerline\\ 4"
 
 "-----------------------------------------------------------------------------
 " CtrlP Settings
