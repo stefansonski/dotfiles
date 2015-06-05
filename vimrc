@@ -22,7 +22,7 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'vim-scripts/UltiSnips'
 Plugin 'yegappan/lid'
-Plugin 'bling/vim-airline'
+"Plugin 'bling/vim-airline'
 Plugin 'vim-scripts/bufkill.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
@@ -30,14 +30,12 @@ Plugin 'elzr/vim-json'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'stefansonski/vim-snippets'
 Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdcommenter'
 Plugin 'wikitopian/hardmode'
 Plugin 'ervandew/supertab'
 Plugin 'derekwyatt/vim-fswitch'
 Plugin 'derekwyatt/vim-protodef'
 Plugin 'aklt/plantuml-syntax'
 Plugin 'majutsushi/tagbar'
-Plugin 'scrooloose/nerdtree'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'kana/vim-operator-user'
 Plugin 'rhysd/vim-clang-format'
@@ -45,6 +43,7 @@ Plugin 'rhysd/vim-clang-format'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+set rtp+=/usr/share/vim/addons
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -353,24 +352,6 @@ endif
 :nohls
 
 "-----------------------------------------------------------------------------
-" NERD Tree Plugin Settings
-"-----------------------------------------------------------------------------
-" Toggle the NERD Tree on an off with F7
-nmap <F7> :NERDTreeToggle<CR>
-
-" Close the NERD Tree with Shift-F7
-nmap <S-F7> :NERDTreeClose<CR>
-
-" Show the bookmarks table on startup
-let NERDTreeShowBookmarks=1
-
-" Don't display these kinds of files
-let NERDTreeIgnore=[ '\.ncb$', '\.suo$', '\.vcproj\.RIMNET', '\.obj$',
-                   \ '\.ilk$', '^BuildLog.htm$', '\.pdb$', '\.idb$',
-                   \ '\.embed\.manifest$', '\.embed\.manifest.res$',
-                   \ '\.intermediate\.manifest$', '^mt.dep$' ]
-
-"-----------------------------------------------------------------------------
 " Set up YouCompleteMe
 "-----------------------------------------------------------------------------
 let g:ycm_global_ycm_extra_conf = '$HOME/.vim/ycm_global_extra_conf'
@@ -394,13 +375,6 @@ let g:UltiSnipsJumpBackwardTrigger = "<C-K>"
 " Find words recursively under the cursor
 "-----------------------------------------------------------------------------
 nnoremap <silent> <F4> :Lid <C-R><C-W><CR>
-
-"-----------------------------------------------------------------------------
-" Airline config
-"-----------------------------------------------------------------------------
-let g:airline#extensions#tabline#enabled = 1
-" Use fancy fonts
-let g:airline_powerline_fonts = 1
 
 "-----------------------------------------------------------------------------
 " Hardmode
