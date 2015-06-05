@@ -114,7 +114,8 @@ set cpoptions=ces$
 " tell VIM to always put a status line in, even if there is only one window
 set laststatus=2
 " Always display the tabline, even if there is only one tab
-set showtabline=2
+"set showtabline=2
+set showtabline=1
 " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 set noshowmode
 
