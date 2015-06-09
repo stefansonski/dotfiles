@@ -1,9 +1,0 @@
-{
-    "right": [
-        "function": "powerline.segments.common.vcs.branch",
-        "priority": 10,
-        "args": {
-            "status_colors": True
-        }
-    ]
-}
