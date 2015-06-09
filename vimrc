@@ -22,7 +22,6 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'vim-scripts/UltiSnips'
 Plugin 'yegappan/lid'
-"Plugin 'bling/vim-airline'
 Plugin 'vim-scripts/bufkill.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
@@ -212,7 +211,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 set relativenumber
 
 " Types of files to ignore when autocompleting things
-set wildignore+=*.o,*.class,*.git,*.svn,*/CMakeFiles/*,*/alphaBoxOS/*,*/alphaEOS_BIN/*,*/Arduino/*,*/Build_Tools/*,*/Demos/*,*/Dokumentation/*,*/DotNet/*
+set wildignore+=*.o,*.class,*.git,*.svn,*/CMakeFiles/*,*/sources/*,*/installation_files/*,*/rootfs/*,*/alphaEOS_BIN/*,*/Arduino/*,*/installation/*,*/binsources/*,*/build/*,*/Demos/*,*/Dokumentation/*,*/DotNet/*
 
 " Various characters are "wider" than normal fixed width characters, but the
 " default setting of ambiwidth (single) squeezes them into "normal" width, which
