@@ -30,7 +30,6 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'stefansonski/vim-snippets'
 Plugin 'tpope/vim-fugitive'
 Plugin 'wikitopian/hardmode'
-Plugin 'ervandew/supertab'
 Plugin 'derekwyatt/vim-fswitch'
 Plugin 'derekwyatt/vim-protodef'
 Plugin 'aklt/plantuml-syntax'
@@ -361,8 +360,6 @@ endif
 "-----------------------------------------------------------------------------
 let g:ycm_global_ycm_extra_conf = '$HOME/.vim/ycm_global_extra_conf'
 let g:ycm_extra_conf_globlist = ['~/alphaeosdev*/*','!~/*']
-let g:ycm_key_list_select_completion = ['<C-TAB>']
-let g:ycm_key_list_previous_completion = ['<C-S-TAB>']
 "Use tags files
 let g:ycm_collect_identifiers_from_tags_files = 1
 " Close preview after completion.
@@ -372,7 +369,8 @@ nnoremap <C-G> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 "-----------------------------------------------------------------------------
 " UltiSnip
 "-----------------------------------------------------------------------------
-let g:UltiSnipsExpandTrigger = "<TAB>"
+let g:UltiSnipsExpandTrigger = "<C-J>"
+let g:UltiSnipsListSnippets = "<C-K>"
 let g:UltiSnipsJumpForwardTrigger = "<C-J>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-K>"
 
@@ -390,11 +388,6 @@ nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
 " Tagbar
 "-----------------------------------------------------------------------------
 nnoremap <leader>tt :TagbarToggle<CR>
-
-"-----------------------------------------------------------------------------
-" SuperTab
-"-----------------------------------------------------------------------------
-let g:SuperTabDefaultCompletionType = '<C-Tab>'
 
 "-----------------------------------------------------------------------------
 " FSwitch mappings
