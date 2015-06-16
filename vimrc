@@ -363,7 +363,8 @@ let g:ycm_extra_conf_globlist = ['~/alphaeosdev*/*','!~/*']
 "Use tags files
 let g:ycm_collect_identifiers_from_tags_files = 1
 " Close preview after completion.
-let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 nnoremap <C-G> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "-----------------------------------------------------------------------------
