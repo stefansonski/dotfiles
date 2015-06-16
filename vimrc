@@ -247,6 +247,30 @@ inoremap <Up> <NOP>
 inoremap <Down> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
+noremap <S-Up> <NOP>
+noremap <S-Down> <NOP>
+noremap <S-Left> <NOP>
+noremap <S-Right> <NOP>
+inoremap <S-Up> <NOP>
+inoremap <S-Down> <NOP>
+inoremap <S-Left> <NOP>
+inoremap <S-Right> <NOP>
+noremap <C-Up> <NOP>
+noremap <C-Down> <NOP>
+noremap <C-Left> <NOP>
+noremap <C-Right> <NOP>
+inoremap <C-Up> <NOP>
+inoremap <C-Down> <NOP>
+inoremap <C-Left> <NOP>
+inoremap <C-Right> <NOP>
+noremap <S-C-Up> <NOP>
+noremap <S-C-Down> <NOP>
+noremap <S-C-Left> <NOP>
+noremap <S-C-Right> <NOP>
+inoremap <S-C-Up> <NOP>
+inoremap <S-C-Down> <NOP>
+inoremap <S-C-Left> <NOP>
+inoremap <S-C-Right> <NOP>
 
 " The following beast is something i didn't write... it will return the
 " syntax highlighting group that the current "thing" under the cursor
