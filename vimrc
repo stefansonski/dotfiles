@@ -439,8 +439,4 @@ augroup END
 " clang_format
 "-----------------------------------------------------------------------------
 let g:clang_format#command = "clang-format-3.7"
-let g:clang_format#style_options = {
-            \ "AllowShortIfStatementsOnASingleLine" : "true",
-            \ "AlwaysBreakTemplateDeclarations" : "true",
-            \ "Standard" : "C++11",
-            \ "BreakBeforeBraces" : "Allman" }
+let g:clang_format#detect_style_file = 1
