@@ -301,8 +301,8 @@ nnoremap <S-Tab> <<_
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
-"Format a json-file.
-command! FormatJSON :%!python -m json.tool
+"Format files.
+command! JSONFormat :%!python -m json.tool
 
 " Edit the vimrc file
 nmap <silent> <LEADER>ev :e $MYVIMRC<CR>
