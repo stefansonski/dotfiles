@@ -22,7 +22,6 @@ Plugin 'gmarik/Vundle.vim'
 
 Plugin 'vim-scripts/UltiSnips'
 Plugin 'yegappan/lid'
-Plugin 'vim-scripts/bufkill.vim'
 Plugin 'kien/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'elzr/vim-json'
@@ -173,6 +172,7 @@ set key=
 
 " Make the command-line completion better
 set wildmenu
+set wildmode=list,full
 
 " Same as default except that I remove the 'u' option
 set complete=.,w,b,t
@@ -308,9 +308,6 @@ command! JSONFormat :%!python -m json.tool
 nmap <silent> <LEADER>ev :e $MYVIMRC<CR>
 nmap <silent> <LEADER>sv :so $MYVIMRC<CR>
 
-" Use the bufkill plugin to eliminate a buffer but keep the window layout
-nmap <LEADER>bd :BD<cr>
-
 " Syntax coloring lines that are too long just slows down the world
 set synmaxcol=2048
 
@@ -341,15 +338,6 @@ nmap <LEADER>fm :CtrlPMixed<cr>
 " Gundo Settings
 "-----------------------------------------------------------------------------
 nmap <c-F5> :GundoToggle<cr>
-
-"-----------------------------------------------------------------------------
-" Shortcuts
-"-----------------------------------------------------------------------------
-nnoremap <silent> <C-Home> :enew<CR>
-nnoremap <silent> <C-PageDown> :bn<CR>
-nnoremap <silent> <C-PageUp> :bp<CR>
-nnoremap <silent> <C-End> :BD<CR>
-nnoremap <silent> <C-S-End> :bd<CR>
 
 vnoremap <silent> <C-S-y> "+y
 vnoremap <silent> <C-S-p> "+p
