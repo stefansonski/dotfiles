@@ -3,8 +3,15 @@
         "right": [
             {
                 "function": "powerline.segments.common.vcs.branch",
+                "priority": 20,
+                "args": {
+                }
+            },
+            {
+                "function": "powerline.segments.common.wthr.weather",
                 "priority": 50,
                 "args": {
+                    "location_query": "Stuttgart, Germany"
                 }
             }
         ]
