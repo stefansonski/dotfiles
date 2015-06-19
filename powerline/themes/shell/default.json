@@ -11,7 +11,6 @@
                 "function": "powerline.segments.common.wthr.weather",
                 "priority": 50,
                 "args": {
-                    "location_query": "Stuttgart, Germany"
                 }
             }
         ]
