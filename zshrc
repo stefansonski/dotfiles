@@ -16,8 +16,6 @@
 source /usr/share/zsh-antigen/antigen.zsh
 
 ## use oh-my-zsh as standard repo
-antigen use oh-my-zsh
-
 antigen bundle command-not-found
 
 ## apply antigen plugins
@@ -130,7 +128,6 @@ zstyle ':completion:*:kill:*'   force-list always
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 
 CDPATH=.:~:~/git
-PATH=$PATH:~/bin
 
 #I want my umask 0002 if I'm not root
 if [[ $(whoami) = root ]]; then
