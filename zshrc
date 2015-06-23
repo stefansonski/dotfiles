@@ -13,13 +13,13 @@
 #  are allowed; b or bl selects black.
 #
 
-source /usr/share/zsh-antigen/antigen.zsh
+#source /usr/share/zsh-antigen/antigen.zsh
 
 ## use oh-my-zsh as standard repo
-antigen bundle command-not-found
+#antigen bundle command-not-found
 
 ## apply antigen plugins
-antigen apply
+#antigen apply
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
