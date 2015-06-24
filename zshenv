@@ -51,4 +51,5 @@ if [ -d "/opt/arm-toolchain/bin" ]; then
 fi
 
 export EDITOR=$(which vim)
-export PAGER=$(which most)
+export PAGER=$(which less)
+export LESS="-R"
