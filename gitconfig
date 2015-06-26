@@ -9,13 +9,13 @@
 [svn]
 	pushmergeinfo = true
 [diff]
-	tool = meld
+	tool = gvimdiff
 	mnemonicprefix = true
 [merge]
-	tool = meld
+	tool = gvimdiff
 	stat = true
+	conflictstyle = diff3
 [difftool]
-	prompt = false
 [color]
 	ui = true
 [advice]
@@ -30,9 +30,14 @@
 	textconv = sqlite3-dump
 [mergetool]
 	keepBackup = false
+	prompt = false
 [commit]
 	gpgsign = true
 [init]
 	templatedir = ~/.gittemplate
 [alias]
 	ctags = !.git/hooks/ctags
+[log]
+	date = local
+[mergetool "gvimdiff"]
+[difftool "gvimdiff"]
