@@ -218,10 +218,9 @@ set wildignore+=*.o,*.class,*.git,*.svn,*/CMakeFiles/*,*/sources/*,*/installatio
 " sucks.  Setting it to double makes it awesome.
 "set ambiwidth=double
 
-" OK, so I'm gonna remove the VIM safety net for a while and see if kicks my ass
-set nobackup
-set nowritebackup
-set noswapfile
+" Use .backup or /tmp directory for backup and swap files.
+set backupdir=./.backup,.,/tmp
+set directory=.,./.backup,/tmp
 
 " System default for mappings is now the "," character
 let mapleader = ","
