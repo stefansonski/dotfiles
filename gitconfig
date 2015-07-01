@@ -42,3 +42,5 @@
 	date = local
 [mergetool "gvimdiff"]
 [difftool "gvimdiff"]
+[pager]
+	stash = false
