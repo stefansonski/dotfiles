@@ -15,7 +15,6 @@
 	tool = gvimdiff
 	stat = true
 	conflictstyle = diff3
-[difftool]
 [color]
 	ui = true
 [advice]
@@ -23,7 +22,7 @@
 [core]
 	whitespace = trailing-space,space-before-tab
 	autocrlf = input
-	excludesfile = /home/sonski/.gitignore
+	excludesfile = ~/.gitignore
 [branch]
 	autosetupmerge = true
 	pager = less -r
@@ -40,7 +39,5 @@
 	ctags = !.git/hooks/ctags
 [log]
 	date = local
-[mergetool "gvimdiff"]
-[difftool "gvimdiff"]
 [pager]
 	stash = false
