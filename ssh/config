@@ -42,7 +42,7 @@ User sonski
 
 Host sonski-dev
 HostName 192.168.100.140
-User sonski
+User stefan
 ForwardX11 yes
 
 Host b10nas
