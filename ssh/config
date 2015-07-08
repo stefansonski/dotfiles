@@ -28,6 +28,10 @@ Host sts02
 HostName 192.168.2.51
 User root
 
+Host eval
+HostName 192.168.2.133
+User root
+
 Host firewall
 HostName firewall
 User loginuser
