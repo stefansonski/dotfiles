@@ -219,8 +219,13 @@ set wildignore+=*.o,*.class,*.git,*.svn,*/CMakeFiles/*,*/sources/*,*/installatio
 "set ambiwidth=double
 
 " Use .backup or /tmp directory for backup and swap files.
-set backupdir=./.backup,.,/tmp
-set directory=.,./.backup,/tmp
+set backupdir=~/.vim/backup//,/tmp
+set directory=~/.vim/swap//,/tmp
+
+set undofile
+set undodir=~/.vim/undo//,/tmp
+set undolevels=1000
+set undoreload=10000
 
 " System default for mappings is now the "," character
 let mapleader = ","
