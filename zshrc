@@ -60,10 +60,10 @@ bindkey "\e[F" end-of-line
 # completion in the middle of a line
 bindkey '^i' expand-or-complete-prefix
 
-bindkey -v
+bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/sonski/.zshrc'
+zstyle :compinstall filename '/home/stefan/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -213,6 +213,9 @@ setopt AUTO_PARAM_SLASH
 setopt NOMATCH            # do not print error on non matched patterns
 ## automatically decide when to page a list of completions
 #LISTMAX=0
+
+## Allow Ctrl-S for forward-search.
+setopt NOFLOWCONTROL
 
 ## disable mail checking
 #MAILCHECK=0
