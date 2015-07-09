@@ -218,6 +218,17 @@ set wildignore+=*.o,*.class,*.git,*.svn,*/CMakeFiles/*,*/sources/*,*/installatio
 " sucks.  Setting it to double makes it awesome.
 "set ambiwidth=double
 
+" Create backup, swap and undo directory if it does not exist
+if !isdirectory($HOME . "/.vim/backup")
+    call mkdir($HOME . "/.vim/backup", "p")
+endif
+if !isdirectory($HOME . "/.vim/swap")
+    call mkdir($HOME . "/.vim/swap", "p")
+endif
+if !isdirectory($HOME . "/.vim/undo")
+    call mkdir($HOME . "/.vim/undo", "p")
+endif
+
 " Use .backup or /tmp directory for backup and swap files.
 set backupdir=~/.vim/backup//,/tmp
 set directory=~/.vim/swap//,/tmp
