@@ -36,6 +36,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'kana/vim-operator-user'
 Plugin 'rhysd/vim-clang-format'
+Plugin 'bruno-/vim-man.git'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -439,3 +440,8 @@ augroup END
 "-----------------------------------------------------------------------------
 let g:clang_format#command = "clang-format-3.7"
 let g:clang_format#detect_style_file = 1
+
+"-----------------------------------------------------------------------------
+" vim-man
+"-----------------------------------------------------------------------------
+nnoremap <silent> K :Man <C-R><C-W><CR>
