@@ -117,7 +117,7 @@ zstyle ':completion:*:man:*'      menu yes select
 
 # Completion caching
 zstyle ':completion::complete:*' use-cache on
-zstyle ':completion::complete:*' cache-path .zcache
+zstyle ':completion::complete:*' cache-path ~/.zcache
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
 zstyle ':completion::complete:cd::' tag-order local-directories
