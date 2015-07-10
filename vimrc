@@ -444,4 +444,4 @@ let g:clang_format#detect_style_file = 1
 "-----------------------------------------------------------------------------
 " vim-man
 "-----------------------------------------------------------------------------
-nnoremap <silent> K :Man <C-R><C-W><CR>
+nnoremap <silent> K :execute 'Man ' . expand('<cWORD>') <CR>
