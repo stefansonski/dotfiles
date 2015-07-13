@@ -21,7 +21,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'vim-scripts/UltiSnips'
-Plugin 'yegappan/lid'
 Plugin 'kien/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'elzr/vim-json'
@@ -37,6 +36,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'kana/vim-operator-user'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'bruno-/vim-man.git'
+Plugin 'vim-scripts/gtags.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -400,11 +400,6 @@ let g:UltiSnipsJumpForwardTrigger = "<C-J>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-K>"
 
 "-----------------------------------------------------------------------------
-" Find words recursively under the cursor
-"-----------------------------------------------------------------------------
-nnoremap <silent> <F4> :Lid <C-R><C-W><CR>
-
-"-----------------------------------------------------------------------------
 " Hardmode
 "-----------------------------------------------------------------------------
 nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
@@ -440,3 +435,10 @@ augroup END
 "-----------------------------------------------------------------------------
 let g:clang_format#command = "clang-format-3.7"
 let g:clang_format#detect_style_file = 1
+
+"-----------------------------------------------------------------------------
+" gtags
+"-----------------------------------------------------------------------------
+set cscopeprg=gtags-cscope
+nnoremap <C-]> :Gtags<CR><CR>
+nnoremap <C-\> :Gtags -r<CR><CR>
