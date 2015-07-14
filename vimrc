@@ -37,6 +37,8 @@ Plugin 'kana/vim-operator-user'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'bruno-/vim-man.git'
 Plugin 'vim-scripts/gtags.vim'
+Plugin 'Shougo/unite.vim'
+Plugin 'hewes/unite-gtags'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -440,5 +442,8 @@ let g:clang_format#detect_style_file = 1
 " gtags
 "-----------------------------------------------------------------------------
 set cscopeprg=gtags-cscope
-nnoremap <C-]> :Gtags<CR><CR>
-nnoremap <C-\> :Gtags -r<CR><CR>
+nnoremap <leader>gg :execute 'Unite gtags/def:'.expand('<cword>')<CR>
+nnoremap <leader>gc :execute 'Unite gtags/context'<CR>
+nnoremap <leader>gr :execute 'Unite gtags/ref'<CR>
+nnoremap <leader>ge :execute 'Unite gtags/grep'<CR>
+vnoremap <leader>gg <ESC>:execute 'Unite gtags/def:'.GetVisualSelection()<CR>
