@@ -29,6 +29,7 @@ WORDCHARS="${WORDCHARS:s#.#}"
 ##############################################################
 #key binding stuff to get the right keys to work
 # key bindings
+bindkey -e
 bindkey "\e[1~" beginning-of-line
 bindkey "\e[4~" end-of-line
 bindkey "\e[5~" beginning-of-history
@@ -60,7 +61,6 @@ bindkey "\e[F" end-of-line
 # completion in the middle of a line
 bindkey '^i' expand-or-complete-prefix
 
-bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/stefan/.zshrc'
