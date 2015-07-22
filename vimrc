@@ -214,7 +214,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 set relativenumber
 
 " Types of files to ignore when autocompleting things
-set wildignore+=*.o,*.class,*.git,*.svn,*/CMakeFiles/*,*/sources/*,*/installation_files/*,*/rootfs/*,*/alphaEOS_BIN/*,*/Arduino/*,*/installation/*,*/binsources/*,*/build/*,*/Demos/*,*/Dokumentation/*,*/DotNet/*
+set wildignore+=*.o,*.class,*.git,*.svn,*/CMakeFiles/*,*/sources/*,*/installation_files/*,*/rootfs/*,*/alphaEOS_BIN/*,*/Arduino/*,*/installation/*,*/binsources/*,*/build/*,*/Demos/*,*/Dokumentation/*,*/DotNet/*,GRTAGS,GPATH,GTAGS
 
 " Various characters are "wider" than normal fixed width characters, but the
 " default setting of ambiwidth (single) squeezes them into "normal" width, which
