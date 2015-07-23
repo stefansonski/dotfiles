@@ -14,8 +14,6 @@ filetype off                  " required
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
@@ -69,7 +67,7 @@ filetype on
 filetype plugin on
 filetype indent on
 
-" Tabstops are 4 spaces
+" Tab stops are 4 spaces
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
@@ -82,9 +80,9 @@ set printoptions=header:0,duplex:long,paper:letter
 " set the search scan to wrap lines
 set wrapscan
 
-" I'm happy to type the case of things.  I tried the ignorecase, smartcase
-" thing but it just wasn't working out for me
-set noignorecase
+" Let's try ignorecase smartcase for searches.
+set ignorecase
+set smartcase
 
 " set the forward slash to be the slash of note.  Backslashes suck
 set shellslash
@@ -97,14 +95,14 @@ endif
 " Make command line two lines high
 set ch=4
 
-" set visual bell -- i hate that damned beeping
+" set visual bell -- I hate that damned beeping
 set vb
 
-" Allow backspacing over indent, eol, and the start of an insert
+" Allow backspacing over indent, EOL, and the start of an insert
 set backspace=2
 
 " Make sure that unsaved buffers that are to be put in the background are
-" allowed to go in there (ie. the "must save first" error doesn't come up)
+" allowed to go in there (i.e. the "must save first" error doesn't come up)
 set hidden
 
 " Make the 'cw' and like commands put a $ at the end instead of just deleting
@@ -114,9 +112,9 @@ set cpoptions=ces$
 " tell VIM to always put a status line in, even if there is only one window
 set laststatus=2
 " Always display the tabline, even if there is only one tab
-"set showtabline=2
+" Deactivate it until powerline has a bug.
 set showtabline=1
-" Hide the default mode text (e.g. -- INSERT -- below the statusline)
+" Hide the default mode text (e.g. -- INSERT -- below the status line)
 set noshowmode
 
 " Don't update the display while executing macros
@@ -136,13 +134,13 @@ syntax on
 set mousehide
 set mouse=""
 
-" Set up the gui cursor to look nice
+" Set up the GUI cursor to look nice
 set guicursor=n-v-c:block-Cursor-blinkon0,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor,r-cr:hor20-Cursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
 
-" set the gui options the way I like
+" set the GUI options the way I like
 set guioptions=acg
 
-" Setting this below makes it sow that error messages don't disappear after one second on startup.
+" Setting this below makes it show that error messages don't disappear after one second on startup.
 "set debug=msg
 
 " This is the timeout used while waiting for user input on a multi-keyed macro
@@ -209,17 +207,11 @@ set grepprg=grep\ -nH\ $*
 " Remove trailing whitespaces on save
 autocmd BufWritePre * :%s/\s\+$//e
 
-" Trying out the line numbering thing... never liked it, but that doesn't mean
-" I shouldn't give it another go :)
+" Trying out the line numbering thing...
 set relativenumber
 
-" Types of files to ignore when autocompleting things
+" Types of files to ignore when auto completing things
 set wildignore+=*.o,*.class,*.git,*.svn,*/CMakeFiles/*,*/sources/*,*/installation_files/*,*/rootfs/*,*/alphaEOS_BIN/*,*/Arduino/*,*/installation/*,*/binsources/*,*/build/*,*/Demos/*,*/Dokumentation/*,*/DotNet/*,GRTAGS,GPATH,GTAGS
-
-" Various characters are "wider" than normal fixed width characters, but the
-" default setting of ambiwidth (single) squeezes them into "normal" width, which
-" sucks.  Setting it to double makes it awesome.
-"set ambiwidth=double
 
 " Create backup, swap and undo directory if it does not exist
 if !isdirectory($HOME . "/.vim/swp")
@@ -251,6 +243,9 @@ let g:load_doxygen_syntax=1
 
 " Let the syntax highlighting for Java files allow cpp keywords
 let java_allow_cpp_keywords = 1
+
+" Activate spell-checking as default.
+set spell
 
 " Disable arrow keys to get rid of the habit of using them.
 noremap <Up> <NOP>
@@ -286,7 +281,7 @@ inoremap <S-C-Down> <NOP>
 inoremap <S-C-Left> <NOP>
 inoremap <S-C-Right> <NOP>
 
-" The following beast is something i didn't write... it will return the
+" The following beast is something I didn't write... It will return the
 " syntax highlighting group that the current "thing" under the cursor
 " belongs to -- very useful for figuring out what to change as far as
 " syntax highlighting goes.
@@ -297,11 +292,11 @@ map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
 
 " Maps to make handling windows a bit easier
-"noremap <silent> <LEADER>h :wincmd h<CR>
-"noremap <silent> <LEADER>j :wincmd j<CR>
-"noremap <silent> <LEADER>k :wincmd k<CR>
-"noremap <silent> <LEADER>l :wincmd l<CR>
-"noremap <silent> <LEADER>sb :wincmd p<CR>
+noremap <silent> <LEADER>h :wincmd h<CR>
+noremap <silent> <LEADER>j :wincmd j<CR>
+noremap <silent> <LEADER>k :wincmd k<CR>
+noremap <silent> <LEADER>l :wincmd l<CR>
+noremap <silent> <LEADER>sb :wincmd p<CR>
 noremap <silent> <C-F9>  :vertical resize -10<CR>
 noremap <silent> <C-F10> :resize +10<CR>
 noremap <silent> <C-F11> :resize -10<CR>
@@ -356,21 +351,6 @@ nmap <c-F5> :GundoToggle<cr>
 vnoremap <silent> <C-S-y> "+y
 vnoremap <silent> <C-S-p> "+p
 
-function! HighlightAllOfWord(onoff)
-  if a:onoff == 1
-    :augroup highlight_all
-    :au!
-    :au CursorMoved * silent! exe printf('match Search /\<%s\>/', expand('<cword>'))
-    :augroup END
-  else
-    :au! highlight_all
-    match none /\<%s\>/
-  endif
-endfunction
-
-:nmap <LEADER>ha :call HighlightAllOfWord(1)<cr>
-:nmap <LEADER>hA :call HighlightAllOfWord(0)<cr>
-
 "-----------------------------------------------------------------------------
 " Set up the window colors and size
 "-----------------------------------------------------------------------------
@@ -402,11 +382,6 @@ let g:UltiSnipsJumpForwardTrigger = "<C-J>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-K>"
 
 "-----------------------------------------------------------------------------
-" Hardmode
-"-----------------------------------------------------------------------------
-nnoremap <leader>h <Esc>:call ToggleHardMode()<CR>
-
-"-----------------------------------------------------------------------------
 " Tagbar
 "-----------------------------------------------------------------------------
 nnoremap <leader>tt :TagbarToggle<CR>
@@ -434,7 +409,7 @@ augroup cppfiles
   au BufEnter *.cpp let b:fswitchdst  = 'h'
   au BufEnter *.cpp let b:fswitchlocs = 'include/,../include,../'
 augroup END
-autocmd Filetype gitcommit setlocal spell textwidth=72
+autocmd Filetype gitcommit setlocal textwidth=72
 
 "-----------------------------------------------------------------------------
 " clang_format
