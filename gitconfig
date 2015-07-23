@@ -44,6 +44,5 @@
 [log]
 	date = local
 [pager]
-	stash = false
 [difftool "gvimdiff"]
 	cmd = gvim -f -d -c \"wincmd l\" -c 'cd \"$GIT_PREFIX\"' \"$LOCAL\" \"$REMOTE\"

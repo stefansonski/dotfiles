@@ -52,4 +52,4 @@ fi
 
 export EDITOR=$(which vim)
 export PAGER=$(which less)
-export LESS="-R"
+export LESS="-FRX"
