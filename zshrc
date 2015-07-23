@@ -147,23 +147,17 @@ eval `dircolors ~/.dir_colors`
 #aliases
 alias g='gvim --remote-silent'
 alias ls='ls --color=auto'
-alias dir='dir --color=auto'
-alias vdir='vdir --color=auto'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias  vi=$(which vim)
-alias -- -='cd -'
-alias  ...='../..'
-alias  ....='../../..'
-alias  .....='../../../..'
-alias  ll='ls -lh'
-alias  sl='ls -lh'
-alias  la='ls -lah'
-alias -g X='| xargs'
-alias -g G='| egrep'
-alias sort-log='sort -n -k 1.7,1.10 -k 1.4,1.5 -k 1.1,1.2 -k2,2'
+alias vi=$(which vim)
+alias ...='../..'
+alias ....='../../..'
+alias .....='../../../..'
+alias ll='ls -lh'
+alias sl='ls -lh'
+alias la='ls -lah'
 
 show-colors() {
     for line in {0..17}; do
