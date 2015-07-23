@@ -37,6 +37,11 @@
 	templatedir = ~/.gittemplate
 [alias]
 	gtags = !.git/hooks/gtags
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
+	hist = log --pretty=short --graph --date=short
 [log]
 	date = local
 [pager]
