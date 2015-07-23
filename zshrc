@@ -60,6 +60,8 @@ bindkey "\e[H" beginning-of-line
 bindkey "\e[F" end-of-line
 # completion in the middle of a line
 bindkey '^i' expand-or-complete-prefix
+bindkey "^R" history-incremental-pattern-search-backward
+bindkey "^S" history-incremental-pattern-search-forward
 
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -79,7 +81,7 @@ _force_rehash() {
           return 1  # Because we didn't really complete anything
 }
 
-zstyle ':completion:*' completer _oldlist _expand _force_rehash _complete _approximate
+zstyle ':completion:*' completer _oldlist _expand _force_rehash _complete _approximate _expand_alias
 zstyle ':completion:*:approximate:'    max-errors 'reply=( $((($#PREFIX+$#SUFFIX)/3 )) numeric )' # allow one error for every three characters typed in approximate completer
 zstyle ':completion:*:complete:-command-::commands' ignored-patterns '*\~' # don't complete backup files as executables
 zstyle ':completion:*:correct:*'       insert-unambiguous true             # start menu completion only if it could find no unambiguous initial string
@@ -152,9 +154,9 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias vi=$(which vim)
-alias ...='../..'
-alias ....='../../..'
-alias .....='../../../..'
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
 alias ll='ls -lh'
 alias sl='ls -lh'
 alias la='ls -lah'
@@ -185,6 +187,9 @@ setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 ## ignore duplicate commands in history
 setopt HIST_IGNORE_ALL_DUPS
+
+## dirstack
+setopt AUTO_PUSHD
 
 ## show menu on completion
 setopt AUTOLIST AUTO_MENU
