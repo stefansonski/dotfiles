@@ -424,6 +424,9 @@ nmap <silent> <LEADER>oK :FSSplitAbove<CR>
 nmap <silent> <LEADER>oj :FSBelow<CR>
 nmap <silent> <LEADER>oJ :FSSplitBelow<CR>
 
+"-----------------------------------------------------------------------------
+" autocmds
+"-----------------------------------------------------------------------------
 augroup cppfiles
   au!
   au BufEnter *.h   let b:fswitchdst  = 'cpp'
@@ -431,6 +434,7 @@ augroup cppfiles
   au BufEnter *.cpp let b:fswitchdst  = 'h'
   au BufEnter *.cpp let b:fswitchlocs = 'include/,../include,../'
 augroup END
+autocmd Filetype gitcommit setlocal spell textwidth=72
 
 "-----------------------------------------------------------------------------
 " clang_format
