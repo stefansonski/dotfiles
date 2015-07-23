@@ -41,7 +41,6 @@
 	ci = commit
 	st = status
 	br = branch
-	hist = log --pretty=short --graph --date=short
 [log]
 	date = local
 [pager]
