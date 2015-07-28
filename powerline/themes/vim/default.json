@@ -21,11 +21,8 @@
                 "priority": 10
             },
             {
-                "function": "branch",
-                "exclude_modes": ["nc"],
-                "priority": 30,
-                "args": {
-                }
+                "function": "powerline_gitstatus.gitstatus",
+                "priority": 40
             },
             {
                 "function": "readonly_indicator",

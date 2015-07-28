@@ -2,10 +2,8 @@
     "segments": {
         "right": [
             {
-                "function": "powerline.segments.common.vcs.branch",
-                "priority": 20,
-                "args": {
-                }
+                "function": "powerline_gitstatus.gitstatus",
+                "priority": 40
             },
             {
                 "function": "powerline.segments.common.wthr.weather",
