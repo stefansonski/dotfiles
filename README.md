@@ -10,7 +10,11 @@ with the proper dotfile/dotfolder in your $HOME folder.
    ```
    git clone git@github.com:stefansonski/dotfiles.git ~/dotfiles
    ```
-2. Create soft-links to the files in the repository.
+1. Download and install powerline-gitstatus with pip.
+   ```sh
+   sudo pip install powerline-gitstatus
+   ```
+1. Create soft-links to the files in the repository.
 
    ```sh
    mkdir -p ~/.gnupg
@@ -32,15 +36,15 @@ with the proper dotfile/dotfolder in your $HOME folder.
    ln -s ~/dotfiles/zshenv ~/.zshenv
    ln -s ~/dotfiles/zshrc ~/.zshrc
    ```
-3. To use the vim configuration, install [Vundle]
+1. To use the vim configuration, install [Vundle]
    (https://github.com/gmarik/Vundle.vim) and run `vim :PluginInstall` to
    install the plugins.
-4. To see the complete guide of how to configure [YouCompleteMe]
+1. To see the complete guide of how to configure [YouCompleteMe]
    (https://github.com/Valloric/YouCompleteMe) see its README. The easiest way
    is to install clang (e.g. `apt-get install clang`) and run
    `cd ~/.vim/bundle/YouCompleteMe` and
    `./install.sh --clang-completer --system-libclang`. For this to work an
    appropriate clang version has to be available (Debian Jessie is working). If
    the build is failing, see the README of YouCompleteMe.
-5. To use powerline, install the powerline package on your system and adapt the
+1. To use powerline, install the powerline package on your system and adapt the
    last line in the `zshrc` to the path of the zsh powerline bindings.
