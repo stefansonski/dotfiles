@@ -1,3 +1,9 @@
 [submodule "tmux"]
 	path = tmux
 	url = git@github.com:gpakosz/.tmux.git
+[submodule "gnome-terminal/dircolors-solarized"]
+	path = gnome-terminal/dircolors-solarized
+	url = https://github.com/seebi/dircolors-solarized.git
+[submodule "gnome-terminal/gnome-terminal-colors-solarized"]
+	path = gnome-terminal/gnome-terminal-colors-solarized
+	url = https://github.com/Anthony25/gnome-terminal-colors-solarized.git

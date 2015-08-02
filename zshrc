@@ -224,5 +224,7 @@ autoload -U colors && colors
 
 setopt PROMPT_SUBST
 
+eval `dircolors ~/dotfiles/gnome-terminal/dircolors-solarized/dircolors.ansi-dark`
+
 powerline-daemon -q
 source /usr/share/powerline/bindings/zsh/powerline.zsh
