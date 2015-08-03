@@ -48,3 +48,8 @@ with the proper dotfile/dotfolder in your $HOME folder.
    the build is failing, see the README of YouCompleteMe.
 1. To use powerline, install the powerline package on your system and adapt the
    last line in the `zshrc` to the path of the zsh powerline bindings.
+1. To use the solarized colors in gnome-terminal, run `./install.sh` in the
+   submodule-folder _gnome-terminal/gnome-terminal-colors-solarized_.
+1. For dircolors with solarized colors, nothing needs to be done, if the cloned
+   directory is named dotfiles and is placed in `$HOME` otherwise the
+   corresponding line in `zshrc` needs to be adapted.
