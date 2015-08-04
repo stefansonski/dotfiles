@@ -21,6 +21,7 @@ with the proper dotfile/dotfolder in your $HOME folder.
    mkdir -p ~/.config
    mkdir -p ~/.vim/spell
    ln -s ~/dotfiles/bin $/bin
+   ln -s ~/dotfiles/dircolors ~/.dircolors
    ln -s ~/dotfiles/gdbinit ~/.gdbinit
    ln -s ~/dotfiles/gitconfig ~/.gitconfig
    ln -s ~/dotfiles/gitignore ~/.gitignore
@@ -50,6 +51,6 @@ with the proper dotfile/dotfolder in your $HOME folder.
    last line in the `zshrc` to the path of the zsh powerline bindings.
 1. To use the solarized colors in gnome-terminal, run `./install.sh` in the
    submodule-folder _gnome-terminal/gnome-terminal-colors-solarized_.
-1. For dircolors with solarized colors, nothing needs to be done, if the cloned
-   directory is named dotfiles and is placed in `$HOME` otherwise the
-   corresponding line in `zshrc` needs to be adapted.
+1. For dircolors with other solarized color schemes than solarized-dark, use one
+   of [dircolors-colarized](https://github.com/seebi/dircolors-solarized)
+   dircolors and exchange it with dircolors.

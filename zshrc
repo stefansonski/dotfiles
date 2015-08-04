@@ -224,7 +224,11 @@ autoload -U colors && colors
 
 setopt PROMPT_SUBST
 
-eval `dircolors ~/dotfiles/gnome-terminal/dircolors-solarized/dircolors.ansi-dark`
+if [[ -f ~/.dir_colors ]] ; then
+    eval $(dircolors -b ~/.dir_colors)
+elif [[ -f /etc/DIR_COLORS ]] ; then
+    eval $(dircolors -b /etc/DIR_COLORS)
+fi
 
 powerline-daemon -q
 source /usr/share/powerline/bindings/zsh/powerline.zsh
