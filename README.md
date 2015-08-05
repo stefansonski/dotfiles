@@ -3,17 +3,20 @@ This is my personal configuration collection of for me important tools.
 
 ## Installation
 To install the configuration, just link the dotfile/dotfolder associated file
-with the proper dotfile/dotfolder in your $HOME folder.
+with the proper dotfile/dotfolder in your `$HOME` folder.
 
-1. Clone the repository into your $HOME directory.
+1. Clone the repository into your `$HOME` directory.
 
    ```
    git clone git@github.com:stefansonski/dotfiles.git ~/dotfiles
    ```
+
 1. Download and install powerline-gitstatus with pip.
+
    ```sh
    sudo pip install powerline-gitstatus
    ```
+
 1. Create soft-links to the files in the repository.
 
    ```sh
@@ -37,20 +40,46 @@ with the proper dotfile/dotfolder in your $HOME folder.
    ln -s ~/dotfiles/zshenv ~/.zshenv
    ln -s ~/dotfiles/zshrc ~/.zshrc
    ```
+
 1. To use the vim configuration, install [Vundle]
-   (https://github.com/gmarik/Vundle.vim) and run `vim :PluginInstall` to
-   install the plugins.
+   (https://github.com/gmarik/Vundle.vim) and run the following command in vim.
+
+   ```vim
+   :PluginInstall
+   ```
+
 1. To see the complete guide of how to configure [YouCompleteMe]
    (https://github.com/Valloric/YouCompleteMe) see its README. The easiest way
-   is to install clang (e.g. `apt-get install clang`) and run
-   `cd ~/.vim/bundle/YouCompleteMe` and
-   `./install.sh --clang-completer --system-libclang`. For this to work an
-   appropriate clang version has to be available (Debian Jessie is working). If
-   the build is failing, see the README of YouCompleteMe.
+   is to install clang and build YouCompleteMe.
+
+   ```sh
+   apt-get install clang
+   cd ~/.vim/bundle/YouCompleteMe
+   ./install.sh --clang-completer --system-libclang
+   ```
+
+   For this to work an appropriate clang version has to be available (Debian
+   Jessie is working). If the build is failing, see the README of
+   YouCompleteMe.
+
+1. To use vim-preview (a shortcut to parse and preview markdown in a browser)
+   you need to install redcarpet (a ruby markdown parser. For this to work you
+   need the Debian packages ruby and ruby-dev.
+
+   ```sh
+   sudo apt install ruby ruby-dev
+   sudo gem install redcarpet
+   ```
+
+   To change the browser to your favorite one, change the variable
+   `g:PreviewBrowsers` accordingly.
+
 1. To use powerline, install the powerline package on your system and adapt the
    last line in the `zshrc` to the path of the zsh powerline bindings.
+
 1. To use the solarized colors in gnome-terminal, run `./install.sh` in the
    submodule-folder _gnome-terminal/gnome-terminal-colors-solarized_.
+
 1. For dircolors with other solarized color schemes than solarized-dark, use one
-   of [dircolors-colarized](https://github.com/seebi/dircolors-solarized)
+   of [dircolors-solarized](https://github.com/seebi/dircolors-solarized)
    dircolors and exchange it with dircolors.
