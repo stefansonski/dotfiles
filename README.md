@@ -62,18 +62,6 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
    Jessie is working). If the build is failing, see the README of
    YouCompleteMe.
 
-1. To use vim-preview (a shortcut to parse and preview markdown in a browser)
-   you need to install redcarpet (a ruby markdown parser. For this to work you
-   need the Debian packages ruby and ruby-dev.
-
-   ```sh
-   sudo apt install ruby ruby-dev
-   sudo gem install redcarpet
-   ```
-
-   To change the browser to your favorite one, change the variable
-   `g:PreviewBrowsers` accordingly.
-
 1. To use powerline, install the powerline package on your system and adapt the
    last line in the `zshrc` to the path of the zsh powerline bindings.
 
