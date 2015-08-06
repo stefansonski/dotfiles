@@ -27,8 +27,6 @@
 [branch]
 	autosetupmerge = true
 	pager = less -r
-[diff "sqlite3"]
-	textconv = sqlite3-dump
 [mergetool]
 	keepBackup = false
 	prompt = false
