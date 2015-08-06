@@ -52,13 +52,6 @@ set rtp+=/usr/share/vim/addons
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-if $GIT_DIR != ""
-  let dirs = split(&rtp, ',')
-  let cleaned = filter(dirs, 'v:val !~ "vim-indexer"')
-  let &rtp = join(cleaned, ',')
-  unlet dirs cleaned
-endif
-
 " Set filetype stuff to on
 filetype on
 filetype plugin on
@@ -419,3 +412,19 @@ let g:clang_format#detect_style_file = 1
 " gtags
 "-----------------------------------------------------------------------------
 set cscopeprg=gtags-cscope
+if has('cscope')
+  set cscopetag cscopeverbose
+  if has('quickfix')
+    set cscopequickfix=s-,c-,d-,i-,t-,e-
+  endif
+
+  cnoreabbrev csa cs add
+  cnoreabbrev csf cs find
+  cnoreabbrev csk cs kill
+  cnoreabbrev csr cs reset
+  cnoreabbrev css cs show
+  cnoreabbrev csh cs help
+
+  command! -nargs=0 Cscope cs add GTAGS
+  map <C-\> :cs find 0 <C-R>=expand("<cword>")<CR><CR>
+endif
