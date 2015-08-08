@@ -81,3 +81,9 @@ dircolors
 redcarpet
 dev
 sqlite3
+config
+CEOLINK
+ptr
+AddOns
+EOLink
+HTTPGate
