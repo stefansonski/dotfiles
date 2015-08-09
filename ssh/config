@@ -36,6 +36,10 @@ Host eval
 HostName 192.168.2.133
 User root
 
+Host tablet
+HostName 192.168.100.150
+User root
+
 Host firewall
 HostName firewall
 User loginuser
