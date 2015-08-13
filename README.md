@@ -20,8 +20,9 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
 1. Create soft-links to the files in the repository.
 
    ```sh
-   mkdir -p ~/.gnupg
    mkdir -p ~/.config
+   mkdir -p ~/.cache/ssh/mux
+   mkdir -p ~/.gnupg
    mkdir -p ~/.vim/spell
    ln -s ~/dotfiles/bin $/bin
    ln -s ~/dotfiles/dircolors ~/.dircolors

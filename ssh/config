@@ -1,4 +1,8 @@
+Host *
 ServerAliveInterval 100
+ControlMaster auto
+ControlPath ~/.cache/ssh/mux/%r@%h:%p
+ControlPersist 1h
 
 Host gbquad
 HostName sonski.linuxd.org
