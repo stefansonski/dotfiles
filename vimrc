@@ -19,7 +19,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'vim-scripts/UltiSnips'
-Plugin 'kien/ctrlp.vim'
 Plugin 'sjl/gundo.vim'
 Plugin 'elzr/vim-json'
 Plugin 'Valloric/YouCompleteMe'
@@ -34,6 +33,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'kana/vim-operator-user'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'bruno-/vim-man.git'
+Plugin 'wincent/command-t'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -317,29 +317,17 @@ let g:main_font = "Droid\\ Sans\\ Mono\\ for\\ Powerline\\ 8"
 let g:small_font = "Droid\\ Sans\\ Mono\\ for\\ Powerline\\ 4"
 
 "-----------------------------------------------------------------------------
-" CtrlP Settings
+" command-t Settings
 "-----------------------------------------------------------------------------
-let g:ctrlp_switch_buffer = 'E'
-let g:ctrlp_tabpage_position = 'c'
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_root_markers = ['.git']
-let g:ctrlp_open_new_file = 'r'
-let g:ctrlp_open_multiple_files = '1ri'
-let g:ctrlp_match_window = 'max:40'
+let g:CommandTMatchWindowReverse = 1
 
-nmap <LEADER>fb :CtrlPBuffer<cr>
-nmap <LEADER>ff :CtrlP .<cr>
-nmap <LEADER>fF :execute ":CtrlP " . expand('%:p:h')<cr>
-nmap <LEADER>fr :CtrlP<cr>
-nmap <LEADER>fm :CtrlPMixed<cr>
+noremap <LEADER>b :CommandTBuffer<cr>
+noremap <LEADER>f :CommandT .<cr>
 
 "-----------------------------------------------------------------------------
 " Gundo Settings
 "-----------------------------------------------------------------------------
 nmap <c-F5> :GundoToggle<cr>
-
-vnoremap <silent> <C-S-y> "+y
-vnoremap <silent> <C-S-p> "+p
 
 "-----------------------------------------------------------------------------
 " Set up the window colors and size
@@ -407,6 +395,11 @@ autocmd Filetype gitcommit setlocal textwidth=72
 "-----------------------------------------------------------------------------
 let g:clang_format#command = "clang-format-3.7"
 let g:clang_format#detect_style_file = 1
+
+"-----------------------------------------------------------------------------
+" vim-json
+"-----------------------------------------------------------------------------
+let g:vim_json_syntax_conceal = 0
 
 "-----------------------------------------------------------------------------
 " gtags

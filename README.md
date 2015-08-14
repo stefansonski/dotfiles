@@ -72,3 +72,11 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
 1. For dircolors with other solarized color schemes than solarized-dark, use one
    of [dircolors-solarized](https://github.com/seebi/dircolors-solarized)
    dircolors and exchange it with dircolors.
+
+1. To install `command-t` in vim call the following commands.
+
+   ```sh
+   cd ~/.vim/bundle/command-t/ruby/command-t
+   ruby extconf.rb
+   make
+   ```
