@@ -60,8 +60,18 @@ bindkey "\e[H" beginning-of-line
 bindkey "\e[F" end-of-line
 # completion in the middle of a line
 bindkey '^i' expand-or-complete-prefix
+
+# search history with pattern
 bindkey "^R" history-incremental-pattern-search-backward
 bindkey "^S" history-incremental-pattern-search-forward
+
+# search in history with arrow keys
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "${key[Up]}" up-line-or-beginning-search # Up
+bindkey "${key[Down]}" down-line-or-beginning-search # Do
 
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
