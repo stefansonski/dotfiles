@@ -23,6 +23,7 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
    mkdir -p ~/.config
    mkdir -p ~/.cache/ssh/mux
    mkdir -p ~/.gnupg
+   mkdir -p ~/.vim/bundle
    mkdir -p ~/.vim/spell
    ln -s ~/dotfiles/bin $/bin
    ln -s ~/dotfiles/dircolors ~/.dircolors
@@ -40,28 +41,25 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
    ln -s ~/dotfiles/ycm_global_extra_conf.py ~/.vim/
    ln -s ~/dotfiles/zshenv ~/.zshenv
    ln -s ~/dotfiles/zshrc ~/.zshrc
+   git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
    ```
 
-1. To use the vim configuration, install [Vundle]
-   (https://github.com/gmarik/Vundle.vim) and run the following command in vim.
+1. To use the vim configuration, install [NeoBundle]
+   (https://github.com/Shougo/neobundle.vim) and run the following command in
+   vim.
 
    ```vim
-   :PluginInstall
+   :NeoBundleInstall
    ```
 
-1. To see the complete guide of how to configure [YouCompleteMe]
-   (https://github.com/Valloric/YouCompleteMe) see its README. The easiest way
-   is to install clang and build YouCompleteMe.
+  1. The installation process can take some time, especially because of the
+     build process of YouCompleteMe, which is run on every `:NeoBundleInstall`
+     and `:NeoBundleUpdate` and no output is generated.
 
-   ```sh
-   apt-get install clang
-   cd ~/.vim/bundle/YouCompleteMe
-   ./install.sh --clang-completer --system-libclang
-   ```
-
-   For this to work an appropriate clang version has to be available (Debian
-   Jessie is working). If the build is failing, see the README of
-   YouCompleteMe.
+  1. For YouCompleteMe to work with C/C++ support an appropriate clang version
+     has to be available (Debian Jessie is working). If the build is failing,
+     see the README of [YouCompleteMe]
+     (https://github.com/Valloric/YouCompleteMe).
 
 1. To use powerline, install the powerline package on your system and adapt the
    last line in the `zshrc` to the path of the zsh powerline bindings.
@@ -72,11 +70,3 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
 1. For dircolors with other solarized color schemes than solarized-dark, use one
    of [dircolors-solarized](https://github.com/seebi/dircolors-solarized)
    dircolors and exchange it with dircolors.
-
-1. To install `command-t` in vim call the following commands.
-
-   ```sh
-   cd ~/.vim/bundle/command-t/ruby/command-t
-   ruby extconf.rb
-   make
-   ```

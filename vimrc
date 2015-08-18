@@ -1,5 +1,5 @@
 "
-" Derek Wyatt's Vim Configuration
+" Stefan Sonski's Vim Configuration
 "
 " It's got stuff in it.
 "
@@ -7,50 +7,69 @@
 "-----------------------------------------------------------------------------
 " Global Stuff
 "-----------------------------------------------------------------------------
+if 0 | endif
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
+if has('vim_starting')
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+  " Required:
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
 
-Plugin 'vim-scripts/UltiSnips'
-Plugin 'sjl/gundo.vim'
-Plugin 'elzr/vim-json'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'stefansonski/vim-snippets'
-Plugin 'tpope/vim-fugitive'
-Plugin 'wikitopian/hardmode'
-Plugin 'derekwyatt/vim-fswitch'
-Plugin 'derekwyatt/vim-protodef'
-Plugin 'aklt/plantuml-syntax'
-Plugin 'majutsushi/tagbar'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'kana/vim-operator-user'
-Plugin 'rhysd/vim-clang-format'
-Plugin 'bruno-/vim-man.git'
-Plugin 'wincent/command-t'
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-set rtp+=/usr/share/vim/addons
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just
-" :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+" My Bundles here:
+" Refer to |:NeoBundle-examples|.
+" Note: You don't set neobundle setting in .gvimrc!
+NeoBundle '/usr/share/vim/addons/'
+
+NeoBundle 'vim-scripts/UltiSnips'
+NeoBundle 'sjl/gundo.vim'
+NeoBundle 'elzr/vim-json'
+NeoBundle 'Valloric/YouCompleteMe', {
+    \ 'build' : {
+    \     'mac' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
+    \     'unix' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
+    \     'windows' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
+    \     'cygwin' : './install.sh --clang-completer --system-libclang --omnisharp-completer'
+    \    }
+    \ }
+NeoBundle 'stefansonski/vim-snippets'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'wikitopian/hardmode'
+NeoBundle 'derekwyatt/vim-fswitch'
+NeoBundle 'derekwyatt/vim-protodef'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'flazz/vim-colorschemes'
+NeoBundle 'kana/vim-operator-user'
+NeoBundle 'rhysd/vim-clang-format'
+NeoBundle 'bruno-/vim-man.git'
+NeoBundle 'wincent/command-t', {
+    \ 'build' : {
+    \     'unix' : 'cd ./ruby/command-t && ruby extconf.rb && make',
+    \     'mac' : 'cd ./ruby/command-t && ruby extconf.rb && gmake'
+    \    }
+    \ }
+
+call neobundle#end()
+
+" Fix issues for YouCompleteMe installation because of a timeout, it just takes
+" really long to fetch all submodules and build it
+let g:neobundle#install_process_timeout = 1500
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
 
 " Set filetype stuff to on
 filetype on
