@@ -52,11 +52,13 @@ NeoBundle 'kana/vim-operator-user'
 NeoBundle 'rhysd/vim-clang-format'
 NeoBundle 'bruno-/vim-man.git'
 NeoBundle 'wincent/command-t', {
-    \ 'build' : {
-    \     'unix' : 'cd ./ruby/command-t && ruby extconf.rb && make',
-    \     'mac' : 'cd ./ruby/command-t && ruby extconf.rb && gmake'
-    \    }
-    \ }
+      \ 'build' : {
+      \     'unix' : 'cd ./ruby/command-t && ruby extconf.rb && make',
+      \     'mac' : 'cd ./ruby/command-t && ruby extconf.rb && gmake'
+      \    }
+      \ }
+NeoBundle 'Raimondi/delimitMate'
+NeoBundle 'Yggdroot/indentLine'
 
 call neobundle#end()
 
@@ -224,10 +226,10 @@ set wildignore+=*.o,*.class,*.git,*.svn,*/CMakeFiles/*,*/sources/*,*/installatio
 
 " Create backup, swap and undo directory if it does not exist
 if !isdirectory($HOME . "/.vim/swp")
-    call mkdir($HOME . "/.vim/swp", "p")
+  call mkdir($HOME . "/.vim/swp", "p")
 endif
 if !isdirectory($HOME . "/.vim/undo")
-    call mkdir($HOME . "/.vim/undo", "p")
+  call mkdir($HOME . "/.vim/undo", "p")
 endif
 
 " Set backup, swap and undo directories.
@@ -440,3 +442,22 @@ if has('cscope')
   command! -nargs=0 Cscope cs add GTAGS
   map <C-\> :cs find 0 <C-R>=expand("<cword>")<CR><CR>
 endif
+
+"-----------------------------------------------------------------------------
+" indentLine
+"-----------------------------------------------------------------------------
+let g:indentLine_char = '┆'
+let g:indentLine_leadingSpaceChar = '·'
+"let g:indentLine_leadingSpaceEnabled = 1
+
+"-----------------------------------------------------------------------------
+" delimitMate
+"-----------------------------------------------------------------------------
+let delimitMate_expand_cr = 1
+
+"-----------------------------------------------------------------------------
+" FileType specific indent
+"-----------------------------------------------------------------------------
+autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
