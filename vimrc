@@ -34,13 +34,13 @@ NeoBundle 'vim-scripts/UltiSnips'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'Valloric/YouCompleteMe', {
-    \ 'build' : {
-    \     'mac' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
-    \     'unix' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
-    \     'windows' : './install.sh --clang-completer --system-libclang --omnisharp-completer',
-    \     'cygwin' : './install.sh --clang-completer --system-libclang --omnisharp-completer'
-    \    }
-    \ }
+      \ 'build' : {
+      \     'mac' : './install.sh --clang-completer --system-libclang',
+      \     'unix' : './install.sh --clang-completer --system-libclang',
+      \     'windows' : './install.sh --clang-completer --system-libclang',
+      \     'cygwin' : './install.sh --clang-completer --system-libclang'
+      \    }
+      \ }
 NeoBundle 'stefansonski/vim-snippets'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'wikitopian/hardmode'
