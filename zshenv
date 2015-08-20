@@ -53,4 +53,4 @@ fi
 export EDITOR=$(which vim)
 export PAGER=$(which less)
 export LESS="-FRX"
-export GTAGSLABEL="ctags"
+export GTAGSLABEL="default"
