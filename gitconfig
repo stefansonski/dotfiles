@@ -42,6 +42,5 @@
 	br = branch
 [log]
 	date = local
-[pager]
 [difftool "gvimdiff"]
 	cmd = gvim -f -d -c \"wincmd l\" -c 'cd \"$GIT_PREFIX\"' \"$LOCAL\" \"$REMOTE\"

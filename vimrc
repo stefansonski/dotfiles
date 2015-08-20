@@ -425,6 +425,13 @@ let g:vim_json_syntax_conceal = 0
 "-----------------------------------------------------------------------------
 " gtags
 "-----------------------------------------------------------------------------
+function! UpdateGtagsFile()
+  if (expand('%:p') =~ getcwd() && (filereadable("GPATH") || filereadable("GRTAGS") || filereadable("GTAGS")))
+    silent ":!gtags --single-update " . expand('%:p')
+  endif
+endfunction
+autocmd BufWritePost * :call UpdateGtagsFile()
+
 set cscopeprg=gtags-cscope
 if has('cscope')
   set cscopetag cscopeverbose
@@ -440,7 +447,7 @@ if has('cscope')
   cnoreabbrev csh cs help
 
   command! -nargs=0 Cscope cs add GTAGS
-  map <C-\> :cs find 0 <C-R>=expand("<cword>")<CR><CR>
+  map <C-\> :cs find c <C-R>=expand("<cword>")<CR><CR>
 endif
 
 "-----------------------------------------------------------------------------

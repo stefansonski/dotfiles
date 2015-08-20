@@ -26,12 +26,14 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
    mkdir -p ~/.vim/bundle
    mkdir -p ~/.vim/spell
    ln -s ~/dotfiles/bin $/bin
+   ln -s ~/dotfiles/ctags ~/.ctags
    ln -s ~/dotfiles/dircolors ~/.dircolors
    ln -s ~/dotfiles/gdbinit ~/.gdbinit
    ln -s ~/dotfiles/gitconfig ~/.gitconfig
    ln -s ~/dotfiles/gitignore ~/.gitignore
    ln -s ~/dotfiles/gittemplate ~/.gittemplate
    ln -s ~/dotfiles/gpg.conf ~/.gnupg/gpg.conf
+   ln -s ~/dotfiles/gtagsrc ~/.gtagsrc
    ln -s ~/dotfiles/powerline ~/.config/powerline
    ln -s ~/dotfiles/ssh/ ~/.ssh
    ln -s ~/dotfiles/tmux.conf ~/.tmux.conf

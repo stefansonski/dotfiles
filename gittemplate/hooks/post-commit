@@ -1,2 +1,4 @@
 #!/bin/sh
-.git/hooks/gtags >/dev/null 2>&1 &
+printf "Updating GTAGS..."
+.git/hooks/gtags >/dev/null 2>&1
+printf "done\n"
