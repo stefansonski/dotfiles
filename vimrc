@@ -410,6 +410,9 @@ augroup cppfiles
   au BufEnter *.cpp let b:fswitchlocs = 'include/,../include,../'
 augroup END
 autocmd Filetype gitcommit setlocal textwidth=72
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 "-----------------------------------------------------------------------------
 " clang_format
@@ -454,17 +457,8 @@ endif
 " indentLine
 "-----------------------------------------------------------------------------
 let g:indentLine_char = '┆'
-let g:indentLine_leadingSpaceChar = '·'
-"let g:indentLine_leadingSpaceEnabled = 1
 
 "-----------------------------------------------------------------------------
 " delimitMate
 "-----------------------------------------------------------------------------
 let delimitMate_expand_cr = 1
-
-"-----------------------------------------------------------------------------
-" FileType specific indent
-"-----------------------------------------------------------------------------
-autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2

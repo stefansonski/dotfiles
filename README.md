@@ -63,6 +63,10 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
      see the README of [YouCompleteMe]
      (https://github.com/Valloric/YouCompleteMe).
 
+  1. To use vim-clang-format in vim, install a clang-format package with version
+     3.4 or greater. Adapt the line `g:clang_format#command` to your
+     clang-format binary.
+
 1. To use powerline, install the powerline package on your system and adapt the
    last line in the `zshrc` to the path of the zsh powerline bindings.
 
