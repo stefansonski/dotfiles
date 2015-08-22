@@ -24,6 +24,10 @@ Port 60122
 AddressFamily inet
 User root
 
+Host pi
+HostName 192.168.1.19
+User pi
+
 Host sts01
 HostName 192.168.2.50
 User root
@@ -40,7 +44,7 @@ Host eval
 HostName 192.168.2.133
 User root
 
-Host tablet
+Host touch
 HostName 192.168.100.150
 User root
 
