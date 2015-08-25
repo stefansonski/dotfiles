@@ -36,7 +36,7 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
    ln -s ~/dotfiles/gtagsrc ~/.gtagsrc
    ln -s ~/dotfiles/powerline ~/.config/powerline
    ln -s ~/dotfiles/ssh/ ~/.ssh
-   ln -s ~/dotfiles/tmux.conf ~/.tmux.conf
+   ln -s ~/dotfiles/contrib/tmux.conf ~/.tmux.conf
    ln -s ~/dotfiles/tmux.conf.locale ~/.tmux.conf.local
    ln -s ~/dotfiles/vimrc ~/.vimrc
    ln -s ~/dotfiles/vimspell-en.utf-8.add ~/.vim/spell/en.utf-8.add
@@ -71,7 +71,7 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
    last line in the `zshrc` to the path of the zsh powerline bindings.
 
 1. To use the solarized colors in gnome-terminal, run `./install.sh` in the
-   submodule-folder _gnome-terminal/gnome-terminal-colors-solarized_.
+   submodule-folder _contrib/gnome-terminal-colors-solarized_.
 
 1. For dircolors with other solarized color schemes than solarized-dark, use one
    of [dircolors-solarized](https://github.com/seebi/dircolors-solarized)
