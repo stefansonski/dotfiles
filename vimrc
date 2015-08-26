@@ -364,7 +364,6 @@ endif
 "-----------------------------------------------------------------------------
 " Set up YouCompleteMe
 "-----------------------------------------------------------------------------
-let g:ycm_global_ycm_extra_conf = '$HOME/.vim/ycm_global_extra_conf'
 let g:ycm_extra_conf_globlist = ['~/*']
 "Use tags files
 let g:ycm_collect_identifiers_from_tags_files = 1
