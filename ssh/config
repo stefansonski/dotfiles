@@ -44,6 +44,10 @@ Host eval
 HostName 192.168.2.133
 User root
 
+Host ak04
+HostName 192.168.100.127
+User root
+
 Host touch
 HostName 192.168.100.150
 User root
