@@ -416,7 +416,7 @@ autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
 "-----------------------------------------------------------------------------
 " clang_format
 "-----------------------------------------------------------------------------
-let g:clang_format#command = "clang-format-3.7"
+let g:clang_format#command = "clang-format-3.8"
 let g:clang_format#detect_style_file = 1
 
 "-----------------------------------------------------------------------------
