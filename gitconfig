@@ -9,10 +9,10 @@
 [svn]
 	pushmergeinfo = true
 [diff]
-	tool = gvimdiff
+	tool = vimdiff
 	mnemonicprefix = true
 [merge]
-	tool = gvimdiff
+	tool = vimdiff
 	stat = true
 	conflictstyle = diff3
 [color]
@@ -23,7 +23,7 @@
 	whitespace = trailing-space,space-before-tab
 	autocrlf = input
 	excludesfile = ~/.gitignore
-	editor = gvim -f
+	editor = vim -f
 [branch]
 	autosetupmerge = true
 	pager = less -r
@@ -42,5 +42,3 @@
 	br = branch
 [log]
 	date = local
-[difftool "gvimdiff"]
-	cmd = gvim -f -d -c \"wincmd l\" -c 'cd \"$GIT_PREFIX\"' \"$LOCAL\" \"$REMOTE\"

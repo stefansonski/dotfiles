@@ -36,10 +36,6 @@ Host sts02
 HostName 192.168.2.51
 User root
 
-Host sts03
-HostName 192.168.2.52
-User root
-
 Host eval
 HostName 192.168.2.133
 User root

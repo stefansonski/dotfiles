@@ -353,13 +353,12 @@ nmap <c-F5> :GundoToggle<cr>
 "-----------------------------------------------------------------------------
 " Set up the window colors and size
 "-----------------------------------------------------------------------------
+colorscheme solarized
+set background=dark
 if has("gui_running")
   exe "set guifont=" . g:main_font
   set lines=999 columns=999
-  colorscheme solarized
-  set background=dark
 endif
-:nohls
 
 "-----------------------------------------------------------------------------
 " Set up YouCompleteMe
@@ -461,3 +460,8 @@ let g:indentLine_char = '┆'
 " delimitMate
 "-----------------------------------------------------------------------------
 let delimitMate_expand_cr = 1
+
+"-----------------------------------------------------------------------------
+" solarized
+"-----------------------------------------------------------------------------
+let g:solarized_diffmode="high"
