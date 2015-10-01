@@ -42,3 +42,7 @@
 	br = branch
 [log]
 	date = local
+[difftool "vimdiff"]
+	cmd = vim -R -f -d -c \"wincmd l\" -c 'cd \"$GIT_PREFIX\"' \"$LOCAL\" \"$REMOTE\" -c \"set noro\"
+[mergetool "vimdiff"]
+	cmd = vim -R -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\" -c \"set noro\"
