@@ -4,28 +4,21 @@ ControlMaster auto
 ControlPath ~/.cache/ssh/mux/%r@%h:%p
 ControlPersist 1h
 
-Host gbquad
-HostName sonski.linuxd.org
-Port 60022
-AddressFamily inet
+Host gbquad.asus
+HostName gbquad.asus
 User root
-DynamicForward 60081
 
-Host sonski-desktop
-HostName sonski.linuxd.org
-AddressFamily inet
+Host sonski-desktop.asus
+HostName sonski-desktop.asus
 User stefan
-DynamicForward 60082
 ForwardX11 yes
 
-Host home-base
-HostName sonski.linuxd.org
-Port 60122
-AddressFamily inet
+Host alphabase.asus
+HostName alphabase.asus
 User root
 
-Host pi
-HostName 192.168.1.19
+Host raspberrypi
+HostName raspberrypi.asus
 User pi
 
 Host sts01
@@ -38,10 +31,6 @@ User root
 
 Host eval
 HostName 192.168.2.133
-User root
-
-Host ak04
-HostName 192.168.100.127
 User root
 
 Host touch
@@ -57,7 +46,7 @@ HostName 192.168.100.247
 User sonski
 
 Host sonski-dev
-HostName 192.168.100.168
+HostName 192.168.100.150
 User stefan
 ForwardX11 yes
 
