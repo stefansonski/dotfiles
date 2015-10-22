@@ -4,21 +4,26 @@ ControlMaster auto
 ControlPath ~/.cache/ssh/mux/%r@%h:%p
 ControlPersist 1h
 
-Host gbquad.asus
-HostName gbquad.asus
-User root
+Host router.asus.com
+HostName router.asus.com
+User admin
+ForwardX11 yes
 
-Host sonski-desktop.asus
-HostName sonski-desktop.asus
+Host sonski-desktop
+HostName sonski-desktop.sonski.linuxd.org
 User stefan
 ForwardX11 yes
 
-Host alphabase.asus
-HostName alphabase.asus
+Host gbquad
+HostName gbquad.sonski.linuxd.org
 User root
 
-Host raspberrypi
-HostName raspberrypi.asus
+Host alphabase
+HostName alphabase.sonski.linuxd.org
+User root
+
+Host pi
+HostName pi.sonski.linuxd.org
 User pi
 
 Host sts01
