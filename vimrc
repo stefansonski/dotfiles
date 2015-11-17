@@ -124,7 +124,8 @@ set cpoptions=ces$
 set laststatus=2
 " Always display the tabline, even if there is only one tab
 " Deactivate it until powerline has a bug.
-set showtabline=2
+"set showtabline=2
+set showtabline=1
 " Hide the default mode text (e.g. -- INSERT -- below the status line)
 set noshowmode
 
