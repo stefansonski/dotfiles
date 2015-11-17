@@ -53,8 +53,8 @@ NeoBundle 'rhysd/vim-clang-format'
 NeoBundle 'bruno-/vim-man.git'
 NeoBundle 'wincent/command-t', {
       \ 'build' : {
-      \     'unix' : 'cd ./ruby/command-t && ruby extconf.rb && make',
-      \     'mac' : 'cd ./ruby/command-t && ruby extconf.rb && gmake'
+      \     'unix' : 'cd ./ruby/command-t && make clean && ruby extconf.rb && make',
+      \     'mac' : 'cd ./ruby/command-t && make clean && ruby extconf.rb && gmake'
       \    }
       \ }
 NeoBundle 'Raimondi/delimitMate'
@@ -124,7 +124,7 @@ set cpoptions=ces$
 set laststatus=2
 " Always display the tabline, even if there is only one tab
 " Deactivate it until powerline has a bug.
-set showtabline=1
+set showtabline=2
 " Hide the default mode text (e.g. -- INSERT -- below the status line)
 set noshowmode
 
@@ -334,8 +334,8 @@ set synmaxcol=2048
 " I don't like it when the matching parens are automatically highlighted
 let loaded_matchparen = 1
 
-let g:main_font = "Droid\\ Sans\\ Mono\\ for\\ Powerline\\ 8"
-let g:small_font = "Droid\\ Sans\\ Mono\\ for\\ Powerline\\ 4"
+let g:main_font = "Droid\\ Sans\\ Mono\\ Regular\\ 8"
+let g:small_font = "Droid\\ Sans\\ Mono\\ Regular\\ 4"
 
 "-----------------------------------------------------------------------------
 " command-t Settings
@@ -357,7 +357,6 @@ colorscheme solarized
 set background=dark
 if has("gui_running")
   exe "set guifont=" . g:main_font
-  set lines=999 columns=999
 endif
 
 "-----------------------------------------------------------------------------
