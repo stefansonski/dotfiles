@@ -197,7 +197,7 @@ set showfulltag
 set colorcolumn=120
 
 " get rid of the silly characters in separators
-set fillchars = ""
+set fillchars=""
 
 " Add ignorance of whitespace to diff
 set diffopt+=iwhite
@@ -335,8 +335,8 @@ set synmaxcol=2048
 " I don't like it when the matching parens are automatically highlighted
 let loaded_matchparen = 1
 
-let g:main_font = "Droid\\ Sans\\ Mono\\ Regular\\ 8"
-let g:small_font = "Droid\\ Sans\\ Mono\\ Regular\\ 4"
+let g:main_font = "Hack\\ Regular\\ 8"
+let g:small_font = "Hack\\ Regular\\ 4"
 
 "-----------------------------------------------------------------------------
 " command-t Settings
