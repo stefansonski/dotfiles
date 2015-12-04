@@ -35,10 +35,10 @@ NeoBundle 'sjl/gundo.vim'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'Valloric/YouCompleteMe', {
       \ 'build' : {
-      \     'mac' : './install.sh --clang-completer --system-libclang',
-      \     'unix' : './install.sh --clang-completer --system-libclang',
-      \     'windows' : './install.sh --clang-completer --system-libclang',
-      \     'cygwin' : './install.sh --clang-completer --system-libclang'
+      \     'mac' : './install.py --clang-completer --system-libclang',
+      \     'unix' : './install.py --clang-completer --system-libclang',
+      \     'windows' : './install.py --clang-completer --system-libclang',
+      \     'cygwin' : './install.py --clang-completer --system-libclang'
       \    }
       \ }
 NeoBundle 'stefansonski/vim-snippets'
