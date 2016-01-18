@@ -316,12 +316,6 @@ noremap <silent> <C-F12> :vertical resize +10<CR>
 noremap <silent> <LEADER>wq :cclose<CR>
 noremap <silent> <LEADER>ww :copen<CR>
 
-"Make indent work in normal and visual mode and unindent in insert mode possible.
-nnoremap <Tab> >>_
-nnoremap <S-Tab> <<_
-vnoremap <Tab> >gv
-vnoremap <S-Tab> <gv
-
 "Format files.
 command! JSONFormat :%!python -m json.tool
 
@@ -369,6 +363,7 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 " Close preview after completion.
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_disable_for_files_larger_than_kb = 100
 nnoremap <C-G> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "-----------------------------------------------------------------------------
