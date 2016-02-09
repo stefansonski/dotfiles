@@ -35,15 +35,11 @@ NeoBundle 'sjl/gundo.vim'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'Valloric/YouCompleteMe', {
       \ 'build' : {
-      \     'mac' : './install.py --clang-completer --system-libclang',
-      \     'unix' : './install.py --clang-completer --system-libclang',
-      \     'windows' : './install.py --clang-completer --system-libclang',
-      \     'cygwin' : './install.py --clang-completer --system-libclang'
+      \     'unix' : './install.py --clang-completer --system-libclang --system-boost',
       \    }
       \ }
 NeoBundle 'stefansonski/vim-snippets'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'wikitopian/hardmode'
 NeoBundle 'derekwyatt/vim-fswitch'
 NeoBundle 'derekwyatt/vim-protodef'
 NeoBundle 'majutsushi/tagbar'
@@ -54,7 +50,6 @@ NeoBundle 'bruno-/vim-man.git'
 NeoBundle 'wincent/command-t', {
       \ 'build' : {
       \     'unix' : 'cd ./ruby/command-t && make clean && ruby extconf.rb && make',
-      \     'mac' : 'cd ./ruby/command-t && make clean && ruby extconf.rb && gmake'
       \    }
       \ }
 NeoBundle 'Raimondi/delimitMate'
@@ -66,17 +61,12 @@ call neobundle#end()
 " really long to fetch all submodules and build it
 let g:neobundle#install_process_timeout = 1500
 
-" Required:
+" Set filetype stuff to on
 filetype plugin indent on
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
-
-" Set filetype stuff to on
-filetype on
-filetype plugin on
-filetype indent on
 
 " Tab stops are 4 spaces
 set tabstop=4
@@ -357,14 +347,10 @@ endif
 "-----------------------------------------------------------------------------
 " Set up YouCompleteMe
 "-----------------------------------------------------------------------------
-let g:ycm_extra_conf_globlist = ['~/*']
 "Use tags files
 let g:ycm_collect_identifiers_from_tags_files = 1
 " Close preview after completion.
 let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_disable_for_files_larger_than_kb = 100
-nnoremap <C-G> :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 "-----------------------------------------------------------------------------
 " UltiSnip

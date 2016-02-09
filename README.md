@@ -59,9 +59,14 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
      and `:NeoBundleUpdate` and no output is generated.
 
   1. For YouCompleteMe to work with C/C++ support an appropriate clang version
-     has to be available (Debian Jessie is working). If the build is failing,
+     has to be available (Debian Jessie and Testing is working). If the build is failing,
      see the README of [YouCompleteMe]
      (https://github.com/Valloric/YouCompleteMe).
+     For debian use the following packages.
+
+     ```sh
+     sudo apt install llvm-dev libboost-dev libboost-python-dev libboost-filesystem-dev libboost-system-dev libboost-regex-dev libboost-thread-dev
+     ```
 
   1. To use vim-clang-format in vim, install a clang-format package with version
      3.4 or greater. Adapt the line `g:clang_format#command` to your
