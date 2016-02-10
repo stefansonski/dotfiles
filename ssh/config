@@ -55,7 +55,7 @@ HostName 192.168.100.247
 User sonski
 
 Host sonski-dev
-HostName 192.168.100.150
+HostName 192.168.100.153
 User stefan
 ForwardX11 yes
 

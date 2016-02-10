@@ -50,6 +50,11 @@ if [ -d "/opt/arm-toolchain/bin" ]; then
     export PATH="$PATH:/opt/arm-toolchain/bin"
 fi
 
+if [ -d "$HOME/go" ]; then
+    export GOPATH="$HOME/go"
+    export PATH="$PATH:$GOPATH/bin"
+fi
+
 export EDITOR=$(which vim)
 export PAGER=$(which less)
 export LESS="-FRX"
