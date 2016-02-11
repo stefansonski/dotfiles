@@ -68,10 +68,7 @@ filetype plugin indent on
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 
-" Tab stops are 4 spaces
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+" Set tab and indent options
 set expandtab
 set autoindent
 
@@ -183,8 +180,8 @@ set complete=.,w,b,t
 " When completing by tag, show the whole tag, not just the function name
 set showfulltag
 
-" Set the textwidth to be 80 chars
-set colorcolumn=120
+" Set the colorcolumn to textwidth +1
+set colorcolumn=+1
 
 " get rid of the silly characters in separators
 set fillchars=""
@@ -388,11 +385,13 @@ augroup cppfiles
   au BufEnter *.cpp let b:fswitchdst  = 'h'
   au BufEnter *.cpp let b:fswitchlocs = 'include/,../include,../'
 augroup END
-autocmd Filetype gitcommit setlocal textwidth=72
-autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType cmake setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd Filetype cpp setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=120
+autocmd FileType cmake setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=120
+autocmd Filetype gitcommit setlocal textwidth=72 shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
+autocmd FileType sh setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
+autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
+autocmd FileType markdown setlocal shiftwidth=3 tabstop=3 softtabstop=3 textwidth=80
 autocmd BufNewFile,BufRead CMakeLists.txt set filetype=cmake
 
 "-----------------------------------------------------------------------------
