@@ -33,17 +33,15 @@ NeoBundle '/usr/share/vim/addons/'
 NeoBundle 'vim-scripts/UltiSnips'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'elzr/vim-json'
-NeoBundle 'Valloric/YouCompleteMe', {
-      \ 'build' : {
-      \     'mac' : './install.py --clang-completer --system-libclang',
-      \     'unix' : './install.py --clang-completer --system-libclang',
-      \     'windows' : './install.py --clang-completer --system-libclang',
-      \     'cygwin' : './install.py --clang-completer --system-libclang'
-      \    }
-      \ }
+NeoBundle 'Valloric/YouCompleteMe',
+  \ {
+  \   'build' :
+  \   {
+  \     'unix' : './install.py --clang-completer --system-libclang --system-boost'
+  \   }
+  \ }
 NeoBundle 'stefansonski/vim-snippets'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'wikitopian/hardmode'
 NeoBundle 'derekwyatt/vim-fswitch'
 NeoBundle 'derekwyatt/vim-protodef'
 NeoBundle 'majutsushi/tagbar'
@@ -51,12 +49,13 @@ NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'rhysd/vim-clang-format'
 NeoBundle 'bruno-/vim-man.git'
-NeoBundle 'wincent/command-t', {
-      \ 'build' : {
-      \     'unix' : 'cd ./ruby/command-t && make clean && ruby extconf.rb && make',
-      \     'mac' : 'cd ./ruby/command-t && make clean && ruby extconf.rb && gmake'
-      \    }
-      \ }
+NeoBundle 'wincent/command-t',
+  \ {
+  \   'build' :
+  \   {
+  \     'unix' : 'cd ./ruby/command-t && make clean && ruby extconf.rb && make'
+  \   }
+  \ }
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'Yggdroot/indentLine'
 
@@ -66,22 +65,14 @@ call neobundle#end()
 " really long to fetch all submodules and build it
 let g:neobundle#install_process_timeout = 1500
 
-" Required:
+" Set filetype stuff to on
 filetype plugin indent on
 
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
 
-" Set filetype stuff to on
-filetype on
-filetype plugin on
-filetype indent on
-
-" Tab stops are 4 spaces
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+" Set tab and indent options
 set expandtab
 set autoindent
 
@@ -147,7 +138,8 @@ set mousehide
 set mouse=""
 
 " Set up the GUI cursor to look nice
-set guicursor=n-v-c:block-Cursor-blinkon0,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor,r-cr:hor20-Cursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
+set guicursor=n-v-c:block-Cursor-blinkon0,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor,r-cr:hor20-Cursor
+set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
 
 " set the GUI options the way I like
 set guioptions=acg
@@ -193,8 +185,8 @@ set complete=.,w,b,t
 " When completing by tag, show the whole tag, not just the function name
 set showfulltag
 
-" Set the textwidth to be 80 chars
-set colorcolumn=120
+" Set the colorcolumn to textwidth +1
+set colorcolumn=+1
 
 " get rid of the silly characters in separators
 set fillchars=""
@@ -223,7 +215,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 set relativenumber
 
 " Types of files to ignore when auto completing things
-set wildignore+=*.o,*.class,*.git,*.svn,*/CMakeFiles/*,*/sources/*,*/installation_files/*,*/rootfs/*,*/alphaEOS_BIN/*,*/Arduino/*,*/installation/*,*/binsources/*,*/build/*,*/Demos/*,*/Dokumentation/*,*/DotNet/*,GRTAGS,GPATH,GTAGS
+set wildignore+=*.o,*.class,*.git,*.svn,*/CMakeFiles/*,*/sources/*,*/installation_files/*,*/rootfs/*,*/alphaEOS_BIN/*
+set wildignore+=*/Arduino/*,*/installation/*,*/binsources/*,*/build/*,*/Demos/*,*/Dokumentation/*,*/DotNet/*,GRTAGS
+set wildignore+=GPATH,GTAGS
 
 " Create backup, swap and undo directory if it does not exist
 if !isdirectory($HOME . "/.vim/swp")
@@ -293,12 +287,6 @@ inoremap <S-C-Down> <NOP>
 inoremap <S-C-Left> <NOP>
 inoremap <S-C-Right> <NOP>
 
-" The following beast is something I didn't write... It will return the
-" syntax highlighting group that the current "thing" under the cursor
-" belongs to -- very useful for figuring out what to change as far as
-" syntax highlighting goes.
-nmap <silent> <LEADER>qq :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-
 " Make shift-insert work like in Xterm
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
@@ -315,12 +303,6 @@ noremap <silent> <C-F11> :resize -10<CR>
 noremap <silent> <C-F12> :vertical resize +10<CR>
 noremap <silent> <LEADER>wq :cclose<CR>
 noremap <silent> <LEADER>ww :copen<CR>
-
-"Make indent work in normal and visual mode and unindent in insert mode possible.
-nnoremap <Tab> >>_
-nnoremap <S-Tab> <<_
-vnoremap <Tab> >gv
-vnoremap <S-Tab> <gv
 
 "Format files.
 command! JSONFormat :%!python -m json.tool
@@ -363,13 +345,12 @@ endif
 "-----------------------------------------------------------------------------
 " Set up YouCompleteMe
 "-----------------------------------------------------------------------------
-let g:ycm_extra_conf_globlist = ['~/*']
 "Use tags files
 let g:ycm_collect_identifiers_from_tags_files = 1
 " Close preview after completion.
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
-nnoremap <C-G> :YcmCompleter GoToDefinitionElseDeclaration<CR>
+let g:ycm_confirm_extra_conf = 0
 
 "-----------------------------------------------------------------------------
 " UltiSnip
@@ -407,15 +388,18 @@ augroup cppfiles
   au BufEnter *.cpp let b:fswitchdst  = 'h'
   au BufEnter *.cpp let b:fswitchlocs = 'include/,../include,../'
 augroup END
-autocmd Filetype gitcommit setlocal textwidth=72
-autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd Filetype cpp setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=120
+autocmd FileType cmake setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=120
+autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=120
+autocmd Filetype gitcommit setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
+autocmd FileType sh setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
+autocmd FileType markdown setlocal shiftwidth=3 tabstop=3 softtabstop=3 textwidth=80
+autocmd BufNewFile,BufRead CMakeLists.txt set filetype=cmake
 
 "-----------------------------------------------------------------------------
 " clang_format
 "-----------------------------------------------------------------------------
-let g:clang_format#command = "clang-format-3.8"
 let g:clang_format#detect_style_file = 1
 
 "-----------------------------------------------------------------------------

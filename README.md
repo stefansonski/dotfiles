@@ -6,19 +6,16 @@ To install the configuration, just link the dotfile/dotfolder associated file
 with the proper dotfile/dotfolder in your `$HOME` folder.
 
 1. Clone the repository into your `$HOME` directory.
-
-   ```
+   ```sh
    git clone git@github.com:stefansonski/dotfiles.git ~/dotfiles
    ```
 
 1. Download and install powerline-gitstatus with pip.
-
    ```sh
    sudo pip install powerline-gitstatus
    ```
 
 1. Create soft-links to the files in the repository.
-
    ```sh
    mkdir -p ~/.config
    mkdir -p ~/.cache/ssh/mux
@@ -49,30 +46,36 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
 1. To use the vim configuration, install [NeoBundle]
    (https://github.com/Shougo/neobundle.vim) and run the following command in
    vim.
-
    ```vim
    :NeoBundleInstall
    ```
 
-  1. The installation process can take some time, especially because of the
-     build process of YouCompleteMe, which is run on every `:NeoBundleInstall`
-     and `:NeoBundleUpdate` and no output is generated.
+   1. The installation process can take some time, especially because of the
+      build process of YouCompleteMe, which is run on every `:NeoBundleInstall`
+      and `:NeoBundleUpdate` and no output is generated.
 
-  1. For YouCompleteMe to work with C/C++ support an appropriate clang version
-     has to be available (Debian Jessie is working). If the build is failing,
-     see the README of [YouCompleteMe]
-     (https://github.com/Valloric/YouCompleteMe).
+   1. For YouCompleteMe to work with C/C++ support an appropriate clang version
+      and boost dev-packages have to be available (Debian Jessie and Testing is
+      working). If the build is failing, see the README of
+      [YouCompleteMe](https://github.com/Valloric/YouCompleteMe).
+      For debian use the following packages.
 
-  1. To use vim-clang-format in vim, install a clang-format package with version
-     3.4 or greater. Adapt the line `g:clang_format#command` to your
-     clang-format binary.
+      ```sh
+      sudo apt install llvm-dev libboost-dev libboost-python-dev \
+      libboost-filesystem-dev libboost-system-dev libboost-regex-dev \
+      libboost-thread-dev
+      ```
 
-1. To use powerline, install the powerline package on your system and adapt the
-   last line in the `zshrc` to the path of the zsh powerline bindings.
+   1. To use vim-clang-format in vim, install a clang-format package with
+      version 3.4 or greater. On Debian install package `clang-format` which
+      downloads the current default version.
+
+1. To use powerline, install the powerline package on your system and adapt
+   the last line in the `zshrc` to the path of the zsh powerline bindings.
 
 1. To use the solarized colors in gnome-terminal, run `./install.sh` in the
    submodule-folder _contrib/gnome-terminal-colors-solarized_.
 
-1. For dircolors with other solarized color schemes than solarized-dark, use one
-   of [dircolors-solarized](https://github.com/seebi/dircolors-solarized)
+1. For dircolors with other solarized color schemes than solarized-dark, use
+   one of [dircolors-solarized](https://github.com/seebi/dircolors-solarized)
    dircolors and exchange it with dircolors.

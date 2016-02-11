@@ -10,3 +10,6 @@ ssh/known_hosts.old
 subversion/auth/
 subversion/README.txt
 subversion/servers
+GPATH
+GRTAGS
+GTAGS

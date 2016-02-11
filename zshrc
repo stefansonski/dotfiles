@@ -170,6 +170,7 @@ alias -g .....='../../../..'
 alias ll='ls -lh'
 alias sl='ls -lh'
 alias la='ls -lah'
+alias less='less --follow-name'
 
 show-colors() {
     for line in {0..17}; do
