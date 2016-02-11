@@ -138,3 +138,6 @@ LocationID
 subdevices
 fallback
 DRIVEs
+alphaBox
+UTF
+alphaEOS
