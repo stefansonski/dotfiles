@@ -33,11 +33,13 @@ NeoBundle '/usr/share/vim/addons/'
 NeoBundle 'vim-scripts/UltiSnips'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'elzr/vim-json'
-NeoBundle 'Valloric/YouCompleteMe', {
-      \ 'build' : {
-      \     'unix' : './install.py --clang-completer --system-libclang --system-boost',
-      \    }
-      \ }
+NeoBundle 'Valloric/YouCompleteMe',
+  \ {
+  \   'build' :
+  \   {
+  \     'unix' : './install.py --clang-completer --system-libclang --system-boost'
+  \   }
+  \ }
 NeoBundle 'stefansonski/vim-snippets'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'derekwyatt/vim-fswitch'
@@ -47,11 +49,13 @@ NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'rhysd/vim-clang-format'
 NeoBundle 'bruno-/vim-man.git'
-NeoBundle 'wincent/command-t', {
-      \ 'build' : {
-      \     'unix' : 'cd ./ruby/command-t && make clean && ruby extconf.rb && make',
-      \    }
-      \ }
+NeoBundle 'wincent/command-t',
+  \ {
+  \   'build' :
+  \   {
+  \     'unix' : 'cd ./ruby/command-t && make clean && ruby extconf.rb && make'
+  \   }
+  \ }
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'Yggdroot/indentLine'
 
@@ -134,7 +138,8 @@ set mousehide
 set mouse=""
 
 " Set up the GUI cursor to look nice
-set guicursor=n-v-c:block-Cursor-blinkon0,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor,r-cr:hor20-Cursor,sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
+set guicursor=n-v-c:block-Cursor-blinkon0,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor,r-cr:hor20-Cursor
+set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
 
 " set the GUI options the way I like
 set guioptions=acg
@@ -210,7 +215,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 set relativenumber
 
 " Types of files to ignore when auto completing things
-set wildignore+=*.o,*.class,*.git,*.svn,*/CMakeFiles/*,*/sources/*,*/installation_files/*,*/rootfs/*,*/alphaEOS_BIN/*,*/Arduino/*,*/installation/*,*/binsources/*,*/build/*,*/Demos/*,*/Dokumentation/*,*/DotNet/*,GRTAGS,GPATH,GTAGS
+set wildignore+=*.o,*.class,*.git,*.svn,*/CMakeFiles/*,*/sources/*,*/installation_files/*,*/rootfs/*,*/alphaEOS_BIN/*
+set wildignore+=*/Arduino/*,*/installation/*,*/binsources/*,*/build/*,*/Demos/*,*/Dokumentation/*,*/DotNet/*,GRTAGS
+set wildignore+=GPATH,GTAGS
 
 " Create backup, swap and undo directory if it does not exist
 if !isdirectory($HOME . "/.vim/swp")
@@ -279,12 +286,6 @@ inoremap <S-C-Up> <NOP>
 inoremap <S-C-Down> <NOP>
 inoremap <S-C-Left> <NOP>
 inoremap <S-C-Right> <NOP>
-
-" The following beast is something I didn't write... It will return the
-" syntax highlighting group that the current "thing" under the cursor
-" belongs to -- very useful for figuring out what to change as far as
-" syntax highlighting goes.
-nmap <silent> <LEADER>qq :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<' . synIDattr(synID(line("."),col("."),0),"name") . "> lo<" . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " Make shift-insert work like in Xterm
 map <S-Insert> <MiddleMouse>
@@ -387,10 +388,10 @@ augroup cppfiles
 augroup END
 autocmd Filetype cpp setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=120
 autocmd FileType cmake setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=120
-autocmd Filetype gitcommit setlocal textwidth=72 shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=120
+autocmd Filetype gitcommit setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
 autocmd FileType sh setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
-autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
 autocmd FileType markdown setlocal shiftwidth=3 tabstop=3 softtabstop=3 textwidth=80
 autocmd BufNewFile,BufRead CMakeLists.txt set filetype=cmake
 
