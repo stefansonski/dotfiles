@@ -392,11 +392,12 @@ autocmd Filetype gitcommit setlocal textwidth=72
 autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType cmake setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd BufNewFile,BufRead CMakeLists.txt set filetype=cmake
 
 "-----------------------------------------------------------------------------
 " clang_format
 "-----------------------------------------------------------------------------
-let g:clang_format#command = "clang-format-3.8"
 let g:clang_format#detect_style_file = 1
 
 "-----------------------------------------------------------------------------
