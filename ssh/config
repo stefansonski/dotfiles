@@ -18,8 +18,8 @@ Host gbquad
 HostName gbquad.sonski.linuxx.org
 User root
 
-Host alphabase
-HostName alphabase.sonski.linuxx.org
+Host base
+HostName base.sonski.linuxx.org
 User root
 
 Host pi
