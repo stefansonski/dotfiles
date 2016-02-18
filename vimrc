@@ -412,7 +412,7 @@ let g:vim_json_syntax_conceal = 0
 "-----------------------------------------------------------------------------
 function! UpdateGtagsFile()
   if (expand('%:p') =~ getcwd() && (filereadable("GPATH") || filereadable("GRTAGS") || filereadable("GTAGS")))
-    exec ":silent !gtags -q --single-update " . expand('%:p')
+    exec ":silent !global -q --single-update " . expand('%:p')
   endif
 endfunction
 autocmd BufWritePost * :call UpdateGtagsFile()
