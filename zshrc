@@ -141,6 +141,8 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 
 # Do not complete remote branch names for git on checkout, they can not be checked out without a remote prefix
 zstyle ':completion::complete:git-checkout:argument-rest:remote-branch-refs-noprefix' command ''
+zstyle ':completion:*:*' ignored-patterns '*ORIG_HEAD' '*FETCH_HEAD'
+zstyle ':completion:*:git-checkout:*' ignored-patterns '*HEAD'
 
 CDPATH=.:~:~/git
 
