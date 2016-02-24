@@ -58,6 +58,7 @@ NeoBundle 'wincent/command-t',
   \ }
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'octol/vim-cpp-enhanced-highlight'
 
 call neobundle#end()
 
@@ -449,3 +450,9 @@ let delimitMate_expand_cr = 1
 " solarized
 "-----------------------------------------------------------------------------
 let g:solarized_diffmode="high"
+
+"-----------------------------------------------------------------------------
+" vim-cpp-enhanced-highlight
+"-----------------------------------------------------------------------------
+let g:cpp_class_scope_highlight = 1
+let g:cpp_experimental_template_highlight = 1
