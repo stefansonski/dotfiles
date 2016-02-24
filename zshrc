@@ -139,6 +139,9 @@ zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:kill:*'   force-list always
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 
+# Do not complete remote branch names for git on checkout, they can not be checked out without a remote prefix
+zstyle ':completion::complete:git-checkout:argument-rest:remote-branch-refs-noprefix' command ''
+
 CDPATH=.:~:~/git
 
 #I want my umask 0002 if I'm not root
@@ -147,14 +150,6 @@ if [[ $(whoami) = root ]]; then
 else
     umask 0002
 fi
-
-
-
-#setup ~/.dir_colors if one doesn\'t exist
-if [ ! -s ~/.dir_colors ]; then
-    dircolors -p > ~/.dir_colors
-fi
-eval `dircolors ~/.dir_colors`
 
 #aliases
 alias g='gvim --remote-silent'
