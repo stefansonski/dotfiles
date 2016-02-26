@@ -53,7 +53,7 @@ NeoBundle 'wincent/command-t',
   \ {
   \   'build' :
   \   {
-  \     'unix' : 'cd ./ruby/command-t && make clean && ruby extconf.rb && make'
+  \     'unix' : 'cd ./ruby/command-t && ruby extconf.rb && make'
   \   }
   \ }
 NeoBundle 'Raimondi/delimitMate'
@@ -65,6 +65,7 @@ call neobundle#end()
 " Fix issues for YouCompleteMe installation because of a timeout, it just takes
 " really long to fetch all submodules and build it
 let g:neobundle#install_process_timeout = 1500
+let g:neobundle#types#git#pull_command ="submodule foreach --recursive git clean -dffnx && git pull --ff --ff-only"
 
 " Set filetype stuff to on
 filetype plugin indent on
