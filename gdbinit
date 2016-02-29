@@ -1,5 +1,5 @@
+handle SIGPIPE nostop
 handle SIGALRM nostop noprint
-handle SIGPIPE nostop noprint
 handle SIGUSR1 nostop noprint
 handle SIGUSR2 nostop noprint
 handle SIGVTALRM nostop noprint
