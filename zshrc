@@ -154,7 +154,6 @@ else
 fi
 
 #aliases
-alias g='gvim --remote-silent'
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
@@ -168,6 +167,10 @@ alias ll='ls -lh'
 alias sl='ls -lh'
 alias la='ls -lah'
 alias less='less --follow-name'
+
+gvim () {
+    command gvim --remote-silent "$@" || command gvim "$@";
+}
 
 show-colors() {
     for line in {0..17}; do
