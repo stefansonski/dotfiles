@@ -9,10 +9,10 @@
 [svn]
 	pushmergeinfo = true
 [diff]
-	tool = gvimdiff
+	tool = vimdiff
 	mnemonicprefix = true
 [merge]
-	tool = gvimdiff
+	tool = vimdiff
 	stat = true
 	conflictstyle = diff3
 [color]
