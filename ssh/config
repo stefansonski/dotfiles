@@ -10,20 +10,20 @@ User admin
 ForwardX11 yes
 
 Host sonski-desktop
-HostName sonski-desktop.sonski.asuscomm.com
+HostName sonski-desktop.sonski.local
 User stefan
 ForwardX11 yes
 
 Host gbquad
-HostName gbquad.sonski.asuscomm.com
+HostName gbquad.sonski.local
 User root
 
 Host base
-HostName base.sonski.asuscomm.com
+HostName base.sonski.local
 User root
 
 Host pi
-HostName pi.sonski.asuscomm.com
+HostName pi.sonski.local
 User pi
 
 Host sts01
