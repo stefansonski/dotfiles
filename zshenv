@@ -45,6 +45,10 @@ if [ -d "$HOME/tools/android-sdk/platform-tools" ] ; then
     export PATH="$PATH:$HOME/tools/android-sdk/platform-tools"
 fi
 
+if [ -d "$HOME/tools/android-studio/bin" ] ; then
+    export PATH="$PATH:$HOME/tools/android-studio/bin"
+fi
+
 #Add arm-toolchain to PATH
 if [ -d "/opt/arm-toolchain/bin" ]; then
     export PATH="$PATH:/opt/arm-toolchain/bin"
