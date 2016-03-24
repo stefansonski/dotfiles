@@ -2,9 +2,6 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
-
-
 # basedir defaults, in case they're not already set up.
 # http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
 if [[ -z $XDG_DATA_HOME ]]; then
