@@ -2,7 +2,8 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
-PATH="$PATH:/usr/local/sbin:/usr/sbin:/sbin/"
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games"
+
 
 # basedir defaults, in case they're not already set up.
 # http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html
@@ -28,35 +29,35 @@ else
 	export XDG_CONFIG_DIRS=/etc/xdg:$XDG_CONFIG_DIRS
 fi
 
+#Add arm-toolchain to PATH
+if [ -d "/opt/arm-toolchain/bin" ]; then
+    export PATH="/opt/arm-toolchain/bin:$PATH"
+fi
+
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
     export PATH="$HOME/bin:$PATH"
 fi
 
+if [ -d "$HOME/tools/android-sdk" ] ; then
+    export ANDROID_HOME="$HOME/tools/android-sdk"
+fi
+
+if [ -d "$ANDROID_HOME/tools" ] ; then
+    export PATH="$ANDROID_HOME/tools:$PATH"
+fi
+
+if [ -d "$ANDROID_HOME/platform-tools" ] ; then
+    export PATH="$ANDROID_HOME/platform-tools:$PATH"
+fi
+
 if [ -d "$HOME/tools/android-studio/bin" ] ; then
-    export PATH="$PATH:$HOME/tools/android-studio/bin"
-fi
-
-if [ -d "$HOME/tools/android-sdk/tools" ] ; then
-    export PATH="$PATH:$HOME/tools/android-sdk/tools"
-fi
-
-if [ -d "$HOME/tools/android-sdk/platform-tools" ] ; then
-    export PATH="$PATH:$HOME/tools/android-sdk/platform-tools"
-fi
-
-if [ -d "$HOME/tools/android-studio/bin" ] ; then
-    export PATH="$PATH:$HOME/tools/android-studio/bin"
-fi
-
-#Add arm-toolchain to PATH
-if [ -d "/opt/arm-toolchain/bin" ]; then
-    export PATH="$PATH:/opt/arm-toolchain/bin"
+    export PATH="$HOME/tools/android-studio/bin:$PATH"
 fi
 
 if [ -d "$HOME/go" ]; then
     export GOPATH="$HOME/go"
-    export PATH="$PATH:$GOPATH/bin"
+    export PATH="$GOPATH/bin:$PATH"
 fi
 
 export EDITOR=$(which vim)
