@@ -59,7 +59,6 @@ NeoBundle 'wincent/command-t',
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'octol/vim-cpp-enhanced-highlight'
-NeoBundle "hsanson/vim-android"
 
 call neobundle#end()
 
@@ -457,8 +456,3 @@ let g:solarized_diffmode="high"
 " vim-cpp-enhanced-highlight
 "-----------------------------------------------------------------------------
 let g:cpp_class_scope_highlight = 1
-
-"-----------------------------------------------------------------------------
-" vim-android
-"-----------------------------------------------------------------------------
-let g:android_sdk_path = $ANDROID_HOME
