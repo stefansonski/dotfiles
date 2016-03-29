@@ -20,6 +20,7 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
    mkdir -p ~/.config
    mkdir -p ~/.cache/ssh/mux
    mkdir -p ~/.gnupg
+   mkdir -p ~/.gradle
    mkdir -p ~/.vim/bundle
    mkdir -p ~/.vim/spell
    ln -s ~/dotfiles/dircolors ~/.dircolors
@@ -29,6 +30,7 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
    ln -s ~/dotfiles/gittemplate ~/.gittemplate
    ln -s ~/dotfiles/gpg.conf ~/.gnupg/gpg.conf
    ln -s ~/dotfiles/globalrc ~/.globalrc
+   ln -s ~/dotfiles/gradle.properties ~/.gradle/gradle.properties
    ln -s ~/dotfiles/powerline ~/.config/powerline
    ln -s ~/dotfiles/ssh/ ~/.ssh
    ln -s ~/dotfiles/contrib/tmux/.tmux.conf ~/.tmux.conf
