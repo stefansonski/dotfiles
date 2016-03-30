@@ -1,7 +1,2 @@
 #!/bin/sh
 /usr/local/bin/global -uq
-if [ ! $? -eq 0 ]; then
-  /usr/local/bin/gtags -q
-fi
-
-exit $?
