@@ -14,7 +14,6 @@
 [merge]
 	tool = vimdiff
 	stat = true
-	conflictstyle = diff3
 [color]
 	ui = true
 [advice]
@@ -46,7 +45,3 @@
 	cmd = vim -R -f -d -c \"wincmd l\" -c 'cd \"$GIT_PREFIX\"' \"$LOCAL\" \"$REMOTE\"
 [mergetool "vimdiff"]
 	cmd = vim -R -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\" -c \"set noro\"
-[mergetool "gvimdiff"]
-	cmd = "gvim --remote-tab-silent \"$PWD/$MERGED\" && sleep 1; gvim --remote-send \":diffsplit $PWD/$REMOTE<CR>:set ro<CR>:vertical diffsplit $PWD/$BASE<CR>:set ro<CR>:vertical diffsplit $PWD/$LOCAL<CR>:set ro<CR><C-W>j\""
-[difftool "gvimdiff"]
-	cmd = "gvim --remote-tab-silent \"$PWD/$LOCAL\" && sleep 1; gvim --remote-send \":set ro<CR>:vertical diffsplit $PWD/$REMOTE<CR>:set ro<CR><C-W>l\""
