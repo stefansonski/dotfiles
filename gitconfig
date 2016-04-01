@@ -14,6 +14,7 @@
 [merge]
 	tool = vimdiff
 	stat = true
+	conflictstyle = diff3
 [color]
 	ui = true
 [advice]
@@ -42,6 +43,6 @@
 [log]
 	date = local
 [difftool "vimdiff"]
-	cmd = vim -R -f -d -c \"wincmd l\" -c 'cd \"$GIT_PREFIX\"' \"$LOCAL\" \"$REMOTE\"
+	cmd = vimdiff -R -f -d \"$LOCAL\" \"$REMOTE\"
 [mergetool "vimdiff"]
-	cmd = vim -R -f -d -c \"wincmd J\" \"$MERGED\" \"$LOCAL\" \"$BASE\" \"$REMOTE\" -c \"set noro\"
+	cmd = vimdiff -R -f -d \"$MERGED\" -M \"$LOCAL\" \"$BASE\" \"$REMOTE\" -c "wincmd J"
