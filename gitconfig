@@ -12,9 +12,8 @@
 	tool = vimdiff
 	mnemonicprefix = true
 [merge]
-	tool = vimdiff
+	tool = diffconflicts
 	stat = true
-	conflictstyle = diff3
 [color]
 	ui = true
 [advice]
@@ -44,5 +43,6 @@
 	date = local
 [difftool "vimdiff"]
 	cmd = vimdiff -R -f -d \"$LOCAL\" \"$REMOTE\"
-[mergetool "vimdiff"]
-	cmd = vimdiff -R -f -d \"$MERGED\" -M \"$LOCAL\" \"$BASE\" \"$REMOTE\" -c "wincmd J"
+[mergetool "diffconflicts"]
+	cmd = diffconflicts.sh vim $BASE $LOCAL $REMOTE $MERGED
+	trustExitCode = true
