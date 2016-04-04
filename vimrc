@@ -194,9 +194,6 @@ set colorcolumn=+1
 " get rid of the silly characters in separators
 set fillchars=""
 
-" Add ignorance of whitespace to diff
-set diffopt+=iwhite
-
 " Enable search highlighting
 set hlsearch
 
