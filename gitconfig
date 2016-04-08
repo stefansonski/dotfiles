@@ -46,3 +46,5 @@
 [mergetool "diffconflicts"]
 	cmd = diffconflicts.sh vim $BASE $LOCAL $REMOTE $MERGED
 	trustExitCode = true
+[rerere]
+	enabled = true
