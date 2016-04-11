@@ -25,3 +25,4 @@ gradle/caches/
 gradle/daemon/
 gradle/native/
 gradle/wrapper/
+config/gnome-control-center/
