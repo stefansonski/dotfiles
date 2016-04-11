@@ -2,4 +2,4 @@
 printf "Updating GTAGS..."
 .git/hooks/gtags >/dev/null 2>&1
 printf " done\n"
-cat ~/dotfiles/config/dconf/user.dump | dconf load
+cat ~/dotfiles/config/dconf/user.dump | dconf load /
