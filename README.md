@@ -27,6 +27,7 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
    ln -s ~/dotfiles/gitconfig ~/.gitconfig
    ln -s ~/dotfiles/gitignore ~/.gitignore
    ln -s ~/dotfiles/gittemplate ~/.gittemplate
+   ln -s ~/dotfiles/contrib/whiteinge-dotfiles/bin/diffconflicts ~/bin/diffconflicts.sh
    ln -s ~/dotfiles/gpg.conf ~/.gnupg/gpg.conf
    ln -s ~/dotfiles/globalrc ~/.globalrc
    ln -s ~/dotfiles/gradle ~/.gradle

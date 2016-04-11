@@ -63,7 +63,7 @@ target-units='radian'
 word-size=64
 number-format='automatic'
 angle-units='degrees'
-base=10
+base=16
 source-units='degree'
 accuracy=9
 
@@ -359,10 +359,10 @@ apps=['alacarte.desktop', 'authconfig.desktop', 'ca.desrt.dconf-editor.desktop',
 name='X-GNOME-Sundry.directory'
 
 [org/gnome/desktop/screensaver]
-picture-uri='file:///usr/share/backgrounds/gnome/adwaita-lock.jpg'
+picture-uri='file:///usr/share/images/desktop-base/lines-lockscreen.xml'
 color-shading-type='solid'
 primary-color='#ffffff'
-picture-options='centered'
+picture-options='zoom'
 lock-enabled=false
 secondary-color='#000000'
 
@@ -377,11 +377,11 @@ switch-input-source-backward=['<Shift><Super>space']
 switch-input-source=['<Super>space']
 
 [org/gnome/desktop/background]
-picture-uri='file:///usr/share/backgrounds/gnome/adwaita-lock.jpg'
+picture-uri='file:///usr/share/backgrounds/gnome/Dark_Ivy.jpg'
 show-desktop-icons=false
 color-shading-type='horizontal'
 primary-color='#ffffff'
-picture-options='centered'
+picture-options='zoom'
 secondary-color='#000000'
 
 [org/gnome/desktop/input-sources]
