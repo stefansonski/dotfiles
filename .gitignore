@@ -8,6 +8,8 @@ config/dleyna-*.conf
 config/gnome-control-center/
 config/google-chrome/
 config/keepassx/
+config/nvim/*
+!config/nvim/init.vim
 config/pulse/
 config/spotify/
 gnupg/pubring.gpg~
