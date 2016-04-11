@@ -19,10 +19,10 @@
 [advice]
 	statusHints = false
 [core]
-	whitespace = trailing-space,space-before-tab
 	autocrlf = input
 	excludesfile = ~/.gitignore
 	editor = vim -f
+	whitespace = trailing-space,space-before-tab,tab-in-indent
 [branch]
 	autosetupmerge = true
 	pager = less -r
