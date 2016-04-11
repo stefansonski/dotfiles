@@ -87,8 +87,8 @@ compdef gpg2=gpg
 # End of lines added by compinstall
 ## completion system
 _force_rehash() {
-      (( CURRENT == 1 )) && rehash
-          return 1  # Because we didn't really complete anything
+  (( CURRENT == 1 )) && rehash
+  return 1  # Because we didn't really complete anything
 }
 
 zstyle ':completion:*' completer _oldlist _expand _force_rehash _complete _approximate _expand_alias
@@ -148,9 +148,9 @@ CDPATH=.:~:~/git
 
 #I want my umask 0002 if I'm not root
 if [[ $(whoami) = root ]]; then
-    umask 0022
+  umask 0022
 else
-    umask 0002
+  umask 0002
 fi
 
 #aliases
@@ -170,17 +170,17 @@ alias less='less --follow-name'
 alias gradlew="./gradlew"
 
 gvim () {
-    command gvim --remote-silent "$@" || command gvim "$@";
+  command gvim --remote-silent "$@" || command gvim "$@";
 }
 
 show-colors() {
-    for line in {0..17}; do
-        for col in {0..15}; do
-            code=$(( $col * 18 + $line ));
-            printf $'\e[38;05;%dm %03d' $code $code;
-        done;
-        echo;
-    done
+  for line in {0..17}; do
+    for col in {0..15}; do
+      code=$(( $col * 18 + $line ));
+      printf $'\e[38;05;%dm %03d' $code $code;
+    done;
+    echo;
+  done
 }
 
 #allow tab completion in the middle of a word
@@ -237,9 +237,9 @@ autoload -U colors && colors
 setopt PROMPT_SUBST
 
 if [[ -f ~/.dir_colors ]] ; then
-    eval $(dircolors -b ~/.dir_colors)
+  eval $(dircolors -b ~/.dir_colors)
 elif [[ -f /etc/DIR_COLORS ]] ; then
-    eval $(dircolors -b /etc/DIR_COLORS)
+  eval $(dircolors -b /etc/DIR_COLORS)
 fi
 
 powerline-daemon -q

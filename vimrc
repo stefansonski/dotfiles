@@ -34,12 +34,12 @@ NeoBundle 'vim-scripts/UltiSnips'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'Valloric/YouCompleteMe',
-  \ {
-  \   'build' :
-  \   {
-  \     'unix' : './install.py --clang-completer --system-libclang --system-boost'
-  \   }
-  \ }
+      \ {
+      \   'build' :
+      \   {
+      \     'unix' : './install.py --clang-completer --system-libclang --system-boost'
+      \   }
+      \ }
 NeoBundle 'stefansonski/vim-snippets'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'derekwyatt/vim-fswitch'
@@ -50,12 +50,12 @@ NeoBundle 'kana/vim-operator-user'
 NeoBundle 'rhysd/vim-clang-format'
 NeoBundle 'bruno-/vim-man.git'
 NeoBundle 'wincent/command-t',
-  \ {
-  \   'build' :
-  \   {
-  \     'unix' : 'cd ./ruby/command-t && ruby extconf.rb && make'
-  \   }
-  \ }
+      \ {
+      \   'build' :
+      \   {
+      \     'unix' : 'cd ./ruby/command-t && ruby extconf.rb && make'
+      \   }
+      \ }
 NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'octol/vim-cpp-enhanced-highlight'
@@ -392,6 +392,7 @@ autocmd Filetype cpp setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=120
 autocmd FileType cmake setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=120
 autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=120
 autocmd Filetype gitcommit setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd Filetype gitconfig setlocal shiftwidth=8 tabstop=8 softtabstop=8
 autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
 autocmd FileType sh setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
 autocmd FileType zsh setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
