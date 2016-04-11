@@ -18,7 +18,8 @@ config/pulse
 config/keepassx
 config/Trolltech.conf
 config/google-chrome
-config/dconf/user.*
+config/dconf/*
+!config/dconf/*.dump
 config/dleyna-*.conf
 gradle/caches/
 gradle/daemon/
