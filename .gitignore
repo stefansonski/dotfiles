@@ -13,3 +13,14 @@ subversion/servers
 GPATH
 GRTAGS
 GTAGS
+config/spotify
+config/pulse
+config/keepassx
+config/Trolltech.conf
+config/google-chrome
+config/dconf/user.*
+config/dleyna-*.conf
+gradle/caches/
+gradle/daemon/
+gradle/native/
+gradle/wrapper/

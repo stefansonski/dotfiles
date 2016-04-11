@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<!DOCTYPE Menu
+  PUBLIC '-//freedesktop//DTD Menu 1.0//EN'
+  'http://standards.freedesktop.org/menu-spec/menu-1.0.dtd'>
+<Menu>
+	<Name>Applications</Name>
+	<MergeFile type="parent">/etc/xdg/menus/gnome-applications.menu</MergeFile>
+	<Menu>
+		<Name>Internet</Name>
+		<Exclude>
+			<Filename>chrome-app-list.desktop</Filename>
+		</Exclude>
+		<AppDir>/home/sonski/.local/share/applications</AppDir>
+	</Menu>
+	<Menu>
+		<Name>Development</Name>
+		<Include>
+			<Filename>alacarte-made.desktop</Filename>
+		</Include>
+		<Layout>
+			<Merge type="menus"/>
+			<Filename>codeblocks.desktop</Filename>
+			<Filename>ddd.desktop</Filename>
+			<Filename>gitg.desktop</Filename>
+			<Filename>emacs23.desktop</Filename>
+			<Filename>emacs24.desktop</Filename>
+			<Filename>ipython.desktop</Filename>
+			<Filename>meld.desktop</Filename>
+			<Filename>monodoc.desktop</Filename>
+			<Filename>python2.7.desktop</Filename>
+			<Filename>python3.4.desktop</Filename>
+			<Filename>sqlitebrowser.desktop</Filename>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+</Menu>

@@ -17,10 +17,8 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
 
 1. Create soft-links to the files in the repository.
    ```sh
-   mkdir -p ~/.config
    mkdir -p ~/.cache/ssh/mux
    mkdir -p ~/.gnupg
-   mkdir -p ~/.gradle
    mkdir -p ~/.vim/bundle
    mkdir -p ~/.vim/spell
    ln -s ~/dotfiles/dircolors ~/.dircolors
@@ -30,11 +28,9 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
    ln -s ~/dotfiles/gittemplate ~/.gittemplate
    ln -s ~/dotfiles/gpg.conf ~/.gnupg/gpg.conf
    ln -s ~/dotfiles/globalrc ~/.globalrc
-   ln -s ~/dotfiles/gradle.properties ~/.gradle/gradle.properties
-   ln -s ~/dotfiles/powerline ~/.config/powerline
+   ln -s ~/dotfiles/gradle ~/.gradle
+   ln -s ~/dotfiles/config ~/.config
    ln -s ~/dotfiles/ssh/ ~/.ssh
-   ln -s ~/dotfiles/contrib/tmux/.tmux.conf ~/.tmux.conf
-   ln -s ~/dotfiles/tmux.conf.locale ~/.tmux.conf.local
    ln -s ~/dotfiles/vimrc ~/.vimrc
    ln -s ~/dotfiles/vimspell-en.utf-8.add ~/.vim/spell/en.utf-8.add
    ln -s ~/dotfiles/zshenv ~/.zshenv

@@ -1,0 +1,30 @@
+[Default Applications]
+inode/directory=caja-folder-handler.desktop
+text/plain=pluma.desktop
+audio/mpeg=gnome-mplayer.desktop
+audio/x-mpegurl=gnome-mplayer.desktop
+audio/x-scpls=gnome-mplayer.desktop
+audio/x-vorbis+ogg=gnome-mplayer.desktop
+audio/x-wav=gnome-mplayer.desktop
+video/mp4=gnome-mplayer.desktop
+video/mpeg=gnome-mplayer.desktop
+video/mp2t=gnome-mplayer.desktop
+video/msvideo=gnome-mplayer.desktop
+video/quicktime=gnome-mplayer.desktop
+video/webm=gnome-mplayer.desktop
+video/x-avi=gnome-mplayer.desktop
+video/x-flv=gnome-mplayer.desktop
+video/x-matroska=gnome-mplayer.desktop
+video/x-mpeg=gnome-mplayer.desktop
+video/x-ogm+ogg=gnome-mplayer.desktop
+application/x-extension-9=pluma.desktop
+
+[Added Associations]
+application/octet-stream=google-chrome.desktop;
+application/x-shellscript=gvim.desktop;
+application/vnd.ms-htmlhelp=xchm.desktop;
+application/json=gvim.desktop;
+text/x-c++src=org.gnome.gedit.desktop;
+application/x-sqlite3=sqlitebrowser.desktop;
+application/vnd.debian.binary-package=org.gnome.FileRoller.desktop;
+inode/directory=org.gnome.Nautilus.desktop;

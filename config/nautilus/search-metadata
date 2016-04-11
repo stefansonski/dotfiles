@@ -1,0 +1,4 @@
+[directory]
+nautilus-list-view-sort-column=search_relevance
+nautilus-list-view-sort-reversed=true
+nautilus-list-view-visible-columns=name;size;type;where;date_modified;

@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<!DOCTYPE Menu
+  PUBLIC '-//freedesktop//DTD Menu 1.0//EN'
+  'http://standards.freedesktop.org/menu-spec/menu-1.0.dtd'>
+<Menu>
+	<Name>Applications</Name>
+	<MergeFile type="parent">/etc/xdg/menus/gnome-applications.menu</MergeFile>
+	<Menu>
+		<Name>Development</Name>
+		<Include>
+			<Filename>alacarte-made-1.desktop</Filename>
+		</Include>
+		<Layout>
+			<Merge type="menus"/>
+			<Filename>alacarte-made-1.desktop</Filename>
+			<Filename>codeblocks.desktop</Filename>
+			<Filename>ddd.desktop</Filename>
+			<Filename>gitg.desktop</Filename>
+			<Filename>emacs23.desktop</Filename>
+			<Filename>emacs24.desktop</Filename>
+			<Filename>ipython.desktop</Filename>
+			<Filename>meld.desktop</Filename>
+			<Filename>monodoc.desktop</Filename>
+			<Filename>python2.7.desktop</Filename>
+			<Filename>python3.4.desktop</Filename>
+			<Filename>sqlitebrowser.desktop</Filename>
+			<Merge type="files"/>
+		</Layout>
+		<Exclude>
+			<Filename>emacs23.desktop</Filename>
+		</Exclude>
+		<AppDir>/home/sonski/.local/share/applications</AppDir>
+		<Exclude>
+			<Filename>emacs24.desktop</Filename>
+		</Exclude>
+	</Menu>
+	<Menu>
+		<Name>Other</Name>
+		<Exclude>
+			<Filename>mozo-made-3.desktop</Filename>
+		</Exclude>
+		<AppDir>/home/sonski/.local/share/applications</AppDir>
+		<Exclude>
+			<Filename>mozo-made-1.desktop</Filename>
+		</Exclude>
+	</Menu>
+	<Menu>
+		<Name>wine-wine</Name>
+		<Menu>
+			<Name>wine-Programs</Name>
+			<Deleted/>
+		</Menu>
+		<Deleted/>
+	</Menu>
+</Menu>

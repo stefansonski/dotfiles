@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE Menu
+  PUBLIC '-//freedesktop//DTD Menu 1.0//EN'
+  'http://standards.freedesktop.org/menu-spec/menu-1.0.dtd'>
+<Menu>
+	<Name>Applications</Name>
+	<MergeFile type="parent">/etc/xdg/menus/gnome-flashback-applications.menu</MergeFile>
+	<Menu>
+		<Name>wine-wine</Name>
+		<Deleted/>
+	</Menu>
+	<Menu>
+		<Name>Other</Name>
+		<DirectoryDir>/home/stefan/.local/share/desktop-directories</DirectoryDir>
+	</Menu>
+	<Menu>
+		<Name>Universal Access</Name>
+		<Exclude>
+			<Filename>orca.desktop</Filename>
+		</Exclude>
+		<AppDir>/home/stefan/.local/share/applications</AppDir>
+	</Menu>
+	<Menu>
+		<Name>Development</Name>
+		<Include>
+			<Filename>alacarte-made-1.desktop</Filename>
+		</Include>
+		<Include>
+			<Filename>alacarte-made-2.desktop</Filename>
+		</Include>
+		<Layout>
+			<Merge type="menus"/>
+			<Filename>sqlitebrowser.desktop</Filename>
+			<Filename>emacs24.desktop</Filename>
+			<Filename>emacs24-term.desktop</Filename>
+			<Filename>monodoc.desktop</Filename>
+			<Filename>python2.7.desktop</Filename>
+			<Filename>python3.5.desktop</Filename>
+			<Filename>alacarte-made-1.desktop</Filename>
+			<Merge type="files"/>
+		</Layout>
+	</Menu>
+</Menu>
