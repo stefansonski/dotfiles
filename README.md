@@ -17,6 +17,7 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
 
 1. Create soft-links to the files in the repository.
    ```sh
+   ln -s ../../githooks/* .git/hooks/
    mkdir -p ~/.cache/ssh/mux
    mkdir -p ~/.gnupg
    mkdir -p ~/.vim/bundle
