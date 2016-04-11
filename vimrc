@@ -48,7 +48,6 @@ NeoBundle 'majutsushi/tagbar'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'rhysd/vim-clang-format'
-NeoBundle 'bruno-/vim-man.git'
 NeoBundle 'wincent/command-t',
       \ {
       \   'build' :
@@ -174,9 +173,6 @@ set scrolloff=8
 
 " Allow the cursor to go in to "invalid" places
 set virtualedit=all
-
-" Disable encryption (:X)
-set key=
 
 " Make the command-line completion better
 set wildmenu
