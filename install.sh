@@ -1,6 +1,11 @@
 #!/bin/bash
 set -e
 
+function cleanup()
+{
+  cd $originalDirectory
+}
+
 function checkAndInstallConfig()
 {
   if [[ $# -lt 2 || -z $1 || -z $2 ]]; then
@@ -48,6 +53,7 @@ function checkAndInstallConfig()
 originalDirectory=`pwd`
 cd `dirname $0`
 directory=`pwd`
+trap cleanup EXIT
 
 neededPackages="llvm-dev libboost-dev libboost-python-dev
                 libboost-filesystem-dev libboost-system-dev
