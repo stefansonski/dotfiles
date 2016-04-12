@@ -5,6 +5,7 @@ function checkAndInstallConfig()
 {
   if [[ $# -lt 2 || -z $1 || -z $2 ]]; then
     printf "Wrong number of arguments.\n"
+    cd $originalDirectory
     exit 1
   fi
 
@@ -35,6 +36,7 @@ function checkAndInstallConfig()
         ;;
       *)
         printf "Invalid input \"$overwrite\". Aborting installation.\n"
+        cd $originalDirectory
         exit 1
         ;;
     esac
@@ -42,6 +44,10 @@ function checkAndInstallConfig()
     ln -s $destination $source
   fi
 }
+
+originalDirectory=`pwd`
+cd `dirname $0`
+directory=`pwd`
 
 neededPackages="llvm-dev libboost-dev libboost-python-dev
                 libboost-filesystem-dev libboost-system-dev
@@ -69,6 +75,7 @@ if [[ ! -z $missingPackages ]]; then
       ;;
     *)
       printf "Invalid input \"$install\". Aborting installation.\n"
+      cd $originalDirectory
       exit 1
       ;;
   esac
@@ -87,6 +94,7 @@ if [[ -z $(pip show powerline-status) ]]; then
       ;;
     *)
       printf "Invalid input \"$install\". Aborting installation.\n"
+      cd $originalDirectory
       exit 1
       ;;
   esac
@@ -97,20 +105,20 @@ mkdir -p ~/.cache/ssh/mux
 mkdir -p ~/.gnupg
 mkdir -p ~/.vim/bundle
 mkdir -p ~/.vim/spell
-checkAndInstallConfig ~/dotfiles/dircolors ~/.dir_colors
-checkAndInstallConfig ~/dotfiles/gdbinit ~/.gdbinit
-checkAndInstallConfig ~/dotfiles/gitconfig ~/.gitconfig
-checkAndInstallConfig ~/dotfiles/gittemplate ~/.gittemplate
-checkAndInstallConfig ~/dotfiles/bin/diffconflicts.sh ~/bin/diffconflicts.sh
-checkAndInstallConfig ~/dotfiles/gpg.conf ~/.gnupg/gpg.conf
-checkAndInstallConfig ~/dotfiles/globalrc ~/.globalrc
-checkAndInstallConfig ~/dotfiles/gradle ~/.gradle
-checkAndInstallConfig ~/dotfiles/config ~/.config
-checkAndInstallConfig ~/dotfiles/ssh ~/.ssh
-checkAndInstallConfig ~/dotfiles/vimrc ~/.vimrc
-checkAndInstallConfig ~/dotfiles/vimspell-en.utf-8.add ~/.vim/spell/en.utf-8.add
-checkAndInstallConfig ~/dotfiles/zshenv ~/.zshenv
-checkAndInstallConfig ~/dotfiles/zshrc ~/.zshrc
+checkAndInstallConfig $directory/dircolors ~/.dir_colors
+checkAndInstallConfig $directory/gdbinit ~/.gdbinit
+checkAndInstallConfig $directory/gitconfig ~/.gitconfig
+checkAndInstallConfig $directory/gittemplate ~/.gittemplate
+checkAndInstallConfig $directory/bin/diffconflicts.sh ~/bin/diffconflicts.sh
+checkAndInstallConfig $directory/gpg.conf ~/.gnupg/gpg.conf
+checkAndInstallConfig $directory/globalrc ~/.globalrc
+checkAndInstallConfig $directory/gradle ~/.gradle
+checkAndInstallConfig $directory/config ~/.config
+checkAndInstallConfig $directory/ssh ~/.ssh
+checkAndInstallConfig $directory/vimrc ~/.vimrc
+checkAndInstallConfig $directory/vimspell-en.utf-8.add ~/.vim/spell/en.utf-8.add
+checkAndInstallConfig $directory/zshenv ~/.zshenv
+checkAndInstallConfig $directory/zshrc ~/.zshrc
 
 printf "Loading dconf configuration.\n"
 ./dconf-load.sh
@@ -123,4 +131,5 @@ fi
 printf "Installing/updating vim plugins via NeoBundle.\n"
 vim +NeoBundleInstall! +qall
 
+cd $originalDirectory
 printf "Done.\n"
