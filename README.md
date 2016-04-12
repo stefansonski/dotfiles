@@ -77,6 +77,6 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
    the last line in the `zshrc` to the path of the zsh powerline bindings.
 
 ###Automatic
-Just run `./install.sh`, all packages are installed and soft-links are created
-and vim plugins are installed. In case files exists, but point to another
-config, you are asked if you want to overwrite it.
+Just run `./install.sh`, all packages are installed, soft-links are created
+and vim plugins are installed. In case files exist, but reference do not
+reference the correct file, you are asked if you want to overwrite them.
