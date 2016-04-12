@@ -25,3 +25,6 @@ ssh/known_hosts
 ssh/known_hosts.old
 ssh/nas_rsa
 config/DisplayCAL/
+config/evolution/
+config/gtk-2.0/
+config/rygel.conf
