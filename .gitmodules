@@ -1,3 +1,0 @@
-[submodule "third-party/whiteinge-dotfiles"]
-	path = third-party/whiteinge-dotfiles
-	url = git@github.com:whiteinge/dotfiles.git
