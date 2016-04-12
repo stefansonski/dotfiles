@@ -3,7 +3,7 @@ GRTAGS
 GTAGS
 config/Trolltech.conf
 config/dconf/*
-!config/dconf/*.dump
+!config/dconf/dconf.d/
 config/dleyna-*.conf
 config/gnome-control-center/
 config/google-chrome/
