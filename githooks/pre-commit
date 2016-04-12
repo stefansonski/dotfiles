@@ -1,3 +1,0 @@
-#!/bin/sh
-dconf dump / > config/dconf/user.dump
-git add config/dconf/user.dump
