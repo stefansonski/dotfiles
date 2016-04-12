@@ -1,17 +1,58 @@
-[org/gnome/GPaste]
-history-name='history'
-track-extension-state=true
-synchronize-clipboards=true
-track-changes=true
+[org/gnome/settings-daemon/plugins/media-keys]
+window-screenshot='<Alt>Print'
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
+screensaver='<Primary><Alt>l'
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Primary><Alt>t'
+command='gnome-terminal'
+name='Terminal'
+
+[org/gnome/settings-daemon/plugins/xsettings]
+overrides={'Gtk/ShellShowsAppMenu': <1>}
+antialiasing='rgba'
+hinting='full'
+
+[org/gnome/settings-daemon/peripherals/keyboard]
+remember-numlock-state=true
+numlock-state='on'
+
+[org/gnome/shell]
+enabled-extensions=['launch-new-instance@gnome-shell-extensions.gcampax.github.com', 'GPaste@gnome-shell-extensions.gnome.org']
+favorite-apps=['org.gnome.Nautilus.desktop', 'gvim.desktop', 'alacarte-made-1.desktop', 'alacarte-made-2.desktop', 'google-chrome.desktop', 'chrome-hmjkmjkepdijhoojdojkdfohbdgmmhki-Default.desktop']
+
+[org/gnome/shell/calendar]
+show-weekdate=true
 
 [org/gnome/calculator]
+button-mode='programming'
 show-zeroes=true
 show-thousands=true
-button-mode='programming'
-target-units='radian'
-word-size=64
 number-format='automatic'
+target-units='radian'
 base=16
+word-size=64
+
+[org/gnome/nautilus/preferences]
+default-folder-viewer='icon-view'
+show-move-to-trash-shortcut-changed-dialog=false
+sort-directories-first=true
+
+[org/gnome/nautilus/icon-view]
+default-zoom-level='small'
+
+[org/gnome/nautilus/list-view]
+default-visible-columns=['name', 'size', 'type', 'date_modified']
+default-zoom-level='standard'
+default-column-order=['name', 'size', 'type', 'date_modified', 'owner', 'group', 'permissions', 'mime_type', 'where', 'date_accessed']
+
+[org/gnome/desktop/screensaver]
+picture-uri='file:///usr/share/images/desktop-base/lines-lockscreen.xml'
+color-shading-type='solid'
+primary-color='#ffffff'
+picture-options='zoom'
+lock-enabled=false
+secondary-color='#000000'
 
 [org/gnome/desktop/background]
 picture-uri='file:///usr/share/backgrounds/gnome/Dark_Ivy.jpg'
@@ -26,6 +67,9 @@ current=uint32 0
 sources=[('xkb', 'us')]
 xkb-options=['kpdl:dotoss', 'grp:win_space_toggle', 'caps:none', 'compose:caps']
 
+[org/gnome/desktop/wm/preferences]
+titlebar-font='Hack Bold 8'
+
 [org/gnome/desktop/interface]
 font-name='Hack 8'
 document-font-name='Hack Italic 8'
@@ -36,59 +80,15 @@ monospace-font-name='Hack 8'
 cursor-blink=false
 clock-show-date=true
 
-[org/gnome/desktop/screensaver]
-picture-uri='file:///usr/share/images/desktop-base/lines-lockscreen.xml'
-color-shading-type='solid'
-primary-color='#ffffff'
-picture-options='zoom'
-lock-enabled=false
-secondary-color='#000000'
-
-[org/gnome/desktop/wm/preferences]
-titlebar-font='Hack Bold 8'
-
 [org/gnome/gnome-session]
 auto-save-session=true
 auto-save-session-one-shot=false
 
-[org/gnome/nautilus/icon-view]
-default-zoom-level='small'
-
-[org/gnome/nautilus/list-view]
-default-visible-columns=['name', 'size', 'type', 'date_modified']
-default-zoom-level='standard'
-default-column-order=['name', 'size', 'type', 'date_modified', 'owner', 'group', 'permissions', 'mime_type', 'where', 'date_accessed']
-
-[org/gnome/nautilus/preferences]
-default-folder-viewer='icon-view'
-show-move-to-trash-shortcut-changed-dialog=false
-sort-directories-first=true
-
-[org/gnome/settings-daemon/peripherals/keyboard]
-remember-numlock-state=true
-numlock-state='on'
-
-[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
-binding='<Primary><Alt>t'
-command='gnome-terminal'
-name='Terminal'
-
-[org/gnome/settings-daemon/plugins/media-keys]
-window-screenshot='<Alt>Print'
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
-screensaver='<Primary><Alt>l'
-
-[org/gnome/settings-daemon/plugins/xsettings]
-overrides={'Gtk/ShellShowsAppMenu': <1>}
-antialiasing='rgba'
-hinting='full'
-
-[org/gnome/shell/calendar]
-show-weekdate=true
-
-[org/gnome/shell]
-favorite-apps=['org.gnome.Nautilus.desktop', 'gvim.desktop', 'alacarte-made-1.desktop', 'alacarte-made-2.desktop', 'google-chrome.desktop', 'chrome-hmjkmjkepdijhoojdojkdfohbdgmmhki-Default.desktop']
-enabled-extensions=['launch-new-instance@gnome-shell-extensions.gcampax.github.com', 'GPaste@gnome-shell-extensions.gnome.org']
+[org/gnome/GPaste]
+history-name='history'
+track-extension-state=true
+synchronize-clipboards=true
+track-changes=true
 
 [org/gnome/terminal/legacy/keybindings]
 new-window='disabled'
