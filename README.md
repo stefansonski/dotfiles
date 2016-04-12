@@ -38,6 +38,7 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
    ln -s ~/dotfiles/zshenv ~/.zshenv
    ln -s ~/dotfiles/zshrc ~/.zshrc
    git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
+   cat config/dconf/user.dump | dconf load /
    ```
 
 1. To use the vim configuration, install [NeoBundle]
