@@ -17,34 +17,41 @@ function checkAndInstallConfig()
   destination=$1
   source=$2
 
-  if [[ -a $source ]]; then
-    readlinkResult=$(readlink -f $source)
+  readlinkResult=$(readlink -m $source)
+
+  if [[ -e $source || -h $source ]]; then
+    if [[ ! -h $source ]]; then
+      printf "\"$source\" exists, but is not a link."
+    elif [[ $readlinkResult != $destination ]]; then
+      printf "\"$source\" points to the wrong destination "
+      printf "(\"$readlinkResult\")."
+    else
+      printf "$source is correctly linked to $readlinkResult\n"
+      return
+    fi
+
+    if [[ ! -h $source || $readlinkResult != $destination ]]; then
+      printf " Overwrite? [Y/n] "
+      read overwrite
+      case "$overwrite" in
+        ""|"y"|"Y")
+          printf "Deleting $source.\n"
+          rm -r $source;
+          ;;
+        "n"|"N")
+          printf "Skipping installation $source.\n"
+          return
+          ;;
+        *)
+          printf "Invalid input \"$overwrite\". Aborting installation.\n"
+          cd $originalDirectory
+          exit 1
+          ;;
+      esac
+    fi
   fi
 
-  if [[ ! -h $source ]]; then
-    printf "\"$source\" exists, but is not a link."
-  elif [[ $readlinkResult != $destination ]]; then
-    printf "\"$source\" points to the wrong destination (\"$readlinkResult\")."
-  fi
-
-  if [[ -a $source && (! -h $source || $readlinkResult != $destination) ]]; then
-    printf " Overwrite? [Y/n] "
-    read overwrite
-    case "$overwrite" in
-      ""|"y"|"Y")
-        printf "Deleting $source.\n"
-        rm -rf $source;
-        ;;
-      "n"|"N")
-        printf "Skipping installation $source.\n"
-        return
-        ;;
-      *)
-        printf "Invalid input \"$overwrite\". Aborting installation.\n"
-        cd $originalDirectory
-        exit 1
-        ;;
-    esac
+  if [[ ! -e $source && ! -h $source ]]; then
     printf "Creating link \"$source\" to \"$destination\".\n"
     ln -s $destination $source
   fi
@@ -111,7 +118,7 @@ mkdir -p ~/.cache/ssh/mux
 mkdir -p ~/.gnupg
 mkdir -p ~/.vim/bundle
 mkdir -p ~/.vim/spell
-checkAndInstallConfig $directory/dircolors ~/.dir_colors
+checkAndInstallConfig $directory/dircolors ~/.dircolors
 checkAndInstallConfig $directory/gdbinit ~/.gdbinit
 checkAndInstallConfig $directory/gitconfig ~/.gitconfig
 checkAndInstallConfig $directory/gittemplate ~/.gittemplate
