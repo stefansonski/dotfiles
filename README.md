@@ -2,6 +2,12 @@
 This is my personal configuration collection of for me important tools.
 
 ## Installation
+There are two possible ways to install the scripts, automatically or manual.
+The install script currently only supports apt-based distributions and is only
+tested on Debian testing.
+At the moment the install script is not well tested, so be careful using it!
+
+###Manual
 To install the configuration, just link the dotfile/dotfolder associated file
 with the proper dotfile/dotfolder in your `$HOME` folder.
 
@@ -17,7 +23,6 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
 
 1. Create soft-links to the files in the repository.
    ```sh
-   ln -s ../../githooks/* .git/hooks/
    mkdir -p ~/.cache/ssh/mux
    mkdir -p ~/.gnupg
    mkdir -p ~/.vim/bundle
@@ -27,7 +32,7 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
    ln -s ~/dotfiles/gitconfig ~/.gitconfig
    ln -s ~/dotfiles/gitignore ~/.gitignore
    ln -s ~/dotfiles/gittemplate ~/.gittemplate
-   ln -s ~/dotfiles/contrib/whiteinge-dotfiles/bin/diffconflicts ~/bin/diffconflicts.sh
+   ln -s ~/dotfiles/bin/diffconflicts.sh ~/bin/diffconflicts.sh
    ln -s ~/dotfiles/gpg.conf ~/.gnupg/gpg.conf
    ln -s ~/dotfiles/globalrc ~/.globalrc
    ln -s ~/dotfiles/gradle ~/.gradle
@@ -71,9 +76,7 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
 1. To use powerline, install the powerline package on your system and adapt
    the last line in the `zshrc` to the path of the zsh powerline bindings.
 
-1. To use the solarized colors in gnome-terminal, run `./install.sh` in the
-   submodule-folder _contrib/gnome-terminal-colors-solarized_.
-
-1. For dircolors with other solarized color schemes than solarized-dark, use
-   one of [dircolors-solarized](https://github.com/seebi/dircolors-solarized)
-   dircolors and exchange it with dircolors.
+###Automatic
+Just run `./install.sh`, all packages are installed and soft-links are created
+and vim plugins are installed. In case files exists, but point to another
+config, you are asked if you want to overwrite it.
