@@ -4,26 +4,25 @@ ControlMaster auto
 ControlPath ~/.cache/ssh/mux/%r@%h:%p
 ControlPersist 1h
 
-Host router.asus.com
-HostName router.asus.com
+Host router
+HostName gateway.sonski.dynv6.net
 User admin
-ForwardX11 yes
 
 Host sonski-desktop
-HostName sonski-desktop.sonski.ignorelist.com
+HostName sonski-desktop.sonski.dynv6.net
 User stefan
 ForwardX11 yes
 
 Host gbquad
-HostName gbquad.sonski.ignorelist.com
+HostName gbquad.sonski.dynv6.net
 User root
 
 Host base
-HostName base.sonski.ignorelist.com
+HostName base.sonski.dynv6.net
 User root
 
 Host pi
-HostName pi.sonski.ignorelist.com
+HostName pi.sonski.dynv6.net
 User pi
 
 Host sts01
