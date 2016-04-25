@@ -2,7 +2,7 @@ Host *
 ServerAliveInterval 100
 ControlMaster auto
 ControlPath ~/.cache/ssh/mux/%r@%h:%p
-ControlPersist 1h
+ControlPersist 10m
 
 Host router
 HostName gateway.sonski.dynv6.net
