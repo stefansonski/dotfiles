@@ -31,3 +31,5 @@ ssh/id_rsa
 ssh/known_hosts
 ssh/known_hosts.old
 ssh/nas_rsa
+weechat/weechat.log
+weechat/logs/
