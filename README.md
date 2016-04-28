@@ -29,6 +29,7 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
    mkdir -p ~/.vim/spell
    ln -s ~/dotfiles/dircolors ~/.dircolors
    ln -s ~/dotfiles/gdbinit ~/.gdbinit
+   ln -s ~/dotfiles/gitattributes ~/.gitattributes
    ln -s ~/dotfiles/gitconfig ~/.gitconfig
    ln -s ~/dotfiles/gitignore ~/.gitignore
    ln -s ~/dotfiles/gittemplate ~/.gittemplate

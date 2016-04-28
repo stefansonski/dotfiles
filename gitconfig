@@ -1,50 +1,51 @@
 [user]
-        name = Stefan Sonski
-        email = s.sonski@gmail.com
-        signingkey = 12A9A644
+	name = Stefan Sonski
+	email = s.sonski@gmail.com
+	signingkey = 12A9A644
 [credential]
-        helper = cache
+	helper = cache
 [push]
-        default = simple
+	default = simple
 [svn]
-        pushmergeinfo = true
+	pushmergeinfo = true
 [diff]
-        tool = vimdiff
-        mnemonicprefix = true
+	tool = vimdiff
+	mnemonicprefix = true
 [merge]
-        tool = diffconflicts
-        stat = true
+	tool = diffconflicts
+	stat = true
 [color]
-        ui = true
+	ui = true
 [advice]
-        statusHints = false
+	statusHints = false
 [core]
-        autocrlf = input
-        excludesfile = ~/.gitignore
-        editor = vim -f
-        whitespace = trailing-space,space-before-tab,tab-in-indent
+	autocrlf = input
+	excludesfile = ~/.gitignore
+	editor = vim -f
+	whitespace = trailing-space,space-before-tab,tab-in-indent
+	attributesfile = /home/stefan/.gitattributes
 [branch]
-        autosetupmerge = true
-        pager = less -r
+	autosetupmerge = true
+	pager = less -r
 [mergetool]
-        keepBackup = false
-        prompt = false
+	keepBackup = false
+	prompt = false
 [commit]
-        gpgsign = true
+	gpgsign = true
 [init]
-        templatedir = ~/.gittemplate
+	templatedir = ~/.gittemplate
 [alias]
-        gtags = !.git/hooks/gtags
-        co = checkout
-        ci = commit
-        st = status
-        br = branch
+	gtags = !.git/hooks/gtags
+	co = checkout
+	ci = commit
+	st = status
+	br = branch
 [log]
-        date = local
+	date = local
 [difftool "vimdiff"]
-        cmd = vimdiff -R -f -d \"$LOCAL\" \"$REMOTE\"
+	cmd = vimdiff -R -f -d \"$LOCAL\" \"$REMOTE\"
 [mergetool "diffconflicts"]
-        cmd = diffconflicts.sh vim $BASE $LOCAL $REMOTE $MERGED
-        trustExitCode = true
+	cmd = diffconflicts.sh vim $BASE $LOCAL $REMOTE $MERGED
+	trustExitCode = true
 [rerere]
-        enabled = true
+	enabled = true

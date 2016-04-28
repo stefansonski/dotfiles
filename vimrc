@@ -37,7 +37,7 @@ NeoBundle 'Valloric/YouCompleteMe',
       \ {
       \   'build' :
       \   {
-      \     'unix' : './install.py --clang-completer --system-libclang --system-boost'
+      \     'unix' : './install.py --clang-completer --system-libclang --system-boost --gocode-completer'
       \   }
       \ }
 NeoBundle 'stefansonski/vim-snippets'
@@ -65,7 +65,7 @@ call neobundle#end()
 " Fix issues for YouCompleteMe installation because of a timeout, it just takes
 " really long to fetch all submodules and build it
 let g:neobundle#install_process_timeout = 1500
-let g:neobundle#types#git#pull_command ="clean -dffnx && git submodule foreach --recursive git clean -dffnx && git pull --ff --ff-only"
+let g:neobundle#types#git#pull_command ="clean -dffnx; git submodule foreach --recursive git clean -dffnx; git pull --ff --ff-only"
 
 " Set filetype stuff to on
 filetype plugin indent on
@@ -384,17 +384,23 @@ augroup cppfiles
   au BufEnter *.cpp let b:fswitchdst  = 'h'
   au BufEnter *.cpp let b:fswitchlocs = 'include/,../include,../'
 augroup END
-autocmd Filetype cpp setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=120
-autocmd FileType cmake setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=120
-autocmd FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=120
-autocmd Filetype gitcommit setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd Filetype gitconfig setlocal shiftwidth=8 tabstop=8 softtabstop=8
-autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
-autocmd FileType sh setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
-autocmd FileType zsh setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
-autocmd FileType markdown setlocal shiftwidth=3 tabstop=3 softtabstop=3 textwidth=80
-autocmd FileType java setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=120 omnifunc=javacomplete#Complete
-autocmd BufNewFile,BufRead CMakeLists.txt set filetype=cmake
+
+au BufRead,BufNewFile *gitattributes	setfiletype gitattributes
+au BufRead,BufNewFile *gitconfig	setfiletype gitconfig
+au Filetype cpp setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=120
+au FileType cmake setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=120
+au FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=120
+au Filetype gitcommit setlocal shiftwidth=2 tabstop=2 softtabstop=2
+au Filetype gitconfig setlocal shiftwidth=8 tabstop=8 softtabstop=8
+au FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
+au FileType sh setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
+au FileType zsh setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
+au FileType markdown setlocal shiftwidth=3 tabstop=3 softtabstop=3 textwidth=80
+au FileType java setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=120 omnifunc=javacomplete#Complete
+au Filetype go setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
+au Filetype gitconfig setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
+au Filetype gitattributes setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
+au BufNewFile,BufRead CMakeLists.txt set filetype=cmake
 
 "-----------------------------------------------------------------------------
 " clang_format

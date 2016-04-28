@@ -120,6 +120,7 @@ mkdir -p ~/.vim/bundle
 mkdir -p ~/.vim/spell
 checkAndInstallConfig $directory/dircolors ~/.dircolors
 checkAndInstallConfig $directory/gdbinit ~/.gdbinit
+checkAndInstallConfig $directory/gitattributes ~/.gitattributes
 checkAndInstallConfig $directory/gitconfig ~/.gitconfig
 checkAndInstallConfig $directory/gittemplate ~/.gittemplate
 checkAndInstallConfig $directory/bin/diffconflicts.sh ~/bin/diffconflicts.sh
