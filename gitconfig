@@ -8,6 +8,7 @@
 	default = simple
 [svn]
 	pushmergeinfo = true
+	rmdir = true
 [diff]
 	tool = vimdiff
 	mnemonicprefix = true
@@ -49,3 +50,5 @@
 	trustExitCode = true
 [rerere]
 	enabled = true
+[svn-remote]
+	svn = automkdirs
