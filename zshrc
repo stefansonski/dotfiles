@@ -30,36 +30,12 @@ WORDCHARS="${WORDCHARS:s#.#}"
 #key binding stuff to get the right keys to work
 # key bindings
 bindkey -e
-bindkey "\e[1~" beginning-of-line
-bindkey "\e[4~" end-of-line
-bindkey "\e[5~" beginning-of-history
-bindkey "\e[6~" end-of-history
-bindkey "\e[3~" delete-char
-bindkey "\e[2~" overwrite-mode
-bindkey "\e[5C" forward-word
-bindkey "\eOc" emacs-forward-word
-bindkey "\e[5D" backward-word
-bindkey "\eOd" emacs-backward-word
-bindkey "\ee[C" forward-word
-bindkey "\ee[D" backward-word
-#Ctrl-left/right
-bindkey '\e[1;5C' forward-word # ctrl right
-bindkey '\e[1;5D' backward-word # ctrl left o
-#alt-left/right
-bindkey "\e[1;3C" forward-word
-bindkey "\e[1;3D" backward-word
-#bindkey "^H" backward-delete-word
-# for rxvt
-bindkey "\e[8~" end-of-line
-bindkey "\e[7~" beginning-of-line
-# for non RH/Debian xterm, cant hurt for RH/DEbian xterm
-bindkey "\eOH" beginning-of-line
-bindkey "\eOF" end-of-line
-# for freebsd console
-bindkey "\e[H" beginning-of-line
-bindkey "\e[F" end-of-line
-# completion in the middle of a line
-bindkey '^i' expand-or-complete-prefix
+bindkey "${key[Home]}" beginning-of-line
+bindkey "${key[End]}" end-of-line
+bindkey "${key[Delete]}" delete-char
+bindkey "${key[Insert]}" overwrite-mode
+bindkey ";5C" forward-word
+bindkey ";5D" backward-word
 
 # search history with pattern
 bindkey "^R" history-incremental-pattern-search-backward
