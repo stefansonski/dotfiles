@@ -49,10 +49,6 @@ zle -N down-line-or-beginning-search
 bindkey "${key[Up]}" up-line-or-beginning-search # Up
 bindkey "${key[Down]}" down-line-or-beginning-search # Do
 
-# End of lines configured by zsh-newuser-install
-# The following lines were added by compinstall
-zstyle :compinstall filename '/home/stefan/.zshrc'
-
 autoload -Uz compinit
 compinit
 
