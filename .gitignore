@@ -19,6 +19,8 @@ config/nvim/*
 config/pulse/
 config/rygel.conf
 config/spotify/
+config/sqlitebrowser/
+config/transmission/
 config/Trolltech.conf
 gnupg/pubring.gpg~
 gnupg/random_seed
