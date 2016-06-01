@@ -105,7 +105,7 @@ zstyle ':completion::complete:*' cache-path ~/.zcache
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
 zstyle ':completion::complete:cd::' tag-order local-directories
-zstyle ':completion:*' menu select=2
+zstyle ':completion:*' menu yes select
 zstyle ':completion:*' squeeze-slashes true
 zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:kill:*'   force-list always
