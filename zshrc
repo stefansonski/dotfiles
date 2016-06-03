@@ -26,6 +26,7 @@ HISTSIZE=10000
 SAVEHIST=10000
 WORDCHARS="${WORDCHARS:s#/#}"
 WORDCHARS="${WORDCHARS:s#.#}"
+
 ##############################################################
 #key binding stuff to get the right keys to work
 # key bindings
@@ -40,21 +41,13 @@ bindkey ";5D" backward-word
 # search history with pattern
 bindkey "^R" history-incremental-pattern-search-backward
 bindkey "^S" history-incremental-pattern-search-forward
-
-# search in history with arrow keys
-autoload -U up-line-or-beginning-search
-autoload -U down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey "${key[Up]}" up-line-or-beginning-search # Up
-bindkey "${key[Down]}" down-line-or-beginning-search # Do
+bindkey "${key[Up]}" history-search-backward # Up
+bindkey "${key[Down]}" history-search-forward # Down
+bindkey ";5A" history-search-backward # Up
+bindkey ";5B" history-search-forward # Down
 
 autoload -Uz compinit
 compinit
-
-# Use gpg completion for gpg2.
-# But still the keys from gpg are completed.
-compdef gpg2=gpg
 
 # End of lines added by compinstall
 ## completion system
