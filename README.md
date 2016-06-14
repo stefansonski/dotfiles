@@ -31,8 +31,8 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
    ln -s ~/dotfiles/gdbinit ~/.gdbinit
    ln -s ~/dotfiles/gitattributes ~/.gitattributes
    ln -s ~/dotfiles/gitconfig ~/.gitconfig
+   ln -s ~/dotfiles/githooks ~/.githooks
    ln -s ~/dotfiles/gitignore ~/.gitignore
-   ln -s ~/dotfiles/gittemplate ~/.gittemplate
    ln -s ~/dotfiles/bin/diffconflicts.sh ~/bin/diffconflicts.sh
    ln -s ~/dotfiles/gpg.conf ~/.gnupg/gpg.conf
    ln -s ~/dotfiles/globalrc ~/.globalrc

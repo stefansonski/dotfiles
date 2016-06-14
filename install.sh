@@ -122,7 +122,7 @@ checkAndInstallConfig $directory/dircolors ~/.dircolors
 checkAndInstallConfig $directory/gdbinit ~/.gdbinit
 checkAndInstallConfig $directory/gitattributes ~/.gitattributes
 checkAndInstallConfig $directory/gitconfig ~/.gitconfig
-checkAndInstallConfig $directory/gittemplate ~/.gittemplate
+checkAndInstallConfig $directory/githooks ~/.githooks
 checkAndInstallConfig $directory/bin/diffconflicts.sh ~/bin/diffconflicts.sh
 checkAndInstallConfig $directory/gpg.conf ~/.gnupg/gpg.conf
 checkAndInstallConfig $directory/globalrc ~/.globalrc

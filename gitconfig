@@ -12,6 +12,7 @@
 [diff]
 	tool = vimdiff
 	mnemonicprefix = true
+	compactionHeuristic = true
 [merge]
 	tool = diffconflicts
 	stat = true
@@ -25,6 +26,7 @@
 	editor = vim -f
 	whitespace = trailing-space,space-before-tab,tab-in-indent
 	attributesfile = /home/stefan/.gitattributes
+	hooksPath = /home/stefan/.githooks
 [branch]
 	autosetupmerge = true
 	pager = less -r
@@ -36,7 +38,7 @@
 [init]
 	templatedir = ~/.gittemplate
 [alias]
-	gtags = !.git/hooks/gtags
+	gtags = !~/.githooks/gtags
 	co = checkout
 	ci = commit
 	st = status
@@ -52,3 +54,5 @@
 	enabled = true
 [svn-remote]
 	svn = automkdirs
+[submodule]
+	fetchJobs = 4
