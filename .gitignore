@@ -6,14 +6,17 @@ config/dconf/*
 config/DisplayCAL/
 !config/dconf/dconf.d/
 config/dleyna-*.conf
+config/enchant/
 config/evolution/
 config/git/
 config/gnome-control-center/
 config/gnome-session/
 config/google-chrome/
 config/gtk-2.0/
+config/hexchat/
 config/keepassx/
 config/metacity/
+config/mutter/
 config/nvim/*
 !config/nvim/init.vim
 config/pulse/
