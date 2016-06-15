@@ -41,10 +41,15 @@ bindkey ";5D" backward-word
 # search history with pattern
 bindkey "^R" history-incremental-pattern-search-backward
 bindkey "^S" history-incremental-pattern-search-forward
-bindkey "${key[Up]}" history-search-backward # Up
-bindkey "${key[Down]}" history-search-forward # Down
-bindkey ";5A" history-search-backward # Up
-bindkey ";5B" history-search-forward # Down
+
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "${key[Up]}" up-line-or-beginning-search # Up
+bindkey "${key[Down]}" down-line-or-beginning-search # Down
+bindkey ";5A" up-line-or-beginning-search # Up
+bindkey ";5B" down-line-or-beginning-search # Down
 
 autoload -Uz compinit
 compinit
