@@ -56,6 +56,8 @@ if [ -d "$HOME/go" ]; then
 fi
 
 export EDITOR=$(which vim)
+export VISUAL=$EDITOR
 export PAGER=$(which less)
+export BROWSER=$(which google-chrome)
 export LESS="-FRX"
 export GTAGSLABEL="default"
