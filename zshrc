@@ -138,6 +138,7 @@ alias sl='ls -lh'
 alias la='ls -lah'
 alias less='less --follow-name'
 alias gradlew="./gradlew"
+alias info="info --vi-keys"
 
 gvim () {
   command gvim --remote-silent "$@" || command gvim "$@";
