@@ -387,19 +387,19 @@ augroup END
 
 au BufRead,BufNewFile *gitattributes	setfiletype gitattributes
 au BufRead,BufNewFile *gitconfig	setfiletype gitconfig
-au Filetype cpp setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=120
 au FileType cmake setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=120
-au FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=120
-au Filetype gitcommit setlocal shiftwidth=2 tabstop=2 softtabstop=2
-au Filetype gitconfig setlocal shiftwidth=8 tabstop=8 softtabstop=8
-au FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
-au FileType sh setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
-au FileType zsh setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
-au FileType markdown setlocal shiftwidth=3 tabstop=3 softtabstop=3 textwidth=80
-au FileType java setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=120 omnifunc=javacomplete#Complete
-au Filetype go setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
-au Filetype gitconfig setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
+au Filetype cpp setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=120
 au Filetype gitattributes setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
+au Filetype gitcommit setlocal shiftwidth=2 tabstop=2 softtabstop=2
+au Filetype gitconfig setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
+au Filetype go setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
+au FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
+au FileType java setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=120 noexpandtab omnifunc=javacomplete#Complete
+au FileType markdown setlocal shiftwidth=3 tabstop=3 softtabstop=3 textwidth=80
+au FileType php setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=120
+au FileType sh setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
+au FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=120
+au FileType zsh setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
 au BufNewFile,BufRead CMakeLists.txt set filetype=cmake
 
 "-----------------------------------------------------------------------------

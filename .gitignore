@@ -8,6 +8,7 @@ config/DisplayCAL/
 config/dleyna-*.conf
 config/enchant/
 config/evolution/
+config/gedit/
 config/git/
 config/gnome-control-center/
 config/gnome-session/
@@ -15,6 +16,7 @@ config/google-chrome/
 config/gtk-2.0/
 config/hexchat/
 config/keepassx/
+config/libreoffice/
 config/metacity/
 config/mutter/
 config/nvim/*
