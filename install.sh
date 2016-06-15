@@ -114,10 +114,12 @@ if [[ -z $(pip show powerline-status) ]]; then
 fi
 
 printf "Creating links.\n"
+mkdir -p ~/bin
 mkdir -p ~/.cache/ssh/mux
 mkdir -p ~/.gnupg
 mkdir -p ~/.vim/bundle
 mkdir -p ~/.vim/spell
+checkAndInstallConfig /usr/share/doc/git/contrib/diff-highlight/diff-highlight ~/bin/diff-highlight
 checkAndInstallConfig $directory/dircolors ~/.dircolors
 checkAndInstallConfig $directory/gdbinit ~/.gdbinit
 checkAndInstallConfig $directory/gitattributes ~/.gitattributes

@@ -23,10 +23,12 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
 
 1. Create soft-links to the files in the repository.
    ```sh
+   mkdir -p ~/bin
    mkdir -p ~/.cache/ssh/mux
    mkdir -p ~/.gnupg
    mkdir -p ~/.vim/bundle
    mkdir -p ~/.vim/spell
+   ln -s /usr/share/doc/git/contrib/diff-highlight/diff-highlight ~/bin/diff-highlight
    ln -s ~/dotfiles/dircolors ~/.dircolors
    ln -s ~/dotfiles/gdbinit ~/.gdbinit
    ln -s ~/dotfiles/gitattributes ~/.gitattributes
