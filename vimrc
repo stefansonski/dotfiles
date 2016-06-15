@@ -355,11 +355,14 @@ let g:UltiSnipsExpandTrigger = "<C-J>"
 let g:UltiSnipsListSnippets = "<C-K>"
 let g:UltiSnipsJumpForwardTrigger = "<C-J>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-K>"
+nnoremap <silent> <LEADER>gd :YcmCompleter GetDoc<CR>
+nnoremap <silent> <LEADER>gf :YcmCompleter GoToDefinition<CR>
+nnoremap <silent> <LEADER>gl :YcmCompleter GoToDeclaration<CR>
 
 "-----------------------------------------------------------------------------
 " Tagbar
 "-----------------------------------------------------------------------------
-nnoremap <leader>tt :TagbarToggle<CR>
+nnoremap <LEADER>tt :TagbarToggle<CR>
 
 "-----------------------------------------------------------------------------
 " FSwitch mappings
@@ -479,6 +482,6 @@ function! DiffToggle(window)
   call setpos('.', l:save_cursor)
 endfunction
 " Toggle diff view on the left, center, or right windows
-nmap <silent> <leader>dl :call DiffToggle(1)<cr>
-nmap <silent> <leader>dc :call DiffToggle(2)<cr>
-nmap <silent> <leader>dr :call DiffToggle(3)<cr>
+nmap <silent> <LEADER>dl :call DiffToggle(1)<CR>
+nmap <silent> <LEADER>dc :call DiffToggle(2)<CR>
+nmap <silent> <LEADER>dr :call DiffToggle(3)<CR>
