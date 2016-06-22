@@ -175,7 +175,8 @@ setopt HIST_IGNORE_ALL_DUPS
 setopt AUTO_PUSHD
 
 ## show menu on completion
-setopt AUTOLIST AUTO_MENU
+unsetopt MENUCOMPLETE
+setopt AUTOLIST AUTOMENU
 
 ## activate extended globbing
 setopt EXTENDEDGLOB

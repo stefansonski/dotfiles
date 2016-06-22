@@ -28,6 +28,7 @@ config/sqlitebrowser/
 config/transmission/
 config/Trolltech.conf
 config/VirtualBox/
+config/vlc/
 gnupg/pubring.gpg~
 gnupg/random_seed
 gnupg/secring.gpg
