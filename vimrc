@@ -59,6 +59,7 @@ NeoBundle 'Raimondi/delimitMate'
 NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'octol/vim-cpp-enhanced-highlight'
 NeoBundle 'artur-shaik/vim-javacomplete2'
+NeoBundle 'lervag/vimtex'
 
 call neobundle#end()
 
@@ -401,6 +402,7 @@ au FileType java setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=120 noe
 au FileType markdown setlocal shiftwidth=3 tabstop=3 softtabstop=3 textwidth=80
 au FileType php setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=120
 au FileType sh setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
+au FileType tex setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
 au FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=120
 au FileType zsh setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
 au BufNewFile,BufRead CMakeLists.txt set filetype=cmake

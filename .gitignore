@@ -15,6 +15,7 @@ config/gnome-session/
 config/google-chrome/
 config/gtk-2.0/
 config/hexchat/
+config/inkscape/
 config/keepassx/
 config/libreoffice/
 config/metacity/
