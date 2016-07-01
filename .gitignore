@@ -19,6 +19,7 @@ config/inkscape/
 config/keepassx/
 config/libreoffice/
 config/metacity/
+config/monitors.xml
 config/mutter/
 config/nvim/*
 !config/nvim/init.vim
