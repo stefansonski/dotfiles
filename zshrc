@@ -69,10 +69,7 @@ zstyle ':completion:*:corrections'     format $'%{\e[0;31m%}%d (errors: %e)%{\e[
 zstyle ':completion:*:correct:*'       original true                       #
 zstyle ':completion:*:default'         list-colors ${(s.:.)LS_COLORS}      # activate color-completion(!)
 zstyle ':completion:*:descriptions'    format $'%{\e[0;31m%}completing %B%d%b%{\e[0m%}'  # format on completion
-zstyle ':completion:*:*:cd:*:directory-stack' menu yes select              # complete 'cd -<tab>' with menu
-#zstyle ':completion:*:expand:*'        tag-order all-expansions           # insert all expansions for expand completer
 zstyle ':completion:*:history-words'   list false                          #
-zstyle ':completion:*:history-words'   menu yes                            # activate menu
 zstyle ':completion:*:history-words'   remove-all-dups yes                 # ignore duplicate entries
 zstyle ':completion:*:history-words'   stop yes                            #
 zstyle ':completion:*'                 matcher-list 'm:{a-z}={A-Z}'        # match uppercase from lowercase
@@ -84,6 +81,7 @@ zstyle ':completion:*:options'         description 'yes'                   # des
 zstyle ':completion:*:processes'       command 'ps -au$USER'               # on processes completion complete all user processes
 zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters        # offer indexes before parameters in subscripts
 zstyle ':completion:*'                 verbose true                        # provide verbose completion information
+zstyle ':completion:*'                 menu select
 zstyle ':completion:*:warnings'        format $'%{\e[0;31m%}No matches for:%{\e[0m%} %d' # set format for warnings
 zstyle ':completion:*:*:zcompile:*'    ignored-patterns '(*~|*.zwc)'       # define files to ignore for zcompile
 zstyle ':completion:correct:'          prompt 'correct to: %e'             #
@@ -93,7 +91,6 @@ zstyle ':completion:*'                 special-dirs true                   # Com
 # complete manual by their section
 zstyle ':completion:*:manuals'    separate-sections true
 zstyle ':completion:*:manuals.*'  insert-sections   true
-zstyle ':completion:*:man:*'      menu yes select
 
 
 
@@ -103,9 +100,7 @@ zstyle ':completion::complete:*' cache-path ~/.zcache
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
 zstyle ':completion::complete:cd::' tag-order local-directories
-zstyle ':completion:*' menu yes select
 zstyle ':completion:*' squeeze-slashes true
-zstyle ':completion:*:*:kill:*' menu yes select
 zstyle ':completion:*:kill:*'   force-list always
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 
