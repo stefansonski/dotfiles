@@ -44,7 +44,6 @@ NeoBundle 'stefansonski/vim-snippets'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'derekwyatt/vim-fswitch'
 NeoBundle 'derekwyatt/vim-protodef'
-NeoBundle 'majutsushi/tagbar'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'kana/vim-operator-user'
 NeoBundle 'rhysd/vim-clang-format'
@@ -359,11 +358,6 @@ let g:UltiSnipsJumpBackwardTrigger = "<C-K>"
 nnoremap <silent> <LEADER>gd :YcmCompleter GetDoc<CR>
 nnoremap <silent> <LEADER>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <silent> <LEADER>gl :YcmCompleter GoToDeclaration<CR>
-
-"-----------------------------------------------------------------------------
-" Tagbar
-"-----------------------------------------------------------------------------
-nnoremap <LEADER>tt :TagbarToggle<CR>
 
 "-----------------------------------------------------------------------------
 " FSwitch mappings
