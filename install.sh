@@ -65,7 +65,7 @@ trap cleanup EXIT
 neededPackages="llvm-dev libboost-dev libboost-python-dev
                 libboost-filesystem-dev libboost-system-dev
                 libboost-regex-dev libboost-thread-dev clang clang-format
-                powerline python-pip"
+                powerline python-pip neovim"
 
 for pkg in $neededPackages; do
   if ! dpkg -s $pkg &> /dev/null; then
@@ -146,6 +146,14 @@ fi
 
 printf "Installing/updating vim plugins via NeoBundle.\n"
 vim +NeoBundleInstall! +qall
+
+if [[ ! -a ~/.config/nvim/autoload/plug.vim ]]; then
+  curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+fi
+
+printf "Installing/updating neovim plugins via vim-plug.\n"
+nvim +PlugInstall! +qall
 
 cd $originalDirectory
 printf "Done.\n"
