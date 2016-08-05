@@ -26,7 +26,8 @@ Plug 'Yggdroot/indentLine'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'lervag/vimtex'
-
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -286,6 +287,8 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_confirm_extra_conf = 0
+"Fill location list
+let g:ycm_always_populate_location_list = 1
 
 "-----------------------------------------------------------------------------
 " UltiSnip
@@ -420,3 +423,9 @@ endfunction
 nmap <silent> <LEADER>dl :call DiffToggle(1)<CR>
 nmap <silent> <LEADER>dc :call DiffToggle(2)<CR>
 nmap <silent> <LEADER>dr :call DiffToggle(3)<CR>
+
+"-----------------------------------------------------------------------------
+" vim-airline
+"-----------------------------------------------------------------------------
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
