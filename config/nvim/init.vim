@@ -20,13 +20,7 @@ Plug 'derekwyatt/vim-protodef'
 Plug 'flazz/vim-colorschemes'
 Plug 'kana/vim-operator-user'
 Plug 'rhysd/vim-clang-format'
-"NeoBundle 'wincent/command-t',
-"      \ {
-"      \   'build' :
-"      \   {
-"      \     'unix' : 'cd ./ruby/command-t && ruby extconf.rb && make'
-"      \   }
-"      \ }
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
 Plug 'octol/vim-cpp-enhanced-highlight'
@@ -261,12 +255,18 @@ let g:main_font = "Hack\\ Regular\\ 8"
 let g:small_font = "Hack\\ Regular\\ 4"
 
 "-----------------------------------------------------------------------------
-" command-t Settings
+" CtrlP Settings
 "-----------------------------------------------------------------------------
-"let g:CommandTMatchWindowReverse = 1
-"
-"noremap <LEADER>b :CommandTBuffer<cr>
-"noremap <LEADER>f :CommandT .<cr>
+let g:ctrlp_switch_buffer = 'E'
+let g:ctrlp_tabpage_position = 'c'
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_root_markers = ['.git']
+let g:ctrlp_open_new_file = 'r'
+let g:ctrlp_open_multiple_files = '1ri'
+let g:ctrlp_match_window = 'max:40'
+
+noremap <LEADER>b :CtrlPBuffer<cr>
+noremap <LEADER>f :CtrlP .<cr>
 
 "-----------------------------------------------------------------------------
 " Set up the window colors and size
