@@ -29,3 +29,4 @@ application/x-sqlite3=sqlitebrowser.desktop;
 application/vnd.debian.binary-package=org.gnome.FileRoller.desktop;
 inode/directory=org.gnome.Nautilus.desktop;
 image/png=gimp.desktop;
+image/jpeg=gimp.desktop;

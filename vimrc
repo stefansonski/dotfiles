@@ -211,9 +211,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 set relativenumber
 
 " Types of files to ignore when auto completing things
-set wildignore+=*.o,*.class,*.git,*.svn,*/CMakeFiles/*,*/sources/*,*/installation_files/*,*/rootfs/*,*/alphaEOS_BIN/*
-set wildignore+=*/Arduino/*,*/installation/*,*/binsources/*,*/build/*,*/Demos/*,*/Dokumentation/*,*/DotNet/*,GRTAGS
-set wildignore+=GPATH,GTAGS
+set wildignore+=*.o,*.class,*.git,*.svn,*.pyc,*/CMakeFiles/*,*/sources/*,*/installation_files/*,*/rootfs/*
+set wildignore+=*/alphaEOS_BIN/*,*/Arduino/*,*/installation/*,*/binsources/*,*/build/*,*/Demos/*,*/Dokumentation/*
+set wildignore+=*/DotNet/*,GRTAGS,GPATH,GTAGS
 
 " Create backup, swap and undo directory if it does not exist
 if !isdirectory($HOME . "/.vim/swp")
