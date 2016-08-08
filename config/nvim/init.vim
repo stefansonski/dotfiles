@@ -28,6 +28,7 @@ Plug 'artur-shaik/vim-javacomplete2'
 Plug 'lervag/vimtex'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'neomake/neomake'
 
 call plug#end()
 
@@ -44,14 +45,6 @@ set wrapscan
 " Let's try ignorecase smartcase for searches.
 set ignorecase
 set smartcase
-
-" set the forward slash to be the slash of note.  Backslashes suck
-set shellslash
-if has("unix")
-  set shell=zsh
-else
-  set shell=ksh.exe
-endif
 
 " Make command line two lines high
 set ch=4
@@ -109,11 +102,6 @@ set timeoutlen=500
 
 " Keep some stuff in the history
 set history=100
-
-" These commands open folds
-set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
-set foldmethod=syntax
-set foldlevelstart=20
 
 " When the page starts to scroll, keep the cursor 8 lines from the top and 8
 " lines from the bottom
@@ -289,6 +277,9 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_confirm_extra_conf = 0
 "Fill location list
 let g:ycm_always_populate_location_list = 1
+nnoremap <silent> <LEADER>gd :YcmCompleter GetDoc<CR>
+nnoremap <silent> <LEADER>gf :YcmCompleter GoToDefinition<CR>
+nnoremap <silent> <LEADER>gl :YcmCompleter GoToDeclaration<CR>
 
 "-----------------------------------------------------------------------------
 " UltiSnip
@@ -297,9 +288,6 @@ let g:UltiSnipsExpandTrigger = "<C-J>"
 let g:UltiSnipsListSnippets = "<C-K>"
 let g:UltiSnipsJumpForwardTrigger = "<C-J>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-K>"
-nnoremap <silent> <LEADER>gd :YcmCompleter GetDoc<CR>
-nnoremap <silent> <LEADER>gf :YcmCompleter GoToDefinition<CR>
-nnoremap <silent> <LEADER>gl :YcmCompleter GoToDeclaration<CR>
 
 "-----------------------------------------------------------------------------
 " FSwitch mappings
@@ -332,6 +320,7 @@ augroup END
 
 " Remove trailing whitespaces on save
 au BufWritePre * :%s/\s\+$//e
+au! BufWritePost * Neomake
 au BufRead,BufNewFile *gitattributes	setfiletype gitattributes
 au BufRead,BufNewFile *gitconfig	setfiletype gitconfig
 au FileType cmake setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=120
