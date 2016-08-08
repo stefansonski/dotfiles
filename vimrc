@@ -88,14 +88,6 @@ set wrapscan
 set ignorecase
 set smartcase
 
-" set the forward slash to be the slash of note.  Backslashes suck
-set shellslash
-if has("unix")
-  set shell=bash
-else
-  set shell=ksh.exe
-endif
-
 " Make command line two lines high
 set ch=4
 
@@ -161,11 +153,6 @@ set timeoutlen=500
 
 " Keep some stuff in the history
 set history=100
-
-" These commands open folds
-set foldopen=block,insert,jump,mark,percent,quickfix,search,tag,undo
-set foldmethod=syntax
-set foldlevelstart=20
 
 " When the page starts to scroll, keep the cursor 8 lines from the top and 8
 " lines from the bottom
@@ -347,6 +334,9 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_confirm_extra_conf = 0
+nnoremap <silent> <LEADER>gd :YcmCompleter GetDoc<CR>
+nnoremap <silent> <LEADER>gf :YcmCompleter GoToDefinition<CR>
+nnoremap <silent> <LEADER>gl :YcmCompleter GoToDeclaration<CR>
 
 "-----------------------------------------------------------------------------
 " UltiSnip
@@ -355,9 +345,6 @@ let g:UltiSnipsExpandTrigger = "<C-J>"
 let g:UltiSnipsListSnippets = "<C-K>"
 let g:UltiSnipsJumpForwardTrigger = "<C-J>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-K>"
-nnoremap <silent> <LEADER>gd :YcmCompleter GetDoc<CR>
-nnoremap <silent> <LEADER>gf :YcmCompleter GoToDefinition<CR>
-nnoremap <silent> <LEADER>gl :YcmCompleter GoToDeclaration<CR>
 
 "-----------------------------------------------------------------------------
 " FSwitch mappings
