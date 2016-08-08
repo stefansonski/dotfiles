@@ -317,8 +317,6 @@ augroup cppfiles
   au BufEnter *.cxx let b:fswitchlocs = 'include/,../include,../,inc/,../inc'
 augroup END
 
-
-" Remove trailing whitespaces on save
 au BufWritePre * :%s/\s\+$//e
 au! BufWritePost * Neomake
 au BufRead,BufNewFile *gitattributes	setfiletype gitattributes

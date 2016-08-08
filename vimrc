@@ -31,7 +31,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle '/usr/share/vim/addons/'
 
 NeoBundle 'vim-scripts/UltiSnips'
-NeoBundle 'sjl/gundo.vim'
 NeoBundle 'elzr/vim-json'
 NeoBundle 'Valloric/YouCompleteMe',
       \ {
@@ -78,9 +77,6 @@ NeoBundleCheck
 set expandtab
 set autoindent
 
-" Printing options
-set printoptions=header:0,duplex:long,paper:letter
-
 " set the search scan to wrap lines
 set wrapscan
 
@@ -94,16 +90,9 @@ set ch=4
 " set visual bell -- I hate that damned beeping
 set vb
 
-" Allow backspacing over indent, EOL, and the start of an insert
-set backspace=2
-
 " Make sure that unsaved buffers that are to be put in the background are
 " allowed to go in there (i.e. the "must save first" error doesn't come up)
 set hidden
-
-" Make the 'cw' and like commands put a $ at the end instead of just deleting
-" the text and replacing it
-set cpoptions=ces$
 
 " tell VIM to always put a status line in, even if there is only one window
 set laststatus=2
@@ -111,8 +100,6 @@ set laststatus=2
 " Deactivate it until powerline has a bug.
 "set showtabline=2
 set showtabline=1
-" Hide the default mode text (e.g. -- INSERT -- below the status line)
-set noshowmode
 
 " Don't update the display while executing macros
 set lazyredraw
@@ -191,9 +178,6 @@ set autoread
 
 set grepprg=grep\ -nH\ $*
 
-" Remove trailing whitespaces on save
-autocmd BufWritePre * :%s/\s\+$//e
-
 " Trying out the line numbering thing...
 set relativenumber
 
@@ -226,12 +210,6 @@ nmap <silent> <LEADER>n :nohls<CR>
 
 " Highlight strings inside C comments
 let c_comment_strings=1
-
-" Load up the doxygen syntax
-let g:load_doxygen_syntax=1
-
-" Let the syntax highlighting for Java files allow cpp keywords
-let java_allow_cpp_keywords = 1
 
 " Activate spell-checking as default.
 set spell
@@ -312,11 +290,6 @@ noremap <LEADER>b :CommandTBuffer<cr>
 noremap <LEADER>f :CommandT .<cr>
 
 "-----------------------------------------------------------------------------
-" Gundo Settings
-"-----------------------------------------------------------------------------
-nmap <c-F5> :GundoToggle<cr>
-
-"-----------------------------------------------------------------------------
 " Set up the window colors and size
 "-----------------------------------------------------------------------------
 colorscheme solarized
@@ -334,6 +307,8 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_confirm_extra_conf = 0
+"Fill location list
+let g:ycm_always_populate_location_list = 1
 nnoremap <silent> <LEADER>gd :YcmCompleter GetDoc<CR>
 nnoremap <silent> <LEADER>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <silent> <LEADER>gl :YcmCompleter GoToDeclaration<CR>
@@ -368,8 +343,13 @@ augroup cppfiles
   au BufEnter *.h   let b:fswitchlocs = '../,../src/,src/,../source/,source/'
   au BufEnter *.cpp let b:fswitchdst  = 'h'
   au BufEnter *.cpp let b:fswitchlocs = 'include/,../include,../'
+  au BufEnter *.hxx let b:fswitchdst  = 'cxx'
+  au BufEnter *.hxx let b:fswitchlocs = '../,../src/,src/,../source/,source/'
+  au BufEnter *.cxx let b:fswitchdst  = 'hxx'
+  au BufEnter *.cxx let b:fswitchlocs = 'include/,../include,../,inc/,../inc'
 augroup END
 
+au BufWritePre * :%s/\s\+$//e
 au BufRead,BufNewFile *gitattributes	setfiletype gitattributes
 au BufRead,BufNewFile *gitconfig	setfiletype gitconfig
 au FileType cmake setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=120
@@ -414,13 +394,6 @@ if has('cscope')
   if has('quickfix')
     set cscopequickfix=s-,c-,d-,i-,t-,e-
   endif
-
-  cnoreabbrev csa cs add
-  cnoreabbrev csf cs find
-  cnoreabbrev csk cs kill
-  cnoreabbrev csr cs reset
-  cnoreabbrev css cs show
-  cnoreabbrev csh cs help
 
   command! -nargs=0 Cscope cs add GTAGS
   map <C-\> :cs find c <C-R>=expand("<cword>")<CR><CR>
