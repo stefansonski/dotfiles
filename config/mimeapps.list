@@ -30,3 +30,4 @@ application/vnd.debian.binary-package=org.gnome.FileRoller.desktop;
 inode/directory=org.gnome.Nautilus.desktop;
 image/png=gimp.desktop;
 image/jpeg=gimp.desktop;
+application/x-wine-extension-ini=gvim.desktop;

@@ -7,3 +7,4 @@ set auto-load safe-path /
 set solib-search-path .
 
 set debug libthread-db 1
+set follow-fork-mode child
