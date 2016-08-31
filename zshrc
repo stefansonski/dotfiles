@@ -134,6 +134,7 @@ alias la='ls -lah'
 alias less='less --follow-name'
 alias gradlew="./gradlew"
 alias info="info --vi-keys"
+alias sqlite3='sqlite3 --header --column'
 
 gvim () {
   command gvim --remote-silent "$@" || command gvim "$@";
