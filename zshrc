@@ -85,7 +85,7 @@ zstyle ':completion:*'                 menu select
 zstyle ':completion:*:warnings'        format $'%{\e[0;31m%}No matches for:%{\e[0m%} %d' # set format for warnings
 zstyle ':completion:*:*:zcompile:*'    ignored-patterns '(*~|*.zwc)'       # define files to ignore for zcompile
 zstyle ':completion:correct:'          prompt 'correct to: %e'             #
-zstyle ':completion::(^approximate*):*:functions' ignored-patterns '_*'    # Ignore completion functions for commands you don't have:
+zstyle ':completion:*:functions'       ignored-patterns '_*'               # Ignore completion functions for commands you don't have:
 zstyle ':completion:*'                 special-dirs true                   # Complete also special dirs as ..
 
 # complete manual by their section
