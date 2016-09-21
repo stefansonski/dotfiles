@@ -10,7 +10,7 @@
 	pushmergeinfo = true
 	rmdir = true
 [diff]
-	tool = vimdiff
+	tool = nvimdiff
 	mnemonicprefix = true
 	compactionHeuristic = true
 [merge]
@@ -23,7 +23,7 @@
 [core]
 	autocrlf = input
 	excludesfile = ~/.gitignore
-	editor = vim -f
+	editor = nvim -f
 	whitespace = trailing-space,space-before-tab,tab-in-indent
 	attributesfile = /home/stefan/.gitattributes
 	hooksPath = /home/stefan/.githooks
@@ -45,6 +45,8 @@
 	date = local
 [difftool "vimdiff"]
 	cmd = vimdiff -R -f -d \"$LOCAL\" \"$REMOTE\"
+[difftool "nvimdiff"]
+	cmd = nvim -R -f -d \"$LOCAL\" \"$REMOTE\"
 [mergetool "diffconflicts"]
 	cmd = diffconflicts.sh vim $BASE $LOCAL $REMOTE $MERGED
 	trustExitCode = true

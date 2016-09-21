@@ -28,7 +28,6 @@ Plug 'artur-shaik/vim-javacomplete2'
 Plug 'lervag/vimtex'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'neomake/neomake'
 
 call plug#end()
 
@@ -318,7 +317,6 @@ augroup cppfiles
 augroup END
 
 au BufWritePre * :%s/\s\+$//e
-au! BufWritePost * Neomake
 au BufRead,BufNewFile *gitattributes	setfiletype gitattributes
 au BufRead,BufNewFile *gitconfig	setfiletype gitconfig
 au FileType cmake setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=120
