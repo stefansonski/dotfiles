@@ -119,6 +119,7 @@ mkdir -p ~/.cache/ssh/mux
 mkdir -p ~/.gnupg
 mkdir -p ~/.vim/bundle
 mkdir -p ~/.vim/spell
+sudo chmod +x /usr/share/doc/git/contrib/diff-highlight/diff-highlight
 checkAndInstallConfig /usr/share/doc/git/contrib/diff-highlight/diff-highlight ~/bin/diff-highlight
 checkAndInstallConfig $directory/dircolors ~/.dircolors
 checkAndInstallConfig $directory/gdbinit ~/.gdbinit
