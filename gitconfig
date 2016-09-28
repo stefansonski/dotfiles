@@ -3,7 +3,7 @@
 	email = s.sonski@gmail.com
 	signingkey = 12A9A644
 [credential]
-	helper = cache
+	helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
 [push]
 	default = simple
 [svn]
