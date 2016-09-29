@@ -65,7 +65,7 @@ trap cleanup EXIT
 neededPackages="llvm-dev libboost-dev libboost-python-dev
                 libboost-filesystem-dev libboost-system-dev
                 libboost-regex-dev libboost-thread-dev clang clang-format
-                powerline python-pip neovim"
+                powerline python-pip neovim libgnome-keyring-dev"
 
 for pkg in $neededPackages; do
   if ! dpkg -s $pkg &> /dev/null; then
@@ -120,7 +120,7 @@ mkdir -p ~/.gnupg
 mkdir -p ~/.vim/bundle
 mkdir -p ~/.vim/spell
 sudo chmod +x /usr/share/doc/git/contrib/diff-highlight/diff-highlight
-git config --global credential.helper /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
+sudo make --directory=/usr/share/doc/git/contrib/credential/gnome-keyring/
 checkAndInstallConfig /usr/share/doc/git/contrib/diff-highlight/diff-highlight ~/bin/diff-highlight
 checkAndInstallConfig $directory/dircolors ~/.dircolors
 checkAndInstallConfig $directory/gdbinit ~/.gdbinit
