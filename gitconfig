@@ -67,5 +67,3 @@
 [imap]
 	folder = "[Google Mail]/Drafts"
 	host = imaps://imap.gmail.com
-	port = 993
-	sslverify = false
