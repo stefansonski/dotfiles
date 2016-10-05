@@ -37,10 +37,6 @@
 	gpgsign = true
 [alias]
 	gtags = !~/.githooks/gtags
-	co = checkout
-	ci = commit
-	st = status
-	br = branch
 [log]
 	date = local
 [difftool "vimdiff"]
@@ -67,3 +63,5 @@
 [imap]
 	folder = "[Google Mail]/Drafts"
 	host = imaps://imap.gmail.com
+[tag]
+	gpgsign = true
