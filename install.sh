@@ -65,7 +65,8 @@ trap cleanup EXIT
 neededPackages="llvm-dev libboost-dev libboost-python-dev
                 libboost-filesystem-dev libboost-system-dev
                 libboost-regex-dev libboost-thread-dev clang clang-format
-                powerline python-pip neovim libgnome-keyring-dev"
+                powerline python3-pip python3-powerline neovim
+                libgnome-keyring-dev"
 
 for pkg in $neededPackages; do
   if ! dpkg -s $pkg &> /dev/null; then
@@ -94,13 +95,13 @@ if [[ ! -z $missingPackages ]]; then
   esac
 fi
 
-if [[ -z $(pip show powerline-status) ]]; then
+if [[ -z $(pip3 show powerline-gitstatus) ]]; then
   printf "Pip package powerline-gitstatus is missing. Install it? [Y/n] "
   read install
   case "$install" in
     ""|"y"|"Y")
       printf "Installing powerline-gitstatus with pip.\n"
-      sudo pip install powerline-gitstatus
+      sudo pip3 install powerline-gitstatus
       ;;
     "n"|"N")
       printf "Skipping installation. Not all configs may work.\n"
