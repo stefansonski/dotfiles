@@ -124,15 +124,12 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias vi=$(which vim)
 alias -g ...='../..'
 alias -g ....='../../..'
 alias -g .....='../../../..'
 alias ll='ls -lh'
-alias sl='ls -lh'
 alias la='ls -lah'
 alias less='less --follow-name'
-alias gradlew="./gradlew"
 alias info="info --vi-keys"
 alias sqlite3='sqlite3 --header --column'
 alias dd='dd status=progress'
