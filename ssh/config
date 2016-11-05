@@ -5,7 +5,7 @@ ControlPath ~/.cache/ssh/mux/%r@%h:%p
 ControlPersist 10m
 
 Host router
-HostName gateway.sonski.local
+HostName router.asus.com
 User admin
 
 Host sonski-desktop
