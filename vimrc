@@ -360,10 +360,12 @@ au Filetype gitconfig setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
 au Filetype go setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
 au FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
 au FileType java setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=120 noexpandtab omnifunc=javacomplete#Complete
+au Filetype javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=120
 au FileType markdown setlocal shiftwidth=3 tabstop=3 softtabstop=3 textwidth=80
 au FileType php setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=120
 au FileType sh setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
 au FileType tex setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=120
+au FileType text setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
 au FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=120
 au FileType zsh setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
 au BufNewFile,BufRead CMakeLists.txt set filetype=cmake
