@@ -14,6 +14,7 @@ config/autostart/
 config/dconf/*
 config/dleyna-*.conf
 config/enchant/
+config/eog/
 config/evolution/
 config/gedit/
 config/git/

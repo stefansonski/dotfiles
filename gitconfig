@@ -39,6 +39,7 @@
 	gtags = !~/.githooks/gtags
 [log]
 	date = local
+	showSignature = true
 [difftool "vimdiff"]
 	cmd = vimdiff -R -f -d \"$LOCAL\" \"$REMOTE\"
 [difftool "nvimdiff"]
