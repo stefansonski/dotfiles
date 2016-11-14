@@ -421,6 +421,11 @@ let g:solarized_diffmode="high"
 "-----------------------------------------------------------------------------
 let g:cpp_class_scope_highlight = 1
 
+"-----------------------------------------------------------------------------
+" TeX-specific settings
+"-----------------------------------------------------------------------------
+let g:tex_flavor='latex'
+
 " Disable one diff window during a three-way diff allowing you to cut out the
 " noise of a three-way diff and focus on just the changes between two versions
 " at a time. Inspired by Steve Losh's Splice
