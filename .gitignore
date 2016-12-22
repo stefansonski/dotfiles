@@ -36,6 +36,7 @@ config/pulse/
 config/rygel.conf
 config/spotify/
 config/sqlitebrowser/
+config/totem/
 config/transmission/
 config/vlc/
 gnupg/pubring.gpg~
