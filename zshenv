@@ -55,6 +55,11 @@ if [ -d "$HOME/go" ]; then
   export PATH="$GOPATH/bin:$PATH"
 fi
 
+export GPG_TTY=$(tty)
+if [[ -n "$SSH_CONNECTION" ]] ;then
+  export PINENTRY_USER_DATA="USE_CURSES=1"
+fi
+
 export EDITOR=$(which vim)
 export VISUAL=$EDITOR
 export PAGER=$(which less)

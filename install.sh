@@ -62,7 +62,7 @@ cd `dirname $0`
 directory=`pwd`
 trap cleanup EXIT
 
-neededPackages="llvm-dev libboost-dev libboost-python-dev
+neededPackages="pinentry-curses llvm-dev libboost-dev libboost-python-dev
                 libboost-filesystem-dev libboost-system-dev
                 libboost-regex-dev libboost-thread-dev clang clang-format
                 powerline python3-pip python-powerline python3-powerline neovim
