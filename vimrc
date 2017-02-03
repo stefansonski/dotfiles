@@ -58,6 +58,8 @@ NeoBundle 'Yggdroot/indentLine'
 NeoBundle 'octol/vim-cpp-enhanced-highlight'
 NeoBundle 'artur-shaik/vim-javacomplete2'
 NeoBundle 'lervag/vimtex'
+NeoBundle 'peterhoeg/vim-qml'
+NeoBundle 'rdnetto/YCM-Generator'
 
 call neobundle#end()
 

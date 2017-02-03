@@ -31,3 +31,4 @@ inode/directory=org.gnome.Nautilus.desktop;
 image/png=gimp.desktop;
 image/jpeg=gimp.desktop;
 application/x-wine-extension-ini=gvim.desktop;
+application/x-compressed-tar=org.gnome.FileRoller.desktop;

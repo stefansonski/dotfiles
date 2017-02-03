@@ -45,7 +45,7 @@
 [difftool "nvimdiff"]
 	cmd = nvim -R -f -d \"$LOCAL\" \"$REMOTE\"
 [mergetool "diffconflicts"]
-	cmd = diffconflicts.sh vim $BASE $LOCAL $REMOTE $MERGED
+	cmd = diffconflicts.sh nvim $BASE $LOCAL $REMOTE $MERGED
 	trustExitCode = true
 [rerere]
 	enabled = true
