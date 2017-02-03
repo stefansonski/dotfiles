@@ -60,15 +60,6 @@ NeoBundle 'artur-shaik/vim-javacomplete2'
 NeoBundle 'lervag/vimtex'
 NeoBundle 'peterhoeg/vim-qml'
 NeoBundle 'rdnetto/YCM-Generator'
-NeoBundleLazy 'jeaye/color_coded',
-      \ {
-      \   'build':
-      \   {
-      \     'unix': 'cmake . && make && make install',
-      \   },
-      \   'autoload': { 'filetypes' : ['c', 'cpp', 'objc', 'objcpp'] },
-      \   'build_commands' : ['cmake', 'make']
-      \ }
 
 call neobundle#end()
 
