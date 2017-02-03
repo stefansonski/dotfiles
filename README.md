@@ -70,8 +70,8 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
       sudo apt install pinentry-curses llvm-dev libboost-dev \
          libboost-python-dev libboost-filesystem-dev libboost-system-dev \
          libboost-regex-dev libboost-thread-dev clang clang-format powerline  \
-         python3-pip python-powerline python3-powerline neovim python3-neovim \
-         libgnome-keyring-dev fonts-hack-otf zsh ruby-dev
+         python-pip python3-pip python-powerline python3-powerline neovim \
+         python3-neovim libgnome-keyring-dev fonts-hack-otf zsh ruby-dev
       ```
 
    1. To use vim-clang-format in vim, install a clang-format package with
