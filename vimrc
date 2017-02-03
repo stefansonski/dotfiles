@@ -354,6 +354,7 @@ augroup END
 au BufWritePre * :%s/\s\+$//e
 au BufRead,BufNewFile *gitattributes	setfiletype gitattributes
 au BufRead,BufNewFile *gitconfig	setfiletype gitconfig
+au Filetype c setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=120
 au FileType cmake setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=120
 au Filetype cpp setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=120
 au Filetype gitattributes setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
