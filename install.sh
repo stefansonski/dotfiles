@@ -63,9 +63,9 @@ directory=`pwd`
 trap cleanup EXIT
 
 neededPackages="pinentry-curses llvm-dev libboost-dev libboost-python-dev
-                libboost-filesystem-dev libboost-system-dev
-                libboost-regex-dev libboost-thread-dev clang clang-format
-                powerline python3-pip python-powerline python3-powerline neovim
+                libboost-filesystem-dev libboost-system-dev libboost-regex-dev
+                libboost-thread-dev clang clang-format powerline python-pip
+                python3-pip python-powerline python3-powerline neovim
                 python3-neovim libgnome-keyring-dev fonts-hack-otf zsh ruby-dev"
 
 for pkg in $neededPackages; do
@@ -95,8 +95,27 @@ if [[ ! -z $missingPackages ]]; then
   esac
 fi
 
-if [[ -z $(pip3 show powerline-gitstatus) ]]; then
+if [[ -z $(pip show powerline-gitstatus) ]]; then
   printf "Pip package powerline-gitstatus is missing. Install it? [Y/n] "
+  read install
+  case "$install" in
+    ""|"y"|"Y")
+      printf "Installing powerline-gitstatus with pip.\n"
+      sudo pip install powerline-gitstatus
+      ;;
+    "n"|"N")
+      printf "Skipping installation. Not all configs may work.\n"
+      ;;
+    *)
+      printf "Invalid input \"$install\". Aborting installation.\n"
+      cd $originalDirectory
+      exit 1
+      ;;
+  esac
+fi
+
+if [[ -z $(pip3 show powerline-gitstatus) ]]; then
+  printf "Pip3 package powerline-gitstatus is missing. Install it? [Y/n] "
   read install
   case "$install" in
     ""|"y"|"Y")
