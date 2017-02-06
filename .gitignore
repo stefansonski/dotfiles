@@ -1,5 +1,4 @@
 !config/dconf/dconf.d/
-!config/nvim/init.vim
 *metadata
 *~
 GPATH
@@ -31,13 +30,18 @@ config/libreoffice/
 config/metacity/
 config/monitors.xml
 config/mutter/
-config/nvim/*
+config/nvim/.netrwhist
+config/nvim/autoload/
+config/nvim/plugged/
+config/nvim/spell/*.spl
 config/pulse/
+config/QtProject/
 config/rygel.conf
 config/spotify/
 config/sqlitebrowser/
 config/totem/
 config/transmission/
+config/Trolltech/
 config/vlc/
 gnupg/pubring.gpg~
 gnupg/random_seed

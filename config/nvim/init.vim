@@ -1,8 +1,6 @@
 "
 " Stefan Sonski's neovim Configuration
 "
-" It's got stuff in it.
-"
 
 "-----------------------------------------------------------------------------
 " Global Stuff
@@ -17,7 +15,8 @@ Plug 'stefansonski/vim-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'derekwyatt/vim-fswitch'
 Plug 'derekwyatt/vim-protodef'
-Plug 'flazz/vim-colorschemes'
+"Plug 'flazz/vim-colorschemes'
+Plug 'frankier/neovim-colors-solarized-truecolor-only'
 Plug 'kana/vim-operator-user'
 Plug 'rhysd/vim-clang-format'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -261,9 +260,6 @@ noremap <LEADER>f :CtrlP .<cr>
 "-----------------------------------------------------------------------------
 colorscheme solarized
 set background=dark
-if has("gui_running")
-  exe "set guifont=" . g:main_font
-endif
 
 "-----------------------------------------------------------------------------
 " Set up YouCompleteMe
