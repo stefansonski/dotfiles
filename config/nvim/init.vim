@@ -15,7 +15,7 @@ Plug 'stefansonski/vim-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'derekwyatt/vim-fswitch'
 Plug 'derekwyatt/vim-protodef'
-Plug 'flazz/vim-colorschemes'
+Plug 'lifepillar/vim-solarized8'
 Plug 'kana/vim-operator-user'
 Plug 'rhysd/vim-clang-format'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -257,8 +257,9 @@ noremap <LEADER>f :CtrlP .<cr>
 "-----------------------------------------------------------------------------
 " Set up the window colors and size
 "-----------------------------------------------------------------------------
-colorscheme solarized
+colorscheme solarized8_dark
 set background=dark
+let g:solarized_term_italics = 1
 
 "-----------------------------------------------------------------------------
 " Set up YouCompleteMe
