@@ -35,6 +35,10 @@ filetype plugin indent on
 " Set tab and indent options
 set expandtab
 set autoindent
+set breakindent
+set showbreak=...
+set linebreak
+set nolist
 
 " set the search scan to wrap lines
 set wrapscan
@@ -315,20 +319,21 @@ augroup END
 au BufWritePre * :%s/\s\+$//e
 au BufRead,BufNewFile *gitattributes	setfiletype gitattributes
 au BufRead,BufNewFile *gitconfig	setfiletype gitconfig
-au FileType cmake setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=120
-au Filetype cpp setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=120
+au FileType cmake setlocal shiftwidth=2 tabstop=2 softtabstop=2
+au Filetype cpp setlocal shiftwidth=4 tabstop=4 softtabstop=4
 au Filetype gitattributes setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
 au Filetype gitcommit setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au Filetype gitconfig setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
 au Filetype go setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
-au FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
-au FileType java setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=120 noexpandtab omnifunc=javacomplete#Complete
-au FileType markdown setlocal shiftwidth=3 tabstop=3 softtabstop=3 textwidth=80
-au FileType php setlocal shiftwidth=4 tabstop=4 softtabstop=4 textwidth=120
-au FileType sh setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
-au FileType tex setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
-au FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=120
-au FileType zsh setlocal shiftwidth=2 tabstop=2 softtabstop=2 textwidth=80
+au FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+au FileType java setlocal shiftwidth=4 tabstop=4 softtabstop=4 noexpandtab omnifunc=javacomplete#Complete
+au FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
+au FileType markdown setlocal shiftwidth=3 tabstop=3 softtabstop=3
+au FileType php setlocal shiftwidth=4 tabstop=4 softtabstop=4
+au FileType sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
+au FileType tex setlocal shiftwidth=2 tabstop=2 softtabstop=2
+au FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
+au FileType zsh setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au BufNewFile,BufRead CMakeLists.txt set filetype=cmake
 
 "-----------------------------------------------------------------------------
