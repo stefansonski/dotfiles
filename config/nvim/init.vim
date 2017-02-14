@@ -121,9 +121,6 @@ set complete=.,w,b,t
 " When completing by tag, show the whole tag, not just the function name
 set showfulltag
 
-" Set the colorcolumn to textwidth +1
-set colorcolumn=+1
-
 " get rid of the silly characters in separators
 set fillchars=""
 
@@ -335,6 +332,8 @@ au FileType tex setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au FileType zsh setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au BufNewFile,BufRead CMakeLists.txt set filetype=cmake
+
+au FilterWritePre * if &diff | set wrap | endif
 
 "-----------------------------------------------------------------------------
 " clang_format
