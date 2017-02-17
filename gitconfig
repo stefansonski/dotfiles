@@ -64,3 +64,5 @@
 	host = imaps://imap.gmail.com
 [tag]
 	gpgsign = true
+[stash]
+	showPatch = true
