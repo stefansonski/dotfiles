@@ -1,4 +1,2 @@
 #!/bin/sh
-case "$1" in
-  rebase) exec $HOME/.githooks/post-merge ;;
-esac
+$HOME/.githooks/gtags
