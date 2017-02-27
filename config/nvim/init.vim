@@ -10,7 +10,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'vim-scripts/UltiSnips'
 Plug 'elzr/vim-json'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang --system-boost --gocode-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang --system-boost --gocode-completer --tern-completer' }
 Plug 'stefansonski/vim-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'derekwyatt/vim-fswitch'

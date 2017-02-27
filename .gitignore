@@ -44,6 +44,7 @@ config/totem/
 config/transmission/
 config/Trolltech/
 config/vlc/
+config/xbuild/
 gnupg/pubring.gpg~
 gnupg/random_seed
 gnupg/secring.gpg
