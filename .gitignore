@@ -18,6 +18,7 @@ config/evince/
 config/evolution/
 config/gedit/
 config/git/
+config/Gitter/
 config/gnome-control-center/
 config/gnome-session/
 config/goa-1.0/
@@ -37,6 +38,7 @@ config/nvim/plugged/
 config/nvim/spell/*.spl
 config/pulse/
 config/QtProject/
+config/QtProject.conf
 config/rygel.conf
 config/spotify/
 config/sqlitebrowser/
