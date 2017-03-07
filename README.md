@@ -43,6 +43,7 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
    ln -s ~/dotfiles/ssh/ ~/.ssh
    ln -s ~/dotfiles/vimrc ~/.vimrc
    ln -s ~/dotfiles/vimspell-en.utf-8.add ~/.vim/spell/en.utf-8.add
+   ln -s ~/dotfiles/weechat ~/.weechat
    ln -s ~/dotfiles/zshenv ~/.zshenv
    ln -s ~/dotfiles/zshrc ~/.zshrc
    git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim

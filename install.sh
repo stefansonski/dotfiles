@@ -155,6 +155,7 @@ checkAndInstallConfig $directory/config ~/.config
 checkAndInstallConfig $directory/ssh ~/.ssh
 checkAndInstallConfig $directory/vimrc ~/.vimrc
 checkAndInstallConfig $directory/vimspell-en.utf-8.add ~/.vim/spell/en.utf-8.add
+checkAndInstallConfig $directory/weechat ~/.weechat
 checkAndInstallConfig $directory/zshenv ~/.zshenv
 checkAndInstallConfig $directory/zshrc ~/.zshrc
 
