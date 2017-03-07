@@ -17,64 +17,6 @@ Host gbquad
 HostName gbquad.home
 User root
 
-Host base
-HostName base.home
-User root
-
 Host pi
 HostName pi.home
 User pi
-
-Host sts01
-HostName 192.168.100.95
-User root
-
-Host sts02
-HostName 192.168.2.51
-User root
-
-Host ld
-HostName 192.168.2.70
-User root
-
-Host eval
-HostName 192.168.2.133
-User root
-
-Host touch
-HostName 192.168.100.195
-User root
-
-Host firewall
-HostName firewall
-User loginuser
-
-Host buildSrv
-HostName 192.168.100.247
-User sonski
-
-Host sonski-dev
-HostName 192.168.100.120
-User stefan
-ForwardX11 yes
-
-Host b10nas
-HostName b10network
-User admin
-Port 30016
-DynamicForward 1080
-
-Host b10base
-HostName 192.168.2.15
-User root
-ProxyCommand ssh -A -W %h:%p b10nas
-DynamicForward 60080
-
-Host 192.168.100.*
-User root
-
-Host 192.168.2.*
-User root
-
-Host 192.168.0.*
-User root
