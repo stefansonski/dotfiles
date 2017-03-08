@@ -59,4 +59,6 @@ ssh/known_hosts
 ssh/known_hosts.old
 ssh/nas_rsa
 weechat/logs/
+weechat/perl/
+weechat/script/
 weechat/weechat.log
