@@ -9,20 +9,20 @@ HostName router.asus.com
 User admin
 
 Host sonski-desktop
-HostName sonski-desktop.sonski.local
+HostName sonski-desktop.home
 User stefan
 ForwardX11 yes
 
 Host gbquad
-HostName gbquad.sonski.local
+HostName gbquad.home
 User root
 
 Host base
-HostName base.sonski.local
+HostName base.home
 User root
 
 Host pi
-HostName pi.sonski.local
+HostName pi.home
 User pi
 
 Host sts01
