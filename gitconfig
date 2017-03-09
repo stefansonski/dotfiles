@@ -59,10 +59,12 @@
 	diffFilter = diff-highlight
 [tar "tar.xz"]
 	command = xz -c
-[imap]
-	folder = "[Google Mail]/Drafts"
-	host = imaps://imap.gmail.com
 [tag]
 	gpgsign = true
 [stash]
 	showPatch = true
+[sendemail]
+	smtpEncryption = tls
+	smtpServer = smtp.gmail.com
+	smtpUser = s.sonski@gmail.com
+	smtpServerPort = 587
