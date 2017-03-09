@@ -63,6 +63,9 @@
 	gpgsign = true
 [stash]
 	showPatch = true
+[format]
+	numbered = auto
+	coverletter = auto
 [sendemail]
 	smtpEncryption = tls
 	smtpServer = smtp.gmail.com
