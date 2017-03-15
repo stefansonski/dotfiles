@@ -134,9 +134,8 @@ alias info="info --vi-keys"
 alias sqlite3='sqlite3 --header --column'
 alias dd='dd status=progress'
 
-gvim () {
-  command gvim --remote-silent "$@" || command gvim "$@";
-}
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
 show-colors() {
   for line in {0..17}; do
