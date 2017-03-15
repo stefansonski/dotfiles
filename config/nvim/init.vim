@@ -336,6 +336,9 @@ au BufNewFile,BufRead CMakeLists.txt set filetype=cmake
 
 au FilterWritePre * if &diff | set wrap | endif
 
+"" Help NeoVim check for modified files: https://github.com/neovim/neovim/issues/2127
+autocmd BufEnter,FocusGained * checktime
+
 "-----------------------------------------------------------------------------
 " clang_format
 "-----------------------------------------------------------------------------
