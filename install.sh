@@ -137,8 +137,6 @@ printf "Creating links.\n"
 mkdir -p ~/bin
 mkdir -p ~/.cache/ssh/mux
 mkdir -p ~/.gnupg
-mkdir -p ~/.vim/bundle
-mkdir -p ~/.vim/spell
 sudo chmod +x /usr/share/doc/git/contrib/diff-highlight/diff-highlight
 sudo make --directory=/usr/share/doc/git/contrib/credential/gnome-keyring/
 checkAndInstallConfig /usr/share/doc/git/contrib/diff-highlight/diff-highlight ~/bin/diff-highlight
@@ -153,22 +151,12 @@ checkAndInstallConfig $directory/globalrc ~/.globalrc
 checkAndInstallConfig $directory/gradle ~/.gradle
 checkAndInstallConfig $directory/config ~/.config
 checkAndInstallConfig $directory/ssh ~/.ssh
-checkAndInstallConfig $directory/vimrc ~/.vimrc
-checkAndInstallConfig $directory/vimspell-en.utf-8.add ~/.vim/spell/en.utf-8.add
 checkAndInstallConfig $directory/weechat ~/.weechat
 checkAndInstallConfig $directory/zshenv ~/.zshenv
 checkAndInstallConfig $directory/zshrc ~/.zshrc
 
 printf "Loading dconf configuration.\n"
 ./dconf-load.sh
-
-if [[ ! -a ~/.vim/bundle/neobundle.vim ]]; then
-  printf "Checking out NeoBundle for vim.\n"
-  git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-fi
-
-printf "Installing/updating vim plugins via NeoBundle.\n"
-vim +NeoBundleInstall! +qall
 
 if [[ ! -a ~/.config/nvim/autoload/plug.vim ]]; then
   curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
