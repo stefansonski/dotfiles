@@ -10,6 +10,7 @@ config/Kitware/
 config/Trolltech.conf
 config/VirtualBox/
 config/autostart/
+config/chromium/
 config/dconf/*
 config/dleyna-*.conf
 config/enchant/
@@ -25,13 +26,16 @@ config/goa-1.0/
 config/google-chrome/
 config/gtk-2.0/
 config/hexchat/
+config/ibus/
 config/inkscape/
 config/keepassx/
 config/keybase/
+config/libaccounts-glib/
 config/libreoffice/
 config/metacity/
 config/monitors.xml
 config/mutter/
+config/nautilus/
 config/nvim/.netrwhist
 config/nvim/autoload/
 config/nvim/plugged/
@@ -47,6 +51,7 @@ config/transmission/
 config/Trolltech/
 config/vlc/
 config/xbuild/
+config/xfce4/
 gnupg/pubring.gpg~
 gnupg/random_seed
 gnupg/secring.gpg
