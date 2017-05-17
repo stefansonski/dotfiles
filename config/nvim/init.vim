@@ -17,7 +17,7 @@ Plug 'derekwyatt/vim-fswitch'
 Plug 'derekwyatt/vim-protodef'
 Plug 'lifepillar/vim-solarized8'
 Plug 'kana/vim-operator-user'
-Plug 'rhysd/vim-clang-format'
+Plug 'Chiel92/vim-autoformat'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
@@ -315,6 +315,7 @@ augroup cppfiles
 augroup END
 
 au BufWritePre * :%s/\s\+$//e
+au BufWritePre *.cpp :Autoformat
 au BufRead,BufNewFile *gitattributes	setfiletype gitattributes
 au BufRead,BufNewFile *gitconfig	setfiletype gitconfig
 au FileType cmake setlocal shiftwidth=2 tabstop=2 softtabstop=2
@@ -340,11 +341,6 @@ au FilterWritePre * if &diff | set wrap | endif
 
 "" Help NeoVim check for modified files: https://github.com/neovim/neovim/issues/2127
 autocmd BufEnter,FocusGained * checktime
-
-"-----------------------------------------------------------------------------
-" clang_format
-"-----------------------------------------------------------------------------
-let g:clang_format#detect_style_file = 1
 
 "-----------------------------------------------------------------------------
 " vim-json
