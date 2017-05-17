@@ -10,7 +10,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'vim-scripts/UltiSnips'
 Plug 'elzr/vim-json'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang --system-boost --gocode-completer --tern-completer' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang --system-boost --gocode-completer' }
 Plug 'stefansonski/vim-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'derekwyatt/vim-fswitch'
@@ -274,6 +274,7 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_confirm_extra_conf = 0
 "Fill location list
 let g:ycm_always_populate_location_list = 1
+let g:ycm_global_ycm_extra_conf = '~/.config/nvim/ycm_extra_conf.py'
 nnoremap <silent> <LEADER>gd :YcmCompleter GetDoc<CR>
 nnoremap <silent> <LEADER>gf :YcmCompleter GoToDefinition<CR>
 nnoremap <silent> <LEADER>gl :YcmCompleter GoToDeclaration<CR>
