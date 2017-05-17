@@ -55,6 +55,10 @@ if [ -d "$HOME/go" ]; then
   export PATH="$GOPATH/bin:$PATH"
 fi
 
+if [ -d "$HOME/tools/neovim" ]; then
+  export PATH="$HOME/tools/neovim/bin:$PATH"
+fi
+
 export GPG_TTY=$(tty)
 if [[ -n "$SSH_CONNECTION" ]] ;then
   export PINENTRY_USER_DATA="USE_CURSES=1"

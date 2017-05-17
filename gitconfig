@@ -41,7 +41,7 @@
 	date = local
 	showSignature = true
 [difftool "vimdiff"]
-	cmd = vimdiff -R -f -d \"$REMOTE\" \"$LOCAL\"
+	cmd = vim -R -f -d \"$REMOTE\" \"$LOCAL\"
 [mergetool "diffconflicts"]
 	cmd = diffconflicts.sh vim $BASE $LOCAL $REMOTE $MERGED
 	trustExitCode = true
