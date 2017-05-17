@@ -26,6 +26,7 @@ Plug 'artur-shaik/vim-javacomplete2'
 Plug 'lervag/vimtex'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'crucerucalin/qml.vim'
 
 call plug#end()
 
@@ -317,7 +318,7 @@ au BufWritePre * :%s/\s\+$//e
 au BufRead,BufNewFile *gitattributes	setfiletype gitattributes
 au BufRead,BufNewFile *gitconfig	setfiletype gitconfig
 au FileType cmake setlocal shiftwidth=2 tabstop=2 softtabstop=2
-au Filetype cpp setlocal shiftwidth=4 tabstop=4 softtabstop=4
+au Filetype cpp setlocal shiftwidth=4 tabstop=4 softtabstop=4 colorcolumn=120
 au Filetype gitattributes setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
 au Filetype gitcommit setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au Filetype gitconfig setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
@@ -327,6 +328,7 @@ au FileType java setlocal shiftwidth=4 tabstop=4 softtabstop=4 noexpandtab omnif
 au FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
 au FileType markdown setlocal shiftwidth=3 tabstop=3 softtabstop=3
 au FileType php setlocal shiftwidth=4 tabstop=4 softtabstop=4
+au Filetype qml setlocal shiftwidth=4 tabstop=4 softtabstop=4 colorcolumn=120
 au FileType sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au FileType tex setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au FileType text setlocal shiftwidth=2 tabstop=2 softtabstop=2
