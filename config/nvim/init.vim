@@ -26,7 +26,7 @@ Plug 'artur-shaik/vim-javacomplete2'
 Plug 'lervag/vimtex'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'crucerucalin/qml.vim'
+Plug 'peterhoeg/vim-qml'
 
 call plug#end()
 
@@ -341,6 +341,12 @@ au FilterWritePre * if &diff | set wrap | endif
 
 "" Help NeoVim check for modified files: https://github.com/neovim/neovim/issues/2127
 autocmd BufEnter,FocusGained * checktime
+
+"-----------------------------------------------------------------------------
+" vim-autoformat
+"-----------------------------------------------------------------------------
+let g:formatters_cpp = ['astyle_cpp', 'clangformat']
+let g:formatdef_astyle_cpp = '"astyle --mode=c"'
 
 "-----------------------------------------------------------------------------
 " vim-json

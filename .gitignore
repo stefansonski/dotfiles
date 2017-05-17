@@ -40,6 +40,7 @@ config/nvim/.netrwhist
 config/nvim/autoload/
 config/nvim/plugged/
 config/nvim/spell/*.spl
+config/nvim/spell/*.sug
 config/pulse/
 config/QtProject/
 config/QtProject.conf
