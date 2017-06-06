@@ -1,10 +1,6 @@
-handle SIGPIPE nostop
-handle SIGALRM nostop noprint
-handle SIGUSR1 nostop noprint
-handle SIGUSR2 nostop noprint
-handle SIGVTALRM nostop noprint
+set history filename ~/.gdb_history
+set history save
 set auto-load safe-path /
 set solib-search-path .
 
 set debug libthread-db 1
-set follow-fork-mode child

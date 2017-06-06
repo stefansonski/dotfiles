@@ -317,6 +317,7 @@ augroup END
 
 au BufWritePre * :%s/\s\+$//e
 au BufWritePre *.cpp :Autoformat
+au BufWritePre *.h :Autoformat
 au BufRead,BufNewFile *gitattributes	setfiletype gitattributes
 au BufRead,BufNewFile *gitconfig	setfiletype gitconfig
 au FileType cmake setlocal shiftwidth=2 tabstop=2 softtabstop=2

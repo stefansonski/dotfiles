@@ -25,6 +25,7 @@ config/gnome-session/
 config/goa-1.0/
 config/google-chrome/
 config/gtk-2.0/
+config/gtk-3.0/bookmarks
 config/hexchat/
 config/ibus/
 config/inkscape/

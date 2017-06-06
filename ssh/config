@@ -20,3 +20,7 @@ User root
 Host pi
 HostName pi.home
 User pi
+
+Host display
+HostName 172.20.13.3
+User wiha
