@@ -48,6 +48,7 @@ config/QtProject.conf
 config/rygel.conf
 config/spotify/
 config/sqlitebrowser/
+config/systemd/
 config/totem/
 config/transmission/
 config/Trolltech/

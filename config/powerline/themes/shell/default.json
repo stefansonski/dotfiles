@@ -13,10 +13,6 @@
                 "priority": 30
             },
             {
-                "function": "powerline.segments.common.env.virtualenv",
-                "priority": 50
-            },
-            {
                 "function": "powerline.segments.shell.cwd",
                 "priority": 10
             },
@@ -38,15 +34,6 @@
                 "function": "powerline.segments.common.players.spotify",
                 "name": "player",
                 "priority": 50
-            },
-            {
-                "function": "powerline.segments.common.wthr.weather",
-                "priority": 60,
-                "args": {
-                    "location_query": "Stuttgart, Germany",
-                    "temp_coldest": -10,
-                    "temp_hottest": 40
-                }
             }
         ]
     }
