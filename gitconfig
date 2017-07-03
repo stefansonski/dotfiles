@@ -1,6 +1,4 @@
 [user]
-	name = Stefan Sonski
-	email = s.sonski@gmail.com
 	signingkey = 12A9A644
 [credential]
 	helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
@@ -25,8 +23,8 @@
 	excludesfile = ~/.gitignore
 	editor = vim -f
 	whitespace = trailing-space,space-before-tab,tab-in-indent
-	attributesfile = /home/stefan/.gitattributes
-	hooksPath = /home/stefan/.githooks
+	attributesfile = ~/.gitattributes
+	hooksPath = ~/.githooks
 [branch]
 	autosetupmerge = true
 	pager = less -r
@@ -66,8 +64,5 @@
 [format]
 	numbered = auto
 	coverletter = auto
-[sendemail]
-	smtpEncryption = tls
-	smtpServer = smtp.gmail.com
-	smtpUser = s.sonski@gmail.com
-	smtpServerPort = 587
+[include]
+	path = ~/.gitconfig.local
