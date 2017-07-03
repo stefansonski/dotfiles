@@ -207,5 +207,10 @@ elif [[ -f /etc/DIR_COLORS ]] ; then
   eval $(dircolors -b /etc/DIR_COLORS)
 fi
 
+terminal_title_reset() {
+    echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"
+}
+precmd_functions+=( terminal_title_reset )
+
 powerline-daemon -q
 source /usr/share/powerline/bindings/zsh/powerline.zsh
