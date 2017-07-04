@@ -15,11 +15,10 @@ Plug 'stefansonski/vim-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'derekwyatt/vim-fswitch'
 Plug 'derekwyatt/vim-protodef'
-Plug 'lifepillar/vim-solarized8'
+Plug 'icymind/NeoSolarized'
 Plug 'kana/vim-operator-user'
 Plug 'Chiel92/vim-autoformat'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'artur-shaik/vim-javacomplete2'
@@ -84,9 +83,11 @@ syntax on
 set mousehide
 set mouse=""
 
-" Set up the GUI cursor to look nice
-set guicursor=n-v-c:block-Cursor-blinkon0,ve:ver35-Cursor,o:hor50-Cursor,i-ci:ver25-Cursor,r-cr:hor20-Cursor
-set guicursor+=sm:block-Cursor-blinkwait175-blinkoff150-blinkon175
+" Highlight the current cursor line
+set cursorline
+
+"highlight matching bracket when a new one is inserted
+set showmatch
 
 " set the GUI options the way I like
 set guioptions=acg
@@ -264,9 +265,8 @@ noremap <LEADER>f :CtrlP .<cr>
 "-----------------------------------------------------------------------------
 " Set up the window colors and size
 "-----------------------------------------------------------------------------
-colorscheme solarized8_dark
+colorscheme NeoSolarized
 set background=dark
-let g:solarized_term_italics = 1
 
 "-----------------------------------------------------------------------------
 " Set up YouCompleteMe
