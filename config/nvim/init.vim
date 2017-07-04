@@ -39,7 +39,9 @@ set autoindent
 set breakindent
 set showbreak=...
 set linebreak
-set nolist
+
+" Highlight different highlight groups
+set list
 
 " set the search scan to wrap lines
 set wrapscan
@@ -130,6 +132,9 @@ set hlsearch
 
 " Incrementally match the search
 set incsearch
+
+" Incrementally match the substitution
+set inccommand=nosplit
 
 " Add the unnamed register to the clipboard
 set clipboard=unnamedplus
