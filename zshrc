@@ -163,6 +163,7 @@ setopt INC_APPEND_HISTORY
 setopt SHARE_HISTORY
 ## ignore duplicate commands in history
 setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
 
 ## dirstack
 setopt AUTO_PUSHD
