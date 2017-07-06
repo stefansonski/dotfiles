@@ -7,7 +7,7 @@ The install script currently only supports apt-based distributions and is only
 tested on Debian testing.
 At the moment the install script is not well tested, so be careful using it!
 
-###Manual
+### Manual
 To install the configuration, just link the dotfile/dotfolder associated file
 with the proper dotfile/dotfolder in your `$HOME` folder.
 
@@ -82,7 +82,7 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
 1. To use powerline, install the powerline package on your system and adapt
    the last line in the `zshrc` to the path of the zsh powerline bindings.
 
-###Automatic
+### Automatic
 Just run `./install.sh`, all packages are installed, soft-links are created
 and vim plugins are installed. In case files exist, but reference do not
 reference the correct file, you are asked if you want to overwrite them.
