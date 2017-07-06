@@ -20,6 +20,7 @@ config/evolution/
 config/gedit/
 config/git/
 config/Gitter/
+config/gnome-color-manager/
 config/gnome-control-center/
 config/gnome-session/
 config/goa-1.0/
