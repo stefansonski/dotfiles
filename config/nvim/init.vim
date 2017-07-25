@@ -27,6 +27,7 @@ Plug 'lervag/vimtex'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'peterhoeg/vim-qml'
+Plug 'martin-svk/vim-yaml'
 
 call plug#end()
 
@@ -342,6 +343,7 @@ au FileType sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au FileType tex setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au FileType text setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
+au FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2 colorcolumn=80
 au FileType zsh setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au BufNewFile,BufRead CMakeLists.txt set filetype=cmake
 
