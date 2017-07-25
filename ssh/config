@@ -22,5 +22,9 @@ HostName pi.home
 User pi
 
 Host display
-HostName 172.20.13.3
+HostName 10.202.20.51
 User root
+
+Host demetre5
+HostName demetre5.winterhalter.de
+User a-sonskis

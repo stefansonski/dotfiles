@@ -1,5 +1,6 @@
-*.go		whitespace=trailing-space,space-before-tab,indent-with-no-tab
-*gitconfig	whitespace=trailing-space,space-before-tab,indent-with-no-tab
+*gitmodules	whitespace=trailing-space,space-before-tab,indent-with-no-tab
 *gitattributes	whitespace=trailing-space,space-before-tab,indent-with-no-tab
+*gitconfig	whitespace=trailing-space,space-before-tab,indent-with-no-tab
+*.go		whitespace=trailing-space,space-before-tab,indent-with-no-tab
 *.java		whitespace=trailing-space,space-before-tab,indent-with-no-tab
 *.sql		whitespace=trailing-space,space-before-tab,indent-with-no-tab

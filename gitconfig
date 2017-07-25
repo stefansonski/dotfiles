@@ -66,3 +66,5 @@
 	coverletter = auto
 [include]
 	path = ~/.gitconfig.local
+[fetch]
+	prune = true
