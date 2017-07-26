@@ -27,7 +27,6 @@ Plug 'lervag/vimtex'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'peterhoeg/vim-qml'
-Plug 'martin-svk/vim-yaml'
 
 call plug#end()
 
@@ -325,8 +324,8 @@ augroup END
 au BufWritePre * :%s/\s\+$//e
 au BufWritePre *.cpp :Autoformat
 au BufWritePre *.h :Autoformat
-au BufRead,BufNewFile *gitattributes	setfiletype gitattributes
-au BufRead,BufNewFile *gitconfig*	setfiletype gitconfig
+au BufRead,BufNewFile *gitattributes setfiletype gitattributes
+au BufRead,BufNewFile *gitconfig* setfiletype gitconfig
 au FileType cmake setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au Filetype cpp setlocal shiftwidth=4 tabstop=4 softtabstop=4 colorcolumn=120
 au Filetype gitattributes setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
