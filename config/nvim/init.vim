@@ -312,13 +312,17 @@ nmap <silent> <LEADER>oJ :FSSplitBelow<CR>
 augroup cppfiles
   au!
   au BufEnter *.h   let b:fswitchdst  = 'cpp'
-  au BufEnter *.h   let b:fswitchlocs = '../,../src/,src/,../source/,source/'
+  au BufEnter *.h   let b:fswitchlocs = 'src/,../src/'
   au BufEnter *.cpp let b:fswitchdst  = 'h'
-  au BufEnter *.cpp let b:fswitchlocs = 'include/,../include,../'
+  au BufEnter *.cpp let b:fswitchlocs = 'include/,../include/'
   au BufEnter *.hxx let b:fswitchdst  = 'cxx'
-  au BufEnter *.hxx let b:fswitchlocs = '../,../src/,src/,../source/,source/'
+  au BufEnter *.hxx let b:fswitchlocs = 'src/,../src/'
   au BufEnter *.cxx let b:fswitchdst  = 'hxx'
-  au BufEnter *.cxx let b:fswitchlocs = 'include/,../include,../,inc/,../inc'
+  au BufEnter *.cxx let b:fswitchlocs = 'include/,../include/'
+  au BufWritePre *.h    :Autoformat
+  au BufWritePre *.cpp  :Autoformat
+  au BufWritePre *.hxx  :Autoformat
+  au BufWritePre *.cxx  :Autoformat
 augroup END
 
 au BufWritePre * :%s/\s\+$//e
