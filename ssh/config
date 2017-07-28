@@ -1,7 +1,7 @@
 Host *
 ServerAliveInterval 100
 ControlMaster auto
-ControlPath ~/.cache/ssh/mux/%r@%h:%p
+ControlPath ~/.cache/ssh/%r@%h:%p
 ControlPersist 10m
 
 Host router
