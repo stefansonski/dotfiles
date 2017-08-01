@@ -1,31 +1,31 @@
 Host *
-ServerAliveInterval 100
-ControlMaster auto
-ControlPath ~/.cache/ssh/%r@%h:%p
-ControlPersist 10m
+        ServerAliveInterval 100
+        ControlMaster auto
+        ControlPath ~/.cache/ssh/%r@%h:%p
+        ControlPersist 10m
 
 Host router
-HostName 192.168.1.1
-User admin
+        HostName 192.168.1.1
+        User admin
 
 Host sonski-desktop
-HostName sonski-desktop.home
-User stefan
-ForwardX11 yes
+        HostName sonski-desktop.home
+        User stefan
+        ForwardX11 yes
 
 Host gbquad
-HostName gbquad.home
-User root
+        HostName gbquad.home
+        User root
 
 Host pi
-HostName pi.home
-User pi
+        HostName pi.home
+        User pi
 
 Host display
-HostName 10.202.20.51
-User root
+        HostName 10.202.20.51
+        User root
 
 Host demetre5
-HostName demetre5.winterhalter.de
-User a-sonskis
-Port 2022
+        HostName demetre5.winterhalter.de
+        User a-sonskis
+        Port 2022
