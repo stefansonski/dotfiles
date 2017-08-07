@@ -1,5 +1,5 @@
 Host *
-        ServerAliveInterval 100
+        ServerAliveInterval 300
         ControlMaster auto
         ControlPath ~/.cache/ssh/%r@%h:%p
         ControlPersist 10m
@@ -29,3 +29,5 @@ Host demetre5
         HostName demetre5.winterhalter.de
         User a-sonskis
         Port 2022
+
+Include config.local
