@@ -1,3 +1,5 @@
+*.auth
+*.local
 !config/dconf/dconf.d/
 *metadata
 *~
