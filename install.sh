@@ -135,7 +135,7 @@ fi
 
 printf "Creating links.\n"
 mkdir -p ~/bin
-mkdir -p ~/.cache/ssh/mux
+mkdir -p ~/.cache/ssh
 mkdir -p ~/.gnupg
 sudo chmod +x /usr/share/doc/git/contrib/diff-highlight/diff-highlight
 sudo make --directory=/usr/share/doc/git/contrib/credential/gnome-keyring/
