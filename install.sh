@@ -141,6 +141,7 @@ sudo chmod +x /usr/share/doc/git/contrib/diff-highlight/diff-highlight
 sudo make --directory=/usr/share/doc/git/contrib/credential/gnome-keyring/
 checkAndInstallConfig /usr/share/doc/git/contrib/diff-highlight/diff-highlight ~/bin/diff-highlight
 checkAndInstallConfig $directory/dircolors ~/.dircolors
+checkAndInstallConfig $directory/dircolors ~/.dir_colors
 checkAndInstallConfig $directory/gdbinit ~/.gdbinit
 checkAndInstallConfig $directory/gitattributes ~/.gitattributes
 checkAndInstallConfig $directory/gitconfig ~/.gitconfig
