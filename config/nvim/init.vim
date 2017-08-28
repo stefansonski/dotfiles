@@ -21,12 +21,12 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
-Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'lervag/vimtex'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'peterhoeg/vim-qml'
+Plug 'arakashic/chromatica.nvim'
 
 call plug#end()
 
@@ -403,9 +403,12 @@ let delimitMate_expand_cr = 1
 let g:solarized_diffmode="high"
 
 "-----------------------------------------------------------------------------
-" vim-cpp-enhanced-highlight
+" chromatica
 "-----------------------------------------------------------------------------
-let g:cpp_class_scope_highlight = 1
+let g:chromatica#libclang_path='/usr/lib/llvm-3.8/lib/libclang.so'
+let g:chromatica#enable_at_startup = 1
+let g:chromatica#responsive_mode = 1
+let g:chromatica#highlight_feature_level = 1
 
 " Disable one diff window during a three-way diff allowing you to cut out the
 " noise of a three-way diff and focus on just the changes between two versions
