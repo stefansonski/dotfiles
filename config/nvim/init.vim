@@ -438,3 +438,10 @@ nmap <silent> <LEADER>dr :call DiffToggle(3)<CR>
 "-----------------------------------------------------------------------------
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+
+"-----------------------------------------------------------------------------
+" powerline
+"-----------------------------------------------------------------------------
+"python3 from powerline.vim import setup as powerline_setup
+"python3 powerline_setup()
+"python3 del powerline_setup
