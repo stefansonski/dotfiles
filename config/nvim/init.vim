@@ -23,8 +23,6 @@ Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'lervag/vimtex'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'peterhoeg/vim-qml'
 Plug 'arakashic/chromatica.nvim'
 
@@ -64,7 +62,7 @@ set hidden
 set laststatus=2
 " Always display the tabline, even if there is only one tab
 " Deactivate it until powerline has a bug.
-set showtabline=2
+"set showtabline=2
 "set showtabline=1
 
 " Don't update the display while executing macros
@@ -434,14 +432,9 @@ nmap <silent> <LEADER>dc :call DiffToggle(2)<CR>
 nmap <silent> <LEADER>dr :call DiffToggle(3)<CR>
 
 "-----------------------------------------------------------------------------
-" vim-airline
-"-----------------------------------------------------------------------------
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-
-"-----------------------------------------------------------------------------
 " powerline
 "-----------------------------------------------------------------------------
-"python3 from powerline.vim import setup as powerline_setup
-"python3 powerline_setup()
-"python3 del powerline_setup
+python import vim
+python from powerline.vim import setup as powerline_setup
+python powerline_setup(gvars=globals())
+python del powerline_setup
