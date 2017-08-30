@@ -18,8 +18,7 @@
                                 "__tabline__": "tabline",
 
                                 "help": "help",
-                                "quickfix": "quickfix",
-                                "tabline": "tabline"
+                                "quickfix": "quickfix"
                         }
                 }
         }
