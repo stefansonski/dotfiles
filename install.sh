@@ -57,6 +57,55 @@ function checkAndInstallConfig()
   fi
 }
 
+function checkAndInstallPowerlineSegments()
+{
+  if [[ $# -lt 1 || -z $1 ]]; then
+    printf "Wrong number of arguments.\n"
+    cd $originalDirectory
+    exit 1
+  fi
+
+  package=$1
+
+  if [[ -z $(pip show $package) ]]; then
+    printf "Pip package $package is missing. Install it? [Y/n] "
+    read install
+    case "$install" in
+      ""|"y"|"Y")
+        printf "Installing $package with pip.\n"
+        sudo pip install $package
+        ;;
+      "n"|"N")
+        printf "Skipping installation. Not all configs may work.\n"
+        ;;
+      *)
+        printf "Invalid input \"$install\". Aborting installation.\n"
+        cd $originalDirectory
+        exit 1
+        ;;
+    esac
+  fi
+
+  if [[ -z $(pip3 show $package) ]]; then
+    printf "Pip3 package $package is missing. Install it? [Y/n] "
+    read install
+    case "$install" in
+      ""|"y"|"Y")
+        printf "Installing $package with pip.\n"
+        sudo pip3 install $package
+        ;;
+      "n"|"N")
+        printf "Skipping installation. Not all configs may work.\n"
+        ;;
+      *)
+        printf "Invalid input \"$install\". Aborting installation.\n"
+        cd $originalDirectory
+        exit 1
+        ;;
+    esac
+  fi
+}
+
 originalDirectory=`pwd`
 cd `dirname $0`
 directory=`pwd`
@@ -95,43 +144,7 @@ if [[ ! -z $missingPackages ]]; then
   esac
 fi
 
-if [[ -z $(pip show powerline-gitstatus) ]]; then
-  printf "Pip package powerline-gitstatus is missing. Install it? [Y/n] "
-  read install
-  case "$install" in
-    ""|"y"|"Y")
-      printf "Installing powerline-gitstatus with pip.\n"
-      sudo pip install powerline-gitstatus
-      ;;
-    "n"|"N")
-      printf "Skipping installation. Not all configs may work.\n"
-      ;;
-    *)
-      printf "Invalid input \"$install\". Aborting installation.\n"
-      cd $originalDirectory
-      exit 1
-      ;;
-  esac
-fi
-
-if [[ -z $(pip3 show powerline-gitstatus) ]]; then
-  printf "Pip3 package powerline-gitstatus is missing. Install it? [Y/n] "
-  read install
-  case "$install" in
-    ""|"y"|"Y")
-      printf "Installing powerline-gitstatus with pip.\n"
-      sudo pip3 install powerline-gitstatus
-      ;;
-    "n"|"N")
-      printf "Skipping installation. Not all configs may work.\n"
-      ;;
-    *)
-      printf "Invalid input \"$install\". Aborting installation.\n"
-      cd $originalDirectory
-      exit 1
-      ;;
-  esac
-fi
+checkAndInstallPowerlineSegments powerline-gitstatus
 
 printf "Creating links.\n"
 mkdir -p ~/bin
@@ -141,6 +154,7 @@ sudo chmod +x /usr/share/doc/git/contrib/diff-highlight/diff-highlight
 sudo make --directory=/usr/share/doc/git/contrib/credential/gnome-keyring/
 checkAndInstallConfig /usr/share/doc/git/contrib/diff-highlight/diff-highlight ~/bin/diff-highlight
 checkAndInstallConfig $directory/dircolors ~/.dircolors
+checkAndInstallConfig $directory/dircolors ~/.dir_colors
 checkAndInstallConfig $directory/gdbinit ~/.gdbinit
 checkAndInstallConfig $directory/gitattributes ~/.gitattributes
 checkAndInstallConfig $directory/gitconfig ~/.gitconfig

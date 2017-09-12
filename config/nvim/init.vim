@@ -21,12 +21,10 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
-Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'lervag/vimtex'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'peterhoeg/vim-qml'
+Plug 'arakashic/chromatica.nvim'
 
 call plug#end()
 
@@ -64,7 +62,7 @@ set hidden
 set laststatus=2
 " Always display the tabline, even if there is only one tab
 " Deactivate it until powerline has a bug.
-set showtabline=2
+"set showtabline=2
 "set showtabline=1
 
 " Don't update the display while executing macros
@@ -403,9 +401,12 @@ let delimitMate_expand_cr = 1
 let g:solarized_diffmode="high"
 
 "-----------------------------------------------------------------------------
-" vim-cpp-enhanced-highlight
+" chromatica
 "-----------------------------------------------------------------------------
-let g:cpp_class_scope_highlight = 1
+let g:chromatica#libclang_path='/usr/lib/llvm-3.8/lib/libclang.so'
+let g:chromatica#enable_at_startup = 1
+let g:chromatica#responsive_mode = 1
+let g:chromatica#highlight_feature_level = 1
 
 " Disable one diff window during a three-way diff allowing you to cut out the
 " noise of a three-way diff and focus on just the changes between two versions
@@ -431,7 +432,9 @@ nmap <silent> <LEADER>dc :call DiffToggle(2)<CR>
 nmap <silent> <LEADER>dr :call DiffToggle(3)<CR>
 
 "-----------------------------------------------------------------------------
-" vim-airline
+" powerline
 "-----------------------------------------------------------------------------
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
+python import vim
+python from powerline.vim import setup as powerline_setup
+python powerline_setup(gvars=globals())
+python del powerline_setup
