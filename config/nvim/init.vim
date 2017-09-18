@@ -421,7 +421,7 @@ if ($OS != 'Windows_NT')
 endif
 let g:chromatica#enable_at_startup = 1
 let g:chromatica#responsive_mode = 1
-let g:chromatica#highlight_feature_level = 1
+"let g:chromatica#highlight_feature_level = 1
 
 " Disable one diff window during a three-way diff allowing you to cut out the
 " noise of a three-way diff and focus on just the changes between two versions
