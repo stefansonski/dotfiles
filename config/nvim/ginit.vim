@@ -7,4 +7,8 @@
 "-----------------------------------------------------------------------------
 
 " Set font on start
-GuiFont! Hack:h8
+if ($OS == 'Windows_NT')
+  GuiFont! Courier New:h8
+else
+  GuiFont! Hack:h8
+endif

@@ -6,11 +6,14 @@
 " Global Stuff
 "-----------------------------------------------------------------------------
 
-call plug#begin('~/.config/nvim/plugged')
+if ($OS != 'Windows_NT')
+  call plug#begin('~/.config/nvim/plugged')
+else
+  call plug#begin('~/AppData/Local/nvim/plugged')
+endif
 
 Plug 'vim-scripts/UltiSnips'
 Plug 'elzr/vim-json'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang --system-boost --gocode-completer --racer-completer' }
 Plug 'stefansonski/vim-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'derekwyatt/vim-fswitch'
@@ -24,7 +27,12 @@ Plug 'Yggdroot/indentLine'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'lervag/vimtex'
 Plug 'peterhoeg/vim-qml'
-Plug 'arakashic/chromatica.nvim'
+
+" Non-Windows plugins
+if ($OS != 'Windows_NT')
+  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang --system-boost --gocode-completer' }
+  Plug 'arakashic/chromatica.nvim'
+endif
 
 call plug#end()
 
@@ -244,8 +252,13 @@ set synmaxcol=2048
 " I don't like it when the matching parens are automatically highlighted
 let loaded_matchparen = 1
 
-let g:main_font = "Hack\\ Regular\\ 8"
-let g:small_font = "Hack\\ Regular\\ 4"
+if ($OS != 'Windows_NT')
+  let g:main_font = "Hack\\ Regular\\ 8"
+  let g:small_font = "Hack\\ Regular\\ 4"
+else
+  let g:main_font = "Courier\\ New\\ 8"
+  let g:small_font = "Courier\\ New\\ 4"
+endif
 
 "-----------------------------------------------------------------------------
 " CtrlP Settings
@@ -403,7 +416,9 @@ let g:solarized_diffmode="high"
 "-----------------------------------------------------------------------------
 " chromatica
 "-----------------------------------------------------------------------------
-let g:chromatica#libclang_path='/usr/lib/llvm-3.8/lib/libclang.so'
+if ($OS != 'Windows_NT')
+  let g:chromatica#libclang_path='/usr/lib/llvm-3.8/lib'
+endif
 let g:chromatica#enable_at_startup = 1
 let g:chromatica#responsive_mode = 1
 let g:chromatica#highlight_feature_level = 1
@@ -431,10 +446,12 @@ nmap <silent> <LEADER>dl :call DiffToggle(1)<CR>
 nmap <silent> <LEADER>dc :call DiffToggle(2)<CR>
 nmap <silent> <LEADER>dr :call DiffToggle(3)<CR>
 
-"-----------------------------------------------------------------------------
-" powerline
-"-----------------------------------------------------------------------------
-python import vim
-python from powerline.vim import setup as powerline_setup
-python powerline_setup(gvars=globals())
-python del powerline_setup
+if ($OS != 'Windows_NT')
+  "-----------------------------------------------------------------------------
+  " powerline
+  "-----------------------------------------------------------------------------
+  python import vim
+  python from powerline.vim import setup as powerline_setup
+  python powerline_setup(gvars=globals())
+  python del powerline_setup
+endif
