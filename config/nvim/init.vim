@@ -160,21 +160,23 @@ set wildignore+=*.o,*.class,*.git,*.svn,*.pyc,*/CMakeFiles/*,*/sources/*,*/insta
 set wildignore+=*/alphaEOS_BIN/*,*/Arduino/*,*/installation/*,*/binsources/*,*/build/*,*/Demos/*,*/Dokumentation/*
 set wildignore+=*/DotNet/*,GRTAGS,GPATH,GTAGS
 
-" Create backup, swap and undo directory if it does not exist
-if !isdirectory($HOME . "/.cache/nvim/swp")
-  call mkdir($HOME . "/.cache/nvim/swp", "p")
-endif
-if !isdirectory($HOME . "/.cache/nvim/undo")
-  call mkdir($HOME . "/.cache/nvim/undo", "p")
-endif
+if ($OS != 'Windows_NT')
+  " Create backup, swap and undo directory if it does not exist
+  if !isdirectory($HOME . "/.cache/nvim/swp")
+    call mkdir($HOME . "/.cache/nvim/swp", "p")
+  endif
+  if !isdirectory($HOME . "/.cache/nvim/undo")
+    call mkdir($HOME . "/.cache/nvim/undo", "p")
+  endif
 
-" Set backup, swap and undo directories.
-set directory=~/.cache/nvim/swp//,/tmp
+  " Set backup, swap and undo directories.
+  set directory=~/.cache/nvim/swp//,/tmp
 
-set undofile
-set undodir=~/.cache/nvim/undo//,/tmp
-set undolevels=1000
-set undoreload=10000
+  set undofile
+  set undodir=~/.cache/nvim/undo//,/tmp
+  set undolevels=1000
+  set undoreload=10000
+endif
 
 " System default for mappings is now the "," character
 let mapleader = ","
@@ -280,21 +282,23 @@ noremap <LEADER>f :CtrlP .<cr>
 colorscheme NeoSolarized
 set background=dark
 
-"-----------------------------------------------------------------------------
-" Set up YouCompleteMe
-"-----------------------------------------------------------------------------
-"Use tags files
-let g:ycm_collect_identifiers_from_tags_files = 1
-" Close preview after completion.
-let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_confirm_extra_conf = 0
-"Fill location list
-let g:ycm_always_populate_location_list = 1
-let g:ycm_global_ycm_extra_conf = '~/.config/nvim/ycm_extra_conf.py'
-nnoremap <silent> <LEADER>gd :YcmCompleter GetDoc<CR>
-nnoremap <silent> <LEADER>gf :YcmCompleter GoToDefinition<CR>
-nnoremap <silent> <LEADER>gl :YcmCompleter GoToDeclaration<CR>
+if ($OS != 'Windows_NT')
+  "-----------------------------------------------------------------------------
+  " Set up YouCompleteMe
+  "-----------------------------------------------------------------------------
+  "Use tags files
+  let g:ycm_collect_identifiers_from_tags_files = 1
+  " Close preview after completion.
+  let g:ycm_add_preview_to_completeopt = 1
+  let g:ycm_autoclose_preview_window_after_insertion = 1
+  let g:ycm_confirm_extra_conf = 0
+  "Fill location list
+  let g:ycm_always_populate_location_list = 1
+  let g:ycm_global_ycm_extra_conf = '~/.config/nvim/ycm_extra_conf.py'
+  nnoremap <silent> <LEADER>gd :YcmCompleter GetDoc<CR>
+  nnoremap <silent> <LEADER>gf :YcmCompleter GoToDefinition<CR>
+  nnoremap <silent> <LEADER>gl :YcmCompleter GoToDeclaration<CR>
+endif
 
 "-----------------------------------------------------------------------------
 " UltiSnip
