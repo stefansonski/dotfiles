@@ -147,19 +147,19 @@ fi
 checkAndInstallPowerlineSegments powerline-gitstatus
 
 printf "Creating links.\n"
-mkdir -p ~/bin
+mkdir -p ~/.local/bin
 mkdir -p ~/.cache/ssh
 mkdir -p ~/.gnupg
-sudo chmod +x /usr/share/doc/git/contrib/diff-highlight/diff-highlight
 sudo make --directory=/usr/share/doc/git/contrib/credential/gnome-keyring/
-checkAndInstallConfig /usr/share/doc/git/contrib/diff-highlight/diff-highlight ~/bin/diff-highlight
+sudo chmod +x /usr/share/doc/git/contrib/diff-highlight/diff-highlight
+checkAndInstallConfig /usr/share/doc/git/contrib/diff-highlight/diff-highlight ~/.local/bin/diff-highlight
 checkAndInstallConfig $directory/dircolors ~/.dircolors
 checkAndInstallConfig $directory/dircolors ~/.dir_colors
 checkAndInstallConfig $directory/gdbinit ~/.gdbinit
 checkAndInstallConfig $directory/gitattributes ~/.gitattributes
 checkAndInstallConfig $directory/gitconfig ~/.gitconfig
 checkAndInstallConfig $directory/githooks ~/.githooks
-checkAndInstallConfig $directory/bin/diffconflicts.sh ~/bin/diffconflicts.sh
+checkAndInstallConfig $directory/bin/diffconflicts.sh ~/.local/bin/diffconflicts.sh
 checkAndInstallConfig $directory/gpg.conf ~/.gnupg/gpg.conf
 checkAndInstallConfig $directory/globalrc ~/.globalrc
 checkAndInstallConfig $directory/gradle ~/.gradle
