@@ -209,10 +209,14 @@ elif [[ -f /etc/DIR_COLORS ]] ; then
 fi
 
 case $TERM in
-    xterm*)
-        precmd () {print -Pn "\e]0;%n@%m: %~\a"}
-        ;;
+  xterm*)
+    precmd () {print -Pn "\e]0;%n@%m: %~\a"}
+  ;;
 esac
 
 powerline-daemon -q
 source /usr/share/powerline/bindings/zsh/powerline.zsh
+
+if [ -f ~/.zshrc.local ]; then
+  source ~/.zshrc.local
+fi
