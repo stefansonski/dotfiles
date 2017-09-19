@@ -156,9 +156,8 @@ set grepprg=grep\ -nH\ $*
 set relativenumber
 
 " Types of files to ignore when auto completing things
-set wildignore+=*.o,*.class,*.git,*.svn,*.pyc,*/CMakeFiles/*,*/sources/*,*/installation_files/*,*/rootfs/*
-set wildignore+=*/alphaEOS_BIN/*,*/Arduino/*,*/installation/*,*/binsources/*,*/build/*,*/Demos/*,*/Dokumentation/*
-set wildignore+=*/DotNet/*,GRTAGS,GPATH,GTAGS
+set wildignore+=GRTAGS,GPATH,GTAGS,*.class,*.gcno,*.gcda,*.git,*.o,*.pyc,*.svn
+set wildignore+=*/build/*,*/CMakeFiles/*
 
 if ($OS != 'Windows_NT')
   " Create backup, swap and undo directory if it does not exist
