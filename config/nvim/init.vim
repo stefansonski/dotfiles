@@ -150,8 +150,6 @@ set clipboard=unnamedplus
 " Automatically read a file that has changed on disk
 set autoread
 
-set grepprg=grep\ -nH\ $*
-
 " Trying out the line numbering thing...
 set relativenumber
 
