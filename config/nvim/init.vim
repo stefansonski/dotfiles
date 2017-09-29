@@ -27,6 +27,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'lervag/vimtex'
 Plug 'peterhoeg/vim-qml'
+Plug 'huawenyu/neogdb.vim'
 
 " Non-Windows plugins
 if ($OS != 'Windows_NT')
