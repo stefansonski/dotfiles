@@ -252,13 +252,8 @@ set synmaxcol=2048
 " I don't like it when the matching parens are automatically highlighted
 let loaded_matchparen = 1
 
-if ($OS != 'Windows_NT')
-  let g:main_font = "Hack\\ Regular\\ 8"
-  let g:small_font = "Hack\\ Regular\\ 4"
-else
-  let g:main_font = "Courier\\ New\\ 8"
-  let g:small_font = "Courier\\ New\\ 4"
-endif
+let g:main_font = "Hack\\ Regular\\ 8"
+let g:small_font = "Hack\\ Regular\\ 4"
 
 "-----------------------------------------------------------------------------
 " CtrlP Settings
