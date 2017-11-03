@@ -14,7 +14,7 @@ endif
 
 Plug 'vim-scripts/UltiSnips'
 Plug 'elzr/vim-json'
-Plug 'stefansonski/vim-snippets'
+Plug 'honza/vim-snippets'
 Plug 'tpope/vim-fugitive'
 Plug 'derekwyatt/vim-fswitch'
 Plug 'derekwyatt/vim-protodef'
