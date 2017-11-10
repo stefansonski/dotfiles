@@ -156,7 +156,6 @@ checkAndInstallConfig $directory/dircolors ~/.dir_colors
 checkAndInstallConfig $directory/gdbinit ~/.gdbinit
 checkAndInstallConfig $directory/gitattributes ~/.gitattributes
 checkAndInstallConfig $directory/gitconfig ~/.gitconfig
-checkAndInstallConfig $directory/githooks ~/.githooks
 checkAndInstallConfig $directory/gitignore ~/.gitignore
 checkAndInstallConfig $directory/bin/diffconflicts.sh ~/.local/bin/diffconflicts.sh
 checkAndInstallConfig $directory/gpg.conf ~/.gnupg/gpg.conf

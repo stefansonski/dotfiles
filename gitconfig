@@ -22,7 +22,6 @@
 	editor = vim -f
 	whitespace = trailing-space,space-before-tab,tab-in-indent
 	attributesfile = ~/.gitattributes
-	hooksPath = ~/.githooks
 [branch]
 	autosetupmerge = true
 	pager = less -r
@@ -31,8 +30,6 @@
 	prompt = false
 [commit]
 	gpgsign = true
-[alias]
-	gtags = !~/.githooks/gtags
 [log]
 	date = local
 	showSignature = true
