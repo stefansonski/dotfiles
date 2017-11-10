@@ -57,7 +57,7 @@ function checkAndInstallConfig()
   fi
 }
 
-function checkAndInstallPowerlineSegments()
+function checkAndInstallPythonPackages()
 {
   if [[ $# -lt 1 || -z $1 ]]; then
     printf "Wrong number of arguments.\n"
@@ -113,7 +113,8 @@ trap cleanup EXIT
 
 neededPackages="cargo pinentry-curses clang-format powerline python-pip
                 python3-pip python-powerline python3-powerline neovim
-                python3-neovim libgnome-keyring-dev fonts-hack-otf zsh ruby-dev"
+                python3-neovim libgnome-keyring-dev fonts-hack-otf zsh ruby-dev
+                rust-src"
 
 for pkg in $neededPackages; do
   if ! dpkg -s $pkg &> /dev/null; then
@@ -142,7 +143,16 @@ if [[ ! -z $missingPackages ]]; then
   esac
 fi
 
-checkAndInstallPowerlineSegments powerline-gitstatus
+checkAndInstallPythonPackages powerline-gitstatus
+checkAndInstallPythonPackages jedi
+
+if ! go list github.com/nsf/gocode &> /dev/null; then
+  go get github.com/nsf/gocode
+fi
+
+if ! cargo install --list | grep racer &> /dev/null; then
+  cargo install racer
+fi
 
 printf "Creating links.\n"
 mkdir -p ~/.local/bin

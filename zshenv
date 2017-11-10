@@ -55,6 +55,11 @@ if [ -d "$HOME/go" ]; then
   export PATH="$GOPATH/bin:$PATH"
 fi
 
+if [ -d "$HOME/.cargo" ]; then
+  export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+  export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
 if [ -d "$HOME/tools/neovim" ]; then
   export PATH="$HOME/tools/neovim/bin:$PATH"
 fi

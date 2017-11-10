@@ -64,11 +64,35 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
       ```sh
       sudo apt install pinentry-curses clang-format powerline python-pip \
          python3-pip python-powerline python3-powerline neovim python3-neovim \
-         libgnome-keyring-dev fonts-hack-otf zsh ruby-dev
+         libgnome-keyring-dev fonts-hack-otf zsh ruby-dev rust-src
       ```
 
 1. To use powerline, install the powerline package on your system and adapt
    the last line in the `zshrc` to the path of the zsh powerline bindings.
+
+1. Semantic-completion for various programming languages is enabled. This is
+   currently the case for C/C++, go, python and rustc. Look at
+   [ncm](https://github.com/roxma/nvim-completion-manager) additional plugins
+   and build in support for other languages. To enable the completion for
+   currently enabled languages run the following commands.
+
+   1. To enable python, install jedi.
+
+      ```sh
+      pip install jedi
+      pip3 install jedi
+      ```
+   1. To enable rustc completion in nvim run
+
+      ```sh
+      cargo install racer
+      ```
+
+   1. To enable golang completion run additionally
+
+      ```sh
+      go get github.com/nsf/gocode
+      ```
 
 ### Automatic
 Just run `./install.sh`, all packages are installed, soft-links are created
