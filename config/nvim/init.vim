@@ -22,18 +22,13 @@ Plug 'icymind/NeoSolarized'
 Plug 'kana/vim-operator-user'
 Plug 'Chiel92/vim-autoformat'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'Raimondi/delimitMate'
 Plug 'Yggdroot/indentLine'
-Plug 'artur-shaik/vim-javacomplete2'
 Plug 'lervag/vimtex'
 Plug 'peterhoeg/vim-qml'
 Plug 'huawenyu/neogdb.vim'
-
-" Non-Windows plugins
-if ($OS != 'Windows_NT')
-  Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --system-libclang --system-boost --gocode-completer' }
-  Plug 'arakashic/chromatica.nvim'
-endif
+Plug 'roxma/nvim-completion-manager'
+Plug 'roxma/ncm-clang'
+Plug 'jsfaint/gen_tags.vim'
 
 call plug#end()
 
@@ -82,7 +77,7 @@ set lazyredraw
 set showcmd
 
 " Show the current mode
-set showmode
+set noshowmode
 
 " Switch on syntax highlighting.
 syntax on
@@ -256,65 +251,6 @@ let g:main_font = "Hack\\ Regular\\ 8"
 let g:small_font = "Hack\\ Regular\\ 4"
 
 "-----------------------------------------------------------------------------
-" CtrlP Settings
-"-----------------------------------------------------------------------------
-let g:ctrlp_switch_buffer = 'E'
-let g:ctrlp_tabpage_position = 'c'
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_root_markers = ['.git']
-let g:ctrlp_open_new_file = 'r'
-let g:ctrlp_open_multiple_files = '1ri'
-let g:ctrlp_match_window = 'max:40'
-
-noremap <LEADER>b :CtrlPBuffer<cr>
-noremap <LEADER>f :CtrlP .<cr>
-
-"-----------------------------------------------------------------------------
-" Set up the window colors and size
-"-----------------------------------------------------------------------------
-colorscheme NeoSolarized
-set background=dark
-
-if ($OS != 'Windows_NT')
-  "-----------------------------------------------------------------------------
-  " Set up YouCompleteMe
-  "-----------------------------------------------------------------------------
-  "Use tags files
-  let g:ycm_collect_identifiers_from_tags_files = 1
-  " Close preview after completion.
-  let g:ycm_add_preview_to_completeopt = 1
-  let g:ycm_autoclose_preview_window_after_insertion = 1
-  let g:ycm_confirm_extra_conf = 0
-  "Fill location list
-  let g:ycm_always_populate_location_list = 1
-  let g:ycm_global_ycm_extra_conf = '~/.config/nvim/ycm_extra_conf.py'
-  nnoremap <silent> <LEADER>gd :YcmCompleter GetDoc<CR>
-  nnoremap <silent> <LEADER>gf :YcmCompleter GoToDefinition<CR>
-  nnoremap <silent> <LEADER>gl :YcmCompleter GoToDeclaration<CR>
-endif
-
-"-----------------------------------------------------------------------------
-" UltiSnip
-"-----------------------------------------------------------------------------
-let g:UltiSnipsExpandTrigger = "<C-J>"
-let g:UltiSnipsListSnippets = "<C-K>"
-let g:UltiSnipsJumpForwardTrigger = "<C-J>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-K>"
-
-"-----------------------------------------------------------------------------
-" FSwitch mappings
-"-----------------------------------------------------------------------------
-nmap <silent> <LEADER>of :FSHere<CR>
-nmap <silent> <LEADER>ol :FSRight<CR>
-nmap <silent> <LEADER>oL :FSSplitRight<CR>
-nmap <silent> <LEADER>oh :FSLeft<CR>
-nmap <silent> <LEADER>oH :FSSplitLeft<CR>
-nmap <silent> <LEADER>ok :FSAbove<CR>
-nmap <silent> <LEADER>oK :FSSplitAbove<CR>
-nmap <silent> <LEADER>oj :FSBelow<CR>
-nmap <silent> <LEADER>oJ :FSSplitBelow<CR>
-
-"-----------------------------------------------------------------------------
 " autocmds
 "-----------------------------------------------------------------------------
 augroup cppfiles
@@ -364,6 +300,52 @@ au FilterWritePre * if &diff | set wrap | endif
 autocmd BufEnter,FocusGained * checktime
 
 "-----------------------------------------------------------------------------
+" Set up the window colors and size
+"-----------------------------------------------------------------------------
+colorscheme NeoSolarized
+set background=dark
+
+"-----------------------------------------------------------------------------
+" CtrlP Settings
+"-----------------------------------------------------------------------------
+let g:ctrlp_switch_buffer = 'E'
+let g:ctrlp_tabpage_position = 'c'
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_root_markers = ['.git']
+let g:ctrlp_open_new_file = 'r'
+let g:ctrlp_open_multiple_files = '1ri'
+let g:ctrlp_match_window = 'max:40'
+
+noremap <LEADER>b :CtrlPBuffer<cr>
+noremap <LEADER>f :CtrlP .<cr>
+
+"-----------------------------------------------------------------------------
+" nvim-completion-manager
+"-----------------------------------------------------------------------------
+set shortmess+=c
+
+"-----------------------------------------------------------------------------
+" UltiSnip
+"-----------------------------------------------------------------------------
+let g:UltiSnipsExpandTrigger = "<C-J>"
+let g:UltiSnipsListSnippets = "<C-K>"
+let g:UltiSnipsJumpForwardTrigger = "<C-J>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-K>"
+
+"-----------------------------------------------------------------------------
+" FSwitch mappings
+"-----------------------------------------------------------------------------
+nmap <silent> <LEADER>of :FSHere<CR>
+nmap <silent> <LEADER>ol :FSRight<CR>
+nmap <silent> <LEADER>oL :FSSplitRight<CR>
+nmap <silent> <LEADER>oh :FSLeft<CR>
+nmap <silent> <LEADER>oH :FSSplitLeft<CR>
+nmap <silent> <LEADER>ok :FSAbove<CR>
+nmap <silent> <LEADER>oK :FSSplitAbove<CR>
+nmap <silent> <LEADER>oj :FSBelow<CR>
+nmap <silent> <LEADER>oJ :FSSplitBelow<CR>
+
+"-----------------------------------------------------------------------------
 " vim-autoformat
 "-----------------------------------------------------------------------------
 let g:formatters_cpp = ['astyle_cpp', 'clangformat']
@@ -375,35 +357,19 @@ let g:formatdef_astyle_cpp = '"astyle --mode=c"'
 let g:vim_json_syntax_conceal = 0
 
 "-----------------------------------------------------------------------------
-" gtags
+" gen_gtags
 "-----------------------------------------------------------------------------
-function! UpdateGtagsFile()
-  if (expand('%:p') =~ getcwd() && (filereadable("GPATH") || filereadable("GRTAGS") || filereadable("GTAGS")))
-    exec ":silent !global -q --single-update " . expand('%:p')
-  endif
-endfunction
-autocmd BufWritePost * :call UpdateGtagsFile()
+map <C-\> :cs find c <C-R>=expand("<cword>")<CR><CR>
 
-set cscopeprg=gtags-cscope
-if has('cscope')
-  set cscopetag cscopeverbose
-  if has('quickfix')
-    set cscopequickfix=s-,c-,d-,i-,t-,e-
-  endif
-
-  command! -nargs=0 Cscope cs add GTAGS
-  map <C-\> :cs find c <C-R>=expand("<cword>")<CR><CR>
-endif
+"-----------------------------------------------------------------------------
+" echodoc
+"-----------------------------------------------------------------------------
+let g:echodoc#enable_at_startup = 1
 
 "-----------------------------------------------------------------------------
 " indentLine
 "-----------------------------------------------------------------------------
 let g:indentLine_char = '┆'
-
-"-----------------------------------------------------------------------------
-" delimitMate
-"-----------------------------------------------------------------------------
-let delimitMate_expand_cr = 1
 
 "-----------------------------------------------------------------------------
 " solarized
