@@ -23,13 +23,14 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
 
 1. Create soft-links to the files in the repository.
    ```sh
-   mkdir -p ~/bin
-   mkdir -p ~/.cache/ssh/mux
+   mkdir -p ~/.local/bin
+   mkdir -p ~/.cache/ssh
    mkdir -p ~/.gnupg
-   mkdir -p ~/.vim/bundle
-   mkdir -p ~/.vim/spell
+   sudo make --directory=/usr/share/doc/git/contrib/credential/gnome-keyring/
+   sudo chmod +x /usr/share/doc/git/contrib/diff-highlight/diff-highlight
    ln -s /usr/share/doc/git/contrib/diff-highlight/diff-highlight ~/bin/diff-highlight
    ln -s ~/dotfiles/dircolors ~/.dircolors
+   ln -s ~/dotfiles/dircolors ~/.dir_colors
    ln -s ~/dotfiles/gdbinit ~/.gdbinit
    ln -s ~/dotfiles/gitattributes ~/.gitattributes
    ln -s ~/dotfiles/gitconfig ~/.gitconfig
@@ -38,51 +39,39 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
    ln -s ~/dotfiles/bin/diffconflicts.sh ~/bin/diffconflicts.sh
    ln -s ~/dotfiles/gpg.conf ~/.gnupg/gpg.conf
    ln -s ~/dotfiles/globalrc ~/.globalrc
-   ln -s ~/dotfiles/gradle ~/.gradle
    ln -s ~/dotfiles/config ~/.config
    ln -s ~/dotfiles/ssh/ ~/.ssh
-   ln -s ~/dotfiles/vimrc ~/.vimrc
-   ln -s ~/dotfiles/vimspell-en.utf-8.add ~/.vim/spell/en.utf-8.add
    ln -s ~/dotfiles/weechat ~/.weechat
    ln -s ~/dotfiles/zshenv ~/.zshenv
    ln -s ~/dotfiles/zshrc ~/.zshrc
-   git clone https://github.com/Shougo/neobundle.vim ~/.vim/bundle/neobundle.vim
-   cat config/dconf/user.dump | dconf load /
+   curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+   ./dconf-load.sh
    ```
 
-1. To use the vim configuration, install [NeoBundle]
-   (https://github.com/Shougo/neobundle.vim) and run the following command in
-   vim.
-   ```vim
-   :NeoBundleInstall
+1. To use the nvim configuration, install [vim-plug]
+   (https://github.com/junegunn/vim-plug) and run the following command in
+   nvim.
+   ```sh
+   nvim +PlugInstall! +qall
    ```
 
    1. The installation process can take some time, especially because of the
       build process of YouCompleteMe, which is run on every `:NeoBundleInstall`
       and `:NeoBundleUpdate` and no output is generated.
 
-   1. For YouCompleteMe to work with C/C++ support an appropriate clang version
-      and boost dev-packages have to be available (Debian Jessie and Testing is
-      working). If the build is failing, see the README of
-      [YouCompleteMe](https://github.com/Valloric/YouCompleteMe).
-      For debian use the following packages.
+   1. For debian use the following packages.
 
       ```sh
-      sudo apt install pinentry-curses llvm-dev libboost-dev \
-         libboost-python-dev libboost-filesystem-dev libboost-system-dev \
-         libboost-regex-dev libboost-thread-dev clang clang-format powerline  \
-         python-pip python3-pip python-powerline python3-powerline neovim \
-         python3-neovim libgnome-keyring-dev fonts-hack-otf zsh ruby-dev
+      sudo apt install pinentry-curses clang-format powerline python-pip \
+         python3-pip python-powerline python3-powerline neovim python3-neovim \
+         libgnome-keyring-dev fonts-hack-otf zsh ruby-dev
       ```
-
-   1. To use vim-clang-format in vim, install a clang-format package with
-      version 3.4 or greater. On Debian install package `clang-format` which
-      downloads the current default version.
 
 1. To use powerline, install the powerline package on your system and adapt
    the last line in the `zshrc` to the path of the zsh powerline bindings.
 
 ### Automatic
 Just run `./install.sh`, all packages are installed, soft-links are created
-and vim plugins are installed. In case files exist, but reference do not
+and nvim plugins are installed. In case files exist, but reference do not
 reference the correct file, you are asked if you want to overwrite them.

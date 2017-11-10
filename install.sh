@@ -111,9 +111,7 @@ cd `dirname $0`
 directory=`pwd`
 trap cleanup EXIT
 
-neededPackages="cargo pinentry-curses llvm-dev libboost-dev libboost-python-dev
-                libboost-filesystem-dev libboost-system-dev libboost-regex-dev
-                libboost-thread-dev clang clang-format powerline python-pip
+neededPackages="cargo pinentry-curses clang-format powerline python-pip
                 python3-pip python-powerline python3-powerline neovim
                 python3-neovim libgnome-keyring-dev fonts-hack-otf zsh ruby-dev"
 
@@ -159,10 +157,10 @@ checkAndInstallConfig $directory/gdbinit ~/.gdbinit
 checkAndInstallConfig $directory/gitattributes ~/.gitattributes
 checkAndInstallConfig $directory/gitconfig ~/.gitconfig
 checkAndInstallConfig $directory/githooks ~/.githooks
+checkAndInstallConfig $directory/gitignore ~/.gitignore
 checkAndInstallConfig $directory/bin/diffconflicts.sh ~/.local/bin/diffconflicts.sh
 checkAndInstallConfig $directory/gpg.conf ~/.gnupg/gpg.conf
 checkAndInstallConfig $directory/globalrc ~/.globalrc
-checkAndInstallConfig $directory/gradle ~/.gradle
 checkAndInstallConfig $directory/config ~/.config
 checkAndInstallConfig $directory/ssh ~/.ssh
 checkAndInstallConfig $directory/weechat ~/.weechat
