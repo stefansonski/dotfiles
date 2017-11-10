@@ -92,8 +92,6 @@ zstyle ':completion:*'                 special-dirs true                   # Com
 zstyle ':completion:*:manuals'    separate-sections true
 zstyle ':completion:*:manuals.*'  insert-sections   true
 
-
-
 # Completion caching
 zstyle ':completion::complete:*' use-cache on
 zstyle ':completion::complete:*' cache-path ~/.zcache
@@ -167,10 +165,6 @@ setopt HIST_IGNORE_SPACE
 
 ## dirstack
 setopt AUTO_PUSHD
-
-## show menu on completion
-unsetopt MENUCOMPLETE
-setopt AUTOLIST AUTOMENU
 
 ## activate extended globbing
 setopt EXTENDEDGLOB
