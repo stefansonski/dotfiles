@@ -81,7 +81,7 @@ zstyle ':completion:*:options'         description 'yes'                   # des
 zstyle ':completion:*:processes'       command 'ps -au$USER'               # on processes completion complete all user processes
 zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters        # offer indexes before parameters in subscripts
 zstyle ':completion:*'                 verbose true                        # provide verbose completion information
-zstyle ':completion:*'                 menu select
+zstyle ':completion:*'                 menu yes=long-list select
 zstyle ':completion:*:warnings'        format $'%{\e[0;31m%}No matches for:%{\e[0m%} %d' # set format for warnings
 zstyle ':completion:*:*:zcompile:*'    ignored-patterns '(*~|*.zwc)'       # define files to ignore for zcompile
 zstyle ':completion:correct:'          prompt 'correct to: %e'             #
