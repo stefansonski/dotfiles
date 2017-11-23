@@ -64,6 +64,10 @@ if [ -d "$HOME/tools/neovim" ]; then
   export PATH="$HOME/tools/neovim/bin:$PATH"
 fi
 
+if [ -d "$HOME/tools/neovim-qt" ]; then
+  export PATH="$HOME/tools/neovim-qt/bin:$PATH"
+fi
+
 export GPG_TTY=$(tty)
 if [[ -n "$SSH_CONNECTION" ]] ;then
   export PINENTRY_USER_DATA="USE_CURSES=1"
