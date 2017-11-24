@@ -147,7 +147,6 @@ show-colors() {
 
 #allow tab completion in the middle of a word
 setopt COMPLETE_IN_WORD
-setopt CORRECT
 
 ## keep background processes at full speed
 #setopt NOBGNICE
