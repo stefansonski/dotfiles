@@ -9,6 +9,7 @@
 	tool = vimdiff
 	mnemonicprefix = true
 	compactionHeuristic = true
+	submodule = log
 [merge]
 	tool = diffconflicts
 	stat = true

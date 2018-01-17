@@ -30,6 +30,7 @@ config/google-chrome/
 config/gtk-2.0/
 config/gtk-3.0/bookmarks
 config/hexchat/
+config/htop/
 config/ibus/
 config/inkscape/
 config/keepassx/
