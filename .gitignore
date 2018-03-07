@@ -6,17 +6,16 @@
 GPATH
 GRTAGS
 GTAGS
-config/DisplayCAL/
-config/Keybase/
-config/Kitware/
-config/Trolltech.conf
-config/VirtualBox/
 config/autostart/
+config/cef_user_data/
 config/chromium/
+config/darktable/
 config/dconf/*
+config/DisplayCAL/
 config/dleyna-*.conf
 config/enchant/
 config/eog/
+config/Ethereum Wallet/
 config/evince/
 config/evolution/
 config/gedit/
@@ -28,13 +27,15 @@ config/gnome-session/
 config/goa-1.0/
 config/google-chrome/
 config/gtk-2.0/
-config/gtk-3.0/bookmarks
+config/gtk-3.0/bookmarks*
 config/hexchat/
 config/htop/
 config/ibus/
 config/inkscape/
 config/keepassx/
 config/keybase/
+config/Keybase/
+config/Kitware/
 config/libaccounts-glib/
 config/libreoffice/
 config/metacity/
@@ -53,9 +54,12 @@ config/rygel.conf
 config/spotify/
 config/sqlitebrowser/
 config/systemd/
+config/Tom Thielicke IT Solutions/
 config/totem/
 config/transmission/
 config/Trolltech/
+config/Trolltech.conf
+config/VirtualBox/
 config/vlc/
 config/xbuild/
 config/xfce4/
