@@ -2,6 +2,7 @@
 	helper = /usr/share/doc/git/contrib/credential/gnome-keyring/git-credential-gnome-keyring
 [push]
 	default = current
+	followTags = true
 [svn]
 	pushmergeinfo = true
 	rmdir = true
@@ -53,8 +54,6 @@
 	diffFilter = diff-highlight
 [tar "tar.xz"]
 	command = xz -c
-[tag]
-	gpgsign = true
 [stash]
 	showPatch = true
 [format]
