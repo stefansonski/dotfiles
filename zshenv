@@ -50,8 +50,8 @@ if [ -d "$ANDROID_HOME/platform-tools" ] ; then
   export PATH="$ANDROID_HOME/platform-tools:$PATH"
 fi
 
-if [ -d "$HOME/go" ]; then
-  export GOPATH="$HOME/go"
+if [ -d "$HOME/.go" ]; then
+  export GOPATH="$HOME/.go"
   export PATH="$GOPATH/bin:$PATH"
 fi
 
