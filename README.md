@@ -29,16 +29,15 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
    sudo make --directory=/usr/share/doc/git/contrib/credential/gnome-keyring/
    sudo chmod +x /usr/share/doc/git/contrib/diff-highlight/diff-highlight
    ln -s /usr/share/doc/git/contrib/diff-highlight/diff-highlight ~/bin/diff-highlight
-   ln -s ~/dotfiles/dircolors ~/.dircolors
+   ln -s ~/dotfiles/bin/diffconflicts.sh ~/bin/diffconflicts.sh
+   ln -s ~/dotfiles/config ~/.config
    ln -s ~/dotfiles/dircolors ~/.dir_colors
+   ln -s ~/dotfiles/dircolors ~/.dircolors
    ln -s ~/dotfiles/gdbinit ~/.gdbinit
    ln -s ~/dotfiles/gitattributes ~/.gitattributes
    ln -s ~/dotfiles/gitconfig ~/.gitconfig
-   ln -s ~/dotfiles/gitignore ~/.gitignore
-   ln -s ~/dotfiles/bin/diffconflicts.sh ~/bin/diffconflicts.sh
-   ln -s ~/dotfiles/gpg.conf ~/.gnupg/gpg.conf
    ln -s ~/dotfiles/globalrc ~/.globalrc
-   ln -s ~/dotfiles/config ~/.config
+   ln -s ~/dotfiles/gpg.conf ~/.gnupg/gpg.conf
    ln -s ~/dotfiles/ssh/ ~/.ssh
    ln -s ~/dotfiles/weechat ~/.weechat
    ln -s ~/dotfiles/zshenv ~/.zshenv

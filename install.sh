@@ -161,16 +161,15 @@ mkdir -p ~/.gnupg
 sudo make --directory=/usr/share/doc/git/contrib/credential/gnome-keyring/
 sudo chmod +x /usr/share/doc/git/contrib/diff-highlight/diff-highlight
 checkAndInstallConfig /usr/share/doc/git/contrib/diff-highlight/diff-highlight ~/.local/bin/diff-highlight
-checkAndInstallConfig $directory/dircolors ~/.dircolors
+checkAndInstallConfig $directory/bin/diffconflicts.sh ~/.local/bin/diffconflicts.sh
+checkAndInstallConfig $directory/config ~/.config
 checkAndInstallConfig $directory/dircolors ~/.dir_colors
+checkAndInstallConfig $directory/dircolors ~/.dircolors
 checkAndInstallConfig $directory/gdbinit ~/.gdbinit
 checkAndInstallConfig $directory/gitattributes ~/.gitattributes
 checkAndInstallConfig $directory/gitconfig ~/.gitconfig
-checkAndInstallConfig $directory/gitignore ~/.gitignore
-checkAndInstallConfig $directory/bin/diffconflicts.sh ~/.local/bin/diffconflicts.sh
-checkAndInstallConfig $directory/gpg.conf ~/.gnupg/gpg.conf
 checkAndInstallConfig $directory/globalrc ~/.globalrc
-checkAndInstallConfig $directory/config ~/.config
+checkAndInstallConfig $directory/gpg.conf ~/.gnupg/gpg.conf
 checkAndInstallConfig $directory/ssh ~/.ssh
 checkAndInstallConfig $directory/weechat ~/.weechat
 checkAndInstallConfig $directory/zshenv ~/.zshenv
