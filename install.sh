@@ -151,7 +151,7 @@ if ! go list github.com/nsf/gocode &> /dev/null; then
 fi
 
 if ! cargo install --list | grep racer &> /dev/null; then
-  cargo install racer
+  cargo install racer rustfmt
 fi
 
 printf "Creating links.\n"

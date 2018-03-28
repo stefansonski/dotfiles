@@ -81,10 +81,17 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
       pip install jedi
       pip3 install jedi
       ```
+
    1. To enable rustc completion in nvim run
 
       ```sh
       cargo install racer
+      ```
+
+   1. To enable rustfmt in nvim run
+
+      ```sh
+      cargo install rustfmt
       ```
 
    1. To enable golang completion run additionally
