@@ -111,10 +111,9 @@ cd `dirname $0`
 directory=`pwd`
 trap cleanup EXIT
 
-neededPackages="cargo pinentry-curses clang-format powerline python-pip
-                python3-pip python-powerline python3-powerline neovim
-                python3-neovim libgnome-keyring-dev fonts-hack-otf zsh ruby-dev
-                rust-src"
+neededPackages="pinentry-curses clang-format powerline python-pip python3-pip
+                python-powerline python3-powerline neovim python3-neovim
+                libgnome-keyring-dev fonts-hack-otf zsh ruby-dev"
 
 for pkg in $neededPackages; do
   if ! dpkg -s $pkg &> /dev/null; then
@@ -150,9 +149,12 @@ if ! go list github.com/nsf/gocode &> /dev/null; then
   go get github.com/nsf/gocode
 fi
 
-if ! cargo install --list | grep racer &> /dev/null; then
-  cargo install racer rustfmt
+if [ -x "$(command -v rustup)" ]; then
+  curl https://sh.rustup.rs -sSf | sh
 fi
+
+rustup component add rustfmt-preview rust-src
+cargo install -f racer
 
 printf "Creating links.\n"
 mkdir -p ~/.local/bin

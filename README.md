@@ -63,7 +63,7 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
       ```sh
       sudo apt install pinentry-curses clang-format powerline python-pip \
          python3-pip python-powerline python3-powerline neovim python3-neovim \
-         libgnome-keyring-dev fonts-hack-otf zsh ruby-dev rust-src
+         libgnome-keyring-dev fonts-hack-otf zsh ruby-dev
       ```
 
 1. To use powerline, install the powerline package on your system and adapt
@@ -82,16 +82,12 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
       pip3 install jedi
       ```
 
-   1. To enable rustc completion in nvim run
+   1. To enable rust support in nvim run
 
       ```sh
+      curl https://sh.rustup.rs -sSf | sh
+      rustup component add rustfmt-preview rust-src
       cargo install racer
-      ```
-
-   1. To enable rustfmt in nvim run
-
-      ```sh
-      cargo install rustfmt
       ```
 
    1. To enable golang completion run additionally
