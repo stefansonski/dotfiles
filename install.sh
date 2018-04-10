@@ -112,8 +112,9 @@ directory=`pwd`
 trap cleanup EXIT
 
 neededPackages="pinentry-curses clang-format powerline python-pip python3-pip
-                python-powerline python3-powerline neovim python3-neovim
-                libgnome-keyring-dev fonts-hack-otf zsh ruby-dev"
+                python-powerline python3-powerline neovim python-neovim
+                python3-neovim libgnome-keyring-dev fonts-hack-otf zsh ruby-dev
+                golang git-all global"
 
 for pkg in $neededPackages; do
   if ! dpkg -s $pkg &> /dev/null; then
@@ -145,23 +146,26 @@ fi
 checkAndInstallPythonPackages powerline-gitstatus
 checkAndInstallPythonPackages jedi
 
-if ! go list github.com/nsf/gocode &> /dev/null; then
-  go get github.com/nsf/gocode
-fi
+#if ! go list github.com/nsf/gocode &> /dev/null; then
+#  go get github.com/nsf/gocode
+#fi
 
-if [ -x "$(command -v rustup)" ]; then
+if ! command -v rustup; then
   curl https://sh.rustup.rs -sSf | sh
+  source ~/.profile
 fi
 
 rustup component add rustfmt-preview rust-src
-cargo install -f racer
+if ! cargo install --list | grep racer; then
+  cargo install racer
+fi
 
 printf "Creating links.\n"
 mkdir -p ~/.local/bin
 mkdir -p ~/.cache/ssh
 mkdir -p ~/.gnupg
 sudo make --directory=/usr/share/doc/git/contrib/credential/gnome-keyring/
-sudo chmod +x /usr/share/doc/git/contrib/diff-highlight/diff-highlight
+sudo make --directory=/usr/share/doc/git/contrib/diff-highlight/
 checkAndInstallConfig /usr/share/doc/git/contrib/diff-highlight/diff-highlight ~/.local/bin/diff-highlight
 checkAndInstallConfig $directory/bin/diffconflicts.sh ~/.local/bin/diffconflicts.sh
 checkAndInstallConfig $directory/config ~/.config

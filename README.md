@@ -19,6 +19,7 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
 1. Download and install powerline-gitstatus with pip.
    ```sh
    sudo pip install powerline-gitstatus
+   sudo pip3 install powerline-gitstatus
    ```
 
 1. Create soft-links to the files in the repository.
@@ -62,8 +63,9 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
 
       ```sh
       sudo apt install pinentry-curses clang-format powerline python-pip \
-         python3-pip python-powerline python3-powerline neovim python3-neovim \
-         libgnome-keyring-dev fonts-hack-otf zsh ruby-dev
+         python3-pip python-powerline python3-powerline neovim python-neovim \
+         python3-neovim libgnome-keyring-dev fonts-hack-otf zsh ruby-dev \
+         golang git-all global
       ```
 
 1. To use powerline, install the powerline package on your system and adapt
