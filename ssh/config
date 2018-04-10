@@ -21,4 +21,5 @@ Host pi
         HostName pi.home
         User pi
 
-Include config.local
+Host *
+        Include config.local
