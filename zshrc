@@ -13,13 +13,7 @@
 #  are allowed; b or bl selects black.
 #
 
-#source /usr/share/zsh-antigen/antigen.zsh
-
-## use oh-my-zsh as standard repo
-#antigen bundle command-not-found
-
-## apply antigen plugins
-#antigen apply
+fpath+=~/.zfunc
 
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
@@ -107,7 +101,7 @@ zstyle ':completion::complete:git-checkout:argument-rest:remote-branch-refs-nopr
 zstyle ':completion:*:*' ignored-patterns '*ORIG_HEAD' '*FETCH_HEAD'
 zstyle ':completion:*:git-checkout:*' ignored-patterns '*HEAD'
 
-CDPATH=.:~:~/git
+CDPATH=.:~:~/develop
 
 #I want my umask 0002 if I'm not root
 if [[ $(whoami) = root ]]; then

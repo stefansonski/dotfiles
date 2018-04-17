@@ -151,8 +151,10 @@ checkAndInstallPythonPackages jedi
 #fi
 
 if ! command -v rustup; then
-  curl https://sh.rustup.rs -sSf | sh
-  source ~/.profile
+  curl https://sh.rustup.rs | bash -s -- --no-modify-path -y
+  source ~/.cargo/env
+  mkdir -p ~/.zfunc
+  rustup completions zsh > ~/.zfunc/_rustup
 fi
 
 rustup component add rustfmt-preview rust-src
