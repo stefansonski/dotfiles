@@ -63,6 +63,7 @@ zstyle ':completion:*:corrections'     format $'%{\e[0;31m%}%d (errors: %e)%{\e[
 zstyle ':completion:*:correct:*'       original true                       #
 zstyle ':completion:*:default'         list-colors ${(s.:.)LS_COLORS}      # activate color-completion(!)
 zstyle ':completion:*:descriptions'    format $'%{\e[0;31m%}completing %B%d%b%{\e[0m%}'  # format on completion
+zstyle ':completion:*:hosts'           hosts off
 zstyle ':completion:*:history-words'   list false                          #
 zstyle ':completion:*:history-words'   remove-all-dups yes                 # ignore duplicate entries
 zstyle ':completion:*:history-words'   stop yes                            #
