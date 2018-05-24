@@ -14,6 +14,11 @@ endif
 
 Plug 'icymind/NeoSolarized'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'rust-lang/rust.vim'
 
 call plug#end()
 
@@ -149,7 +154,7 @@ let g:small_font = "Hack\\ Regular\\ 4"
 let g:solarized_diffmode="high"
 
 "-----------------------------------------------------------------------------
-" CtrlP Settings
+" ctrlp
 "-----------------------------------------------------------------------------
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_open_new_file = 'r'
@@ -158,6 +163,26 @@ let g:ctrlp_match_window = 'max:50'
 
 noremap <LEADER>b :CtrlPBuffer<cr>
 noremap <LEADER>f :CtrlP<cr>
+
+"-----------------------------------------------------------------------------
+" vim-lsp
+"-----------------------------------------------------------------------------
+let g:asyncomplete_remove_duplicates = 1
+
+if executable('clangd')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'clangd',
+        \ 'cmd': {server_info->['clangd']},
+        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
+        \ })
+endif
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+        \ 'whitelist': ['rust'],
+        \ })
+endif
 
 if ($OS != 'Windows_NT')
   "-----------------------------------------------------------------------------

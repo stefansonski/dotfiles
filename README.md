@@ -62,10 +62,10 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
    1. For debian use the following packages.
 
       ```sh
-      sudo apt install pinentry-curses clang-format powerline python-pip \
-         python3-pip python-powerline python3-powerline neovim python-neovim \
+      sudo apt install pinentry-curses powerline python-pip python3-pip \
+         clang-tools python-powerline python3-powerline neovim python-neovim \
          python3-neovim libgnome-keyring-dev fonts-hack-otf zsh ruby-dev \
-         golang git-all global
+         git-all global
       ```
 
 1. To use powerline, install the powerline package on your system and adapt
@@ -90,12 +90,6 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
       curl https://sh.rustup.rs -sSf | sh
       rustup component add rustfmt-preview rust-src
       cargo install racer
-      ```
-
-   1. To enable golang completion run additionally
-
-      ```sh
-      go get github.com/nsf/gocode
       ```
 
 ### Automatic

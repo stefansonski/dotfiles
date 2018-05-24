@@ -111,10 +111,10 @@ cd `dirname $0`
 directory=`pwd`
 trap cleanup EXIT
 
-neededPackages="pinentry-curses clang-format powerline python-pip python3-pip
+neededPackages="pinentry-curses powerline python-pip python3-pip clang-tools
                 python-powerline python3-powerline neovim python-neovim
-                python3-neovim libgnome-keyring-dev fonts-hack-otf zsh ruby-dev
-                golang git-all global"
+                python3-neovim libgnome-keyring-dev fonts-hack-otf zsh git-all
+                global"
 
 for pkg in $neededPackages; do
   if ! dpkg -s $pkg &> /dev/null; then
@@ -144,11 +144,6 @@ if [[ ! -z $missingPackages ]]; then
 fi
 
 checkAndInstallPythonPackages powerline-gitstatus
-checkAndInstallPythonPackages jedi
-
-#if ! go list github.com/nsf/gocode &> /dev/null; then
-#  go get github.com/nsf/gocode
-#fi
 
 if ! command -v rustup; then
   curl https://sh.rustup.rs | bash -s -- --no-modify-path -y
@@ -157,7 +152,7 @@ if ! command -v rustup; then
   rustup completions zsh > ~/.zfunc/_rustup
 fi
 
-rustup component add rustfmt-preview rust-src
+rustup component add rls-preview rust-analysis rust-src
 if ! cargo install --list | grep racer; then
   cargo install racer
 fi
