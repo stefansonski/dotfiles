@@ -13,6 +13,7 @@ else
 endif
 
 Plug 'icymind/NeoSolarized'
+Plug 'ctrlpvim/ctrlp.vim'
 
 call plug#end()
 
@@ -146,6 +147,17 @@ let g:small_font = "Hack\\ Regular\\ 4"
 " solarized
 "-----------------------------------------------------------------------------
 let g:solarized_diffmode="high"
+
+"-----------------------------------------------------------------------------
+" CtrlP Settings
+"-----------------------------------------------------------------------------
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_open_new_file = 'r'
+let g:ctrlp_open_multiple_files = '1ri'
+let g:ctrlp_match_window = 'max:50'
+
+noremap <LEADER>b :CtrlPBuffer<cr>
+noremap <LEADER>f :CtrlP<cr>
 
 if ($OS != 'Windows_NT')
   "-----------------------------------------------------------------------------
