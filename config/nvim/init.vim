@@ -21,6 +21,9 @@ filetype plugin indent on
 " Switch on syntax highlighting.
 syntax on
 
+" Add the unnamed register to the clipboard
+set clipboard=unnamedplus
+
 " Activate spell-checking as default.
 set spell
 
