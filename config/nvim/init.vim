@@ -13,11 +13,11 @@ else
 endif
 
 Plug 'icymind/NeoSolarized'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'Shougo/echodoc.vim'
+Plug 'Shougo/deoplete-clangx'
+Plug 'sebastianmarkow/deoplete-rust'
+Plug 'jsfaint/gen_tags.vim'
 Plug 'rust-lang/rust.vim'
 
 call plug#end()
@@ -78,9 +78,13 @@ set virtualedit=all
 set wildmenu
 set wildmode=longest:list,full
 
+set completeopt+=noinsert
+set completeopt-=preview
+" Hide completion messages in command line
+set shortmess+=c
+
 " Types of files to ignore when auto completing things
-set wildignore+=GRTAGS,GPATH,GTAGS,*.class,*.gcno,*.gcda,*.git,*.o,*.pyc,*.svn
-set wildignore+=*/build/*,*/CMakeFiles/*
+set wildignore+=*.gcno,*.gcda,*.git,*.o,*.pyc,*.svn,*/build/*,*/CMakeFiles/*
 
 " Automatically read a file that has changed on disk
 set autoread
@@ -154,35 +158,25 @@ let g:small_font = "Hack\\ Regular\\ 4"
 let g:solarized_diffmode="high"
 
 "-----------------------------------------------------------------------------
-" ctrlp
+" deoplete
 "-----------------------------------------------------------------------------
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_open_new_file = 'r'
-let g:ctrlp_open_multiple_files = '1ri'
-let g:ctrlp_match_window = 'max:50'
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
 
-noremap <LEADER>b :CtrlPBuffer<cr>
-noremap <LEADER>f :CtrlP<cr>
-
-"-----------------------------------------------------------------------------
-" vim-lsp
-"-----------------------------------------------------------------------------
-let g:asyncomplete_remove_duplicates = 1
-
-if executable('clangd')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'clangd',
-        \ 'cmd': {server_info->['clangd']},
-        \ 'whitelist': ['c', 'cpp', 'objc', 'objcpp'],
-        \ })
+if executable('racer')
+  let g:deoplete#sources#rust#racer_binary=exepath('racer')
+  let g:deoplete#sources#rust#rust_source_path='$RUST_SRC_PATH'
 endif
-if executable('rls')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
-        \ 'whitelist': ['rust'],
-        \ })
-endif
+
+"-----------------------------------------------------------------------------
+" echodoc
+"-----------------------------------------------------------------------------
+let g:echodoc#enable_at_startup = 1
+
+"-----------------------------------------------------------------------------
+" gen_gtags
+"-----------------------------------------------------------------------------
+let g:gen_tags#gtags_auto_gen = 1
 
 if ($OS != 'Windows_NT')
   "-----------------------------------------------------------------------------
