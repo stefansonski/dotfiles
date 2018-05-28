@@ -47,11 +47,12 @@ This function should only modify configuration layer settings."
                       auto-completion-enable-snippets-in-popup t)
      better-defaults
      (c-c++ :variables
-            c-c++-default-mode-for-headers 'c++-mode
-            c-c++-enable-rtags-support t)
+            c-c++-default-mode-for-headers 'c++-mode)
+     ;;       c-c++-enable-rtags-support t)
      emacs-lisp
+     extra-langs
      git
-     major-modes
+     ;;major-modes
      markdown
      ;; org
      ;; (shell :variables

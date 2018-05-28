@@ -40,6 +40,7 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
    ln -s ~/dotfiles/globalrc ~/.globalrc
    ln -s ~/dotfiles/gpg.conf ~/.gnupg/gpg.conf
    ln -s ~/dotfiles/ssh/ ~/.ssh
+   ln -s ~/dotfiles/spacemacs ~/.spacemacs
    ln -s ~/dotfiles/weechat ~/.weechat
    ln -s ~/dotfiles/zshenv ~/.zshenv
    ln -s ~/dotfiles/zshrc ~/.zshrc

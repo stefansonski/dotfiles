@@ -173,6 +173,7 @@ checkAndInstallConfig $directory/gitattributes ~/.gitattributes
 checkAndInstallConfig $directory/gitconfig ~/.gitconfig
 checkAndInstallConfig $directory/globalrc ~/.globalrc
 checkAndInstallConfig $directory/gpg.conf ~/.gnupg/gpg.conf
+checkAndInstallConfig $directory/spacemacs ~/.spacemacs
 checkAndInstallConfig $directory/ssh ~/.ssh
 checkAndInstallConfig $directory/weechat ~/.weechat
 checkAndInstallConfig $directory/zshenv ~/.zshenv
