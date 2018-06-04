@@ -63,6 +63,7 @@ This function should only modify configuration layer settings."
      syntax-checking
      themes-megapack
      version-control
+     yaml
      )
 
    ;; List of additional packages that will be installed without being
