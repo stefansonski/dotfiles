@@ -13,11 +13,6 @@ else
 endif
 
 Plug 'icymind/NeoSolarized'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/echodoc.vim'
-Plug 'Shougo/deoplete-clangx'
-Plug 'sebastianmarkow/deoplete-rust'
-Plug 'jsfaint/gen_tags.vim'
 Plug 'rust-lang/rust.vim'
 
 call plug#end()
@@ -123,9 +118,6 @@ map! <S-Insert> <MiddleMouse>
 nmap <silent> <LEADER>ev :e $MYVIMRC<CR>
 nmap <silent> <LEADER>sv :so $MYVIMRC<CR>
 
-" Turn off that stupid highlight search
-nmap <silent> <LEADER>n :nohls<CR>
-
 au BufWritePre * :%s/\s\+$//e
 au BufRead,BufNewFile *gitattributes setfiletype gitattributes
 au BufRead,BufNewFile *gitconfig* setfiletype gitconfig
@@ -156,27 +148,6 @@ let g:small_font = "Hack\\ Regular\\ 4"
 " solarized
 "-----------------------------------------------------------------------------
 let g:solarized_diffmode="high"
-
-"-----------------------------------------------------------------------------
-" deoplete
-"-----------------------------------------------------------------------------
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-
-if executable('racer')
-  let g:deoplete#sources#rust#racer_binary=exepath('racer')
-  let g:deoplete#sources#rust#rust_source_path='$RUST_SRC_PATH'
-endif
-
-"-----------------------------------------------------------------------------
-" echodoc
-"-----------------------------------------------------------------------------
-let g:echodoc#enable_at_startup = 1
-
-"-----------------------------------------------------------------------------
-" gen_gtags
-"-----------------------------------------------------------------------------
-let g:gen_tags#gtags_auto_gen = 1
 
 if ($OS != 'Windows_NT')
   "-----------------------------------------------------------------------------
