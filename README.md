@@ -37,7 +37,6 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
    ln -s ~/dotfiles/gdbinit ~/.gdbinit
    ln -s ~/dotfiles/gitattributes ~/.gitattributes
    ln -s ~/dotfiles/gitconfig ~/.gitconfig
-   ln -s ~/dotfiles/globalrc ~/.globalrc
    ln -s ~/dotfiles/gpg.conf ~/.gnupg/gpg.conf
    ln -s ~/dotfiles/ssh/ ~/.ssh
    ln -s ~/dotfiles/spacemacs ~/.spacemacs
@@ -63,10 +62,10 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
    1. For debian use the following packages.
 
       ```sh
-      sudo apt install pinentry-curses powerline python-pip python3-pip \
-         clang-tools python-powerline python3-powerline neovim python-neovim \
-         python3-neovim libgnome-keyring-dev fonts-hack-otf zsh ruby-dev \
-         git-all global
+      sudo apt install emacs fonts-hack-otf git-all libgnome-keyring-dev
+        pinentry-curses powerline python-pip python3-pip clang-tools
+        python-powerline python3-powerline neovim python-neovim python3-neovim
+        zsh
       ```
 
 1. To use powerline, install the powerline package on your system and adapt

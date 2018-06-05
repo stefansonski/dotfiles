@@ -111,10 +111,10 @@ cd `dirname $0`
 directory=`pwd`
 trap cleanup EXIT
 
-neededPackages="pinentry-curses powerline python-pip python3-pip clang-tools
+neededPackages="emacs fonts-hack-otf git-all libgnome-keyring-dev
+                pinentry-curses powerline python-pip python3-pip clang-tools
                 python-powerline python3-powerline neovim python-neovim
-                python3-neovim libgnome-keyring-dev fonts-hack-otf zsh git-all
-                global"
+                python3-neovim zsh"
 
 for pkg in $neededPackages; do
   if ! dpkg -s $pkg &> /dev/null; then
@@ -171,7 +171,6 @@ checkAndInstallConfig $directory/dircolors ~/.dircolors
 checkAndInstallConfig $directory/gdbinit ~/.gdbinit
 checkAndInstallConfig $directory/gitattributes ~/.gitattributes
 checkAndInstallConfig $directory/gitconfig ~/.gitconfig
-checkAndInstallConfig $directory/globalrc ~/.globalrc
 checkAndInstallConfig $directory/gpg.conf ~/.gnupg/gpg.conf
 checkAndInstallConfig $directory/spacemacs ~/.spacemacs
 checkAndInstallConfig $directory/ssh ~/.ssh
