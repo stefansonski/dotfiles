@@ -152,10 +152,8 @@ if ! command -v rustup; then
   rustup completions zsh > ~/.zfunc/_rustup
 fi
 
+rustup install nightly
 rustup component add rls-preview rust-analysis rust-src
-if ! cargo install --list | grep racer; then
-  cargo install racer
-fi
 
 printf "Creating links.\n"
 mkdir -p ~/.local/bin

@@ -13,6 +13,11 @@ else
 endif
 
 Plug 'icymind/NeoSolarized'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 Plug 'rust-lang/rust.vim'
 
 call plug#end()
@@ -143,6 +148,20 @@ set background=dark
 
 let g:main_font = "Hack\\ Regular\\ 8"
 let g:small_font = "Hack\\ Regular\\ 4"
+
+"-----------------------------------------------------------------------------
+" LanguageClient-neovim
+"-----------------------------------------------------------------------------
+let g:deoplete#enable_at_startup = 1
+
+"-----------------------------------------------------------------------------
+" LanguageClient-neovim
+"-----------------------------------------------------------------------------
+let g:LanguageClient_autoStart = 1
+let g:LanguageClient_serverCommands = {
+  \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+  \ 'cpp': ['clangd']
+  \ }
 
 "-----------------------------------------------------------------------------
 " solarized

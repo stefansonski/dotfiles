@@ -88,8 +88,8 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
 
       ```sh
       curl https://sh.rustup.rs -sSf | sh
-      rustup component add rustfmt-preview rust-src
-      cargo install racer
+      rustup install nightly
+      rustup component add rls-preview rust-analysis rust-src
       ```
 
 ### Automatic
