@@ -86,7 +86,7 @@ set completeopt-=preview
 set shortmess+=c
 
 " Types of files to ignore when auto completing things
-set wildignore+=*.gcno,*.gcda,*.o,*.pyc,.git,build,CMakeFiles
+set wildignore+=*.gcno,*.gcda,*.o,*.pyc,.git,build,CMakeFiles,target
 
 " Automatically read a file that has changed on disk
 set autoread
