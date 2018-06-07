@@ -14,13 +14,16 @@ endif
 
 Plug 'icymind/NeoSolarized'
 Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'autozimu/LanguageClient-neovim', {
+
+if ($OS != 'Windows_NT')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'rust-lang/rust.vim'
+  Plug 'sbdchd/neoformat'
+  Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
     \ 'do': 'bash install.sh',
     \ }
-Plug 'rust-lang/rust.vim'
-Plug 'sbdchd/neoformat'
+endif
 
 call plug#end()
 
@@ -173,21 +176,23 @@ let g:solarized_diffmode="high"
 "-----------------------------------------------------------------------------
 " Denite
 "-----------------------------------------------------------------------------
-call denite#custom#var('file/rec', 'command',
-  \ ['scantree.py'])
+if exists('denite#custom')
+  call denite#custom#var('file/rec', 'command',
+    \ ['scantree.py'])
 
-call denite#custom#map(
-  \ 'insert',
-  \ '<C-n>',
-  \ '<denite:move_to_next_line>',
-  \ 'noremap'
-  \ )
-call denite#custom#map(
-  \ 'insert',
-  \ '<C-p>',
-  \ '<denite:move_to_previous_line>',
-  \ 'noremap'
-  \ )
+  call denite#custom#map(
+    \ 'insert',
+    \ '<C-n>',
+    \ '<denite:move_to_next_line>',
+    \ 'noremap'
+    \ )
+  call denite#custom#map(
+    \ 'insert',
+    \ '<C-p>',
+    \ '<denite:move_to_previous_line>',
+    \ 'noremap'
+    \ )
+endif
 
 noremap <LEADER>b :Denite buffer<cr>
 noremap <LEADER>f :Denite file/rec<cr>
