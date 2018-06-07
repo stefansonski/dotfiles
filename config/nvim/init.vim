@@ -19,6 +19,7 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 Plug 'rust-lang/rust.vim'
+Plug 'sbdchd/neoformat'
 
 call plug#end()
 
