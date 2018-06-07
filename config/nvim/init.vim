@@ -13,6 +13,7 @@ else
 endif
 
 Plug 'icymind/NeoSolarized'
+Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
@@ -85,7 +86,7 @@ set completeopt-=preview
 set shortmess+=c
 
 " Types of files to ignore when auto completing things
-set wildignore+=*.gcno,*.gcda,*.git,*.o,*.pyc,*.svn,*/build/*,*/CMakeFiles/*
+set wildignore+=*.gcno,*.gcda,*.o,*.pyc,.git,build,CMakeFiles
 
 " Automatically read a file that has changed on disk
 set autoread
@@ -168,6 +169,15 @@ let g:LanguageClient_serverCommands = {
 " solarized
 "-----------------------------------------------------------------------------
 let g:solarized_diffmode="high"
+
+"-----------------------------------------------------------------------------
+" Denite
+"-----------------------------------------------------------------------------
+call denite#custom#var('file/rec', 'command',
+  \ ['scantree.py'])
+
+noremap <LEADER>b :Denite buffer<cr>
+noremap <LEADER>f :Denite file/rec<cr>
 
 if ($OS != 'Windows_NT')
   "-----------------------------------------------------------------------------
