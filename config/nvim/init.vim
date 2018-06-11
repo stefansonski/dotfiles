@@ -176,7 +176,7 @@ let g:solarized_diffmode="high"
 "-----------------------------------------------------------------------------
 " Denite
 "-----------------------------------------------------------------------------
-if exists('denite#custom')
+if exists('*denite#custom#var')
   call denite#custom#var('file/rec', 'command',
     \ ['scantree.py'])
 
