@@ -128,9 +128,11 @@ map! <S-Insert> <MiddleMouse>
 nmap <silent> <LEADER>ev :e $MYVIMRC<CR>
 nmap <silent> <LEADER>sv :so $MYVIMRC<CR>
 
-au BufWritePre * :%s/\s\+$//e
+au BufWritePre * silent! :undojoin | %s/\s\+$//e
 au BufRead,BufNewFile *gitattributes setfiletype gitattributes
 au BufRead,BufNewFile *gitconfig* setfiletype gitconfig
+au BufWritePre *.cpp silent! :undojoin | Neoformat astyle
+au BufWritePre *.h silent! :undojoin | Neoformat astyle
 au Filetype cpp setlocal shiftwidth=4 tabstop=4 softtabstop=4 colorcolumn=120
 au Filetype gitattributes setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
 au Filetype gitcommit setlocal shiftwidth=2 tabstop=2 softtabstop=2
@@ -176,23 +178,28 @@ let g:solarized_diffmode="high"
 "-----------------------------------------------------------------------------
 " Denite
 "-----------------------------------------------------------------------------
-if exists('*denite#custom#var')
-  call denite#custom#var('file/rec', 'command',
-    \ ['scantree.py'])
+call denite#custom#var('file/rec', 'command',
+  \ ['scantree.py'])
+call denite#custom#source(
+  \ 'file/rec', 'matchers', ['matcher/fuzzy', 'matcher/project_files'])
+call denite#custom#source(
+  \ 'file/rec', 'sorters', ['sorter/rank'])
 
-  call denite#custom#map(
-    \ 'insert',
-    \ '<C-n>',
-    \ '<denite:move_to_next_line>',
-    \ 'noremap'
-    \ )
-  call denite#custom#map(
-    \ 'insert',
-    \ '<C-p>',
-    \ '<denite:move_to_previous_line>',
-    \ 'noremap'
-    \ )
-endif
+call denite#custom#map(
+  \ 'insert',
+  \ '<C-n>',
+  \ '<denite:move_to_next_line>',
+  \ 'noremap'
+  \ )
+call denite#custom#map(
+  \ 'insert',
+  \ '<C-p>',
+  \ '<denite:move_to_previous_line>',
+  \ 'noremap'
+  \ )
+call denite#custom#option('_', 'highlight_mode_insert', 'CursorLine')
+call denite#custom#option('_', 'highlight_matched_range', 'Normal')
+call denite#custom#option('_', 'highlight_matched_char', 'Identifier')
 
 noremap <LEADER>b :Denite buffer<cr>
 noremap <LEADER>f :Denite file/rec<cr>
