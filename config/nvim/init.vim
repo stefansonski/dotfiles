@@ -13,7 +13,7 @@ else
 endif
 
 Plug 'icymind/NeoSolarized'
-Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'ctrlpvim/ctrlp.vim'
 
 if ($OS != 'Windows_NT')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -176,33 +176,15 @@ let g:LanguageClient_serverCommands = {
 let g:solarized_diffmode="high"
 
 "-----------------------------------------------------------------------------
-" Denite
+" ctrlp
 "-----------------------------------------------------------------------------
-call denite#custom#var('file/rec', 'command',
-  \ ['scantree.py'])
-call denite#custom#source(
-  \ 'file/rec', 'matchers', ['matcher/fuzzy', 'matcher/project_files'])
-call denite#custom#source(
-  \ 'file/rec', 'sorters', ['sorter/rank'])
+let g:ctrlp_working_path_mode = 0
+let g:ctrlp_open_new_file = 'r'
+let g:ctrlp_open_multiple_files = '1ri'
+let g:ctrlp_match_window = 'max:50'"
 
-call denite#custom#map(
-  \ 'insert',
-  \ '<C-n>',
-  \ '<denite:move_to_next_line>',
-  \ 'noremap'
-  \ )
-call denite#custom#map(
-  \ 'insert',
-  \ '<C-p>',
-  \ '<denite:move_to_previous_line>',
-  \ 'noremap'
-  \ )
-call denite#custom#option('_', 'highlight_mode_insert', 'CursorLine')
-call denite#custom#option('_', 'highlight_matched_range', 'Normal')
-call denite#custom#option('_', 'highlight_matched_char', 'Identifier')
-
-noremap <LEADER>b :Denite buffer<cr>
-noremap <LEADER>f :Denite file/rec<cr>
+noremap <LEADER>b :CtrlPBuffer<cr>
+noremap <LEADER>f :CtrlP<cr>
 
 if ($OS != 'Windows_NT')
   "-----------------------------------------------------------------------------
