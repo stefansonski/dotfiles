@@ -22,7 +22,10 @@
             },
             {
                 "function": "powerline_gitstatus.gitstatus",
-                "priority": 40
+                "priority": 40,
+                "args": {
+                    "show_tag": true
+                }
             },
             {
                 "function": "readonly_indicator",
@@ -56,12 +59,6 @@
                 "function": "trailing_whitespace",
                 "display": false,
                 "priority": 60
-            },
-            {
-                "exclude_modes": ["nc"],
-                "function": "powerline.segments.vim.plugin.tagbar.current_tag",
-                "draw_soft_divider": false,
-                "priority": 50
             },
             {
                 "type": "string",
