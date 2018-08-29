@@ -76,6 +76,7 @@ set noshowmode
 set relativenumber
 " Highlight the current cursor line
 set cursorline
+set lazyredraw
 " Allow the cursor to go in to "invalid" places
 set virtualedit=all
 

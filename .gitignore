@@ -53,6 +53,7 @@ config/QtProject.conf
 config/rygel.conf
 config/spotify/
 config/sqlitebrowser/
+config/symantec.com/
 config/systemd/
 config/Tom Thielicke IT Solutions/
 config/totem/
