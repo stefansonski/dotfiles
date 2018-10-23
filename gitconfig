@@ -65,3 +65,6 @@
 	prune = true
 [remote]
 	pushdefault = origin
+[sendmail]
+	tocover = 1
+	cccover = 1
