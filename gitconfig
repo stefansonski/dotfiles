@@ -3,6 +3,7 @@
 [push]
 	default = current
 	followTags = true
+	recurseSubmodules = on-demand
 [svn]
 	pushmergeinfo = true
 	rmdir = true
@@ -46,6 +47,7 @@
 	svn = automkdirs
 [submodule]
 	fetchJobs = 4
+	recurse = true
 [pager]
 	log = diff-highlight | less
 	show = diff-highlight | less
