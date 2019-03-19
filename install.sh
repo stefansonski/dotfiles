@@ -145,15 +145,15 @@ fi
 
 checkAndInstallPythonPackages powerline-gitstatus
 
-if ! command -v rustup; then
-  curl https://sh.rustup.rs | bash -s -- --no-modify-path -y
-  source ~/.cargo/env
-  mkdir -p ~/.zfunc
-  rustup completions zsh > ~/.zfunc/_rustup
-fi
-
-rustup install nightly
-rustup component add rls-preview rust-analysis rust-src
+#if ! command -v rustup; then
+#  curl https://sh.rustup.rs | bash -s -- --no-modify-path -y
+#  source ~/.cargo/env
+#  mkdir -p ~/.zfunc
+#  rustup completions zsh > ~/.zfunc/_rustup
+#fi
+#
+#rustup update
+#rustup component add rls rust-analysis rust-src
 
 printf "Creating links.\n"
 mkdir -p ~/.local/bin

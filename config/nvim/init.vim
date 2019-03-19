@@ -17,7 +17,6 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 if ($OS != 'Windows_NT')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'rust-lang/rust.vim'
   Plug 'sbdchd/neoformat'
   Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
@@ -155,7 +154,6 @@ let g:deoplete#enable_at_startup = 1
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_diagnosticsList = "Location"
 let g:LanguageClient_serverCommands = {
-  \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
   \ 'cpp': ['clangd']
   \ }
 
