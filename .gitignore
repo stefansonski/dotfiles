@@ -48,6 +48,7 @@ config/nvim/plugged/
 config/nvim/spell/*.spl
 config/nvim/spell/*.sug
 config/pulse/
+config/Qt/
 config/QtProject/
 config/QtProject.conf
 config/rygel.conf

@@ -7,9 +7,9 @@
 "-----------------------------------------------------------------------------
 
 if ($OS != 'Windows_NT')
-  call plug#begin('~/.config/nvim/plugged')
+  call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
 else
-  call plug#begin('~/AppData/Local/nvim/plugged')
+  call plug#begin('$LOCALAPPDATA/AppData/Local/nvim/plugged')
 endif
 
 Plug 'icymind/NeoSolarized'
@@ -100,23 +100,10 @@ autocmd BufEnter,FocusGained * checktime
 " Keep some stuff in the history
 set history=100
 
-if ($OS != 'Windows_NT')
-  " Create backup, swap and undo directory if it does not exist
-  if !isdirectory($HOME . "/.cache/nvim/swp")
-    call mkdir($HOME . "/.cache/nvim/swp", "p")
-  endif
-  if !isdirectory($HOME . "/.cache/nvim/undo")
-    call mkdir($HOME . "/.cache/nvim/undo", "p")
-  endif
-
-  " Set backup, swap and undo directories.
-  set directory=~/.cache/nvim/swp//,/tmp
-
-  set undofile
-  set undodir=~/.cache/nvim/undo//,/tmp
-  set undolevels=1000
-  set undoreload=10000
-endif
+" Activate undo directories.
+set undofile
+set undolevels=1000
+set undoreload=10000
 
 " System default for mappings is now the "," character
 let mapleader = ","
