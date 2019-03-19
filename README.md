@@ -62,7 +62,7 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
    1. For debian use the following packages.
 
       ```sh
-      sudo apt install emacs fonts-hack-otf git-all libgnome-keyring-dev
+      sudo apt install fonts-hack-otf git-all libgnome-keyring-dev
         pinentry-curses powerline python-pip python3-pip clang-tools
         python-powerline python3-powerline neovim python-neovim python3-neovim
         zsh

@@ -111,10 +111,8 @@ cd `dirname $0`
 directory=`pwd`
 trap cleanup EXIT
 
-neededPackages="emacs fonts-hack-otf git-all libgnome-keyring-dev
-                pinentry-curses powerline python-pip python3-pip clang-tools
-                python-powerline python3-powerline neovim python-neovim
-                python3-neovim zsh"
+neededPackages="fonts-hack-otf git-all libgnome-keyring-dev pinentry-curses powerline python-pip python3-pip clang-tools
+                python-powerline python3-powerline neovim python-neovim python3-neovim zsh"
 
 for pkg in $neededPackages; do
   if ! dpkg -s $pkg &> /dev/null; then
