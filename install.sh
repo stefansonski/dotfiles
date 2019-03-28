@@ -160,7 +160,6 @@ mkdir -p ~/.gnupg
 sudo make --directory=/usr/share/doc/git/contrib/credential/gnome-keyring/
 sudo make --directory=/usr/share/doc/git/contrib/diff-highlight/
 checkAndInstallConfig /usr/share/doc/git/contrib/diff-highlight/diff-highlight ~/.local/bin/diff-highlight
-checkAndInstallConfig $directory/bin/diffconflicts.sh ~/.local/bin/diffconflicts.sh
 checkAndInstallConfig $directory/config ~/.config
 checkAndInstallConfig $directory/dircolors ~/.dir_colors
 checkAndInstallConfig $directory/dircolors ~/.dircolors

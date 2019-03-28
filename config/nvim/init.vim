@@ -14,6 +14,7 @@ endif
 
 Plug 'icymind/NeoSolarized'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'whiteinge/diffconflicts'
 
 if ($OS != 'Windows_NT')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

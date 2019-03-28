@@ -8,12 +8,12 @@
 	pushmergeinfo = true
 	rmdir = true
 [diff]
-	tool = vimdiff
+	tool = nvimdiff
 	mnemonicprefix = true
 	compactionHeuristic = true
 	submodule = log
 [merge]
-	tool = diffconflicts
+	tool = nvimdiffconflicts
 	stat = true
 [color]
 	ui = true
@@ -22,7 +22,7 @@
 [core]
 	autocrlf = input
 	excludesfile = ~/.gitignore
-	editor = vim -f
+	editor = nvim -f
 	whitespace = trailing-space,space-before-tab,tab-in-indent
 	attributesfile = ~/.gitattributes
 [branch]
@@ -36,10 +36,10 @@
 [log]
 	date = local
 	showSignature = true
-[difftool "vimdiff"]
-	cmd = vim -R -f -d \"$REMOTE\" \"$LOCAL\"
-[mergetool "diffconflicts"]
-	cmd = diffconflicts.sh vim $BASE $LOCAL $REMOTE $MERGED
+[difftool "nvimdiff"]
+	cmd = nvim -R -f -d $REMOTE $LOCAL
+[mergetool "nvimdiffconflicts"]
+	cmd = nvim -c DiffConflicts $MERGED $BASE $LOCAL $REMOTE
 	trustExitCode = true
 [rerere]
 	enabled = true
