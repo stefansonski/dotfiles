@@ -38,10 +38,6 @@ if [ -d "$HOME/.cargo" ]; then
   export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 fi
 
-if [ -d "$HOME/tools/neovim" ]; then
-  export PATH="$HOME/tools/neovim/bin:$PATH"
-fi
-
 export GPG_TTY=$(tty)
 if [[ -n "$SSH_CONNECTION" ]] ;then
   export PINENTRY_USER_DATA="USE_CURSES=1"

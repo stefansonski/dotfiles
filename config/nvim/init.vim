@@ -122,6 +122,7 @@ au BufRead,BufNewFile *gitconfig* setfiletype gitconfig
 au BufWritePre *.cpp silent! :undojoin | Neoformat astyle
 au BufWritePre *.h silent! :undojoin | Neoformat astyle
 au Filetype cpp setlocal shiftwidth=4 tabstop=4 softtabstop=4 colorcolumn=120
+au Filetype c setlocal shiftwidth=4 tabstop=4 softtabstop=4 colorcolumn=120
 au Filetype gitattributes setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
 au Filetype gitcommit setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au Filetype gitconfig setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
