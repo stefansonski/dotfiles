@@ -48,7 +48,6 @@
 	svn = automkdirs
 [submodule]
 	fetchJobs = 4
-	recurse = true
 [pager]
 	log = diff-highlight | less
 	show = diff-highlight | less
@@ -66,6 +65,7 @@
 	path = ~/.gitconfig.local
 [fetch]
 	prune = true
+	recurseSubmodules = on-demand
 [remote]
 	pushdefault = origin
 [sendmail]
