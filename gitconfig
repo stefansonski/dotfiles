@@ -28,6 +28,7 @@
 [branch]
 	autosetupmerge = true
 	pager = less -r
+	sort = committerdate
 [mergetool]
 	keepBackup = false
 	prompt = false
@@ -70,3 +71,9 @@
 [sendmail]
 	tocover = 1
 	cccover = 1
+[tag]
+	sort = version:refname
+[versionsort]
+	suffix = -pre
+	suffix = -beta
+	suffix = -rc
