@@ -77,3 +77,7 @@
 	suffix = -pre
 	suffix = -beta
 	suffix = -rc
+[rebase]
+	autoSquash = true
+[status]
+	showStash = true
