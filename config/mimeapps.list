@@ -21,15 +21,15 @@ application/x-extension-9=pluma.desktop
 
 [Added Associations]
 application/octet-stream=google-chrome.desktop;
-application/x-shellscript=gvim.desktop;
+application/x-shellscript=vim.desktop;gvim.desktop;
 application/vnd.ms-htmlhelp=xchm.desktop;
-application/json=gvim.desktop;
+application/json=vim.desktop;gvim.desktop;
 text/x-c++src=org.gnome.gedit.desktop;
 application/x-sqlite3=sqlitebrowser.desktop;
 application/vnd.debian.binary-package=gdebi.desktop;gnome-software-local-file.desktop;org.gnome.FileRoller.desktop;
 inode/directory=org.gnome.Nautilus.desktop;
 image/png=gimp.desktop;
 image/jpeg=gimp.desktop;
-application/x-wine-extension-ini=gvim.desktop;
+application/x-wine-extension-ini=vim.desktop;gvim.desktop;
 application/x-compressed-tar=org.gnome.FileRoller.desktop;
 text/plain=vim.desktop;
