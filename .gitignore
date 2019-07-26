@@ -20,6 +20,7 @@ config/evince/
 config/evolution/
 config/gedit/
 config/git/
+config/Git-it/
 config/Gitter/
 config/gnome-color-manager/
 config/gnome-control-center/
