@@ -33,3 +33,4 @@ image/jpeg=gimp.desktop;
 application/x-wine-extension-ini=vim.desktop;gvim.desktop;
 application/x-compressed-tar=org.gnome.FileRoller.desktop;
 text/plain=vim.desktop;
+text/x-python=nvim.desktop;

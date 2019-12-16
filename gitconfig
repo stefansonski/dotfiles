@@ -7,6 +7,7 @@
 [svn]
 	pushmergeinfo = true
 	rmdir = true
+	localtime = true
 [diff]
 	tool = nvimdiff
 	mnemonicprefix = true

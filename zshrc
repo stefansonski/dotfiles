@@ -201,7 +201,7 @@ case $TERM in
 esac
 
 powerline-daemon -q
-source /usr/share/powerline/bindings/zsh/powerline.zsh
+source $(pip3 show powerline-status 2> /dev/null | grep Location | cut -d " " -f 2)/powerline/bindings/zsh/powerline.zsh
 
 if [ -f ~/.zshrc.local ]; then
   source ~/.zshrc.local
