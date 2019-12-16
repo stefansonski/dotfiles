@@ -16,14 +16,10 @@ Plug 'icymind/NeoSolarized'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'whiteinge/diffconflicts'
 Plug 'peterhoeg/vim-qml'
+Plug 'neovim/nvim-lsp'
 
 if ($OS != 'Windows_NT')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
   Plug 'sbdchd/neoformat'
-  Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
 endif
 
 call plug#end()
@@ -147,20 +143,6 @@ let g:main_font = "Hack\\ Regular\\ 8"
 let g:small_font = "Hack\\ Regular\\ 4"
 
 "-----------------------------------------------------------------------------
-" LanguageClient-neovim
-"-----------------------------------------------------------------------------
-let g:deoplete#enable_at_startup = 1
-
-"-----------------------------------------------------------------------------
-" LanguageClient-neovim
-"-----------------------------------------------------------------------------
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_diagnosticsList = "Location"
-let g:LanguageClient_serverCommands = {
-  \ 'cpp': ['clangd']
-  \ }
-
-"-----------------------------------------------------------------------------
 " solarized
 "-----------------------------------------------------------------------------
 let g:solarized_diffmode="high"
@@ -176,12 +158,38 @@ let g:ctrlp_match_window = 'max:50'"
 noremap <LEADER>b :CtrlPBuffer<cr>
 noremap <LEADER>f :CtrlP<cr>
 
-if ($OS != 'Windows_NT')
-  "-----------------------------------------------------------------------------
-  " powerline
-  "-----------------------------------------------------------------------------
-  python import vim
-  python from powerline.vim import setup as powerline_setup
-  python powerline_setup(gvars=globals())
-  python del powerline_setup
-endif
+"-----------------------------------------------------------------------------
+" lsp
+"-----------------------------------------------------------------------------
+lua << EOF
+require'nvim_lsp'.bashls.setup{}
+require'nvim_lsp'.clangd.setup{}
+require'nvim_lsp'.dockerls.setup{}
+require'nvim_lsp'.pyls.setup{}
+require'nvim_lsp'.rls.setup{}
+require'nvim_lsp'.tsserver.setup{}
+EOF
+
+autocmd Filetype c setlocal omnifunc=v:lua.vim.lsp.omnifunc
+autocmd Filetype cpp setlocal omnifunc=v:lua.vim.lsp.omnifunc
+autocmd Filetype dockerfile setlocal omnifunc=v:lua.vim.lsp.omnifunc
+autocmd Filetype javascript setlocal omnifunc=v:lua.vim.lsp.omnifunc
+autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
+autocmd Filetype qml setlocal omnifunc=v:lua.vim.lsp.omnifunc
+autocmd Filetype rust setlocal omnifunc=v:lua.vim.lsp.omnifunc
+autocmd Filetype sh setlocal omnifunc=v:lua.vim.lsp.omnifunc
+
+nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+
+"-----------------------------------------------------------------------------
+" powerline
+"-----------------------------------------------------------------------------
+python import vim
+python from powerline.vim import setup as powerline_setup
+python powerline_setup(gvars=globals())
+python del powerline_setup
