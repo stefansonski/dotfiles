@@ -116,13 +116,15 @@ nmap <silent> <LEADER>sv :so $MYVIMRC<CR>
 au BufWritePre * silent! :undojoin | %s/\s\+$//e
 au BufRead,BufNewFile *gitattributes setfiletype gitattributes
 au BufRead,BufNewFile *gitconfig* setfiletype gitconfig
-au BufWritePre *.cpp silent! :undojoin | Neoformat astyle
-au BufWritePre *.h silent! :undojoin | Neoformat astyle
-au Filetype cpp setlocal shiftwidth=4 tabstop=4 softtabstop=4 colorcolumn=120
+"au BufWritePre *.cpp silent! :undojoin | Neoformat astyle
+"au BufWritePre *.h silent! :undojoin | Neoformat astyle
 au Filetype c setlocal shiftwidth=4 tabstop=4 softtabstop=4 colorcolumn=120
+au Filetype cpp setlocal shiftwidth=4 tabstop=4 softtabstop=4 colorcolumn=120
+au FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au Filetype gitattributes setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
 au Filetype gitcommit setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au Filetype gitconfig setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
+au FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
 au FileType markdown setlocal shiftwidth=3 tabstop=3 softtabstop=3
 au Filetype qml setlocal shiftwidth=4 tabstop=4 softtabstop=4 colorcolumn=180
@@ -130,6 +132,7 @@ au FileType sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au FileType tex setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au FileType text setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au FileType vim setlocal shiftwidth=2 tabstop=2 softtabstop=2
+au FileType xml setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2 colorcolumn=80
 au FileType zsh setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
@@ -164,6 +167,7 @@ noremap <LEADER>f :CtrlP<cr>
 lua << EOF
 require'nvim_lsp'.bashls.setup{}
 require'nvim_lsp'.clangd.setup{}
+require'nvim_lsp'.cssls.setup{}
 require'nvim_lsp'.dockerls.setup{}
 require'nvim_lsp'.pyls.setup{}
 require'nvim_lsp'.rls.setup{}
@@ -172,6 +176,7 @@ EOF
 
 autocmd Filetype c setlocal omnifunc=v:lua.vim.lsp.omnifunc
 autocmd Filetype cpp setlocal omnifunc=v:lua.vim.lsp.omnifunc
+autocmd Filetype css setlocal omnifunc=v:lua.vim.lsp.omnifunc
 autocmd Filetype dockerfile setlocal omnifunc=v:lua.vim.lsp.omnifunc
 autocmd Filetype javascript setlocal omnifunc=v:lua.vim.lsp.omnifunc
 autocmd Filetype python setlocal omnifunc=v:lua.vim.lsp.omnifunc
