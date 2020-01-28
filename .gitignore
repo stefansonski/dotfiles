@@ -73,10 +73,9 @@ gradle/caches/
 gradle/daemon/
 gradle/native/
 gradle/wrapper/
-ssh/id_rsa
-ssh/known_hosts
-ssh/known_hosts.old
-ssh/nas_rsa
+ssh/authorized_keys
+ssh/id_*
+ssh/known_hosts*
 weechat/logs/
 weechat/perl/
 weechat/script/

@@ -63,7 +63,7 @@
 	numbered = auto
 	coverletter = auto
 [include]
-	path = ~/.gitconfig.local
+	path = .gitconfig.local
 [fetch]
 	prune = true
 	recurseSubmodules = on-demand
