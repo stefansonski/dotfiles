@@ -16,6 +16,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'whiteinge/diffconflicts'
 Plug 'peterhoeg/vim-qml'
 Plug 'neovim/nvim-lsp'
+Plug 'itchyny/vim-grep'
 
 if ($OS != 'Windows_NT')
   Plug 'sbdchd/neoformat'

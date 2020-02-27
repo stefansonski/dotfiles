@@ -9,6 +9,7 @@ GTAGS
 config/autostart/
 config/cef_user_data/
 config/chromium/
+config/configstore/
 config/darktable/
 config/dconf/*
 config/DisplayCAL/
