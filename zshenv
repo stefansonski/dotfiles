@@ -48,3 +48,7 @@ export VISUAL=$EDITOR
 export PAGER=$(which less)
 export LESS="-FRX"
 export GTAGSLABEL="default"
+
+if [[ -f "$HOME/.zshenv.local" ]]; then
+  source $HOME/.zshenv.local
+fi
