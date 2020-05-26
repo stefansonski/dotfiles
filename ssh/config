@@ -1,7 +1,7 @@
 Host *
         ServerAliveInterval 300
         ControlMaster auto
-        ControlPath ~/.cache/ssh/%r@%h:%p
+        ControlPath ~/.ssh/controlmasters/%C
         ControlPersist 10m
 
 Host router

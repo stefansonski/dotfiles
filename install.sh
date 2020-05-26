@@ -155,7 +155,6 @@ checkAndInstallPythonPackages powerline-gitstatus
 
 printf "Creating links.\n"
 mkdir -p ~/.local/bin
-mkdir -p ~/.cache/ssh
 mkdir -p ~/.gnupg
 sudo make --directory=/usr/share/doc/git/contrib/credential/gnome-keyring/
 sudo make --directory=/usr/share/doc/git/contrib/diff-highlight/

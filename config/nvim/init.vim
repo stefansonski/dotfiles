@@ -116,10 +116,10 @@ nmap <silent> <LEADER>sv :so $MYVIMRC<CR>
 au BufWritePre * silent! :undojoin | %s/\s\+$//e
 au BufRead,BufNewFile *gitattributes setfiletype gitattributes
 au BufRead,BufNewFile *gitconfig* setfiletype gitconfig
-"au BufWritePre *.cpp silent! :undojoin | Neoformat astyle
-"au BufWritePre *.h silent! :undojoin | Neoformat astyle
-au Filetype c setlocal shiftwidth=4 tabstop=4 softtabstop=4 colorcolumn=120
-au Filetype cpp setlocal shiftwidth=4 tabstop=4 softtabstop=4 colorcolumn=120
+au BufWritePre *.cpp silent! :undojoin | Neoformat astyle
+au BufWritePre *.h silent! :undojoin | Neoformat astyle
+au Filetype c setlocal shiftwidth=4 tabstop=4 softtabstop=4 colorcolumn=150
+au Filetype cpp setlocal shiftwidth=4 tabstop=4 softtabstop=4 colorcolumn=150
 au FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au Filetype gitattributes setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
 au Filetype gitcommit setlocal shiftwidth=2 tabstop=2 softtabstop=2
