@@ -15,8 +15,9 @@ Plug 'icymind/NeoSolarized'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'whiteinge/diffconflicts'
 Plug 'peterhoeg/vim-qml'
-Plug 'neovim/nvim-lsp'
+Plug 'neovim/nvim-lspconfig'
 Plug 'itchyny/vim-grep'
+Plug 'airblade/vim-gitgutter'
 
 if ($OS != 'Windows_NT')
   Plug 'sbdchd/neoformat'
@@ -24,13 +25,15 @@ endif
 
 call plug#end()
 
+let g:loaded_python_provider = 0
+
 " Set filetype stuff to on
 filetype plugin indent on
 " Switch on syntax highlighting.
 syntax on
 
 " Add the unnamed register to the clipboard
-set clipboard=unnamedplus
+set clipboard^=unnamed,unnamedplus
 
 " Activate spell-checking as default.
 set spell
@@ -116,6 +119,7 @@ nmap <silent> <LEADER>sv :so $MYVIMRC<CR>
 au BufWritePre * silent! :undojoin | %s/\s\+$//e
 au BufRead,BufNewFile *gitattributes setfiletype gitattributes
 au BufRead,BufNewFile *gitconfig* setfiletype gitconfig
+au BufRead,BufNewFile *.ts set filetype=xml
 au BufWritePre *.cpp silent! :undojoin | Neoformat astyle
 au BufWritePre *.h silent! :undojoin | Neoformat astyle
 au Filetype c setlocal shiftwidth=4 tabstop=4 softtabstop=4 colorcolumn=150
@@ -127,6 +131,7 @@ au Filetype gitconfig setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
 au FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
 au FileType markdown setlocal shiftwidth=3 tabstop=3 softtabstop=3
+au Filetype python setlocal shiftwidth=4 tabstop=4 softtabstop=4 colorcolumn=80
 au Filetype qml setlocal shiftwidth=4 tabstop=4 softtabstop=4 colorcolumn=180
 au FileType sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au FileType tex setlocal shiftwidth=2 tabstop=2 softtabstop=2
@@ -164,14 +169,13 @@ noremap <LEADER>f :CtrlP<cr>
 "-----------------------------------------------------------------------------
 " lsp
 "-----------------------------------------------------------------------------
-lua << EOF
-require'nvim_lsp'.bashls.setup{}
-require'nvim_lsp'.clangd.setup{}
-require'nvim_lsp'.cssls.setup{}
-require'nvim_lsp'.dockerls.setup{}
-require'nvim_lsp'.pyls.setup{}
-require'nvim_lsp'.rls.setup{}
-require'nvim_lsp'.tsserver.setup{}
+lua <<EOF
+require'lspconfig'.bashls.setup{}
+require'lspconfig'.clangd.setup{}
+require'lspconfig'.cssls.setup{}
+require'lspconfig'.dockerls.setup{}
+require'lspconfig'.rls.setup{}
+require'lspconfig'.tsserver.setup{}
 EOF
 
 autocmd Filetype c setlocal omnifunc=v:lua.vim.lsp.omnifunc

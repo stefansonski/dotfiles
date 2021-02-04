@@ -37,7 +37,6 @@
 	gpgsign = true
 [log]
 	date = local
-	showSignature = true
 [difftool "nvimdiff"]
 	cmd = nvim -R -f -d $REMOTE $LOCAL
 [mergetool "nvimdiffconflicts"]
@@ -82,3 +81,5 @@
 	autoSquash = true
 [status]
 	showStash = true
+[gerrit]
+	createChangeId = false
