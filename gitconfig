@@ -13,6 +13,7 @@
 	mnemonicprefix = true
 	compactionHeuristic = true
 	submodule = log
+	algorithm = histogram
 [merge]
 	tool = nvimdiffconflicts
 	stat = true

@@ -25,8 +25,6 @@ endif
 
 call plug#end()
 
-let g:loaded_python_provider = 0
-
 " Set filetype stuff to on
 filetype plugin indent on
 " Switch on syntax highlighting.
