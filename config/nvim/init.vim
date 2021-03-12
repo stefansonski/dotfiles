@@ -21,6 +21,11 @@ Plug 'peterhoeg/vim-qml'
 Plug 'sbdchd/neoformat'
 Plug 'whiteinge/diffconflicts'
 
+if ($OS == 'Windows_NT')
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+endif
+
 call plug#end()
 
 " Set filetype stuff to on
@@ -195,12 +200,16 @@ nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
 nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
 
 "-----------------------------------------------------------------------------
-" powerline
+" powerline/airline
 "-----------------------------------------------------------------------------
-python import vim
-python from powerline.vim import setup as powerline_setup
-python powerline_setup(gvars=globals())
-python del powerline_setup
+if ($OS != 'Windows_NT')
+  python import vim
+  python from powerline.vim import setup as powerline_setup
+  python powerline_setup(gvars=globals())
+  python del powerline_setup
+else
+  let g:airline_powerline_fonts = 1
+endif
 
 function IHexChecksum()
   let l:data = getline(".")
