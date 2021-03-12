@@ -9,19 +9,17 @@ if ($OS != 'Windows_NT')
   call plug#begin('$XDG_CONFIG_HOME/nvim/plugged')
 else
   call plug#begin('$LOCALAPPDATA/AppData/Local/nvim/plugged')
+  set shell=cmd
 endif
 
-Plug 'icymind/NeoSolarized'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'whiteinge/diffconflicts'
-Plug 'peterhoeg/vim-qml'
-Plug 'neovim/nvim-lspconfig'
-Plug 'itchyny/vim-grep'
 Plug 'airblade/vim-gitgutter'
-
-if ($OS != 'Windows_NT')
-  Plug 'sbdchd/neoformat'
-endif
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'icymind/NeoSolarized'
+Plug 'itchyny/vim-grep'
+Plug 'neovim/nvim-lspconfig'
+Plug 'peterhoeg/vim-qml'
+Plug 'sbdchd/neoformat'
+Plug 'whiteinge/diffconflicts'
 
 call plug#end()
 
@@ -118,10 +116,11 @@ au BufWritePre * silent! :undojoin | %s/\s\+$//e
 au BufRead,BufNewFile *gitattributes setfiletype gitattributes
 au BufRead,BufNewFile *gitconfig* setfiletype gitconfig
 au BufRead,BufNewFile *.ts set filetype=xml
-au BufWritePre *.cpp silent! :undojoin | Neoformat astyle
-au BufWritePre *.h silent! :undojoin | Neoformat astyle
-au Filetype c setlocal shiftwidth=4 tabstop=4 softtabstop=4 colorcolumn=150
-au Filetype cpp setlocal shiftwidth=4 tabstop=4 softtabstop=4 colorcolumn=150
+au BufWritePre *.c silent! :undojoin | Neoformat clangformat
+au BufWritePre *.cpp silent! :undojoin | Neoformat clangformat
+au BufWritePre *.h silent! :undojoin | Neoformat clangformat
+au Filetype c setlocal shiftwidth=4 tabstop=4 softtabstop=4 colorcolumn=120
+au Filetype cpp setlocal shiftwidth=4 tabstop=4 softtabstop=4 colorcolumn=120
 au FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au Filetype gitattributes setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
 au Filetype gitcommit setlocal shiftwidth=2 tabstop=2 softtabstop=2
@@ -129,6 +128,7 @@ au Filetype gitconfig setlocal shiftwidth=8 tabstop=8 softtabstop=8 noexpandtab
 au FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
 au FileType markdown setlocal shiftwidth=3 tabstop=3 softtabstop=3
+au FileType ps1 setlocal shiftwidth=2 tabstop=2 softtabstop=2
 au Filetype python setlocal shiftwidth=4 tabstop=4 softtabstop=4 colorcolumn=80
 au Filetype qml setlocal shiftwidth=4 tabstop=4 softtabstop=4 colorcolumn=180
 au FileType sh setlocal shiftwidth=2 tabstop=2 softtabstop=2
@@ -167,11 +167,12 @@ noremap <LEADER>f :CtrlP<cr>
 "-----------------------------------------------------------------------------
 " lsp
 "-----------------------------------------------------------------------------
-lua <<EOF
+lua << EOF
 require'lspconfig'.bashls.setup{}
 require'lspconfig'.clangd.setup{}
 require'lspconfig'.cssls.setup{}
 require'lspconfig'.dockerls.setup{}
+require'lspconfig'.pyls.setup{}
 require'lspconfig'.rls.setup{}
 require'lspconfig'.tsserver.setup{}
 EOF
@@ -200,3 +201,21 @@ python import vim
 python from powerline.vim import setup as powerline_setup
 python powerline_setup(gvars=globals())
 python del powerline_setup
+
+function IHexChecksum()
+  let l:data = getline(".")
+  let l:dlen = strlen(data)
+
+  if (empty(matchstr(l:data, "^:\\(\\x\\x\\)\\{5,}$")))
+    echoerr("Input is not a valid Intel HEX line!")
+    return
+  endif
+
+  let l:byte = 0
+  for l:bytepos in range(1, l:dlen-4, 2)
+    let l:byte += str2nr(strpart(l:data, l:bytepos, 2), 16)
+  endfor
+
+  let l:byte = (256-(l:byte%256))%256
+  call setline(".", strpart(l:data, 0, l:dlen-2).printf("%02X", l:byte))
+endfunction
