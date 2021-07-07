@@ -141,7 +141,7 @@ if [[ ! -z $missingPackages ]]; then
   esac
 fi
 
-checkAndInstallPythonPackages powerline-gitstatus
+checkAndInstallPythonPackages powerline-gitstatus powerline-treesitter
 
 #if ! command -v rustup; then
 #  curl https://sh.rustup.rs | bash -s -- --no-modify-path -y

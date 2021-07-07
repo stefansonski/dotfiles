@@ -19,7 +19,7 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
 1. Download and install powerline-gitstatus with pip.
    ```sh
    sudo pip install powerline-gitstatus
-   sudo pip3 install powerline-gitstatus
+   sudo pip3 install powerline-gitstatus powerline-treesitter
    ```
 
 1. Create soft-links to the files in the repository.
