@@ -49,6 +49,7 @@
         "gitstatus_changed":         { "fg": "solarized:orange", "bg": "solarized:base02", "attrs": [] },
         "gitstatus_untracked":       { "fg": "solarized:orange", "bg": "solarized:base02", "attrs": [] },
         "gitstatus_stashed":         { "fg": "solarized:blue", "bg": "solarized:base02", "attrs": [] },
-        "gitstatus:divider":         "branch"
+        "gitstatus:divider":         "branch",
+        "treesitter_status":         { "fg": "solarized:base2", "bg": "solarized:orange", "attrs": ["bold"] }
     }
 }

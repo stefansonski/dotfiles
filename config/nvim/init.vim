@@ -13,13 +13,17 @@ else
 endif
 
 Plug 'airblade/vim-gitgutter'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'icymind/NeoSolarized'
 Plug 'itchyny/vim-grep'
 Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-lua/completion-nvim'
 Plug 'peterhoeg/vim-qml'
 Plug 'sbdchd/neoformat'
 Plug 'whiteinge/diffconflicts'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
 if ($OS == 'Windows_NT')
   Plug 'vim-airline/vim-airline'
@@ -85,8 +89,7 @@ set virtualedit=all
 set wildmenu
 set wildmode=longest:list,full
 
-set completeopt+=noinsert
-set completeopt-=preview
+set completeopt=menuone,noinsert,noselect
 " Hide completion messages in command line
 set shortmess+=c
 
@@ -159,15 +162,12 @@ let g:small_font = "Hack\\ Regular\\ 4"
 let g:solarized_diffmode="high"
 
 "-----------------------------------------------------------------------------
-" ctrlp
+" telescope
 "-----------------------------------------------------------------------------
-let g:ctrlp_working_path_mode = 0
-let g:ctrlp_open_new_file = 'r'
-let g:ctrlp_open_multiple_files = '1ri'
-let g:ctrlp_match_window = 'max:50'"
-
-noremap <LEADER>b :CtrlPBuffer<cr>
-noremap <LEADER>f :CtrlP<cr>
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 "-----------------------------------------------------------------------------
 " lsp
@@ -180,7 +180,39 @@ require'lspconfig'.dockerls.setup{}
 require'lspconfig'.pyls.setup{}
 require'lspconfig'.rls.setup{}
 require'lspconfig'.tsserver.setup{}
+require'lspconfig'.pyls.setup{on_attach=require'completion'.on_attach}
 EOF
+
+"-----------------------------------------------------------------------------
+" treesitter
+"-----------------------------------------------------------------------------
+set foldmethod=expr
+set nofoldenable
+set foldexpr=nvim_treesitter#foldexpr()
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    custom_captures = {
+      -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
+      ["foo.bar"] = "Identifier",
+    },
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn",
+      node_incremental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
+    },
+  },
+  indent = {
+    enable = true
+  }
+}
+EOF
+
 
 autocmd Filetype c setlocal omnifunc=v:lua.vim.lsp.omnifunc
 autocmd Filetype cpp setlocal omnifunc=v:lua.vim.lsp.omnifunc

@@ -50,6 +50,10 @@
                 "before": " "
             },
             {
+                "function": "powerline_treesitter.treesitter",
+                "priority": 30
+            },
+            {
                 "exclude_modes": ["i", "R", "Rv"],
                 "function": "trailing_whitespace",
                 "display": false,
