@@ -16,10 +16,15 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
    git clone git@github.com:stefansonski/dotfiles.git ~/dotfiles
    ```
 
-1. Download and install powerline-gitstatus with pip.
+1. Download and install powerline-gitstatus and powerline-treesitter with pip.
    ```sh
-   sudo pip install powerline-gitstatus
+   sudo pip install powerline-gitstatus powerline-treesitter
    sudo pip3 install powerline-gitstatus powerline-treesitter
+   ```
+
+1. Download and install needed language servers using npm.
+   ```sh
+   sudo npm i -g pyright vscode-json-languageserver yaml-language-server
    ```
 
 1. Create soft-links to the files in the repository.

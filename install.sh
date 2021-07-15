@@ -143,6 +143,8 @@ fi
 
 checkAndInstallPythonPackages powerline-gitstatus powerline-treesitter
 
+sudo npm i -g pyright vscode-json-languageserver yaml-language-server
+
 #if ! command -v rustup; then
 #  curl https://sh.rustup.rs | bash -s -- --no-modify-path -y
 #  source ~/.cargo/env

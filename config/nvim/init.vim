@@ -168,7 +168,7 @@ nnoremap <leader>ff <cmd>Telescope git_files<cr>
 nnoremap <leader>fc <cmd>Telescope git_status<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fi <cmd>lua require'telescope.builtin'.lsp_definitions{}<cr>
+nnoremap <leader>fd <cmd>lua require'telescope.builtin'.lsp_definitions{}<cr>
 nnoremap <leader>fi <cmd>lua require'telescope.builtin'.lsp_implementations{}<cr>
 nnoremap <leader>fr <cmd>lua require'telescope.builtin'.lsp_references{}<cr>
 nnoremap <leader>fs <cmd>lua require'telescope.builtin'.treesitter{}<cr>
@@ -177,14 +177,6 @@ nnoremap <leader>fs <cmd>lua require'telescope.builtin'.treesitter{}<cr>
 " lsp
 "-----------------------------------------------------------------------------
 lua << EOF
-require'lspconfig'.bashls.setup{on_attach=require'completion'.on_attach}
-require'lspconfig'.clangd.setup{on_attach=require'completion'.on_attach}
-require'lspconfig'.cssls.setup{on_attach=require'completion'.on_attach}
-require'lspconfig'.dockerls.setup{on_attach=require'completion'.on_attach}
-require'lspconfig'.pyls.setup{on_attach=require'completion'.on_attach}
-require'lspconfig'.rls.setup{on_attach=require'completion'.on_attach}
-require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach}
-
 local nvim_lsp = require('lspconfig')
 
 -- Use an on_attach function to only map the following keys
@@ -192,6 +184,8 @@ local nvim_lsp = require('lspconfig')
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
+
+  require'completion'.on_attach(client)
 
   --Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -202,16 +196,13 @@ local on_attach = function(client, bufnr)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   buf_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', opts)
   buf_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', opts)
-  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
   buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', opts)
+  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
+  buf_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', opts)
   buf_set_keymap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
-  buf_set_keymap('n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>', opts)
-  buf_set_keymap('n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>', opts)
-  buf_set_keymap('n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<cr>', opts)
   buf_set_keymap('n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<cr>', opts)
   buf_set_keymap('n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
   buf_set_keymap('n', '<space>ca', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', opts)
   buf_set_keymap('n', '<space>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<cr>', opts)
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<cr>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<cr>', opts)
@@ -222,7 +213,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "pyright", "rust_analyzer", "tsserver" }
+local servers = { "bashls", "clangd", "cmake", "cssls", "dockerls", "pyright", "rust_analyzer", "yamlls" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -267,14 +258,6 @@ require'nvim-treesitter.configs'.setup {
         ["if"] = "@function.inner",
         ["ac"] = "@class.outer",
         ["ic"] = "@class.inner",
-
-        -- Or you can define your own textobjects like this
-        ["iF"] = {
-          python = "(function_definition) @function",
-          cpp = "(function_definition) @function",
-          c = "(function_definition) @function",
-          java = "(method_declaration) @function",
-        },
       },
     },
     swap = {
