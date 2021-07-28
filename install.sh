@@ -141,19 +141,19 @@ if [[ ! -z $missingPackages ]]; then
   esac
 fi
 
-checkAndInstallPythonPackages powerline-gitstatus powerline-treesitter
+checkAndInstallPythonPackages cmake-language-server powerline-gitstatus powerline-treesitter
 
-sudo npm i -g pyright vscode-json-languageserver yaml-language-server
+sudo npm i -g bash-language-server dockerfile-language-server-nodejs pyright vscode-json-languageserver yaml-language-server
 
-#if ! command -v rustup; then
-#  curl https://sh.rustup.rs | bash -s -- --no-modify-path -y
-#  source ~/.cargo/env
-#  mkdir -p ~/.zfunc
-#  rustup completions zsh > ~/.zfunc/_rustup
-#fi
-#
-#rustup update
-#rustup component add rls rust-analysis rust-src
+if ! command -v rustup; then
+  curl https://sh.rustup.rs | bash -s -- --no-modify-path -y
+  source ~/.cargo/env
+  mkdir -p ~/.zfunc
+  rustup completions zsh > ~/.zfunc/_rustup
+fi
+
+rustup update
+rustup +nightly component add rust-analyzer-preview rust-src
 
 printf "Creating links.\n"
 mkdir -p ~/.local/bin

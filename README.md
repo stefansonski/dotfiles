@@ -22,11 +22,6 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
    sudo pip3 install powerline-gitstatus powerline-treesitter
    ```
 
-1. Download and install needed language servers using npm.
-   ```sh
-   sudo npm i -g pyright vscode-json-languageserver yaml-language-server
-   ```
-
 1. Create soft-links to the files in the repository.
    ```sh
    mkdir -p ~/.local/bin
@@ -76,25 +71,18 @@ with the proper dotfile/dotfolder in your `$HOME` folder.
 1. To use powerline, install the powerline package on your system and adapt
    the last line in the `zshrc` to the path of the zsh powerline bindings.
 
-1. Semantic-completion for various programming languages is enabled. This is
-   currently the case for C/C++, go, python and rustc. Look at
-   [ncm](https://github.com/roxma/nvim-completion-manager) additional plugins
-   and build in support for other languages. To enable the completion for
-   currently enabled languages run the following commands.
+1. `nvim-lspconfig` is configured for various programming languages for lint- and code-completion features.
+   To support all the configured languages run the following commands. Look into
+   [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig/blob/master/CONFIG.md) for additional supported languages.
+   Download and install needed language servers using the corresponding package managers.
 
-   1. To enable python, install jedi.
-
-      ```sh
-      pip install jedi
-      pip3 install jedi
-      ```
-
-   1. To enable rust support in nvim run
-
-      ```sh
-      curl https://sh.rustup.rs -sSf | sh
-      rustup install nightly
-      rustup component add rls-preview rust-analysis rust-src
+   ```sh
+   pip install cmake-language-server
+   pip3 install cmake-language-server
+   sudo npm i -g bash-language-server dockerfile-language-server-nodejs pyright vscode-json-languageserver yaml-language-server
+   curl https://sh.rustup.rs -sSf | sh
+   rustup install nightly
+   rustup +nightly component add rust-analyzer-preview rust-src
       ```
 
 ### Automatic

@@ -36,6 +36,7 @@ fi
 if [ -d "$HOME/.cargo" ]; then
   export PATH="$HOME/.cargo/bin:$PATH"
   export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+  source "$HOME/.cargo/env"
 fi
 
 export GPG_TTY=$(tty)

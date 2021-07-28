@@ -213,7 +213,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "bashls", "clangd", "cmake", "cssls", "dockerls", "pyright", "rust_analyzer", "yamlls" }
+local servers = { "bashls", "clangd", "cmake", "dockerls", "pyright", "yamlls" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,
@@ -222,6 +222,14 @@ for _, lsp in ipairs(servers) do
     }
   }
 end
+
+require'lspconfig'.rust_analyzer.setup{
+  cmd = { "rustup", "run", "nightly rust-analyzer" },
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  }
+}
 EOF
 
 "-----------------------------------------------------------------------------
