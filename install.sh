@@ -111,8 +111,8 @@ cd `dirname $0`
 directory=`pwd`
 trap cleanup EXIT
 
-neededPackages="fonts-hack-otf git-all libgnome-keyring-dev pinentry-curses powerline python-pip python3-pip clang-tools
-                python-powerline python3-powerline neovim python-neovim python3-neovim zsh"
+neededPackages="fonts-hack-otf git-all pinentry-curses powerline python-is-python3 python3-pip clang-tools clangd
+                python3-powerline neovim python3-neovim zsh"
 
 for pkg in $neededPackages; do
   if ! dpkg -s $pkg &> /dev/null; then
@@ -158,7 +158,6 @@ rustup +nightly component add rust-analyzer-preview rust-src
 printf "Creating links.\n"
 mkdir -p ~/.local/bin
 mkdir -p ~/.gnupg
-sudo make --directory=/usr/share/doc/git/contrib/credential/gnome-keyring/
 sudo make --directory=/usr/share/doc/git/contrib/diff-highlight/
 checkAndInstallConfig /usr/share/doc/git/contrib/diff-highlight/diff-highlight ~/.local/bin/diff-highlight
 checkAndInstallConfig $directory/config ~/.config
@@ -174,8 +173,10 @@ checkAndInstallConfig $directory/weechat ~/.weechat
 checkAndInstallConfig $directory/zshenv ~/.zshenv
 checkAndInstallConfig $directory/zshrc ~/.zshrc
 
-printf "Loading dconf configuration.\n"
-./dconf-load.sh
+if command -v dconft &>/dev/null; then
+  printf "Loading dconf configuration.\n"
+  ./dconf-load.sh
+fi
 
 if [[ ! -a ~/.config/nvim/autoload/plug.vim ]]; then
   curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
