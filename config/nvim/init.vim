@@ -164,7 +164,7 @@ let g:solarized_diffmode="high"
 "-----------------------------------------------------------------------------
 " telescope
 "-----------------------------------------------------------------------------
-nnoremap <leader>ff <cmd>Telescope git_files<cr>
+nnoremap <leader>ff <cmd>lua require'telescope.builtin'.git_files{show_untracked=false, recurse_submodules=true}<cr>
 nnoremap <leader>fc <cmd>Telescope git_status<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
