@@ -15,7 +15,8 @@ endif
 Plug 'airblade/vim-gitgutter'
 Plug 'icymind/NeoSolarized'
 Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lua/completion-nvim'
+Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+Plug 'ms-jpq/coq.thirdparty', {'branch': '3p'}
 Plug 'peterhoeg/vim-qml'
 Plug 'sbdchd/neoformat'
 Plug 'whiteinge/diffconflicts'
@@ -177,18 +178,40 @@ nnoremap <leader>fs <cmd>lua require'telescope.builtin'.treesitter{}<cr>
 " lsp
 "-----------------------------------------------------------------------------
 lua << EOF
-local nvim_lsp = require('lspconfig')
+vim.g.coq_settings = {
+  auto_start = 'shut-up',
+  display = { icons = { mode = 'none' } },
+}
+
+local lspconfig = require('lspconfig')
+
+-- Use a loop to conveniently call 'setup' on multiple servers and
+-- map buffer local keybindings when the language server attaches
+local servers = { "bashls", "clangd", "cmake", "dockerls", "pyright", "yamlls" }
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    on_attach = on_attach,
+    capabilities = require('coq').lsp_ensure_capabilities(),
+    flags = {
+      debounce_text_changes = 150,
+    }
+  }
+end
+
+require'lspconfig'.rust_analyzer.setup{
+  cmd = { "rustup", "run", "nightly rust-analyzer" },
+  on_attach = on_attach,
+  capabilities = require('coq').lsp_ensure_capabilities(),
+  flags = {
+    debounce_text_changes = 150,
+  }
+}
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-
-  require'completion'.on_attach(client)
-
-  --Enable completion triggered by <c-x><c-o>
-  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   -- Mappings.
   local opts = { noremap=true, silent=true }
@@ -210,26 +233,6 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<cr>", opts)
 
 end
-
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { "bashls", "clangd", "cmake", "dockerls", "pyright", "yamlls" }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    }
-  }
-end
-
-require'lspconfig'.rust_analyzer.setup{
-  cmd = { "rustup", "run", "nightly rust-analyzer" },
-  on_attach = on_attach,
-  flags = {
-    debounce_text_changes = 150,
-  }
-}
 EOF
 
 "-----------------------------------------------------------------------------
