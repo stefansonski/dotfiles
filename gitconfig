@@ -50,11 +50,11 @@
 [submodule]
 	fetchJobs = 4
 [pager]
-	log = diff-highlight | less
-	show = diff-highlight | less
-	diff = diff-highlight | less
+	log = diffr | less
+	show = diffr | less
+	diff = diffr | less
 [interactive]
-	diffFilter = diff-highlight
+	diffFilter = diffr
 [tar "tar.xz"]
 	command = xz -c
 [stash]
