@@ -67,6 +67,7 @@
 [fetch]
 	prune = true
 	recurseSubmodules = on-demand
+	pruneTags = true
 [sendmail]
 	tocover = 1
 	cccover = 1
