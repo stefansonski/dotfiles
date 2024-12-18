@@ -49,6 +49,7 @@
 	svn = automkdirs
 [submodule]
 	fetchJobs = 4
+	recurse = true
 [pager]
 	log = diffr | less
 	show = diffr | less
@@ -79,7 +80,10 @@
 	suffix = -rc
 [rebase]
 	autoSquash = true
+	updateRefs = true
 [status]
 	showStash = true
 [gerrit]
 	createChangeId = false
+[transfer]
+	credentialsInUrl = die
