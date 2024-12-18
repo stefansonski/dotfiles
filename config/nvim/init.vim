@@ -12,7 +12,7 @@ else
   set shell=cmd
 endif
 
-Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter', {'branch': 'main'}
 Plug 'icymind/NeoSolarized'
 Plug 'neovim/nvim-lspconfig'
 Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
@@ -25,11 +25,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-
-if ($OS == 'Windows_NT')
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
-endif
+Plug 'nvim-lualine/lualine.nvim'
+Plug 'kyazdani42/nvim-web-devicons'
 
 call plug#end()
 
@@ -154,8 +151,8 @@ au FileType zsh setlocal shiftwidth=2 tabstop=2 softtabstop=2
 colorscheme NeoSolarized
 set background=dark
 
-let g:main_font = "Hack\\ Regular\\ 8"
-let g:small_font = "Hack\\ Regular\\ 4"
+let g:main_font = "Hack\\ Nerd\\ Font\\ Mono\\ Regular\\ 12"
+let g:small_font = "Hack\\ Nerd\\ Font\\ Mono\\ Regular\\ 12"
 
 "-----------------------------------------------------------------------------
 " solarized
@@ -167,7 +164,8 @@ let g:solarized_diffmode="high"
 "-----------------------------------------------------------------------------
 nnoremap <leader>ff <cmd>lua require'telescope.builtin'.git_files{show_untracked=false, recurse_submodules=true}<cr>
 nnoremap <leader>fc <cmd>Telescope git_status<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fl <cmd>Telescope live_grep<cr>
+nnoremap <leader>fg <cmd>Telescope grep_string<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fd <cmd>lua require'telescope.builtin'.lsp_definitions{}<cr>
 nnoremap <leader>fi <cmd>lua require'telescope.builtin'.lsp_implementations{}<cr>
@@ -180,7 +178,6 @@ nnoremap <leader>fs <cmd>lua require'telescope.builtin'.treesitter{}<cr>
 lua << EOF
 vim.g.coq_settings = {
   auto_start = 'shut-up',
-  display = { icons = { mode = 'none' } },
 }
 
 local lspconfig = require('lspconfig')
@@ -191,20 +188,36 @@ local servers = { "bashls", "clangd", "cmake", "dockerls", "pyright", "yamlls" }
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
     on_attach = on_attach,
-    capabilities = require('coq').lsp_ensure_capabilities(),
-    flags = {
-      debounce_text_changes = 150,
-    }
+    capabilities = require('coq').lsp_ensure_capabilities()
   }
 end
+
+require('lspconfig').clangd.setup {
+  cmd = {
+    "clangd",
+    "--background-index",
+    "--suggest-missing-includes",
+    "--query-driver=\"**/arm-*linux-gnueabi*-*\"",
+    "--log=verbose"
+  },
+  on_attach = on_attach,
+  capabilities = require('coq').lsp_ensure_capabilities()
+}
+
+require'lspconfig'.qmlls.setup{
+  cmd = {
+    "qmlls6",
+    "--build-dir", "build/mt/linux-armhf/5.15.7/release",
+    "-v"
+    },
+  on_attach = on_attach,
+  capabilities = require('coq').lsp_ensure_capabilities()
+}
 
 require'lspconfig'.rust_analyzer.setup{
   cmd = { "rustup", "run", "nightly rust-analyzer" },
   on_attach = on_attach,
-  capabilities = require('coq').lsp_ensure_capabilities(),
-  flags = {
-    debounce_text_changes = 150,
-  }
+  capabilities = require('coq').lsp_ensure_capabilities()
 }
 
 -- Use an on_attach function to only map the following keys
@@ -304,17 +317,13 @@ require'nvim-treesitter.configs'.setup {
 }
 EOF
 
-"-----------------------------------------------------------------------------
-" powerline/airline
-"-----------------------------------------------------------------------------
-if ($OS != 'Windows_NT')
-  python import vim
-  python from powerline.vim import setup as powerline_setup
-  python powerline_setup(gvars=globals())
-  python del powerline_setup
-else
-  let g:airline_powerline_fonts = 1
-endif
+lua << END
+require('lualine').setup {
+  options = {
+    theme = 'solarized_light'
+  }
+}
+END
 
 function IHexChecksum()
   let l:data = getline(".")
