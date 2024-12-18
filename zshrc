@@ -102,12 +102,7 @@ zstyle ':completion:*:git-checkout:*' ignored-patterns '*HEAD'
 
 CDPATH=.:~:~/develop
 
-#I want my umask 0002 if I'm not root
-if [[ $(whoami) = root ]]; then
-  umask 0022
-else
-  umask 0002
-fi
+umask 0022
 
 #aliases
 alias ls='ls --color=auto'
